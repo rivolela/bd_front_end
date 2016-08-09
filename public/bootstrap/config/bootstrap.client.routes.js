@@ -1,0 +1,10 @@
+angular.module('bootstrap').config(['$routeProvider',
+	function($routeProvider){
+		$routeProvider.when('/bootstrap',{
+			templateUrl:'bootstrap/views/bootstrap.client.view.html',
+			controller:'BootstrapController'
+		}).when('/signup2',{
+			templateUrl:'bootstrap/views/signup.html',
+		});
+	}
+]);

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+	<head>
+		<meta charset="utf-8">
+		<!-- It basically tells the browser to render the page using the latest rendering engine (useful in case our page using the internet explorer) -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- sets the width of the page to follow the screen-width of the device and initial-scale=1 sets the initial level of zoom when the page is first loaded by the browser -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		 <title data-ng-bind="title"></title>
+		<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/dist/css/bootstrap.css">
+	</head>
+	<body>
+		<div ng-include="'bootstrap/views/head.client.view.html'"></div>
+
+	
+
+<!-- 		<h1><%= title %></h1>
+
+		<% if (user) { %>
+			<a href="/signout">Sign out</a>
+		<% } else { %>
+			<a href="/signup">Sign up</a>
+			<a href="/signin">Sign in</a>
+		<% }  %>
+ -->
+		<section ng-view></section>
+
+		<script type="text/javascript">
+			window.user = <%- user || 'null' %>;
+		</script>
+<!-- 
+		<img src="img/logo.png" alt="Logo"> -->
+
+		<!-- <section ng-include="'example/views/example.client.view.html"></section> -->
+		<!-- <section ng-controller="ExampleController">
+			<input type="text" id="text1" ng-model="name">
+			<input type="text" id="text1" ng-model="name">
+		</section>  -->
+
+		<!-- modais -->
+
+		<div ng-include="'bootstrap/views/signin.html'"></div>
+			
+		<!--lib -->
+		<script type="text/javascript" src="../../lib/angular/angular.js"></script>
+		<script type="text/javascript" src="../../lib/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="../../lib/angular-resource/angular-resource.js"></script>
+
+		<!--articles -->
+		<script type="text/javascript" src="../../articles/articles.client.module.js"></script>
+		<script type="text/javascript" src="../../articles/controller/articles.client.controller.js"></script>
+		<script type="text/javascript" src="../../articles/services/articles.client.service.js"></script>
+		<script type="text/javascript" src="../../articles/config/articles.client.routes.js"></script>
+		
+		
+		<!--example -->
+		<script type="text/javascript" src="../../example/example.client.module.js"></script>
+		<script type="text/javascript" src="../../example/controllers/example.client.controller.js"></script>
+		<script type="text/javascript" src="../../example/config/example.client.routes.js"></script>
+
+		<!--users -->
+		<script type="text/javascript" src="../../usuarios/usuario.client.module.js"></script>
+		<script type="text/javascript" src="../../usuarios/services/authentication.client.service.js"></script>
+
+		<!--bootstrap -->
+		<script type="text/javascript" src="../../bootstrap/bootstrap.client.module.js"></script>
+		<script type="text/javascript" src="../../bootstrap/controllers/bootstrap.client.controller.js"></script>
+		<script type="text/javascript" src="../../bootstrap/services/bootstrap.client.service.js"></script>
+		<script type="text/javascript" src="../../bootstrap/config/bootstrap.client.routes.js"></script>
+
+		<!--application -->
+		<script type="text/javascript" src="../../application.js"></script>
+
+		<!--jquery -->
+		<script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+
+		<!--bootstrap -->
+		<script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+	</body>
+
+
+</html>

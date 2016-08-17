@@ -36,6 +36,10 @@
     "grunt-contrib-csslint":"0.2.0",
     "grunt-contrib-watch":"0.6.1",
     "grunt-concurrent":"1.0.0",
-    "grunt-node-inspector":"0.1.5"
+    "grunt-node-inspector":"0.1.5",
+    "grunt-contrib-less":"1.4.0",
+    "jit-grunt":"0.10.0"
   }
 }
+
+

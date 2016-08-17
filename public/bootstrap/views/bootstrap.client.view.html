@@ -1,33 +1,89 @@
 <section data-ng-controller="BootstrapController">
-	<div class="container-fluid">
-		<div class="jumbotron">
+
+		<!-- <div class="jumbotron">
 			<h1>Hello, welcome to my website!</h1>
 			<p>Watch this page grow as we use more and more components from Bootstrap!</p>
 			<a href="#!/signup2" class="btn btn-primary btn-lg">More detalis
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
+		</div> -->
+	<div id="mycarousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#mycarousel" data-slide-to="1"></li>
+			<li data-target="#mycarousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="item active">
+				<div class="slide1"></div>
+				<div class="carousel-caption">
+					<h1>Hello, wellcome to my website!</h1>
+					<p>Watch this page grow as we use more and more components from Bootstrap!</p>
+					<p><a href="#" class="btn btn-primary btn-sm">More detail</a></p>
+				</div>
+			</div>	
+			<div class="item">
+				<div class="slide2"></div>
+				<div class="carousel-caption">
+					<h1>It's a breeze</h1>
+					<p>Develop great looking website quickly and easily</p>
+				</div>
+			</div>
+			<div class="item">
+				<div class="slide3"></div>
+				<div class="carousel-caption">
+					<h1>And it's responsive too</h1>
+					<p>Create a website that looks great on any device</p>
+				</div>
+			</div>
 		</div>
+		<a class="left carousel-control" href="#mycarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>		
+		</a>
+		<a class="right carousel-control" href="#mycarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>	
+		</a>
 	</div>
+
 
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+				<p><img class="img-responsive center-block"  src="img/pickoout.jpg"></p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.
+				orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortorLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.
 				orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor
 				</p>
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.</p>
-		</div>
-		<!-- It will set the height of the whole row based on the height of the tallest member of in thar row -->
-		<div class="clearfix visible-md"></div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.</p>
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.</p>
-		</div>
-		<!-- It will set the height of the whole row based on the height of the tallest member of in thar row -->
-		<div class="clearfix visible-lg"></div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+				<p><div ng-include="'bootstrap/views/tables.html'"></div></p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.
+				orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor</p>
+			</div>
+			<!-- It will set the height of the whole row based on the height of the tallest member of in thar row -->
+			<div class="clearfix visible-md"></div>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor.
+				orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat pretium diam, vitae mattis lorem dignissim a. Aenean rhoncus odio risus, non rhoncus diam posuere sed. Maecenas imperdiet velit sed lacus ornare, dictum feugiat tellus vestibulum. Sed semper ipsum et luctus pretium. Suspendisse ac dui eu quam sodales accumsan. Ut ultrices neque nisi, sagittis accumsan sapien fringilla non. Proin facilisis consequat euismod. Suspendisse a viverra elit, eget blandit tellus. Nam nec mollis tortor</p>
+				
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+				<ul class="nav nav-pills nav-stacked">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Menu 1</a></li>
+					<li><a href="#">Menu 2</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Menu 3 <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Submenu 3 - 1</a></li>
+							<li><a href="#">Submenu 3 - 2</a></li>
+							<li><a href="#">Submenu 3 - 3</a></li>
+							<li><a href="#">Submenu 3 - 4</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!-- It will set the height of the whole row based on the height of the tallest member of in thar row -->
+			<div class="clearfix visible-md"></div>
 	</div>
+				
 </section>

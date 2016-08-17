@@ -1,4 +1,7 @@
 module.exports = function(grunt){
+
+	require('jit-grunt')(grunt);
+
 	grunt.initConfig({
 		env:{
 			dev:{
@@ -13,7 +16,7 @@ module.exports = function(grunt){
 				script:'server.js',
 				options:{
 					ext:'js,html',
-					watch:['server.js','config/**/*.js','app/**/*.js','public/**/*.html']
+					watch:['server.js','config/**/*.js','app/**/*.js','public/**/*.html','public/css/**/*.less']
 				}
 			},
 			debug:{
@@ -57,6 +60,19 @@ module.exports = function(grunt){
 				src:'public/modules/**/*.css'
 			}
 		},
+		less: {
+      		dev: {
+        		options: {
+          			compress: true,
+          			yuicompress: true,
+          			optimization: 2
+        		},
+        		files: {
+          			"public/css/custom_bootstrap.css": "public/css/custom_bootstrap.less" // destination file and source file,
+
+        		}
+      		}
+   		},
 		watch:{
 			js:{
 				files:['server.js',
@@ -68,7 +84,14 @@ module.exports = function(grunt){
 			css:{
 				files:'public/modules/**/*.css',
 				tasks:['csslint']
-			}
+			},
+			styles: {
+        		files: ['public/css/**/*.less'], // which files to watch
+        		tasks: ['less:dev'],
+        		options: {
+          			nospawn: true
+        		}
+      		}
 		},
 		concurrent:{
 			dev:{
@@ -99,9 +122,17 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-node-inspector');
+	grunt.loadNpmTasks('grunt-node-inspector');
+	grunt.loadNpmTasks('grunt-contrib-less');
 
-	grunt.registerTask('default',['env:dev','lint','concurrent:dev']);
+	grunt.registerTask('default',['env:dev','lint','less:dev','concurrent:dev']);
 	grunt.registerTask('debug',['env:dev','lint','concurrent:debug']);
 	grunt.registerTask('test',['env:test','mochaTest','karma','protractor']);
 	grunt.registerTask('lint',['jshint','csslint']);
 };
+
+
+
+
+
+

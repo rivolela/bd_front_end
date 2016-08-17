@@ -6,12 +6,57 @@ angular.module('bootstrap').controller('BootstrapController',
 '$window',
 function ($scope,$routeParams,$location,Page,$window){
 
-		console.log('Controller');
-
 		Page.setTitle("Some Title");
 
-		//$window.document.title = 'teste';
+		angular.element(document).ready(function ($scope) {
+            $('#inputName').tooltip({
+            	trigger:'click',
+            	placement:'bottom'
+            });
 
+           $("body").popover({ 
+           		selector: '#popoverLink',
+           		html:'true',
+           		placement:'top'
+           	});
+
+           $('.panel-heading').click(function(){
+				var target = $(this).data("target");
+				$(target).collapse('toggle');
+			});	
+
+
+   //         $('.panel-heading').click(function(){
+			// 	var target = $(this).data("target");
+			// 	$('#accordion').on('show.bs.collapse', function () {
+			// 		$('#accordion .in').collapse('hide');
+			// 	});
+			// 	$(target).collapse('toggle');
+			// });	
+
+			
+			$('#btnExpandAll').click(function(){
+				$('.collapse').collapse('toggle');
+				var label=$('#btnExpandAll').text();
+				var newLabel=(label=="Expand All" ? "Collapse All" : "Expand All");
+				
+				$('#btnExpandAll').text(newLabel);
+			});	
+
+
+			var counter=0;
+				
+			$("#btnAddProgress").click(function(){
+				counter+=5;
+				if(counter>100){
+					counter=0;
+				}
+				$("#myProgressBar").css('width', counter+'%');
+				$("#myProgressBar").text(counter+'%');
+				
+			});	
+
+    	});
 
 		$scope.validateForm = function(){
 			

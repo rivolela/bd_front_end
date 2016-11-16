@@ -14,9 +14,18 @@
 	</head>
 	<body data-spy="scroll" data-target="#myScrollspy">
 
-		<div ng-include="'bootstrap/views/head.client.view.html'"></div>
+		<div id="divHead" ng-hide="false" ng-include="'bootstrap/views/head.client.view.html'"></div>
 
-		<section ng-view></section>
+		<div class="container-fluid">
+			<section ng-view></section>
+		</div>
+
+		<div id="footer">
+      		<div class="container">
+      			<h6 class="text-center">Roma Tecnologia - todos direitos reservados - cnpj: 10.442.436.0001-94 - contato@beforedeciding.com.br</h6>
+      		</div>
+    	</div>
+
 
 <!-- 		<h1><%= title %></h1>
 
@@ -31,6 +40,8 @@
 		<script type="text/javascript">
 			window.user = <%- user || 'null' %>;
 		</script>
+
+
 <!-- 
 		<img src="img/logo.png" alt="Logo"> -->
 
@@ -70,6 +81,11 @@
 		<script type="text/javascript" src="../../bootstrap/controllers/bootstrap.client.controller.js"></script>
 		<script type="text/javascript" src="../../bootstrap/services/bootstrap.client.service.js"></script>
 		<script type="text/javascript" src="../../bootstrap/config/bootstrap.client.routes.js"></script>
+
+		<!--landing page (lp) -->
+		<script type="text/javascript" src="../../lp/lp.client.module.js"></script>
+		<script type="text/javascript" src="../../lp/controllers/lp.client.controller.js"></script>
+		<script type="text/javascript" src="../../lp/config/lp.client.routes.js"></script>
 
 		<!--application -->
 		<script type="text/javascript" src="../../application.js"></script>

@@ -1,6 +1,9 @@
 module.exports = function(grunt){
 
-	require('jit-grunt')(grunt);
+	//require('jit-grunt')(grunt);
+	require('jit-grunt')(grunt)({
+  		pluginsRoot: '/node_modules/jit-grunt/'
+	});
 
 	grunt.initConfig({
 		env:{
@@ -15,8 +18,8 @@ module.exports = function(grunt){
 			dev:{
 				script:'server.js',
 				options:{
-					ext:'js,html',
-					watch:['server.js','config/**/*.js','app/**/*.js','public/**/*.html','public/css/**/*.less']
+					ext:'js,html,less,css',
+					watch:['server.js','config/**/*.js','app/**/*.js','public/**/*.html','public/css/**/*.less','public/**/*.js']
 				}
 			},
 			debug:{
@@ -78,6 +81,8 @@ module.exports = function(grunt){
 				files:['server.js',
 					'config/**/*.js',
 					'app/**/*.js',
+					'gruntfile.js',
+					'public/**/*.js',
 					'public/modules/**/*.js'],
 				tasks:['jshint']
 			},

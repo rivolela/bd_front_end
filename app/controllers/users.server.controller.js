@@ -1,4 +1,4 @@
-var User = require('mongoose').model('User'),
+var User = require('../models/user.server.model');
 	passport = require('passport');
 
 // return a unified error message from Mongoose error object

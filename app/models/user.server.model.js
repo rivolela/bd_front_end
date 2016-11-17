@@ -126,5 +126,7 @@ UserSchema.set('toJson',{
 	virtuals:true
 });
 
-mongoose.model('User',UserSchema);
+
+module.exports = mongoose.model('User', UserSchema);
+//mongoose.model('User',UserSchema);
 

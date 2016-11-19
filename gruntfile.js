@@ -133,6 +133,7 @@ module.exports = function(grunt){
 	grunt.registerTask('default',['env:dev','lint','less:dev','concurrent:dev']);
 	grunt.registerTask('debug',['env:dev','lint','concurrent:debug']);
 	grunt.registerTask('test',['env:test','mochaTest','karma','protractor']);
+	grunt.registerTask('karma',['env:test','karma']);
 	grunt.registerTask('lint',['jshint','csslint']);
 };
 

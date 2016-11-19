@@ -32,11 +32,18 @@ module.exports = function(grunt){
 			}
 		},
 		mochaTest:{
-			src:'app/tests/**/*.js',
+			src:'app/tests/mocha/**/*.js',
 			options:{
 				reporter:'spec'
 			}
 		},
+		casperjs: {
+    		options: {
+    			engine: 'phantomjs',
+    			silent: false
+    		},
+    		files:['app/tests/casperjs/**/*.js']
+  		},
 		karma:{
 			unit:{
 				configFile:'karma.conf.js'
@@ -129,12 +136,20 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-node-inspector');
 	grunt.loadNpmTasks('grunt-node-inspector');
 	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-casperjs-plugin');
+
+	grunt.registerTask('server','Start a custom web server in development', function() {
+    	//grunt.log.writeln('Started web server on port 3000');
+    	require('./server.js');
+	});
 
 	grunt.registerTask('default',['env:dev','lint','less:dev','concurrent:dev']);
 	grunt.registerTask('debug',['env:dev','lint','concurrent:debug']);
-	grunt.registerTask('test',['env:test','mochaTest','karma','protractor']);
+	grunt.registerTask('test',['env:test','server','mochaTest','casperjs']);
 	grunt.registerTask('karma',['env:test','karma']);
 	grunt.registerTask('lint',['jshint','csslint']);
+	grunt.registerTask('mochaper',['env:test','mochaTest']);
+	grunt.registerTask('casper',['env:test','server','casperjs']);
 };
 
 

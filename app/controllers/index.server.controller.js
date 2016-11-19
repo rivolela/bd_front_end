@@ -4,7 +4,7 @@ exports.render = function(req,res){
 	// 	user: JSON.stringify(req.user)
 	// });
 	res.render('lp',{
-		title:'Hello World',
+		title:'Before Deciding - reviews antes de comprar',
 		//user: JSON.stringify(req.user)
 	});
 	// if (req.session.lastVisit){

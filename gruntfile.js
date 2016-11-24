@@ -19,7 +19,7 @@ module.exports = function(grunt){
 				script:'server.js',
 				options:{
 					ext:'js,html,less,css',
-					watch:['server.js','config/**/*.js','app/**/*.js','public/**/*.html','public/css/**/*.less','public/**/*.js']
+					watch:['server.js','config/**/*.js','app/**/*.js','public/**/*.html','public/css/**/*.less','public/**/*.js','public/**/*.css','app/views/*.ejs']
 				}
 			},
 			debug:{
@@ -85,12 +85,18 @@ module.exports = function(grunt){
    		},
 		watch:{
 			js:{
-				files:['server.js',
-					'config/**/*.js',
-					'app/**/*.js',
-					'gruntfile.js',
-					'public/**/*.js',
-					'public/modules/**/*.js'],
+				files:[	'server.js',
+						'config/**/*.js',
+						'app/**/*.js',
+						'gruntfile.js',
+						'public/**/*.js',
+						'public/modules/**/*.js',
+						'public/css/*.css',
+						'public/css/*.less',
+						'app/views/**/*.ejs'],
+				options:{
+					livereload: true
+				},
 				tasks:['jshint']
 			},
 			css:{

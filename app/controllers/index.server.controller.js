@@ -5,6 +5,7 @@ exports.render = function(req,res){
 	// });
 	res.render('lp',{
 		title:'Before Deciding - reviews antes de comprar',
+		env: process.env.NODE_ENV
 		//user: JSON.stringify(req.user)
 	});
 	// if (req.session.lastVisit){

@@ -6,7 +6,7 @@
     <%- include('partials/head') %>
 </head>
 
-<body>
+<body class="lp">
 <div class="container-fluid">
 	<div class="row">
 		<img class="img-responsive center-block"  src="img/before_deciding.png">
@@ -19,7 +19,20 @@
   			</h3>
   			<br>
   			<br>
-  			<p><a href="#!/bootstrap" id="btnCallToAction" ng-show="{{flag}}" type="button" class="btn btn-primary btn-lg">Ver Reviews</a></p>
+  			<p>	
+  			 	<% if ((env === 'teste')  || (env === 'development')) { %>
+
+	  				<form action="/offers" method="post" class="navbar-form navbar-center" role="search">
+		          		<div class="input-group input-group-md">
+		            		<input type="hidden" name="query" value="Geladeira">
+	             			<button id="btnCallToAction" type="submit" class="btn btn-warning btn-lg" type="button">
+	               			 Ver Reviews
+	              			</button>
+		          		</div>
+	        		</form>
+
+        		<% } %>
+  			</p>
 		</div>
 	</div>
 	<div class="row">
@@ -75,40 +88,6 @@
 				  </a>
 				  <br>
 			</div>
-		</div>
-	</div>
-	<div class="row">
-		<br>
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<img class="img-responsive center-block"  src="img/bd_boy_footer.png">
-			<h5 class="text-center">siga-me nas redes sociais :</h5>
-		</div>
-	</div>
-	<div class="row">
-		<br>
-		<div class="col-xs-2 col-sm-4 col-md-4 col-lg-4">
-		</div>
-		<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-			 <a href="https://www.facebook.com/beforedeciding/" target="_blank">
-  				<img class="img-responsive center-block" src="img/facebook.png" alt="...">
-				 </a>
-		</div>
-		<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1" >
-			 <a href="https://twitter.com/BDeciding" target="_blank">
-  				<img class="img-responsive center-block" src="img/twitter.png" alt="...">
-				 </a>
-		</div>
-		<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-			 <a href="https://www.instagram.com/bdeciding/" target="_blank">
-  				<img class="img-responsive center-block" src="img/instagram.png" alt="...">
-				 </a>
-		</div>
-		<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-			 <a href="https://www.linkedin.com/company/before-deciding" target="_blank">
-  				<img class="img-responsive center-block" src="img/linkedin.png" alt="...">
-				 </a>
-		</div>
-		<div class="col-xs-2 col-sm-4 col-md-4 col-lg-4">
 		</div>
 	</div>
 	<br>

@@ -1,3 +1,5 @@
+var config = require('../../config/config.js');
+
 exports.render = function(req,res){
 	// res.render('index',{
 	// 	title:'Hello World',
@@ -5,6 +7,7 @@ exports.render = function(req,res){
 	// });
 	res.render('lp',{
 		title:'Before Deciding - reviews antes de comprar',
+		featureToogle: config.lp_toogle,
 		env: process.env.NODE_ENV
 		//user: JSON.stringify(req.user)
 	});

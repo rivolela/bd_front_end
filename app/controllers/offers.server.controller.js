@@ -60,7 +60,7 @@ exports.getOffersByQuery = function(req,res,query){
 	
 
 	call.getJson(url,function(data,response,error){
-		
+
 		if(data.items == 0){
 			var message = "produto não encontrado";
 			res.render('offers',{
@@ -70,8 +70,18 @@ exports.getOffersByQuery = function(req,res,query){
 				env: process.env.NODE_ENV
 			});
 		}
+		if(data.code == 500) {
+			console.log("error >>", data.message);
+			var message = "ops! ocorreu algum problema técnico. Fique tranquilo, o nosso time já está trabalhando na resolução. = )";
+			res.render('offers',{
+				title: config.title,
+				error:true,
+				message: message,
+				env: process.env.NODE_ENV
+			});
+		}
 		else if(error){
-			console.log(error);
+			console.log("error",error);
 			return res.status(400).send({
 				message: getErrorMessage(error)
 			});
@@ -110,8 +120,10 @@ exports.getOffersByQuery = function(req,res,query){
 				},
 				offers: data,
 				query: query,
-				env: process.env.NODE_ENV
+				env: process.env.NODE_ENV,
+				featureToogle: config.offers_toogle
 			});
+
 		}
 	});
 

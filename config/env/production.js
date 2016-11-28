@@ -7,6 +7,10 @@ module.exports = {
 	message_search_error:'Ops!! não encontramos o seu produto desta vez. No momento o Before Deciding está trabalhando somente com o departamento de eletrodométicos.',
 	title: 'Before Deciding - reviews antes de comprar',
 
+	// toogle
+	lp_toogle:false,
+	offers_toogle:false,
+
 	facebook:{
 		clientID:'101029623673783',
 		clientSecret:'048b2d74eec461e2647dcce53194fa9b',

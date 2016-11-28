@@ -2,13 +2,14 @@ var url = "http://localhost:3000/";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Landing Page', 3, function(test) {
+   
     casper.start(url, function() {
 
         test.assertHttpStatus(200);
 
-        test.assertExists('#btnCallToAction');
-
         test.assertTitle("Before Deciding - reviews antes de comprar", "Before Deciding homepage title is the one expected");
+
+        test.assertDoesntExist('#btnCallToAction');
         
      //    test.assertEquals('85169',this.evaluate(function () { 
      //    	return document.getElementsByClassName("comentarios-avaliacao")[0].getAttribute("produtoid");

@@ -9,18 +9,18 @@
 <body class="lp">
 <div class="container-fluid">
 	<div class="row">
-		<img class="img-responsive center-block"  src="img/before_deciding.png">
+			<img class="img-responsive center-block"  src="img/before_deciding.png">
 	</div>
 	<div class="row">
 		<div class="jumbotron">
-  			<h2><strong>Consulte reviews antes de comprar seu eletrodoméstico!<strong></h2>
+  			<h2><strong>Consulte reviews antes de comprar!<strong></h2>
   			<h3>
-  				Antes de decidir comprar, consulte os reviews de milhares de usuários sobre  eletrodomésticos e lojas.
+  				 Veja reviews de eletrodomésticos e lojas, fornecidos por milhares de usuários, antes de decidir sua compra.
   			</h3>
   			<br>
   			<br>
   			<p>	
-  			 	<% if ((env === 'teste')  || (env === 'development')) { %>
+  			 	<% if (featureToogle) { %>
 
 	  				<form action="/offers" method="post" class="navbar-form navbar-center" role="search">
 		          		<div class="input-group input-group-md">

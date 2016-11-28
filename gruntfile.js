@@ -32,6 +32,7 @@ module.exports = function(grunt){
 			}
 		},
 		mochaTest:{
+			//src:'app/tests/mocha/**/offers.server.controller.tests.js',
 			src:'app/tests/mocha/**/*.js',
 			options:{
 				reporter:'spec'
@@ -43,6 +44,7 @@ module.exports = function(grunt){
     			silent: false
     		},
     		files:['app/tests/casperjs/**/*.js']
+    		//files:['app/tests/casperjs/**/offers.ejs.tests.js']
   		},
 		karma:{
 			unit:{
@@ -151,11 +153,11 @@ module.exports = function(grunt){
 
 	grunt.registerTask('default',['env:dev','lint','less:dev','concurrent:dev']);
 	grunt.registerTask('debug',['env:dev','lint','concurrent:debug']);
-	grunt.registerTask('test',['env:test','server','mochaTest','casperjs']);
 	grunt.registerTask('karma',['env:test','karma']);
 	grunt.registerTask('lint',['jshint','csslint']);
-	grunt.registerTask('mochaper',['env:test','mochaTest']);
+	grunt.registerTask('mocha',['env:test','server','mochaTest']);
 	grunt.registerTask('casper',['env:test','server','casperjs']);
+	grunt.registerTask('test',['env:test','server','mochaTest','casperjs']);
 };
 
 

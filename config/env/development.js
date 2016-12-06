@@ -10,6 +10,7 @@ module.exports = {
 	// toogle
 	lp_toogle:true,
 	offers_toogle:false,
+	reviews_toogle:false,
 
 	facebook:{
 		clientID:'101029623673783',

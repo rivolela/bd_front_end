@@ -1,4 +1,4 @@
-@white:#ffffff;
+@branco:#ffffff;
 @bg_gray:#f5f5f5;
 
 /* --------- all --------- */
@@ -15,7 +15,7 @@ body {
   font-size: 18px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: @white
+  background-color: @branco;
 /*          padding-top: 150px; */
 }
 
@@ -29,6 +29,26 @@ body {
   border: 0px
 }
 
+.footer_face{
+  content:url('/../../img/facebook.png');
+}
+
+.footer_linkedin{
+  content:url('/../../img/linkedin.png');
+}
+
+.footer_instagram{
+  content:url('/../../img/instagram.png');
+}
+
+.footer_twitter{
+  content:url('/../../img/twitter.png');
+}
+
+.footer_bd{
+  content:url('/../../img/bd_boy_footer.png');
+}
+
 .panel-footer{
   border: 0px;
 }
@@ -37,12 +57,16 @@ body {
   margin-top: -7px;
 }
 
+.brand_img{
+  content:url('/../../img/before_deciding_app.png');
+}
+
 .navbar{
   border: 0px;
 }
 
 .nav_bd{
-  background-color: @white
+  background-color: @branco
 }
 
 /* nothing with screen size bigger than 768px */
@@ -171,6 +195,7 @@ body {
 
 .lp{
     padding-top: 10px;
+    width: 100%
 }
 
 #carousel-lp{
@@ -180,16 +205,14 @@ body {
 .row-lp {
   background-color: @bg_gray; 
   background-image:url('/../../img/background_lp.png');
-}
-
-.row-lp-offers-cart {
-  padding-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 200px
 }
 
 .jumbotron {
   background-color:@bg_gray; 
   text-align: center;
-  margin-bottom: 15px;
+/*  margin-bottom: 15px;*/
   background-image:url('/../../img/background_lp.png');
 }
 
@@ -201,4 +224,31 @@ body {
    color:#000000;
 }
 
+.footer_lp {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: @branco;
+  border: 0px
+}
+
 /* --------- end landing page --------- */
+
+
+
+/* --------- reviews --------- */
+
+.bd_boy_happy{
+  content:url('/../../img/bd_boy_happy.png');
+  margin-top: 5px;
+}
+
+.bd_boy_sad{
+  content:url('/../../img/bd_boy_sad.png');
+  margin-top: 5px
+}
+
+
+/* --------- end reviews --------- */

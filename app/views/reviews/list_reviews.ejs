@@ -1,0 +1,34 @@
+  <% for(var i=0; i <reviews.docs.length; i++) { %>
+       <row>
+          <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+            <% if (reviews.docs[i].rating >= 4) { %>
+              <img class="img-responsive pull-right bd_boy_happy "></img>
+            <% } else { %>  
+              <img class="img-responsive pull-right bd_boy_sad"></img>
+            <% } %> 
+         </div> 
+          <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 pull-left">
+            <h4><strong><%= reviews.docs[i].title %></strong></h4>
+         </div> 
+      </row>
+
+      <row>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+        </div>
+        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 ">
+          <br>
+          <% if (reviews.docs[i].rating >= 4) { %>
+            <blockquote style="background-color: rgba(218, 250, 229, 0.21)">
+          <% } else { %> 
+            <blockquote style="background-color: rgba(246, 66, 78, 0.03)"> 
+          <% } %> 
+            <p>"<%= reviews.docs[i].description %>"</p>
+            <footer>
+              review fornecido por <%= reviews.docs[i].author %>
+              <cite title="Source Title">no site <%= reviews.docs[i].advertiser %></cite>
+            </footer>
+          </blockquote>
+          <br>
+        </div>
+    </row>
+    <% }  %>  

@@ -1,5 +1,7 @@
 var requestsUtile = require('../utile/requests.server.utile.js');
 var config = require('../../config/config.js');
+var fs = require('fs');
+var ejs = require('ejs');
 
 exports.render = function(req,res){
 
@@ -24,35 +26,21 @@ var getErrorMessage = function(err){
 };
 
 
-exports.list = function(req,res){
-	Article.find().sort('-created').populate('creator','firstName last name fullName').exec(function(err,articles){
-		if(err){
-			return res.status(400).send({
-				message: getErrorMessage(err)
-			});
-		}else{
-			res.json(articles);
-		}
-	});
-};
 
+exports.getReviewsByEan = function(req,res){
 
-exports.getOffersByQuery = function(req,res,query){
+	console.log("getReviewsByEan");
 
-	console.log("getOffersByQuery controller >> ");
+	var ean = req.params.ean;
+	var page = req.params.page;
 
-	var query = req.body.query;
-	var page = req.body.page;
+	console.log(ean);
 
 	if ((page === undefined ) || (page < 0)){
 		page = 1;
 	}
 
-	if(query === undefined){
-		query = "lavadoura brastemp";
-	}
-
-	var url = "https://bd-services.herokuapp.com/api/offers/bd/query/" + query + "/page/" + page + "/limit/10";
+	var url = "https://bd-services.herokuapp.com/api/reviews/ean/" + ean + "/page/" + page + "/limit/10";
 
 	console.log(url);
 
@@ -61,21 +49,14 @@ exports.getOffersByQuery = function(req,res,query){
 
 	call.getJson(url,function(data,response,error){
 
-		if(data.total == 0){
-			var message = "produto não encontrado";
-			res.render('offers',{
-				title: config.title,
-				error: true,
-				message: config.message_search_error,
-				env: process.env.NODE_ENV
-			});
-		}
+		console.log(data);
+
 		if(data.code == 500) {
 			console.log("error >>", data.message);
 			var message = "ops! ocorreu algum problema técnico. Fique tranquilo, o nosso time já está trabalhando na resolução. = )";
 			res.render('offers',{
 				title: config.title,
-				error: 'true',
+				error:true,
 				message: message,
 				env: process.env.NODE_ENV
 			});
@@ -87,38 +68,45 @@ exports.getOffersByQuery = function(req,res,query){
 			});
 		}else{
 			console.log(data);
+			var totalItems = Number(data.total);
+			var totalItemsByPage = Number(data.items);
+			var totalPaginacao = Number(data.pages);
 
 			// date pagination
 			var next = 0;
-			var previous = 1;
-			var start = 1;
+			var previous = 0;
+			var start = 0;
 
 			if(page >= 10){
 				next = Number(page) + 9;
 				previous = Number(page) - 9;
 				start = Number(page)
 			}else{
-				next = 10;
-				previous = 1;
+				next = 0;
+				previous = 0;
 				start = 1;
 			}
 
 			console.log("next >> ",next);
 			console.log("previous >>",previous);
 
-			res.render('offers',{
+ 			// var ejs_file = fs.readFileSync('./app/views/reviews.ejs', 'utf-8');
+ 			// var page_html = ejs.render(ejs_file, result);
+    		// res.send(page_html);
+			res.render('reviews',{
 				title: config.title,
 				pagination: {
+					totalPaginacao:totalPaginacao + 1,
 					next: next,
 					previous: previous,
 					start: start,
 					page: page,
 					pages: data.pages
 				},
-				offers: data,
-				query: query,
+				reviews: data,
 				env: process.env.NODE_ENV,
-				featureToogle: config.offers_toogle,
+				featureToogle: config.reviews_toogle,
+				ean:ean
 			});
 
 		}

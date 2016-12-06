@@ -12,19 +12,20 @@
 
         <%- include('offers/search_offers') %>
 
-          <% if (typeof error != 'undefined') { %>
+           <% if (typeof error != 'undefined') { %>
 
-            <div class="alert alert-warning" role="alert">
-              <%= message %>
-            </div>   
+              <div class="alert alert-warning" role="alert">
+                <%= message %>
+              </div>   
             
           <% } else { %>  
-
+          
             <%- include('offers/list_offers') %>
 
             <%- include('offers/pagination_offers') %>
 
-          <% } %>
+          <% } %> 
+
     </div>
 
     <footer class="footer">

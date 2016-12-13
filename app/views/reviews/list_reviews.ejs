@@ -1,34 +1,64 @@
-  <% for(var i=0; i <reviews.docs.length; i++) { %>
-       <row>
-          <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-            <% if (reviews.docs[i].rating >= 4) { %>
-              <img class="img-responsive pull-right bd_boy_happy "></img>
-            <% } else { %>  
-              <img class="img-responsive pull-right bd_boy_sad"></img>
-            <% } %> 
-         </div> 
-          <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 pull-left">
-            <h4><strong><%= reviews.docs[i].title %></strong></h4>
-         </div> 
-      </row>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
-      <row>
-        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+      <% if (review.rating >= 4) { %>
+        <img id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 30px"></img>
+      <% } else { %>  
+        <img id="bd_boy_review" class="img-responsive pull-left bd_boy_sad" style="width: 30px"></img>
+      <% } %> 
+
+      <h4 id="review_title"><strong>&nbsp;&nbsp;<%= review.title %></strong></h4>
+</div> 
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+    <% if (review.rating >= 4) { %>
+      <blockquote id="review_description" style="background-color: rgba(218, 250, 229, 0.21)">
+    <% } else { %> 
+      <blockquote id="review_description" style="background-color: rgba(246, 66, 78, 0.03)"> 
+    <% } %> 
+      "<%= review.description %>"
+      <footer id="review_author">
+        review fornecido por <%= review.author %>
+        <cite title="Source Title">no site <%= review.advertiser %></cite>
+      </footer>
+    </blockquote>
+</div> 
+  
+<!-- <table>
+   <tbody>
+
+     <tr>
+        <div class="col-xs-8 col-sm-8 col-md-2 col-lg-2">
+           <td>
+            <% if (review.rating >= 4) { %>
+              <img class="bd_boy_happy "></img>
+
+            <% } else { %>  
+              <img class="bd_boy_sad"></img>
+            <% } %> 
+          </td>
+            <td>aaaa
+           <strong><%= review.title %></strong>
+          </td>
         </div>
-        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 ">
-          <br>
-          <% if (reviews.docs[i].rating >= 4) { %>
+
+     </tr>
+
+      <tr>
+        <td>
+          <% if (review.rating >= 4) { %>
             <blockquote style="background-color: rgba(218, 250, 229, 0.21)">
           <% } else { %> 
             <blockquote style="background-color: rgba(246, 66, 78, 0.03)"> 
           <% } %> 
-            <p>"<%= reviews.docs[i].description %>"</p>
+            "<%= review.description %>"
             <footer>
-              review fornecido por <%= reviews.docs[i].author %>
-              <cite title="Source Title">no site <%= reviews.docs[i].advertiser %></cite>
+              review fornecido por <%= review.author %>
+              <cite title="Source Title">no site <%= review.advertiser %></cite>
             </footer>
           </blockquote>
-          <br>
-        </div>
-    </row>
-    <% }  %>  
+        </td>
+     </tr>
+
+   </tbody>
+ -->
+</table>

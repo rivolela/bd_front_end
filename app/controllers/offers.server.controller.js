@@ -37,6 +37,37 @@ exports.list = function(req,res){
 };
 
 
+exports.getOffersByEan = function(req,res,next,ean){
+
+	var url = "https://bd-services.herokuapp.com/api/offers/bd/ean/" + ean + "/page/1/limit/100/";
+
+	var call = new requestsUtile();
+
+	call.getJson(url,function(data,response,error){
+
+		if(error){
+			console.log(error);
+			return next(err);
+		}else{
+			req.offers = data;
+			next();
+		}
+		//next();
+	});
+	// Article.findById(id).populate('creator','firstName lastName fullName').exec(function(err,article){
+	// 	if(err){
+	// 		return next(err);
+	// 	}
+	// 	if(!article){
+	// 		return next(new Error('Failed to load article' + id));			
+	// 	}
+	// 	req.article = article;
+	// 	next();
+	// });
+	
+};
+
+
 exports.getOffersByQuery = function(req,res,query){
 
 	console.log("getOffersByQuery controller >> ");
@@ -123,18 +154,6 @@ exports.getOffersByQuery = function(req,res,query){
 
 		}
 	});
-
-
-	// Article.findById(id).populate('creator','firstName lastName fullName').exec(function(err,article){
-	// 	if(err){
-	// 		return next(err);
-	// 	}
-	// 	if(!article){
-	// 		return next(new Error('Failed to load article' + id));			
-	// 	}
-	// 	req.article = article;
-	// 	next();
-	// });
 };
 
 // exports.read = function(req,res){

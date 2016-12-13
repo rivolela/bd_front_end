@@ -10,21 +10,47 @@
      <!-- Begin page content -->
     <div class="container-fluid">
 
-        <%- include('offers/search_offers') %>
+      <%- include('offers/search_offers') %>
 
-           <% if (typeof error != 'undefined') { %>
+      <% if (typeof error != 'undefined') { %>
 
-              <div class="alert alert-warning" role="alert">
-                <%= message %>
-              </div>   
-            
-          <% } else { %>  
+          <%- include('offers/search_offers') %>
+
+          <div class="alert alert-warning" role="alert">
+            <%= message %>
+          </div>   
           
-            <%- include('offers/list_offers') %>
+      <% } else { %>  
+                    
+            <% for(var i=0; i <offers.docs.length; i++) { %>
+            
+              <%# if ean exists %>
 
-            <%- include('offers/pagination_offers') %>
+                <% if (i % 2 == 0) { %>
+              
+                  <row>
+                  
+                  <%- include('offers/box_offers',{offer:offers.docs[i]}); %>
 
-          <% } %> 
+                <% } else { %>  
+                    
+                   <%- include('offers/box_offers',{offer:offers.docs[i]}); %>
+                   
+                  </row>
+
+                  <row>
+                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <br>
+                     </div>
+                  </row>
+                <% } %>
+
+            <% } %>
+
+
+          <%- include('offers/pagination_offers') %>
+
+        <% } %> 
 
     </div>
 

@@ -2,19 +2,19 @@
        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <%# zanox offer two kinds of image size %>
             <% if (offer.image_medium) { %>
-              <a href='/reviews/ean/<%= offer.ean %>/page/1'>
+              <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1'>
                 <img src="<%= offer.image_medium %>"  class="img-responsive center-block">
               </a>
             <% } else { %> 
-              <a href='/reviews/ean/<%= offer.ean %>/page/1'>
+              <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1'>
                 <img src="<%= offer.image_large %>"  class="img-responsive center-block">
               </a>
             <% } %>
         </div>
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <strong><a href="/reviews/ean/<%= offer.ean %>/page/1"><%= offer.name %></a></strong>
+            <strong><a href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1"><%= offer.name %></a></strong>
             <h4>
-              <a href="/reviews/ean/<%= offer.ean %>/page/1"><%= offer.totalReviews %> reviews</a>
+              <a href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1"><%= offer.totalReviews %> reviews</a>
             </h4>
     
             <br>
@@ -24,27 +24,27 @@
                 <tbody>
                   <tr>
                     <td>
-                      <a href='/reviews/ean/<%= offer.ean %>/page/1'>
-                        <img src="img/bd_boy_sad.png"  class="img-responsive">
-                      </a>
-                    </td>
-                    <td width="5px;"></td>
-                    <td>
-                        <a href='/reviews/ean/<%= offer.ean %>/page/1' class="a_couter">
-                        <%= offer.countSad %>
-                        </a>
-                    </td>
-                    <td width="20px"></td>
-                    <td>
-                      <a href='/reviews/ean/<%= offer.ean %>/page/1'>
+                      <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1'>
                         <img src="img/bd_boy_happy.png"  class="img-responsive pull-left">
                       </a>
                     </td>
                     <td width="5px;"></td>
                     <td>
-                      <a href='/reviews/ean/<%= offer.ean %>/page/1' class="a_couter">
+                      <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
                         <%= offer.countHappy %>
                       </a>
+                    </td>
+                     <td width="20px"></td>
+                    <td>
+                      <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1'>
+                        <img src="img/bd_boy_sad.png"  class="img-responsive">
+                      </a>
+                    </td>
+                    <td width="5px;"></td>
+                    <td>
+                        <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
+                        <%= offer.countSad %>
+                        </a>
                     </td>
                   </tr>
                 </tbody>

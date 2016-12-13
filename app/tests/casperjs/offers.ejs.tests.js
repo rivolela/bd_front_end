@@ -11,7 +11,7 @@ casper.test.begin('Phantomjs Tests >> Offers', 5, function(test) {
 
         test.assertExists('form[action="/offers"]', "offer search form is found");
           this.fill('form[action="/offers"]', {
-            query: "fogão"
+            query: "geladeira"
         }, true);
 
     }).then(function() {

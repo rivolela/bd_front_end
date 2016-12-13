@@ -29,12 +29,9 @@ var getErrorMessage = function(err){
 
 exports.getReviewsByEan = function(req,res){
 
-	console.log("getReviewsByEan");
-
-	var ean = req.params.ean;
+	var ean = req.params.reviews;
+	var offerId = req.params.offer;
 	var page = req.params.page;
-
-	console.log(ean);
 
 	if ((page === undefined ) || (page < 0)){
 		page = 1;
@@ -49,7 +46,7 @@ exports.getReviewsByEan = function(req,res){
 
 	call.getJson(url,function(data,response,error){
 
-		console.log(data);
+		//console.log(data);
 
 		if(data.code == 500) {
 			console.log("error >>", data.message);
@@ -90,9 +87,7 @@ exports.getReviewsByEan = function(req,res){
 			console.log("next >> ",next);
 			console.log("previous >>",previous);
 
- 			// var ejs_file = fs.readFileSync('./app/views/reviews.ejs', 'utf-8');
- 			// var page_html = ejs.render(ejs_file, result);
-    		// res.send(page_html);
+
 			res.render('reviews',{
 				title: config.title,
 				pagination: {
@@ -106,26 +101,13 @@ exports.getReviewsByEan = function(req,res){
 				reviews: data,
 				env: process.env.NODE_ENV,
 				featureToogle: config.reviews_toogle,
-				ean:ean
+				ean:ean,
+				offerSelected:offerId,
+				offers:req.offers
 			});
 
 		}
 	});
 
-
-	// Article.findById(id).populate('creator','firstName lastName fullName').exec(function(err,article){
-	// 	if(err){
-	// 		return next(err);
-	// 	}
-	// 	if(!article){
-	// 		return next(new Error('Failed to load article' + id));			
-	// 	}
-	// 	req.article = article;
-	// 	next();
-	// });
 };
 
-// exports.read = function(req,res){
-// 	console.log("testes server");
-// 	res.json(req.article);
-// };

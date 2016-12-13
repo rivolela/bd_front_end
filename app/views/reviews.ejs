@@ -10,11 +10,24 @@
      <!-- Begin page content -->
     <div class="container-fluid">
 
-        <%- include('offers/search_offers') %>
+      <%- include('offers/search_offers') %>
 
-        <%- include('reviews/list_reviews') %>
+      <% for(var i=0; i <offers.docs.length; i++) { %>
 
-        <%- include('reviews/pagination_reviews') %>
+        <% if (offers.docs[i]._id == offerSelected) { %>
+           <%- include('reviews/box_reviews',{offer:offers.docs[i]}); %>   
+        <% }  %>
+
+      <% }  %>
+
+      <% for(var i=0; i <reviews.docs.length; i++) { %>
+
+          <%- include('reviews/list_reviews',{review:reviews.docs[i]}); %>
+
+      <% }  %>
+
+      <%- include('reviews/pagination_reviews') %>
+
     </div>
 
     <footer class="footer">

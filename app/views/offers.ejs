@@ -30,11 +30,11 @@
               
                   <row>
                   
-                  <%- include('offers/box_offers',{offer:offers.docs[i]}); %>
+                  <%- include('offers/list_offers',{offer:offers.docs[i]}); %>
 
                 <% } else { %>  
                     
-                   <%- include('offers/box_offers',{offer:offers.docs[i]}); %>
+                   <%- include('offers/list_offers',{offer:offers.docs[i]}); %>
                    
                   </row>
 
@@ -57,6 +57,13 @@
     <footer class="footer">
       <div class="panel-footer"><%- include('partials/footer') %></div>
     </footer>
+
+    <!-- JavaScript Section -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('a[data-toggle=tooltip]').tooltip();
+      });
+    </script>
 
     <script type="text/javascript" src="/js/offers.js"></script>
 

@@ -1,19 +1,19 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
       <% if (review.rating >= 4) { %>
-        <img id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 30px"></img>
+        <img id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 28px" ></img>
       <% } else { %>  
-        <img id="bd_boy_review" class="img-responsive pull-left bd_boy_sad" style="width: 30px"></img>
+        <img id="bd_boy_review" class="img-responsive pull-left bd_boy_sad" style="width: 28px"></img>
       <% } %> 
 
-      <h4 id="review_title"><strong>&nbsp;&nbsp;<%= review.title %></strong></h4>
+      <h5 id="review_title"><strong>&nbsp;&nbsp;<%= review.title %></strong></h5>
 </div> 
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
     <% if (review.rating >= 4) { %>
-      <blockquote id="review_description" style="background-color: rgba(218, 250, 229, 0.21)">
+      <blockquote id="review_description" style="background-color: rgba(218, 250, 229, 0.21);font-size: 15px;margin-left: 35px">
     <% } else { %> 
-      <blockquote id="review_description" style="background-color: rgba(246, 66, 78, 0.03)"> 
+      <blockquote id="review_description" style="background-color: rgba(246, 66, 78, 0.03);font-size: 15px;margin-left: 35px"> 
     <% } %> 
       "<%= review.description %>"
       <footer id="review_author">
@@ -23,42 +23,3 @@
     </blockquote>
 </div> 
   
-<!-- <table>
-   <tbody>
-
-     <tr>
-        <div class="col-xs-8 col-sm-8 col-md-2 col-lg-2">
-           <td>
-            <% if (review.rating >= 4) { %>
-              <img class="bd_boy_happy "></img>
-
-            <% } else { %>  
-              <img class="bd_boy_sad"></img>
-            <% } %> 
-          </td>
-            <td>aaaa
-           <strong><%= review.title %></strong>
-          </td>
-        </div>
-
-     </tr>
-
-      <tr>
-        <td>
-          <% if (review.rating >= 4) { %>
-            <blockquote style="background-color: rgba(218, 250, 229, 0.21)">
-          <% } else { %> 
-            <blockquote style="background-color: rgba(246, 66, 78, 0.03)"> 
-          <% } %> 
-            "<%= review.description %>"
-            <footer>
-              review fornecido por <%= review.author %>
-              <cite title="Source Title">no site <%= review.advertiser %></cite>
-            </footer>
-          </blockquote>
-        </td>
-     </tr>
-
-   </tbody>
- -->
-</table>

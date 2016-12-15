@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title><%= title %></title>
-    <%- include('partials/head') %>
+    <%- include('../partials/head') %>
   </head>
 
   <body>
@@ -10,11 +10,11 @@
      <!-- Begin page content -->
     <div class="container-fluid">
 
-      <%- include('offers/search_offers') %>
+      <%- include('./search_offers') %>
 
       <% if (typeof error != 'undefined') { %>
 
-          <%- include('offers/search_offers') %>
+          <%- include('./search_offers') %>
 
           <div class="alert alert-warning" role="alert">
             <%= message %>
@@ -30,11 +30,11 @@
               
                   <row>
                   
-                  <%- include('offers/list_offers',{offer:offers.docs[i]}); %>
+                  <%- include('./list_offers',{offer:offers.docs[i]}); %>
 
                 <% } else { %>  
                     
-                   <%- include('offers/list_offers',{offer:offers.docs[i]}); %>
+                   <%- include('./list_offers',{offer:offers.docs[i]}); %>
                    
                   </row>
 
@@ -48,14 +48,14 @@
             <% } %>
 
 
-          <%- include('offers/pagination_offers') %>
+          <%- include('./pagination_offers') %>
 
         <% } %> 
 
     </div>
 
     <footer class="footer">
-      <div class="panel-footer"><%- include('partials/footer') %></div>
+      <div class="panel-footer"><%- include('../partials/footer') %></div>
     </footer>
 
     <!-- JavaScript Section -->

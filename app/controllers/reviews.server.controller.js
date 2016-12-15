@@ -88,7 +88,7 @@ exports.getReviewsByEan = function(req,res){
 			console.log("previous >>",previous);
 
 
-			res.render('reviews',{
+			res.render('reviews/reviews',{
 				title: config.title,
 				pagination: {
 					totalPaginacao:totalPaginacao + 1,

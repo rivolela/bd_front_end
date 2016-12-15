@@ -151,7 +151,7 @@ module.exports = function(grunt){
     	require('./server.js');
 	});
 
-	grunt.registerTask('default',['env:dev','lint','less:dev','concurrent:dev']);
+	grunt.registerTask('dev',['env:dev','lint','less:dev','concurrent:dev']);
 	grunt.registerTask('debug',['env:dev','lint','concurrent:debug']);
 	grunt.registerTask('karma',['env:test','karma']);
 	grunt.registerTask('lint',['jshint','csslint']);

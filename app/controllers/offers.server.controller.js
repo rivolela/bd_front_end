@@ -137,7 +137,7 @@ exports.getOffersByQuery = function(req,res,query){
 			console.log("next >> ",next);
 			console.log("previous >>",previous);
 
-			res.render('offers',{
+			res.render('offers/offers',{
 				title: config.title,
 				pagination: {
 					next: next,

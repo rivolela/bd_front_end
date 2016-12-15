@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title><%= title %></title>
-    <%- include('partials/head') %>
+    <%- include('../partials/head') %>
   </head>
 
   <body>
@@ -10,28 +10,28 @@
      <!-- Begin page content -->
     <div class="container-fluid">
 
-      <%- include('offers/search_offers') %>
+      <%- include('../offers/search_offers') %>
 
       <% for(var i=0; i <offers.docs.length; i++) { %>
 
         <% if (offers.docs[i]._id == offerSelected) { %>
-           <%- include('reviews/box_reviews',{offer:offers.docs[i]}); %>   
+           <%- include('./box_reviews',{offer:offers.docs[i]}); %>   
         <% }  %>
 
       <% }  %>
 
       <% for(var i=0; i <reviews.docs.length; i++) { %>
 
-          <%- include('reviews/list_reviews',{review:reviews.docs[i]}); %>
+          <%- include('./list_reviews',{review:reviews.docs[i]}); %>
 
       <% }  %>
 
-      <%- include('reviews/pagination_reviews') %>
+      <%- include('./pagination_reviews') %>
 
     </div>
 
     <footer class="footer">
-      <div class="panel-footer"><%- include('partials/footer') %></div>
+      <div class="panel-footer"><%- include('../partials/footer') %></div>
     </footer>
     
      <!-- JavaScript Section -->

@@ -1,4 +1,5 @@
-var url = "http://localhost:3000/reviews/7891129233621/offer/5852559e645fbb0400db7814/page/1ß";
+var url = "http://localhost:3000/reviews/7891129233621/offer/5853a7a4533bfa0400868f30/page/1";
+
 var mouse = require("mouse").create(casper);
 
 casper.test.begin('Phantomjs Tests >> Reviews', 13, function(test) {
@@ -45,7 +46,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 13, function(test) {
             return bd_boy_happy
         });
 
-        test.assertTextExists(bd_boy_value, "mouseover has title >> 'bd boy felizes'");
+        test.assertEquals(bd_boy_value,"avaliações com \n4 ou 5 estrelas\n" ,"bd boy happy mouseover has text >> 'avaliações com 4 ou 5 estrelas'");
 
     }).then(function(){
 
@@ -59,7 +60,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 13, function(test) {
 
         // this.echo(bd_boy_value);
 
-        test.assertTextExists(bd_boy_value, "mouseover has title >> 'bd boy tristes'");
+       test.assertEquals(bd_boy_value,"avaliações com \n1, 2 ou 3 estrelas\n" ,"bd boy sad mouseover has text >> 'avaliações com 1, 2 ou 3 estrelas'");
 
     }).run(function() {
         test.done();

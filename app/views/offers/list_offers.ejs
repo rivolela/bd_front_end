@@ -13,8 +13,15 @@
         </div>
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <strong><a href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1"><%= offer.name %></a></strong>
+            <!-- total of reviews -->
             <h4>
-              <a href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1"><%= offer.totalReviews %> reviews</a>
+              <a href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1">
+                <% if (offer.totalReviews == 1) { %>
+                  <%= offer.totalReviews %> avaliação 
+                <% } else { %>
+                  <%= offer.totalReviews %> avaliações 
+                <% } %>
+              </a>
             </h4>
     
             <br>
@@ -23,6 +30,7 @@
                <table>
                 <tbody>
                   <tr>
+                    <!-- total bd boys happy -->
                     <td>
                       <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip">
                         <img src="img/bd_boy_happy.png"  class="img-responsive">
@@ -30,13 +38,14 @@
                     </td>
                     <td width="5px;"></td>
                     <td>
-                      <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
+                      <a id="href_bd_boy_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
                         <%= offer.countHappy %>
                       </a>
                     </td>
                      <td width="20px"></td>
+                    <!-- total bd boys sad -->
                     <td>
-                      <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip">
+                      <a id="href_bd_boy_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip">
                         <img src="img/bd_boy_sad.png"  class="img-responsive">
                       </a>
                     </td>

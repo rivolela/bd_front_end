@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/reviews/7891129233621/offer/5853a7a4533bfa0400868f30/page/1";
+var url = "http://localhost:3000/reviews/7891129233621/offer/5854f86be3c9430400a0269c/page/1";
 
 var mouse = require("mouse").create(casper);
 
@@ -17,7 +17,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 13, function(test) {
         // box_offers.ejs
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Fogão 4 Bocas Brastemp Clean', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean');
+        }, 'Fogão 4 Bocas Brastemp Clean Acendimento Bfo4Naruna Inox Bvolt', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean');
 
         test.assertElementCount('#img_picture_offer', 1);
         test.assertSelectorHasText('#counter_happy', '16');

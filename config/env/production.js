@@ -4,7 +4,7 @@ module.exports = {
 	sessionSecret:'productSessionSecret',
 
 	// messages
-	message_search_error:'Ops!! não encontramos o seu produto desta vez. No momento o Before Deciding está trabalhando somente com o departamento de eletrodométicos.',
+	message_search_error:'Ops!! não encontramos avaliações para o seu produto desta vez. No momento o Before Deciding está trabalhando somente com eletrodométicos.',
 	title: 'Before Deciding - reviews antes de comprar',
 
 	// toogle

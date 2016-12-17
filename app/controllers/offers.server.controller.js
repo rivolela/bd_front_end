@@ -94,19 +94,17 @@ exports.getOffersByQuery = function(req,res,query){
 
 		if(data.total == 0){
 			var message = "produto não encontrado";
-			res.render('offers',{
+			res.render('partials/error',{
 				title: config.title,
-				error: true,
 				message: config.message_search_error,
 				env: process.env.NODE_ENV
 			});
 		}
-		if(data.code == 500) {
+		else if(data.code == 500) {
 			console.log("error >>", data.message);
 			var message = "ops! ocorreu algum problema técnico. Fique tranquilo, o nosso time já está trabalhando na resolução. = )";
-			res.render('offers',{
+			res.render('partials/error',{
 				title: config.title,
-				error: 'true',
 				message: message,
 				env: process.env.NODE_ENV
 			});

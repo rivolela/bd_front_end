@@ -11,46 +11,34 @@
     <div class="container-fluid">
 
       <%- include('./search_offers') %>
-
-      <% if (typeof error != 'undefined') { %>
-
-          <%- include('./search_offers') %>
-
-          <div class="alert alert-warning" role="alert">
-            <%= message %>
-          </div>   
           
-      <% } else { %>  
                     
-            <% for(var i=0; i <offers.docs.length; i++) { %>
+      <% for(var i=0; i <offers.docs.length; i++) { %>
+      
+        <%# if ean exists %>
+
+          <% if (i % 2 == 0) { %>
+        
+            <row>
             
-              <%# if ean exists %>
+            <%- include('./list_offers',{offer:offers.docs[i]}); %>
 
-                <% if (i % 2 == 0) { %>
+          <% } else { %>  
               
-                  <row>
-                  
-                  <%- include('./list_offers',{offer:offers.docs[i]}); %>
+             <%- include('./list_offers',{offer:offers.docs[i]}); %>
+             
+            </row>
 
-                <% } else { %>  
-                    
-                   <%- include('./list_offers',{offer:offers.docs[i]}); %>
-                   
-                  </row>
+            <row>
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <br>
+               </div>
+            </row>
+          <% } %>
 
-                  <row>
-                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <br>
-                     </div>
-                  </row>
-                <% } %>
+      <% } %>
 
-            <% } %>
-
-
-          <%- include('./pagination_offers') %>
-
-        <% } %> 
+      <%- include('./pagination_offers') %>
 
     </div>
 
@@ -59,12 +47,6 @@
     </footer>
 
     <!-- JavaScript Section -->
-    <script type="text/javascript">
-      $(document).ready(function(){
-          $('a[data-toggle=tooltip]').tooltip();
-      });
-    </script>
-
     <script type="text/javascript" src="/js/offers.js"></script>
 
   </body>

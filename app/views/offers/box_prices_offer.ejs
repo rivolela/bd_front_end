@@ -3,32 +3,32 @@
   <table id="tbl_box_reviews">
     <tbody>
       <tr>
-        <td style="width: 33em;text-align: left;">
+        <td class="logo_merchant">
           <% if (offer.advertiser == 'Walmart BR') { %>
             <a href="<%= offer.url %>" target="_blank">
-              <img src="/../../img/retailers/walmart.png"  class="img-responsive">
+              <img id="img_retailer"  class="img-responsive walmart">
             </a>      
           <% } else if (offer.advertiser == 'Ricardo Eletro BR') { %>
             <a href="<%= offer.url %>" target="_blank">
-              <img src="/../../img/retailers/ricardo_eletro.png"  class="img-responsive">
+              <img id="img_retailer" class="img-responsive ricardo_eletro">
             </a>   
           <% } else if (offer.advertiser == 'Pontofrio BR') { %>
             <a href="<%= offer.url %>" target="_blank">
-              <img src="/../../img/retailers/ponto_frio.png"  class="img-responsive">
+              <img id="img_retailer" class="img-responsive ponto_frio">
             </a>  
           <% } else { %>
             <a href="<%= offer.url %>" target="_blank">
-              <img src="/../../img/retailers/lojas_colombo.png"  class="img-responsive">
+              <img id="img_retailer" class="img-responsive lojas_colombo">
             </a>          
           <% } %>
         </td>
-        <td style="width: 33em;text-align: right;">
-            <a href="<%= offer.url %>" target="_blank">
-              <strong><%= offer.price_br %></strong>
+        <td class="price_offer">
+            <a id="href_offer_price" href="<%= offer.url %>" target="_blank">
+              <%= offer.price_br %>
             </a>       
         </td>
-        <td style="width: 33em;text-align: right;"">
-          <a href="<%= offer.url %>" class="btn btn-warning" role="button" target="_blank">Ir à loja</a>
+        <td class="btn_offer">
+          <a id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning" role="button" target="_blank">Ir à loja</a>
         </td>
       </tr>
     </tbody>

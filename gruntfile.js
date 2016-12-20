@@ -44,20 +44,8 @@ module.exports = function(grunt){
     			silent: false
     		},
     		files:['app/tests/casperjs/**/*.js']
-    		// files:['app/tests/casperjs/**/error.ejs.tests.js']
+    		//files:['app/tests/casperjs/**/reviews.ejs.tests.js']
   		},
-		karma:{
-			unit:{
-				configFile:'karma.conf.js'
-			}
-		},
-		protractor:{
-			e2e:{
-				options:{
-					configFile:'protractor.conf.js'
-				}
-			}
-		},
 		jshint:{
 			all:{
 				src:['server.js',
@@ -92,7 +80,6 @@ module.exports = function(grunt){
 						'app/**/*.js',
 						'gruntfile.js',
 						'public/**/*.js',
-						'public/modules/**/*.js',
 						'public/css/*.css',
 						'public/css/*.less',
 						'app/views/**/*.ejs'],
@@ -102,7 +89,7 @@ module.exports = function(grunt){
 				tasks:['jshint']
 			},
 			css:{
-				files:'public/modules/**/*.css',
+				files:'public/css/**/*.css',
 				tasks:['csslint']
 			},
 			styles: {
@@ -135,8 +122,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-env');
 	grunt.loadNpmTasks('grunt-nodemon');
 	grunt.loadNpmTasks('grunt-mocha-test');
-	grunt.loadNpmTasks('grunt-karma');
-	grunt.loadNpmTasks('grunt-protractor-runner');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -153,11 +138,10 @@ module.exports = function(grunt){
 
 	grunt.registerTask('dev',['env:dev','lint','less:dev','concurrent:dev']);
 	grunt.registerTask('debug',['env:dev','lint','concurrent:debug']);
-	grunt.registerTask('karma',['env:test','karma']);
 	grunt.registerTask('lint',['jshint','csslint']);
 	grunt.registerTask('mocha',['env:test','server','mochaTest']);
 	grunt.registerTask('casper',['env:test','server','casperjs']);
-	grunt.registerTask('test',['env:test','server','mochaTest','casperjs']);
+	grunt.registerTask('test',['env:test','server','lint','mochaTest','casperjs']);
 };
 
 

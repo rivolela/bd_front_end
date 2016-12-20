@@ -1,14 +1,12 @@
 var url = "http://localhost:3000/offers";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
+casper.test.begin('Phantomjs Tests >> Offers', 10, function(test) {
 
     casper.start(url, function() {
 
         test.assertHttpStatus(200);
-
         test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
-
         test.assertExists('form[action="/offers"]', "offer search form is found");
           this.fill('form[action="/offers"]', {
             query: "geladeira"
@@ -22,11 +20,15 @@ casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
 
     }).then(function() {
 
-       test.assertEval(function() {
+      // pagination
+
+      test.assertEval(function() {
           return __utils__.findAll("a").length >= 20;
       },"links pagination for \"casperjs\" retrieves 10 or more tags<a> in results");
 
     }).then(function() {
+
+      // bd  boys counter
 
       test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
       test.assertElementCount('#href_bd_boy_sad', 10,"offers search for casperjs retrieves 20 href_bd_boy_sad selectors");
@@ -34,6 +36,7 @@ casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
     }).then(function(){
 
        // tool_tip_bd_boy_happy.ejs
+
         var bd_boy_value = this.evaluate(function() {
             // show all tool tips
             $('a[data-toggle=tooltip]').tooltip("show");
@@ -45,20 +48,31 @@ casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
 
     }).then(function(){
 
-       // tool_tip_bd_boy_sad.ejs
-        var bd_boy_value = this.evaluate(function() {
-            // show all tool tips
-            $('a[data-toggle=tooltip]').tooltip("show");
-            var bd_boy_sad = $(".tooltip-inner").children('strong')[1].textContent;
-            return bd_boy_sad
-        });
+      // tool_tip_bd_boy_sad.ejs
 
-        // this.echo(bd_boy_value);
+      var bd_boy_value = this.evaluate(function() {
+          // show all tool tips
+          $('a[data-toggle=tooltip]').tooltip("show");
+          var bd_boy_sad = $(".tooltip-inner").children('strong')[1].textContent;
+          return bd_boy_sad
+      });
 
-       test.assertEquals(bd_boy_value,"avaliações com \n1, 2 ou 3 estrelas\n" ,"bd boy sad mouseover has text >> 'avaliações com 1, 2 ou 3 estrelas'");
+      // this.echo(bd_boy_value);
+
+      test.assertEquals(bd_boy_value,"avaliações com \n1, 2 ou 3 estrelas\n" ,"bd boy sad mouseover has text >> 'avaliações com 1, 2 ou 3 estrelas'");
+
+      // simulated click to href_bd_boy_happy 
+      this.evaluate(function() {
+        $("#href_bd_boy_happy")[0].click();  
+      });   
+       
+    }).then(function(){
+
+      //check result of click href_bd_boy_happy : should be in reviews page
+      test.assertExist('#review_title'); 
 
     }).run(function() {
-        test.done();
+      test.done();
     });
 });
 

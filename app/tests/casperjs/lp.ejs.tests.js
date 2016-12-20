@@ -7,9 +7,9 @@ casper.test.begin('Phantomjs Tests >> Landing Page', 3, function(test) {
 
         test.assertHttpStatus(200);
 
-        test.assertTitle("Before Deciding - reviews antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
 
-        test.assertDoesntExist('#btnCallToAction');
+        test.assertExist('#btnCallToAction');
         
      //    test.assertEquals('85169',this.evaluate(function () { 
      //    	return document.getElementsByClassName("comentarios-avaliacao")[0].getAttribute("produtoid");

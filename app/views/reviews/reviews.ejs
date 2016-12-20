@@ -12,21 +12,71 @@
 
       <%- include('../offers/search_offers') %>
 
-      <% for(var i=0; i <offers.docs.length; i++) { %>
-
-        <% if (offers.docs[i]._id == offerSelected) { %>
-           <%- include('./box_reviews',{offer:offers.docs[i]}); %>   
+      <!-- column 01 >> box reviews ,list reviews and pagination -->
+      <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">     
+        <!-- box_reviews -->
+        <% for(var i=0; i <offers.docs.length; i++) { %>
+          <% if (offers.docs[i]._id == offerSelected) { %>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <%- include('./box_reviews',{offer:offers.docs[i]}); %> 
+          </div>  
+          <% }  %>
         <% }  %>
+      
+        <!-- hr -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 60px">
+          <hr>
+        </div>
 
-      <% }  %>
+        <!-- box offer prices mobile -->
+        <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+          <div class="panel-group" role="tablist">
+            <div class="panel panel-warning">
+              <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                <h4 class="panel-title">
+                  Onde comprar
+                </h4>
+              </div>
+              <%- include('../offers/box_prices_offer',{offer:offers.docs[1]}); %> 
+              <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="false" style="">
+                <% for(var i=1; i <offers.docs.length; i++) { %> 
+                  <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
+                <% } %>
+              </div>
+            </div>
+            <div class="panel-footer" style="text-align: center">
+              <a class="" data-toggle="collapse"  href="#collapseListGroup1" aria-expanded="false" aria-controls="collapseListGroup1">
+                   mais ofertas
+              </a>
+            </div>
+          </div> 
+          <br>        
+        </div> 
 
-      <% for(var i=0; i <reviews.docs.length; i++) { %>
+        <!-- list reviews -->
+        <% for(var i=0; i <reviews.docs.length; i++) { %> 
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <%- include('./list_reviews',{review:reviews.docs[i]}); %>
+          </div>
+        <% }  %>     
+      
+        <!-- pagination -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
+          <%- include('./pagination_reviews') %>
+        </div>
+      </div>
 
-          <%- include('./list_reviews',{review:reviews.docs[i]}); %>
-
-      <% }  %>
-
-      <%- include('./pagination_reviews') %>
+      <!-- style="position: fixed;right: 0px" -->
+      <!-- coluns 02 >> box offer prices -->
+      <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">
+        <div class="panel panel-warning" style="font-size: 15px;">
+          <div class="panel-heading">Onde comprar</div>
+            <% for(var i=0; i <offers.docs.length; i++) { %> 
+              <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
+            <% }  %>
+          </div>
+        </div>
+      </div>
 
     </div>
 
@@ -38,8 +88,10 @@
     <script type="text/javascript">
       $(document).ready(function(){
           $('a[data-toggle=tooltip]').tooltip();
+         
       });
     </script>
+
 
   </body>
 

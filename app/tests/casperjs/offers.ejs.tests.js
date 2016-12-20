@@ -7,7 +7,7 @@ casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
 
         test.assertHttpStatus(200);
 
-        test.assertTitle("Before Deciding - reviews antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
 
         test.assertExists('form[action="/offers"]', "offer search form is found");
           this.fill('form[action="/offers"]', {

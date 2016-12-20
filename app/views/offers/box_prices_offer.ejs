@@ -1,0 +1,37 @@
+ 
+<div class="panel-body">
+  <table id="tbl_box_reviews">
+    <tbody>
+      <tr>
+        <td style="width: 33em;text-align: left;">
+          <% if (offer.advertiser == 'Walmart BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img src="/../../img/retailers/walmart.png"  class="img-responsive">
+            </a>      
+          <% } else if (offer.advertiser == 'Ricardo Eletro BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img src="/../../img/retailers/ricardo_eletro.png"  class="img-responsive">
+            </a>   
+          <% } else if (offer.advertiser == 'Pontofrio BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img src="/../../img/retailers/ponto_frio.png"  class="img-responsive">
+            </a>  
+          <% } else { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img src="/../../img/retailers/lojas_colombo.png"  class="img-responsive">
+            </a>          
+          <% } %>
+        </td>
+        <td style="width: 33em;text-align: right;">
+            <a href="<%= offer.url %>" target="_blank">
+              <strong><%= offer.price_br %></strong>
+            </a>       
+        </td>
+        <td style="width: 33em;text-align: right;"">
+          <a href="<%= offer.url %>" class="btn btn-warning" role="button" target="_blank">Ir à loja</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>   
+

@@ -1,62 +1,62 @@
- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
-       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
-            <%# zanox offer two kinds of image size %>
-            <% if (offer.image_medium) { %>
-                <img id="img_picture_offer" src="<%= offer.image_medium %>"  class="img-responsive">
-            <% } else { %> 
-                <img id="img_picture_offer" src="<%= offer.image_large %>"  class="img-responsive">
-            <% } %>
-        </div>
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-10">
-            <strong id="name_offer"><%= offer.name %></strong>
-            <!-- total of reviews -->
-            <h4>
-              <% if (offer.totalReviews == 1) { %>
-                <%= offer.totalReviews %> avaliação 
-              <% } else { %>
-                <%= offer.totalReviews %> avaliações 
-              <% } %>
-            </h4>
-    
-            <br>
 
-            <row>
-               <table id="tbl_box_reviews">
-                <tbody>
-                  <tr>
-                    <td>
-                      <a id="teste" href='#' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip">
-                        <img  class="img-responsive bd_boy_happy">
-                      </a>
-                    </td>
-                    <td width="5px;"></td>
-                    <td>
-                      <a id="counter_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
-                        <%= offer.countHappy %>
-                      </a>
-                    </td>
-                        <td width="20px"></td>
-                    <td>
-                      <a href='#' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip">
-                        <img class="img-responsive bd_boy_sad">
-                      </a>
-                    </td>
-                    <td width="5px;"></td>
-                    <td>
-                        <a id="counter_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
-                        <%= offer.countSad %>
-                        </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </row>
-        </div>
-
-        <!-- It will set the height of the whole row based on the height of the tallest member of in thar row -->
-        <div class="clearfix visible-md"></div>
+ <!-- img offer -->
+ <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+      <%# zanox offer two kinds of image size %>
+      <% if (offer.image_medium) { %>
+          <img id="img_picture_offer" src="<%= offer.image_medium %>"  class="img-responsive">
+      <% } else { %> 
+          <img id="img_picture_offer" src="<%= offer.image_large %>"  class="img-responsive">
+      <% } %>
 </div>
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 60px">
-<hr>
+<!-- total of reviews -->
+<div class="col-xs-8 col-sm-8 col-md-9 col-lg-10">
+    <strong id="name_offer"><%= offer.name %></strong>
+    <!-- total of reviews -->
+    <h4>
+      <% if (offer.totalReviews == 1) { %>
+        <%= offer.totalReviews %> avaliação 
+      <% } else { %>
+        <%= offer.totalReviews %> avaliações 
+      <% } %>
+    </h4>
+
+    <br>
+
+    <row>
+       <table id="tbl_box_reviews">
+        <tbody>
+          <tr>
+            <td>
+              <a id="teste" href='#' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip">
+                <img  class="img-responsive bd_boy_happy">
+              </a>
+            </td>
+            <td width="5px;"></td>
+            <td>
+              <a id="counter_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
+                <%= offer.countHappy %>
+              </a>
+            </td>
+                <td width="20px"></td>
+            <td>
+              <a href='#' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip">
+                <img class="img-responsive bd_boy_sad">
+              </a>
+            </td>
+            <td width="5px;"></td>
+            <td>
+                <a id="counter_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
+                <%= offer.countSad %>
+                </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </row>
 </div>
+
+<!-- It will set the height of the whole row based on the height of the tallest member of in thar row -->
+<div class="clearfix visible-md"></div>
+
+

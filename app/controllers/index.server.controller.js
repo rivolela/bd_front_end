@@ -6,7 +6,7 @@ exports.render = function(req,res){
 	// 	user: JSON.stringify(req.user)
 	// });
 	res.render('lp',{
-		title:'Before Deciding - reviews antes de comprar',
+		title:config.title,
 		featureToogle: config.lp_toogle,
 		env: process.env.NODE_ENV
 		//user: JSON.stringify(req.user)

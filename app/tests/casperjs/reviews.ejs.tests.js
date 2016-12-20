@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/reviews/7891129233621/offer/5854f86be3c9430400a0269c/page/1";
+var url = "http://localhost:3000/reviews/7891129233621/offer/58579bdbd8d57d04007a6ffd/page/1";
 
 var mouse = require("mouse").create(casper);
 
@@ -10,14 +10,14 @@ casper.test.begin('Phantomjs Tests >> Reviews', 13, function(test) {
 
         // page information
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - reviews antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
 
     }).then(function() {
 
         // box_offers.ejs
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Fogão 4 Bocas Brastemp Clean Acendimento Bfo4Naruna Inox Bvolt', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean');
+        }, 'Fogão 4 Bocas Brastemp Clean', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean');
 
         test.assertElementCount('#img_picture_offer', 1);
         test.assertSelectorHasText('#counter_happy', '16');

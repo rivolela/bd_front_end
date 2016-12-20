@@ -6,10 +6,10 @@ module.exports = {
 
 	// messages
 	message_search_error:'Ops!! não encontramos avaliações para o seu produto desta vez. No momento o Before Deciding está trabalhando somente com eletrodométicos.',
-	title: 'Before Deciding - reviews antes de comprar',
+	title: 'Before Deciding - avaliações antes de comprar',
 
 	// toogle
-	lp_toogle:false,
+	lp_toogle:true,
 	offers_toogle:false,
 	reviews_toogle:false,
 

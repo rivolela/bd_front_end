@@ -1,25 +1,24 @@
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 
-      <% if (review.rating >= 4) { %>
-        <img id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 28px" ></img>
-      <% } else { %>  
-        <img id="bd_boy_review" class="img-responsive pull-left bd_boy_sad" style="width: 28px"></img>
-      <% } %> 
+<% if (review.rating >= 4) { %>
+  <img id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 28px" ></img>
+<% } else { %>  
+  <img id="bd_boy_review" class="img-responsive pull-left bd_boy_sad" style="width: 28px"></img>
+<% } %> 
 
-      <h5 id="review_title"><strong>&nbsp;&nbsp;<%= review.title %></strong></h5>
-</div> 
+<h5 id="review_title"><strong>&nbsp;&nbsp;<%= review.title %></strong></h5>
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-    <% if (review.rating >= 4) { %>
-      <blockquote id="review_description" style="background-color: rgba(218, 250, 229, 0.21);font-size: 15px;margin-left: 35px">
-    <% } else { %> 
-      <blockquote id="review_description" style="background-color: rgba(246, 66, 78, 0.03);font-size: 15px;margin-left: 35px"> 
-    <% } %> 
-      "<%= review.description %>"
-      <footer id="review_author">
-        avaliado pelo usuário(a) <%= review.author %>
-        <cite title="Source Title">no site <%= review.advertiser %></cite>
-      </footer>
-    </blockquote>
-</div> 
-  
+<% if (review.rating >= 4) { %>
+  <blockquote id="review_description" style="background-color: rgba(218, 250, 229, 0.21);font-size: 15px;margin-left: 35px">
+<% } else { %> 
+  <blockquote id="review_description" style="background-color: rgba(246, 66, 78, 0.03);font-size: 15px;margin-left: 35px"> 
+<% } %> 
+  "<%= review.description %>"
+  <footer id="review_author">
+    avaliado pelo usuário(a) <%= review.author %>
+    <cite title="Source Title">no site <%= review.advertiser %></cite> em <%= review.dateBR %>
+
+  </footer>
+</blockquote>
+
+    
+   

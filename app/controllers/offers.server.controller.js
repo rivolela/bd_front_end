@@ -2,6 +2,17 @@ var requestsUtile = require('../utile/requests.server.utile.js');
 var config = require('../../config/config.js');
 var validate = require("validate.js");
 
+var constraints = {
+  query: {
+    format: {
+      pattern: "[a-z0-9]+",
+      flags: "i",
+      message: "can only contain a-z and 0-9"
+    }
+  }
+};
+
+
 exports.render = function(req,res){
 
 	res.render('offers',{
@@ -81,11 +92,22 @@ function validateSearch(req,res,query,next){
 
 	var query = req.body.query;
 
-	if (validate.isEmpty(query)){
-		query = "brastemp";		
-	};
+	if ((validate.isEmpty(query)) || (query === undefined)){
 		
-	return next(query,page);	
+		query = "brastemp";
+		return next(query,page);
+
+	}else if(validate({query: query}, constraints)){
+
+		res.render('partials/error',{
+			title: config.title,
+			message: config.message_search_validate,
+			env: process.env.NODE_ENV
+		});
+	}else{
+		return next(query,page);	
+	};
+			
 };
 
 

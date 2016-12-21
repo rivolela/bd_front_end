@@ -1,8 +1,10 @@
-var url = "http://localhost:3000/reviews/7891129233621/offer/5858ed4fc93a4a04000b65a7/page/1";
+// casper.options.viewportSize = {width: 1024, height: 768};
+var url = "http://localhost:3000/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
+//var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);
 
-casper.test.begin('Phantomjs Tests >> Reviews', 16, function(test) {
+casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     casper.start(url, function() {
 
@@ -22,8 +24,8 @@ casper.test.begin('Phantomjs Tests >> Reviews', 16, function(test) {
         }, 'Fogão 4 Bocas Brastemp Clean', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean');
 
         test.assertElementCount('#img_picture_offer', 1);
-        test.assertSelectorHasText('#counter_happy', '16');
-        test.assertSelectorHasText('#counter_sad', '2');
+        test.assertSelectorHasText('#counter_happy', '21');
+        test.assertSelectorHasText('#counter_sad', '0');
 
     }).then(function() {
 
@@ -38,7 +40,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 16, function(test) {
 
         // pagination_reviews.ejs
 
-        test.assertElementCount('#pagination_numbers_reviews', 2);
+        test.assertElementCount('#pagination_numbers_reviews', 3);
 
     }).then(function(){
         
@@ -73,16 +75,21 @@ casper.test.begin('Phantomjs Tests >> Reviews', 16, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 20);
-        test.assertElementCount('#img_retailer', 20);
-        test.assertElementCount('#href_offer_price', 20); 
+        test.assertElementCount('#href_ir_loja', 16);
+        test.assertElementCount('#img_retailer', 16);
+        test.assertElementCount('#href_offer_price', 16); 
+        // casper.click("a[href*='/programming/new/']");
 
-        // simulated click to href_ir_loja"
-        // this.evaluate(function() {
-        //     var url = $("#href_ir_loja").prop('href');
-        //     window.location.href = url;
-        // });                       
+        //simulated click to href_ir_loja
+        this.evaluate(function() {
+            var url = $("#href_ir_loja").prop('href');
+            window.location.href = url;
+        });                       
 
+    }).then(function(){
+        // test redirect and title offer page 
+        test.assertTitle("Fogão Piso 4 Bocas Brastemp Clean Acendimento Branco Bivolt - BFO4NAB", "Ponto Frio homepage title is the one expected");
+        // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();
     });

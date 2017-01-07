@@ -48,11 +48,17 @@ exports.list = function(req,res){
 	});
 };
 
+/**
+ * @description list offers by ean 
+ * @param  {req}
+ * @param  {res}
+ * @param  {next}
+ * @return {list of offers of ean requested}
+ */
+exports.getOffersByEan = function(req,res,next){
 
-exports.getOffersByEan = function(req,res,next,ean){
-
-	var url = "https://bd-services.herokuapp.com/api/offers/bd/ean/" + ean + "/page/1/limit/100/";
-
+	var ean = req.params.reviews;
+	var url = config.service_host + '/api/offers/bd/ean/' + ean + '/page/1/limit/100/';
 	var call = new requestsUtile();
 
 	call.getJson(url,function(data,response,error){
@@ -64,19 +70,7 @@ exports.getOffersByEan = function(req,res,next,ean){
 			req.offers = data;
 			next();
 		}
-		//next();
-	});
-	// Article.findById(id).populate('creator','firstName lastName fullName').exec(function(err,article){
-	// 	if(err){
-	// 		return next(err);
-	// 	}
-	// 	if(!article){
-	// 		return next(new Error('Failed to load article' + id));			
-	// 	}
-	// 	req.article = article;
-	// 	next();
-	// });
-	
+	});	
 };
 
 
@@ -118,7 +112,7 @@ exports.getOffersByQuery = function(req,res,query){
 	validateSearch(req,res,query,function(query,page){
 		
 		console.log("query",query);
-		var url = "https://bd-services.herokuapp.com/api/offers/bd/query/" + query + "/page/" + page + "/limit/10";
+		var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/10";
 
 		console.log(url);
 

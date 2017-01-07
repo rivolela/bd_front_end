@@ -37,7 +37,7 @@ exports.getReviewsByEan = function(req,res){
 		page = 1;
 	}
 
-	var url = "https://bd-services.herokuapp.com/api/reviews/ean/" + ean + "/page/" + page + "/limit/10";
+	var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10";
 
 	console.log(url);
 
@@ -46,7 +46,7 @@ exports.getReviewsByEan = function(req,res){
 
 	call.getJson(url,function(data,response,error){
 
-		//console.log(data);
+		console.log("offers",req.offers);
 
 		if(data.code == 500) {
 			console.log("error >>", data.message);
@@ -86,7 +86,8 @@ exports.getReviewsByEan = function(req,res){
 
 			console.log("next >> ",next);
 			console.log("previous >>",previous);
-
+			var offers = req.offers;
+			console.log("offers",offers.docs.length);
 
 			res.render('reviews/reviews',{
 				title: config.title,
@@ -103,7 +104,7 @@ exports.getReviewsByEan = function(req,res){
 				featureToogle: config.reviews_toogle,
 				ean:ean,
 				offerSelected:offerId,
-				offers:req.offers
+				offers:offers,
 			});
 
 		}

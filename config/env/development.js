@@ -7,6 +7,7 @@ module.exports = {
 	message_search_error:'Ops!! não encontramos avaliações para o seu produto desta vez. No momento o Before Deciding está trabalhando somente com eletrodométicos.',
 	message_search_validate : 'Por favor, digite um produto válido para o Before Deciding buscar os reviews !',
 	title: 'Before Deciding - avaliações antes de comprar',
+	service_host: 'https://bd-services-test.herokuapp.com',
 
 	// toogle
 	lp_toogle:true,

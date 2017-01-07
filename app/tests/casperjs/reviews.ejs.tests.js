@@ -1,5 +1,5 @@
 // casper.options.viewportSize = {width: 1024, height: 768};
-var url = "http://localhost:3000/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
+var url = "http://localhost:3000/reviews/7891129233645/offer/5870a8ef4c116a0400ddcf2d/page/1";
 //var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);
@@ -21,11 +21,11 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Fogão 4 Bocas Brastemp Clean', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean');
+        }, 'Fogão Brastemp 4 Bocas Clean Timer BFO4TAR Inox - Bivolt', 'should return #name_offer === Fogão Brastemp 4 Bocas Clean Timer BFO4TAR Inox - Bivolt');
 
         test.assertElementCount('#img_picture_offer', 1);
-        test.assertSelectorHasText('#counter_happy', '21');
-        test.assertSelectorHasText('#counter_sad', '0');
+        test.assertSelectorHasText('#counter_happy', '17');
+        test.assertSelectorHasText('#counter_sad', '1');
 
     }).then(function() {
 
@@ -40,7 +40,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         // pagination_reviews.ejs
 
-        test.assertElementCount('#pagination_numbers_reviews', 3);
+        test.assertElementCount('#pagination_numbers_reviews', 2);
 
     }).then(function(){
         
@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 16);
-        test.assertElementCount('#img_retailer', 16);
-        test.assertElementCount('#href_offer_price', 16); 
+        test.assertElementCount('#href_ir_loja', 4);
+        test.assertElementCount('#img_retailer', 4);
+        test.assertElementCount('#href_offer_price', 4); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja
@@ -88,7 +88,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function(){
         // test redirect and title offer page 
-        test.assertTitle("Fogão Piso 4 Bocas Brastemp Clean Acendimento Branco Bivolt - BFO4NAB", "Ponto Frio homepage title is the one expected");
+        test.assertTitle("Fogão Piso 4 Bocas Brastemp Clean Acendimento Automático Inox Bivolt -", "Ponto Frio homepage title is the one expected");
         // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();

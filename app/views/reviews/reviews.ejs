@@ -37,7 +37,7 @@
                   Onde comprar
                 </h4>
               </div>
-              <%- include('../offers/box_prices_offer',{offer:offers.docs[1]}); %> 
+              <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
               <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="false" style="">
                 <% for(var i=1; i <offers.docs.length; i++) { %> 
                   <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
@@ -71,9 +71,13 @@
       <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">
         <div class="panel panel-warning" style="font-size: 15px;">
           <div class="panel-heading">Onde comprar</div>
-            <% for(var i=0; i <offers.docs.length; i++) { %> 
-              <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
-            <% }  %>
+            <% if (offers.docs.length == 1) { %>
+              <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
+            <% } else { %>
+              <% for(var i=0; i <offers.docs.length; i++) { %> 
+                <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
+              <% }  %>
+            <% }  %>           
           </div>
         </div>
       </div>

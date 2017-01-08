@@ -88,6 +88,8 @@ exports.getReviewsByEan = function(req,res){
 			console.log("previous >>",previous);
 			var offers = req.offers;
 			console.log("offers",offers.docs.length);
+			var teste = offers.docs[0];
+			console.log(teste);
 
 			res.render('reviews/reviews',{
 				title: config.title,
@@ -104,6 +106,7 @@ exports.getReviewsByEan = function(req,res){
 				featureToogle: config.reviews_toogle,
 				ean:ean,
 				offerSelected:offerId,
+				head_reviews:teste,
 				offers:offers,
 			});
 

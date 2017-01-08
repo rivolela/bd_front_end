@@ -21,7 +21,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Fogão Brastemp 4 Bocas Clean Timer BFO4TAR Inox - Bivolt', 'should return #name_offer === Fogão Brastemp 4 Bocas Clean Timer BFO4TAR Inox - Bivolt');
+        }, 'Fogão de Piso 4 Bocas Brastemp Clean Timer BFO4TAR Inox Bivolt', 'should return #name_offer === Fogão Brastemp 4 Bocas Clean Timer BFO4TAR Inox - Bivolt');
 
         test.assertElementCount('#img_picture_offer', 1);
         test.assertSelectorHasText('#counter_happy', '17');
@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 4);
-        test.assertElementCount('#img_retailer', 4);
-        test.assertElementCount('#href_offer_price', 4); 
+        test.assertElementCount('#href_ir_loja', 6);
+        test.assertElementCount('#img_retailer', 6);
+        test.assertElementCount('#href_offer_price', 6); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja
@@ -88,7 +88,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function(){
         // test redirect and title offer page 
-        test.assertTitle("Fogão Piso 4 Bocas Brastemp Clean Acendimento Automático Inox Bivolt -", "Ponto Frio homepage title is the one expected");
+        test.assertTitle("Fogão de Piso 4 Bocas Brastemp Clean Timer BFO4TAR Inox Bivolt - Eletrodomésticos - Fogão 4 bocas - Walmart.com", "Walmart homepage title is the one expected");
         // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();

@@ -5,9 +5,9 @@ var validate = require("validate.js");
 var constraints = {
   query: {
     format: {
-      pattern: "[a-z0-9]+",
+      pattern: "[a-z0-9ãáàâíôóõúçéê]+",
       flags: "i",
-      message: "can only contain a-z and 0-9"
+      message: "can only contain a-z ,0-9 and ã,á,à,â,í,ô,ó,õ,ú,ç,é,ê"
     }
   }
 };

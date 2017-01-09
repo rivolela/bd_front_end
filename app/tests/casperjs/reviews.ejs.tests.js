@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 6);
-        test.assertElementCount('#img_retailer', 6);
-        test.assertElementCount('#href_offer_price', 6); 
+        test.assertElementCount('#href_ir_loja', 2);
+        test.assertElementCount('#img_retailer', 2);
+        test.assertElementCount('#href_offer_price', 2); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja

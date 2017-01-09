@@ -17,7 +17,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function() {
 
-        // box_offers.ejs
+        // box_reviews.ejs
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;

@@ -34,9 +34,9 @@
             </td>
             <td width="5px;"></td>
             <td>
-              <a id="counter_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
-                <%= offer.countHappy %>
-              </a>
+             <!--  <a id="counter_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter"> -->
+             <text id="counter_happy"><%= offer.countHappy %></text>
+             <!--  </a> -->
             </td>
                 <td width="20px"></td>
             <td>
@@ -46,9 +46,9 @@
             </td>
             <td width="5px;"></td>
             <td>
-                <a id="counter_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter">
-                <%= offer.countSad %>
-                </a>
+                <!-- <a id="counter_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter"> -->
+                <text id="counter_sad"><%= offer.countSad %></text>
+               <!--  </a> -->
             </td>
           </tr>
         </tbody>

@@ -104,6 +104,41 @@ function validateSearch(req,res,query,next){
 			
 };
 
+/**
+ * @description return pagination of offers page
+ * @param  {data} return of bd services api
+ * @param  {page} current page
+ * @param  {callback} 
+ * @return {from,to,previous,next} 
+ */
+function pagination(data,page,callback){
+
+	if(Number(page) <= data.limit){
+		var to = data.limit;
+		var from = 1;
+		var previous = 0;
+		var next = to + 1;
+	}else{
+		var decimal = Math.floor((Number(page) / data.limit));
+		var to = (decimal + 1) * data.limit;
+		var from = (to - data.limit) + 1;
+		var previous = from - data.limit;
+		var next = to + 1;
+	};
+
+	if(to > data.pages){
+		to = data.pages;
+		next = 0;
+	};
+
+	console.log("from >> ",from);
+	console.log("to >>",to);
+	console.log("next >> ",next);
+	console.log("previous >>",previous);
+
+	return callback(from,to,previous,next);
+}
+
 
 exports.getOffersByQuery = function(req,res,query){
 
@@ -145,44 +180,29 @@ exports.getOffersByQuery = function(req,res,query){
 			}else{
 				console.log(data);
 
-				// date pagination
-				var next = 0;
-				var previous = 1;
-				var start = 1;
+				pagination(data,page,function(from,to,previous,next){
 
-				if(page >= 10){
-					next = Number(page) + 9;
-					previous = Number(page) - 9;
-					start = Number(page)
-				}else{
-					next = 10;
-					previous = 1;
-					start = 1;
-				}
+					res.render('offers/offers',{
+						title: config.title,
+						pagination: {
+							page: page,
+							from:from,
+							to:to,
+							next:next,
+							previous:previous
+						},
+						offers: data,
+						query: query,
+						env: process.env.NODE_ENV,
+						featureToogle: config.offers_toogle,
+					});
 
-				console.log("next >> ",next);
-				console.log("previous >>",previous);
-
-				res.render('offers/offers',{
-					title: config.title,
-					pagination: {
-						next: next,
-						previous: previous,
-						start: start,
-						page: page,
-						pages: data.pages
-					},
-					offers: data,
-					query: query,
-					env: process.env.NODE_ENV,
-					featureToogle: config.offers_toogle,
 				});
-
-			}
+			};
 		});
-	})
+	});
 	
-};
+}
 
 // exports.read = function(req,res){
 // 	console.log("testes server");

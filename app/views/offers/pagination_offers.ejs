@@ -13,15 +13,15 @@
         <input type="hidden" name="page" value="<%= pagination.previous %>"/>
         <input type="hidden" name="query" value="<%= query %>"/>
       </form>
-      <% if (pagination.pages < 10) { %>
-        <li class="disabled">
-          <a href="#" aria-label="Previous">
+      <% if (pagination.previous == 0) { %>
+        <li id="li_hidden_previous" class="disabled">
+          <a id="a_previous" href="#" aria-label="Previous">
              <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
       <% } else { %>
-        <li>
-          <a href="javascript:;" onclick="document.getElementById('formPaginationOffer_previous').submit();" aria-label="Previous">
+        <li id="li_active_previous" >
+          <a id="a_previous" href="javascript:;" onclick="document.getElementById('formPaginationOffer_previous').submit();" aria-label="Previous">
              <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
@@ -31,7 +31,7 @@
 
     <!-- pagination pages number -->
 
-    <% for(var i=pagination.start; i < pagination.next; i++) { %>
+    <% for(var i=pagination.from; i < pagination.to; i++) { %>
 
       <ul id="pagination_numbers_offers" class="pagination">
 
@@ -42,11 +42,11 @@
 
         <% if (i == pagination.page) { %>
           <li class="active">
-            <a href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="false"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class='pagination_active' href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="false"><%= i %></span></a>
           </li>
         <% } else { %>
           <li>
-            <a href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="true"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="true"><%= i %></span></a>
           </li>
         <% } %>
 
@@ -61,15 +61,15 @@
           <input type="hidden" name="page" value="<%= pagination.next %>"/>
           <input type="hidden" name="query" value="<%= query %>"/>
         </form>
-        <% if (pagination.pages < 10) { %>
-          <li class="disabled">
-            <a href="#" ria-label="Next">
+        <% if (pagination.next === 0) { %>
+          <li id="li_hidden_next" class="disabled">
+            <a id="a_next" href="#" ria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
         <% } else { %>
-          <li>
-            <a href="javascript:;" onclick="document.getElementById('formPaginationOffer_next').submit();" aria-label="Next">
+          <li id="li_active_next">
+            <a id="a_next" href="javascript:;" onclick="document.getElementById('formPaginationOffer_next').submit();" aria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

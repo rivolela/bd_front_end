@@ -1,7 +1,7 @@
 var url = "http://localhost:3000/offers";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Offers', 10, function(test) {
+casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
 
     casper.start(url, function() {
 
@@ -17,14 +17,6 @@ casper.test.begin('Phantomjs Tests >> Offers', 10, function(test) {
       test.assertEval(function() {
           return __utils__.findAll("h4").length >= 10;
       }, "offers search for \"casperjs\" retrieves 10 or more total of reviews results");
-
-    }).then(function() {
-
-      // pagination
-
-      test.assertEval(function() {
-          return __utils__.findAll("a").length >= 20;
-      },"links pagination for \"casperjs\" retrieves 10 or more tags<a> in results");
 
     }).then(function() {
 

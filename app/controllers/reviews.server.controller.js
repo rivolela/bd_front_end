@@ -26,6 +26,42 @@ var getErrorMessage = function(err){
 };
 
 
+/**
+ * @description return pagination of offers page
+ * @param  {data} return of bd services api
+ * @param  {page} current page
+ * @param  {callback} 
+ * @return {from,to,previous,next} 
+ */
+function pagination(data,page,callback){
+
+	if(Number(page) <= data.limit){
+		var to = data.limit;
+		var from = 1;
+		var previous = 0;
+		var next = to + 1;
+	}else{
+		var decimal = Math.floor((Number(page) / data.limit));
+		var to = (decimal + 1) * data.limit;
+		var from = (to - data.limit) + 1;
+		var previous = from - data.limit;
+		var next = to + 1;
+	};
+
+	if(to > data.pages){
+		to = data.pages;
+		next = 0;
+	};
+
+	console.log("from >> ",from);
+	console.log("to >>",to);
+	console.log("next >> ",next);
+	console.log("previous >>",previous);
+
+	return callback(from,to,previous,next);
+}
+
+
 
 exports.getReviewsByEan = function(req,res){
 
@@ -65,51 +101,33 @@ exports.getReviewsByEan = function(req,res){
 			});
 		}else{
 			console.log(data);
-			var totalItems = Number(data.total);
-			var totalItemsByPage = Number(data.items);
-			var totalPaginacao = Number(data.pages);
+			
+			pagination(data,page,function(from,to,previous,next){
 
-			// date pagination
-			var next = 0;
-			var previous = 0;
-			var start = 0;
+				var offers = req.offers;
+				console.log("offers",offers.docs.length);
+				var teste = offers.docs[0];
+				console.log(teste);
 
-			if(page >= 10){
-				next = Number(page) + 9;
-				previous = Number(page) - 9;
-				start = Number(page)
-			}else{
-				next = 0;
-				previous = 0;
-				start = 1;
-			}
+				res.render('reviews/reviews',{
+					title: config.title,
+					pagination: {
+						page: page,
+						from:from,
+						to:to,
+						next:next,
+						previous:previous
+					},
+					reviews: data,
+					env: process.env.NODE_ENV,
+					featureToogle: config.reviews_toogle,
+					ean:ean,
+					offerSelected:offerId,
+					head_reviews:teste,
+					offers:offers,
+				});
 
-			console.log("next >> ",next);
-			console.log("previous >>",previous);
-			var offers = req.offers;
-			console.log("offers",offers.docs.length);
-			var teste = offers.docs[0];
-			console.log(teste);
-
-			res.render('reviews/reviews',{
-				title: config.title,
-				pagination: {
-					totalPaginacao:totalPaginacao + 1,
-					next: next,
-					previous: previous,
-					start: start,
-					page: page,
-					pages: data.pages
-				},
-				reviews: data,
-				env: process.env.NODE_ENV,
-				featureToogle: config.reviews_toogle,
-				ean:ean,
-				offerSelected:offerId,
-				head_reviews:teste,
-				offers:offers,
-			});
-
+			});					
 		}
 	});
 

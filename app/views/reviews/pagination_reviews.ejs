@@ -9,15 +9,15 @@
     <!-- previous -->
 
     <ul id="pagination_previous_reviews" class="pagination">
-        <% if (pagination.pages < 10) { %>
-          <li class="disabled">
-            <a href="#" aria-label="Previous">
+        <% if (pagination.previous == 0) { %>
+          <li id="li_hidden_previous" class="disabled">
+            <a id="a_previous"  href="#" aria-label="Previous">
                <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
          <% } else { %>
-          <li>
-            <a href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= pagination.previous %>" aria-label="Previous">
+          <li id="li_active_previous" >
+            <a id="a_previous" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= pagination.previous %>" aria-label="Previous">
                <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
@@ -26,17 +26,17 @@
 
     <!-- pagination pages number -->
 
-    <% for(var i=pagination.start; i < pagination.totalPaginacao; i++) { %>
+    <% for(var i=pagination.from; i <= pagination.to; i++) { %>
 
       <ul id="pagination_numbers_reviews" class="pagination">
 
         <% if (i == pagination.page) { %>
           <li class="active">
-            <a id="link_pagination" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= i %>"><span aria-hidden="false"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class='pagination_active' href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= i %>"><span aria-hidden="false"><%= i %></span></a>
           </li>
         <% } else { %>
           <li>
-            <a id="link_pagination" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= i %>"><span aria-hidden="true"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= i %>"><span aria-hidden="true"><%= i %></span></a>
           </li>
         <% } %>
 
@@ -47,15 +47,15 @@
       <!-- next -->
 
       <ul id="pagination_next_reviews" class="pagination">
-        <% if (pagination.pages < 10) { %>
-          <li class="disabled">
-            <a href="#" ria-label="Next">
+        <% if (pagination.next == 0) { %>
+          <li id="li_hidden_next" class="disabled">
+            <a id="a_next" href="#" ria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
          <% } else { %>
-          <li>
-            <a href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= pagination.next %>" aria-label="Next">
+          <li id="li_active_next">
+            <a id="a_next" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= pagination.next %>" aria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

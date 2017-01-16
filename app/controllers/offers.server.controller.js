@@ -184,6 +184,7 @@ exports.getOffersByQuery = function(req,res,query){
 
 					res.render('offers/offers',{
 						title: config.title,
+						slogan: config.slogan,
 						pagination: {
 							page: page,
 							from:from,

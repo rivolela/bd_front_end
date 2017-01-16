@@ -111,6 +111,7 @@ exports.getReviewsByEan = function(req,res){
 
 				res.render('reviews/reviews',{
 					title: config.title,
+					slogan: config.slogan,
 					pagination: {
 						page: page,
 						from:from,

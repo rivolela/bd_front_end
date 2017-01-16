@@ -29,10 +29,7 @@ module.exports = function(){
 		}));
 	app.set('view engine','ejs');
 	app.set('views','./app/views');
-	// app.set('view options', { 
-	// 	layout:false, 
-	// 	root:'./app/views'} 
-	// );
+
 	app.use(flash());
 	app.use(passport.initialize());
 	app.use(passport.session());
@@ -42,6 +39,7 @@ module.exports = function(){
 	require('../app/routes/articles.server.routes.js')(app);
 	require('../app/routes/offers.server.routes.js')(app);
 	require('../app/routes/reviews.server.routes.js')(app);
+	require('../app/routes/categories.server.routes.js')(app);
 
 	return app;
 };

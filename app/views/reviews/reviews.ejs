@@ -10,7 +10,17 @@
      <!-- Begin page content -->
     <div class="container-fluid">
 
-      <%- include('../offers/search_offers') %>
+      <nav class="navbar navbar-default navbar-fixed-top nav_bd" role="navigation">
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <%- include('../partials/nav_head') %> 
+            <%- include('../offers/search_offers') %>
+          </div>
+        </row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div_slogan">
+          <p class="text-muted"><%= slogan %></p>
+        </div>
+      </nav>  
 
       <!-- column 01 >> box reviews ,list reviews and pagination -->
       <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">     

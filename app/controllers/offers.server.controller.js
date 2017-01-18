@@ -190,10 +190,12 @@ exports.getOffersByQuery = function(req,res,query){
 							from:from,
 							to:to,
 							next:next,
-							previous:previous
+							previous:previous,
+							pages:data.pages
 						},
 						offers: data,
 						query: query,
+						total: data.total,
 						env: process.env.NODE_ENV,
 						featureToogle: config.offers_toogle,
 					});

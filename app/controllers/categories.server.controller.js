@@ -25,7 +25,7 @@ function pagination(data,page,callback){
 		var next = to + 1;
 	};
 
-	if(to > data.pages){
+	if(to >= data.pages){
 		to = data.pages;
 		next = 0;
 	};
@@ -42,7 +42,7 @@ function pagination(data,page,callback){
 exports.getOffersByQuery = function(req,res,query){
 
 		
-	var category = req.params.categories;
+	var category = req.params.category;
 	var page = req.params.page;
 
 	var url = config.service_host + "/api/offers/bd/query/" + category + "/page/" + page + "/limit/10";
@@ -58,6 +58,7 @@ exports.getOffersByQuery = function(req,res,query){
 			res.render('partials/error',{
 				title: config.title,
 				message: config.message_search_error,
+				slogan: config.slogan,
 				env: process.env.NODE_ENV
 			});
 		}
@@ -67,6 +68,7 @@ exports.getOffersByQuery = function(req,res,query){
 			res.render('partials/error',{
 				title: config.title,
 				message: message,
+				slogan: config.slogan,
 				env: process.env.NODE_ENV
 			});
 		}
@@ -88,11 +90,13 @@ exports.getOffersByQuery = function(req,res,query){
 						from:from,
 						to:to,
 						next:next,
-						previous:previous
+						previous:previous,
+						pages:data.pages
 					},
 					offers: data,
 					category:category,
 					query: query,
+					total: data.total,
 					env: process.env.NODE_ENV,
 					featureToogle: config.offers_toogle,
 				});

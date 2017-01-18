@@ -13,13 +13,7 @@
         <input type="hidden" name="page" value="<%= pagination.previous %>"/>
         <input type="hidden" name="query" value="<%= query %>"/>
       </form>
-      <% if (pagination.previous == 0) { %>
-        <li id="li_hidden_previous" class="disabled">
-          <a id="a_previous" href="#" aria-label="Previous">
-             <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-      <% } else { %>
+      <% if (pagination.previous != 0) { %>
         <li id="li_active_previous" >
           <a id="a_previous" href="javascript:;" onclick="document.getElementById('formPaginationOffer_previous').submit();" aria-label="Previous">
              <span aria-hidden="true">&laquo;</span>
@@ -32,23 +26,29 @@
     <!-- pagination pages number -->
 
     <% for(var i=pagination.from; i < pagination.to; i++) { %>
-
+      
       <ul id="pagination_numbers_offers" class="pagination">
 
         <form id="formPaginationOffer_<%= i %>" action="/offers" method="post">
           <input type="hidden" name="page" value="<%= i %>"/>
           <input type="hidden" name="query" value="<%= query %>"/>
         </form>
+        
+        <%# this conditional exists because of bug regarding to list offers < 10 offers %>
+        <%# remove after fix to issue %>
+        <% if (pagination.pages > 2) { %>
 
-        <% if (i == pagination.page) { %>
-          <li class="active">
-            <a id='a_pagination_<%= i %>' class='pagination_active' href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="false"><%= i %></span></a>
-          </li>
-        <% } else { %>
-          <li>
-            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="true"><%= i %></span></a>
-          </li>
-        <% } %>
+          <% if (i == pagination.page) { %>
+            <li class="active">
+              <a id='a_pagination_<%= i %>' class='pagination_active' href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="false"><%= i %></span></a>
+            </li>
+          <% } else { %>
+            <li>
+              <a id='a_pagination_<%= i %>' class="pagination_disabled" href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="true"><%= i %></span></a>
+            </li>
+          <% } %>
+
+       <% } %>
 
       </ul>
 
@@ -61,13 +61,7 @@
           <input type="hidden" name="page" value="<%= pagination.next %>"/>
           <input type="hidden" name="query" value="<%= query %>"/>
         </form>
-        <% if (pagination.next === 0) { %>
-          <li id="li_hidden_next" class="disabled">
-            <a id="a_next" href="#" ria-label="Next">
-               <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        <% } else { %>
+        <% if (pagination.next != 0) { %>
           <li id="li_active_next">
             <a id="a_next" href="javascript:;" onclick="document.getElementById('formPaginationOffer_next').submit();" aria-label="Next">
                <span aria-hidden="true">&raquo;</span>

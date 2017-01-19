@@ -96,7 +96,8 @@ function validateSearch(req,res,query,next){
 		res.render('partials/error',{
 			title: config.title,
 			message: config.message_search_validate,
-			env: process.env.NODE_ENV
+			env: process.env.NODE_ENV,
+			slogan: config.slogan,
 		});
 	}else{
 		return next(query,page);	
@@ -160,6 +161,7 @@ exports.getOffersByQuery = function(req,res,query){
 				res.render('partials/error',{
 					title: config.title,
 					message: config.message_search_error,
+					slogan: config.slogan,
 					env: process.env.NODE_ENV
 				});
 			}
@@ -169,6 +171,7 @@ exports.getOffersByQuery = function(req,res,query){
 				res.render('partials/error',{
 					title: config.title,
 					message: message,
+					slogan: config.slogan,
 					env: process.env.NODE_ENV
 				});
 			}

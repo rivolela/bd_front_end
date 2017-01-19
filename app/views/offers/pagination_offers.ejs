@@ -25,7 +25,7 @@
 
     <!-- pagination pages number -->
 
-    <% for(var i=pagination.from; i < pagination.to; i++) { %>
+    <% for(var i=pagination.from; i <= pagination.to; i++) { %>
       
       <ul id="pagination_numbers_offers" class="pagination">
 
@@ -34,21 +34,15 @@
           <input type="hidden" name="query" value="<%= query %>"/>
         </form>
         
-        <%# this conditional exists because of bug regarding to list offers < 10 offers %>
-        <%# remove after fix to issue %>
-        <% if (pagination.pages > 2) { %>
-
-          <% if (i == pagination.page) { %>
-            <li class="active">
-              <a id='a_pagination_<%= i %>' class='pagination_active' href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="false"><%= i %></span></a>
-            </li>
-          <% } else { %>
-            <li>
-              <a id='a_pagination_<%= i %>' class="pagination_disabled" href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="true"><%= i %></span></a>
-            </li>
-          <% } %>
-
-       <% } %>
+        <% if (i == pagination.page) { %>
+          <li class="active">
+            <a id='a_pagination_<%= i %>' class='pagination_active' href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="false"><%= i %></span></a>
+          </li>
+        <% } else { %>
+          <li>
+            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="true"><%= i %></span></a>
+          </li>
+        <% } %>
 
       </ul>
 

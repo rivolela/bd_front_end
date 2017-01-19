@@ -19,7 +19,7 @@ module.exports = function(grunt){
 				script:'server.js',
 				options:{
 					ext:'js,html,less,css',
-					watch:['server.js','config/**/*.js','app/**/*.js','public/**/*.html','public/css/**/*.less','public/**/*.js','public/**/*.css','app/views/*.ejs']
+					watch:['server.js','config/**/*.js','app/**/*.js','public/**/*.html','public/less/**/*.less','public/**/*.js','public/css/**/*.css','app/views/**/*.ejs']
 				}
 			},
 			debug:{
@@ -44,7 +44,7 @@ module.exports = function(grunt){
     			silent: false
     		},
     		files:['app/tests/casperjs/**/*.js']
-    		//files:['app/tests/casperjs/**/pagination_reviews.tests.js']
+    		// files:['app/tests/casperjs/reviews/**/*.js']
   		},
 		jshint:{
 			all:{
@@ -67,10 +67,14 @@ module.exports = function(grunt){
           			yuicompress: true,
           			optimization: 2
         		},
-        		files: {
-          			"public/css/custom_bootstrap.css": "public/css/custom_bootstrap.less" // destination file and source file,
-
-        		}
+        		files: [{
+          			// "public/css/custom_bootstrap.css": "public/css/custom_bootstrap.less" // destination file and source file,
+          			expand: true,
+    				cwd: 'public/less/',
+    				src: ['*.less'],
+    				dest: 'public/css/',
+    				ext: '.css'
+        		}]
       		}
    		},
 		watch:{
@@ -80,8 +84,6 @@ module.exports = function(grunt){
 						'app/**/*.js',
 						'gruntfile.js',
 						'public/**/*.js',
-						'public/css/*.css',
-						'public/css/*.less',
 						'app/views/**/*.ejs'],
 				options:{
 					livereload: true
@@ -92,8 +94,11 @@ module.exports = function(grunt){
 				files:'public/css/**/*.css',
 				tasks:['csslint']
 			},
+			less:{
+				files:'public/less/**/*.less',
+			},
 			styles: {
-        		files: ['public/css/**/*.less'], // which files to watch
+        		files: ['public/less/**/*.less'], // which files to watch
         		tasks: ['less:dev'],
         		options: {
           			nospawn: true

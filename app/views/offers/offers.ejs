@@ -2,18 +2,7 @@
 <html lang="en">
   <head>
     <title><%= title %></title>
-    <%- include('../partials/head') %> 
-
-    <style type="text/css">
-      #title_category.page-header {
-        margin-top: -30px;
-        margin-left: 20px;
-      }
-
-      #title_category.page-header :first-letter {
-        text-transform:capitalize;
-      }
-    </style>     
+    <%- include('../partials/head') %>     
   </head>
 
   <body>
@@ -27,7 +16,7 @@
         <h4><%= query %> <small><%= total %> ofertas</small></h4>
       </div>
                     
-      <% for(var i=0; i <offers.docs.length; i++) { %>
+      <% for(var i=0; i<offers.docs.length; i++) { %>
       
         <%# if ean exists %>
 

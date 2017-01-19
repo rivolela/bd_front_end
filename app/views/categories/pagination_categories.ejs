@@ -11,7 +11,7 @@
     <ul id="pagination_previous_categories" class="pagination">
       <% if (pagination.previous != 0) { %>
         <li id="li_active_previous" >
-          <a id="a_previous" href="/categories/<%= category%>/page/<%= pagination.previous %>" oaria-label="Previous">
+          <a id="a_previous" href="/categoria/<%= category%>/page/<%= pagination.previous %>" oaria-label="Previous">
              <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
@@ -21,32 +21,28 @@
 
     <!-- pagination pages number -->
 
-    <% for(var i=pagination.from; i < pagination.to; i++) { %>     
-      
-      <%# this conditional exists because of bug regarding to list offers < 10 offers %>
-      <%# remove after fix to issue %>
-      <% if (pagination.pages > 2) { %>
+    <% for(var i=pagination.from; i <= pagination.to; i++) { %>     
+
         <ul id="pagination_numbers_categories" class="pagination">
           <% if (i == pagination.page) { %>
             <li class="active">
-              <a href="/categories/<%= category%>/page/<%= i %>" class='pagination_active'><%= i %></a> 
+              <a href="/categoria/<%= category%>/page/<%= i %>" class='pagination_active'><%= i %></a> 
             </li>
           <% } else { %>
             <li>
-              <a href="/categories/<%= category%>/page/<%= i %>" class='pagination_active'><%= i %></a> 
+              <a href="/categoria/<%= category%>/page/<%= i %>" class='pagination_disabled'><%= i %></a> 
             </li>
           <% } %>
         </ul>
        <% } %>
 
-    <% } %>
 
       <!-- next -->
 
       <ul id="pagination_next_categories" class="pagination">
         <% if (pagination.next != 0) { %>
           <li id="li_active_next">
-            <a id="a_next" href="/categories/<%= category%>/page/<%= pagination.next %>" aria-label="Next">
+            <a id="a_next" href="/categoria/<%= category%>/page/<%= pagination.next %>" aria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

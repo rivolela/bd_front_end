@@ -1,5 +1,5 @@
 // casper.options.viewportSize = {width: 1024, height: 768};
-var url = "http://localhost:3000/reviews/7891129233645/offer/5870a8ef4c116a0400ddcf2d/page/1";
+var url = "http://localhost:3000/reviews/7891129234093/offer/58807a882fe80b0400ecd620/page/1";
 //var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);
@@ -21,26 +21,26 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Fogão Piso 4 Bocas Brastemp Clean Acendimento Automático Inox Bivolt - BFO4TAR', 'should return #name_offer === Fogão Piso 4 Bocas Brastemp Clean Acendimento Automático Inox Bivolt - BFO4TAR');
+        }, 'Geladeira Brastemp Inverse Viva 422 Litros', 'should return #name_offer === Geladeira Brastemp Inverse Viva 422 Litros"');
 
         test.assertElementCount('#img_picture_offer', 1);
-        test.assertSelectorHasText('#counter_happy', '17');
-        test.assertSelectorHasText('#counter_sad', '1');
+        test.assertSelectorHasText('#counter_happy', '0');
+        test.assertSelectorHasText('#counter_sad', '2');
 
     }).then(function() {
 
         // list_reviews.ejs
 
-        test.assertElementCount('#review_title', 10);
-        test.assertElementCount('#bd_boy_review', 10);
-        test.assertElementCount('#review_description', 10);
-        test.assertElementCount('#review_author', 10);
+        test.assertElementCount('#review_title', 2);
+        test.assertElementCount('#bd_boy_review', 2);
+        test.assertElementCount('#review_description', 2);
+        test.assertElementCount('#review_author', 2);
 
     }).then(function(){
 
         // pagination_reviews.ejs
 
-        test.assertElementCount('#pagination_numbers_reviews', 2);
+        test.assertElementCount('#pagination_numbers_reviews', 1);
 
     }).then(function(){
         
@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 4);
-        test.assertElementCount('#img_retailer', 4);
-        test.assertElementCount('#href_offer_price', 4); 
+        test.assertElementCount('#href_ir_loja', 2);
+        test.assertElementCount('#img_retailer', 2);
+        test.assertElementCount('#href_offer_price', 2); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja
@@ -88,7 +88,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function(){
         // test redirect and title offer page 
-        test.assertTitle("Fogão Piso 4 Bocas Brastemp Clean Acendimento Automático Inox Bivolt -", "Walmart homepage title is the one expected");
+        test.assertTitle("Geladeira Brastemp Inverse Viva 422 Litros - 220V - Eletrodomésticos - 2 Portas - Duplex - Walmart.com", "Walmart homepage title is the one expected");
         // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();

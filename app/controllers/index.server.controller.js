@@ -5,7 +5,7 @@ exports.render = function(req,res){
 	// 	title:'Hello World',
 	// 	user: JSON.stringify(req.user)
 	// });
-	res.render('lp',{
+	res.render('lp/lp',{
 		title:config.title,
 		featureToogle: config.lp_toogle,
 		env: process.env.NODE_ENV

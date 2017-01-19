@@ -14,16 +14,10 @@ casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
 
     }).then(function() {
 
-      test.assertEval(function() {
-          return __utils__.findAll("h4").length >= 10;
-      }, "offers search for \"casperjs\" retrieves 10 or more total of reviews results");
-
-    }).then(function() {
-
       // bd  boys counter
 
-      test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
-      test.assertElementCount('#href_bd_boy_sad', 10,"offers search for casperjs retrieves 20 href_bd_boy_sad selectors");
+      test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 10 href_bd_boy_happy selectors");
+      test.assertElementCount('#href_bd_boy_sad', 10,"offers search for casperjs retrieves 10 href_bd_boy_sad selectors");
 
     }).then(function(){
 
@@ -39,6 +33,11 @@ casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
         test.assertEquals(bd_boy_value,"avaliações com \n4 ou 5 estrelas\n" ,"bd boy happy mouseover has text >> 'avaliações com 4 ou 5 estrelas'");
 
     }).then(function(){
+
+      // term searched
+      test.assertEvalEquals(function() {
+            return __utils__.findOne('#title_category').textContent;
+      }, '\n        geladeira 200 ofertas\n      ');
 
       // tool_tip_bd_boy_sad.ejs
 

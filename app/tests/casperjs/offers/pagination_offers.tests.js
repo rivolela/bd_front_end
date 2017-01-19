@@ -1,7 +1,7 @@
 var url = "http://localhost:3000/offers";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Offers pagination', 16, function(test) {
+casper.test.begin('Phantomjs Tests >> Offers pagination', 12, function(test) {
 
     casper.start(url, function() {
 
@@ -19,19 +19,17 @@ casper.test.begin('Phantomjs Tests >> Offers pagination', 16, function(test) {
       // pagination from 1 to 9
       this.echo('Pagination >> 1 to 9');
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 8); 
+      test.assertElementCount('.pagination_disabled', 9); 
 
       // previous    
-      test.assertElementCount('#li_hidden_previous', 1); 
-      test.assertElementCount('#li_active_previous', 0); 
+      test.assertElementCount('#a_previous', 0); 
 
       // next
-      test.assertElementCount('#li_hidden_next', 0); 
-      test.assertElementCount('#li_active_next', 1); 
+      test.assertElementCount('#a_next', 1); 
 
       // go to pagination 10
       this.evaluate(function() {
-         $('#a_next').click();  
+         document.getElementById("a_next").click(); 
       });
 
     }).then(function(){
@@ -39,25 +37,23 @@ casper.test.begin('Phantomjs Tests >> Offers pagination', 16, function(test) {
       this.echo('Pagination >> 10 to 11');
 
       // previous    
-      test.assertElementCount('#li_hidden_previous', 0); 
-      test.assertElementCount('#li_active_previous', 1); 
+      test.assertElementCount('#a_previous', 1); 
 
       // next
-      test.assertElementCount('#li_hidden_next', 1); 
-      test.assertElementCount('#li_active_next', 0); 
+      test.assertElementCount('#a_next', 0); 
 
       // pagination 10 to 11
       test.assertElementCount('.pagination_active', 1); 
       test.assertElementCount('.pagination_disabled', 0); 
 
       // go to pagination 01
-      this.evaluate(function() {
-         $('#a_previous').click();  
+      this.evaluate(function() {  
+          document.getElementById("a_previous").click(); 
       });
 
     }).then(function(){
       // back do pagination 01
-      test.assertElementCount('.pagination_disabled', 8); 
+      test.assertElementCount('.pagination_disabled', 9); 
     }).run(function() {
       test.done();
     });

@@ -15,7 +15,31 @@
           <% } else if (offer.advertiser == 'Pontofrio BR') { %>
             <a href="<%= offer.url %>" target="_blank">
               <img id="img_retailer" class="img-responsive ponto_frio">
-            </a>  
+            </a>
+          <% } else if (offer.advertiser == 'Extra BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img id="img_retailer" class="img-responsive extra">
+            </a>
+          <% } else if (offer.advertiser == 'Casas Bahia BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img id="img_retailer" class="img-responsive casas_bahia">
+            </a>
+          <% } else if (offer.advertiser == 'Brastemp BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img id="img_retailer" class="img-responsive brastemp">
+            </a>
+          <% } else if (offer.advertiser == 'Consul BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img id="img_retailer" class="img-responsive ponto_frio">
+            </a>
+          <% } else if (offer.advertiser == 'Pontofrio BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img id="img_retailer" class="img-responsive consul">
+            </a> 
+          <% } else if (offer.advertiser == 'Girafa BR') { %>
+            <a href="<%= offer.url %>" target="_blank">
+              <img id="img_retailer" class="img-responsive girafa">
+            </a>            
           <% } else { %>
             <a href="<%= offer.url %>" target="_blank">
               <img id="img_retailer" class="img-responsive lojas_colombo">

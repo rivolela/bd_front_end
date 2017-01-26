@@ -1,5 +1,5 @@
 // casper.options.viewportSize = {width: 1024, height: 768};
-var url = "http://localhost:3000/reviews/7891129234093/offer/58807a882fe80b0400ecd620/page/1";
+var url = "http://localhost:3000/reviews/7891129233621/offer/588958555ae7250400b3877b/page/1";
 //var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);
@@ -21,26 +21,26 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Geladeira Brastemp Inverse Viva 422 Litros', 'should return #name_offer === Geladeira Brastemp Inverse Viva 422 Litros"');
+        }, 'Fogão 4 Bocas Brastemp Clean BIVOLT', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean BIVOLT');
 
         test.assertElementCount('#img_picture_offer', 1);
-        test.assertSelectorHasText('#counter_happy', '0');
+        test.assertSelectorHasText('#counter_happy', '16');
         test.assertSelectorHasText('#counter_sad', '2');
 
     }).then(function() {
 
         // list_reviews.ejs
 
-        test.assertElementCount('#review_title', 2);
-        test.assertElementCount('#bd_boy_review', 2);
-        test.assertElementCount('#review_description', 2);
-        test.assertElementCount('#review_author', 2);
+        test.assertElementCount('#review_title', 10);
+        test.assertElementCount('#bd_boy_review', 10);
+        test.assertElementCount('#review_description', 10);
+        test.assertElementCount('#review_author', 10);
 
     }).then(function(){
 
         // pagination_reviews.ejs
 
-        test.assertElementCount('#pagination_numbers_reviews', 1);
+        test.assertElementCount('#pagination_numbers_reviews', 2);
 
     }).then(function(){
         
@@ -88,7 +88,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function(){
         // test redirect and title offer page 
-        test.assertTitle("Geladeira Brastemp Inverse Viva 422 Litros - 220V - Eletrodomésticos - 2 Portas - Duplex - Walmart.com", "Walmart homepage title is the one expected");
+        test.assertTitle("Fogão 4 Bocas Brastemp Clean - Brastemp - Brastemp", "Brastemp homepage title is the one expected");
         // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();

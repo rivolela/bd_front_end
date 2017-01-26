@@ -37,7 +37,7 @@ casper.test.begin('Phantomjs Tests >> Offers', 9, function(test) {
       // term searched
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n        geladeira 200 ofertas\n      ');
+      }, '\n        geladeira 57 ofertas\n      ');
 
       // tool_tip_bd_boy_sad.ejs
 

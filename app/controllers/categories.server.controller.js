@@ -45,6 +45,10 @@ exports.getOffersByQuery = function(req,res,query){
 	var category = req.params.category;
 	var page = req.params.page;
 
+	if ((page === undefined ) || (page < 0)){
+		page = 1;
+	};
+
 	var url = config.service_host + "/api/offers/bd/query/" + category + "/page/" + page + "/limit/10";
 
 	console.log(url);

@@ -15,9 +15,13 @@
     <!-- total of reviews -->
     <h4>
       <% if (offer.totalReviews == 1) { %>
-        <%= offer.totalReviews %> avaliação 
+        <a id="a_total_reviews" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/0'>
+        <%= offer.totalReviews %> avaliação
+        </a> 
       <% } else { %>
+        <a id="a_total_reviews" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/0'>
         <%= offer.totalReviews %> avaliações 
+        </a> 
       <% } %>
     </h4>
 
@@ -27,29 +31,61 @@
        <table id="tbl_box_reviews">
         <tbody>
           <tr>
+
             <td>
-              <a id="teste" href='#' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip">
-                <img  class="img-responsive bd_boy_happy">
-              </a>
+              <% if (offer.countHappy  > 0) { %>
+                <a id="a_bd_boy_happy_icon" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/1' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip">
+                  <% if ((filter == 1) || (filter == 0)){ %>
+                    <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
+                  <% } else { %>
+                    <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off">
+                  <% } %>
+                </a>
+              <% } else { %>
+                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy bd_boy_happy_tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>">
+              <% } %>
             </td>
+
             <td width="5px;"></td>
+
             <td>
-             <!--  <a id="counter_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter"> -->
-             <text id="counter_happy"><%= offer.countHappy %></text>
-             <!--  </a> -->
+              <% if (offer.countHappy  > 0) { %>
+                <a id="counter_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/1' class="a_couter">
+                  <text id="counter_happy"><%= offer.countHappy %></text>
+                </a>
+              <% } else { %>
+                <text id="counter_happy"><%= offer.countHappy %></text>
+              <% } %>         
             </td>
-                <td width="20px"></td>
+            
+            <td width="20px"></td>
+
             <td>
-              <a href='#' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip">
-                <img class="img-responsive bd_boy_sad">
-              </a>
+              <% if (offer.countSad  > 0) { %>
+                <a id="a_bd_boy_sad_icon" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/2' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip">
+                  <% if ((filter == 2) || (filter == 0)) { %>
+                    <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
+                  <% } else { %>
+                    <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off">
+                  <% } %>
+                </a>
+              <% } else { %>
+                  <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad bd_boy_sad_tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>">
+              <% } %>
             </td>
+
             <td width="5px;"></td>
+
             <td>
-                <!-- <a id="counter_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' class="a_couter"> -->
+              <% if (offer.countSad  > 0) { %>
+                <a id="counter_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/2' class="a_couter">
+                  <text id="counter_sad"><%= offer.countSad %></text>
+                </a>
+              <% } else { %>
                 <text id="counter_sad"><%= offer.countSad %></text>
-               <!--  </a> -->
+              <% } %>
             </td>
+
           </tr>
         </tbody>
       </table>

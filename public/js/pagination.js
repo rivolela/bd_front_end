@@ -17,7 +17,7 @@ $(document).ready(function() {
 	}
 
 	$('a[data-toggle=tooltip]').tooltip();
-
+	$('img[data-toggle=tooltip]').tooltip();
 });
 
 

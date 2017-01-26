@@ -6,6 +6,8 @@ module.exports = function(app){
 	app.route('/reviews/:reviews/offer/:offer/page/:page')
 		.get(reviews.getReviewsByEan);
 
+	app.route('/reviews/:reviews/offer/:offer/page/:page/filter/:filter')
+		.get(reviews.getReviewsByEan);
 	// app.route('/api/articles/:articleId')
 	// 	.get(articles.read)
 	// 	.put(users.requireLogin,articles.hasAuthorization,articles.update)

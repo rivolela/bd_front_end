@@ -27,7 +27,7 @@ var getErrorMessage = function(err){
 
 
 /**
- * @description return pagination of offers page
+ * @description return pagination of reviews page
  * @param  {data} return of bd services api
  * @param  {page} current page
  * @param  {callback} 
@@ -68,12 +68,17 @@ exports.getReviewsByEan = function(req,res){
 	var ean = req.params.reviews;
 	var offerId = req.params.offer;
 	var page = req.params.page;
+	var filter = req.params.filter;
 
 	if ((page === undefined ) || (page < 0)){
 		page = 1;
 	}
 
-	var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10";
+	if ((filter === undefined ) || (filter < 0)){
+		filter = 0;
+	}
+
+	var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10/filter/" + filter ;
 
 	console.log(url);
 
@@ -117,7 +122,8 @@ exports.getReviewsByEan = function(req,res){
 						from:from,
 						to:to,
 						next:next,
-						previous:previous
+						previous:previous,
+						pages:data.pages
 					},
 					reviews: data,
 					env: process.env.NODE_ENV,
@@ -126,6 +132,7 @@ exports.getReviewsByEan = function(req,res){
 					offerSelected:offerId,
 					head_reviews:teste,
 					offers:offers,
+					filter:filter
 				});
 
 			});					

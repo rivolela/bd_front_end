@@ -7,23 +7,26 @@
       	<span class="icon-bar"></span>
      		<span class="icon-bar"></span>
     	</button> 
-    	<a class="navbar-brand brand_img visible-xs container-fluid" href="/offers">
+    	<a class="navbar-brand brand_img visible-xs container-fluid" href="/home">
     	</a>  
   	</div>
 
   	<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-		<ul class="nav navbar-nav">
+		  <ul class="nav navbar-nav">
 	      <!-- <li class="navbar-left"><a href="#">Left 1</a></li> 
 	      <li class="navbar-left"><a href="#">Left 2</a></li>  -->
 	  <!--     <div class="visible-xs"> -->
+        <!-- Menu categorias mobile -->
         <li style="line-height: 1px;" class="visible-xs">    
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
-              Eletrodomésticos <span class="caret"></span>
-              </a>
-              <%- include('../categories/menu_cat_household') %>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Eletrodomésticos <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu_cat_household') %>
 	      </li>
+         <!-- End categorias mobile -->
       <!--   </div> -->
-
+        
+        <!-- Menu categorias desktop -->
 	      <li>
 	       <div class="btn-group hidden-xs">
   	       <button id="btn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="margin-left: 5px;">
@@ -42,27 +45,34 @@
             </ul>
           </div>
 	      </li>
-        
+        <!-- End categorias desktop -->
 
-     
+        <!-- Logo BD desktop -->
 	      <li class="hidden-xs">
-	        <a class="brand_bd brand_img container-fluid" href="/offers">
+	        <a class="brand_bd brand_img container-fluid" href="/home">
 	        </a>
 	      </li>
-
+        <!-- End BD desktop -->
+        
+        <!-- Search Offer desktop -->
 	      <li class="hidden-xs"><%- include('../offers/search_offers') %></li>
 	      <!--   <li class="navbar-right"><a href="#">Right 1</a></li>
 	      <li class="navbar-right"><a href="#">Right 2</a></li> -->
+        <!-- End Search Offer desktop -->
 		</ul>
-	</div>
-
+	 </div>
+  
+  <!-- Search Offer mobile -->
 	<div class="visible-xs">
 	  <%- include('../offers/search_offers') %>
 	</div>
-	   
+  <!-- End Search Offer mobile -->
+	
+  <!-- Slogan -->   
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div_slogan">
 	    <p class="text-muted"><%= slogan %></p>
 	</div>
+  <!-- End Slogan -->
 
 </nav>
 

@@ -1,10 +1,10 @@
-var offers = require('../controllers/offers.server.controller');
+var home = require('../controllers/home.server.controller');
 
 module.exports = function(app){
 	
-	app.route('/offers/')
-		.post(offers.getOffersByQuery)
-		.get(offers.getOffersByQuery);
+	app.route('/home/')
+		.post(home.getOffersByQuery)
+		.get(home.getOffersByQuery);
 
 	// app.route('/api/articles/:articleId')
 	// 	.get(articles.read)

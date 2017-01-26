@@ -1,3 +1,3 @@
 $( "#btn_close_error" ).click(function() {
-  window.location.replace("/offers");
+  window.location.replace("/home");
 });

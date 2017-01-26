@@ -9,7 +9,7 @@
     <!-- previous -->
 
     <ul id="pagination_previous_offers" class="pagination">
-      <form id="formPaginationOffer_previous" action="/offers" method="post">
+      <form id="formPaginationOffer_previous" action="/home" method="post">
         <input type="hidden" name="page" value="<%= pagination.previous %>"/>
         <input type="hidden" name="query" value="<%= query %>"/>
       </form>
@@ -29,7 +29,7 @@
       
       <ul id="pagination_numbers_offers" class="pagination">
 
-        <form id="formPaginationOffer_<%= i %>" action="/offers" method="post">
+        <form id="formPaginationOffer_<%= i %>" action="/home" method="post">
           <input type="hidden" name="page" value="<%= i %>"/>
           <input type="hidden" name="query" value="<%= query %>"/>
         </form>
@@ -51,7 +51,7 @@
       <!-- next -->
 
       <ul id="pagination_next_offers" class="pagination">
-        <form id="formPaginationOffer_next" action="/offers" method="post">
+        <form id="formPaginationOffer_next" action="/home" method="post">
           <input type="hidden" name="page" value="<%= pagination.next %>"/>
           <input type="hidden" name="query" value="<%= query %>"/>
         </form>

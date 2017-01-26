@@ -37,7 +37,7 @@ module.exports = function(){
 	require('../app/routes/index.server.routes.js')(app);
 	require('../app/routes/users.server.routes.js')(app);
 	require('../app/routes/articles.server.routes.js')(app);
-	require('../app/routes/offers.server.routes.js')(app);
+	require('../app/routes/home.server.routes.js')(app);
 	require('../app/routes/reviews.server.routes.js')(app);
 	require('../app/routes/categories.server.routes.js')(app);
 

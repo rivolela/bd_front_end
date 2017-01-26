@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= title %></title>
+    <%- include('../partials/head') %> 
+    <meta name="description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
+    <meta name="keywords" content="avaliações, avaliações de produtos, before deciding, comparador de avalições, reviews, reviews de produtos, comparador de reviews, avaliações de e-commerce" />
+    <meta property="og:title" content="Before Deciding | Veja avaliações antes de comprar." />
+    <meta property="og:description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
+    <link rel="canonical" href="http://www.beforedeciding.com.br" />    
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <div class="container-fluid">
+
+      <%- include('../partials/nav_head') %> 
+
+      <%- include('../categories/categories_title') %> 
+      
+      <form>
+        <div class="form-group">
+          <select class="form-control" name="resultOrder">
+            <option selected="selected" value="9">Ordenar</option>
+            <option label="total de reviews" value="9"></option>
+            <option label="reviews positivos" value="9"></option>
+            <option label="reviews negativos" value="9"></option>
+          </select>
+        </div>
+      </form>
+                    
+      <% for(var i=0; i<offers.docs.length; i++) { %>
+      
+        <%# if ean exists %>
+
+          <% if (i % 2 == 0) { %>
+        
+            <row>
+            
+            <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
+
+          <% } else { %>  
+              
+             <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
+             
+            </row>
+
+            <row>
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <br>
+               </div>
+            </row>
+          <% } %>
+
+      <% } %>
+
+      <%- include('./pagination_home') %>
+
+    </div>
+
+    <footer class="footer">
+      <div class="panel-footer"><%- include('../partials/footer') %></div>
+    </footer>
+
+  </body>
+  
+</html>
+

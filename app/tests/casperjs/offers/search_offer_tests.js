@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/offers";
+var url = "http://localhost:3000/home";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Search Offers', 8, function(test) {
@@ -10,8 +10,8 @@ casper.test.begin('Phantomjs Tests >> Search Offers', 8, function(test) {
        
         // test using query = geladeira
         
-        test.assertExists('form[action="/offers"]', "offer search form is found with query = geladeira");
-          this.fill('form[action="/offers"]', {
+        test.assertExists('form[action="/home"]', "offer search form is found with query = geladeira");
+          this.fill('form[action="/home"]', {
             query: "geladeira"
         }, true);
         test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 10 href_bd_boy_happy selectors");
@@ -20,8 +20,8 @@ casper.test.begin('Phantomjs Tests >> Search Offers', 8, function(test) {
 
         // test using query = "" 
         
-        test.assertExists('form[action="/offers"]', "offer search form is found with query = '' ");
-          this.fill('form[action="/offers"]', {
+        test.assertExists('form[action="/home"]', "offer search form is found with query = '' ");
+          this.fill('form[action="/home"]', {
         }, true);
         test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 10 href_bd_boy_happy selectors");
 
@@ -29,8 +29,8 @@ casper.test.begin('Phantomjs Tests >> Search Offers', 8, function(test) {
 
         // test using query = ˆ&%ˆˆ%&!@#$%
         
-        test.assertExists('form[action="/offers"]', "offer search form is found with query = ˆ&%ˆˆ%&!@#$%");
-          this.fill('form[action="/offers"]', {
+        test.assertExists('form[action="/home"]', "offer search form is found with query = ˆ&%ˆˆ%&!@#$%");
+          this.fill('form[action="/home"]', {
             query: "ˆ&%ˆˆ%&!@#$%"
         }, true);
         

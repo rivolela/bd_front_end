@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/offers";
+var url = "http://localhost:3000/home";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Error page', 5, function(test) {
@@ -11,8 +11,8 @@ casper.test.begin('Phantomjs Tests >> Error page', 5, function(test) {
 
         test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
 
-        test.assertExists('form[action="/offers"]', "offer search form is found");
-          this.fill('form[action="/offers"]', {
+        test.assertExists('form[action="/home"]', "offer search form is found");
+          this.fill('form[action="/home"]', {
             query: "erererere"
         }, true);
 

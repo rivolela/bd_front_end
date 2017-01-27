@@ -21,7 +21,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Fogão 4 Bocas Brastemp Clean BIVOLT', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean BIVOLT');
+        }, 'Fogão Brastemp 4 Bocas BFO4NAR Clean Inox - Bivolt', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean BIVOLT');
 
         test.assertElementCount('#img_picture_offer', 1);
         test.assertSelectorHasText('#counter_happy', '16');
@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 2);
-        test.assertElementCount('#img_retailer', 2);
-        test.assertElementCount('#href_offer_price', 2); 
+        test.assertElementCount('#href_ir_loja', 8);
+        test.assertElementCount('#img_retailer', 8);
+        test.assertElementCount('#href_offer_price', 8); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja
@@ -88,7 +88,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function(){
         // test redirect and title offer page 
-        test.assertTitle("Fogão 4 Bocas Brastemp Clean - Brastemp - Brastemp", "Brastemp homepage title is the one expected");
+        test.assertTitle("Fogão Brastemp 4 Bocas BFO4NAR Clean Inox - Bivolt - Piso 4 Bocas no Extra.com.br", "Extra homepage title is the one expected");
         // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();

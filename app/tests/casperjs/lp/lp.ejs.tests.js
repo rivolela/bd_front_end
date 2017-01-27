@@ -11,8 +11,8 @@ casper.test.begin('Phantomjs Tests >> Landing Page', 5, function(test) {
 
         // simulated click to call to action ( ver avaliacoes )
         this.evaluate(function() {
-          $('#btnCallToAction').click();   
-        });   
+          document.getElementById("btnCallToAction").click();  
+        });
 
     }).then(function() {
 

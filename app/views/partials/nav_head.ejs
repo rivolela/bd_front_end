@@ -17,12 +17,20 @@
 	      <li class="navbar-left"><a href="#">Left 2</a></li>  -->
 	  <!--     <div class="visible-xs"> -->
         <!-- Menu categorias mobile -->
+        <!-- ELETRODOMESTICOS -->
         <li style="line-height: 1px;" class="visible-xs">    
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
             Eletrodomésticos <span class="caret"></span>
           </a>
-          <%- include('../categories/menu_cat_household') %>
+          <%- include('../categories/menu_eletrodomesticos') %>
 	      </li>
+        <!-- ELETROPORTATEIS -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Eletroportáteis <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu_eletroportateis') %>
+        </li>
          <!-- End categorias mobile -->
       <!--   </div> -->
         
@@ -38,9 +46,15 @@
      <!--          <li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li> -->
               <!-- <li class="divider"></li> -->
+              <!-- ELETRODOMESTICOS -->
               <li class="dropdown-submenu">
                 <a tabindex="-1" href="#">Eletrodomésticos</a>
-                 <%- include('../categories/menu_cat_household') %>
+                 <%- include('../categories/menu_eletrodomesticos') %>
+              </li>
+              <!-- ELETROPORTATEIS -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Eletroportáteis</a>
+                 <%- include('../categories/menu_eletroportateis') %>
               </li>
             </ul>
           </div>

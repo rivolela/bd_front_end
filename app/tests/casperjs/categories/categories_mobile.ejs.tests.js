@@ -1,6 +1,6 @@
 casper.options.viewportSize = {width: 320, height: 568};
 // 
-var url = "http://localhost:3000/categoria/geladeira/page/1";
+var url = "http://localhost:3000/categoria/geladeira/";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Categories', 5, function(test) {
@@ -20,7 +20,7 @@ casper.test.begin('Phantomjs Tests >> Categories', 5, function(test) {
 
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n        geladeira 57 ofertas\n      ');
+      }, '\n        geladeira 151 ofertas\n      ');
 
       casper.capture("./app/tests/casperjs/categories/img/categories_mobile.png");
         

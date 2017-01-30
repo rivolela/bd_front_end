@@ -16,20 +16,27 @@
     <div class="container-fluid">
 
       <%- include('../partials/nav_head') %> 
-
-      <%- include('../categories/categories_title') %> 
       
-<!--       <form>
-        <div class="form-group">
-          <select class="form-control" name="resultOrder">
-            <option selected="selected" value="9">Ordenar</option>
-            <option label="total de reviews" value="9"></option>
-            <option label="reviews positivos" value="9"></option>
-            <option label="reviews negativos" value="9"></option>
-          </select>
+      <row>
+        <div class="col-xs-5 col-sm-12 col-md-12 col-lg-12">   
+          <%- include('../categories/categories_title') %> 
         </div>
-      </form> -->
-                    
+        <div class="col-xs-7 col-sm-12 col-md-12 col-lg-12">
+          <form style="margin-top: -18px">
+            <div class="form-group">
+              <select class="form-control" name="resultOrder">
+                <option selected="selected" value="9">Ordenar</option>
+                <option label="total de avaliações" value="9"></option>
+                <option label="avaliações positivos" value="9"></option>
+                <option label="avaliações negativas" value="9"></option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </row>
+      
+        <hr>
+                  
       <% for(var i=0; i<offers.docs.length; i++) { %>
       
         <%# if ean exists %>

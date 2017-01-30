@@ -11,7 +11,7 @@
     <ul id="pagination_previous_reviews" class="pagination">
         <% if (pagination.previous != 0) { %>
           <li id="li_active_previous" >
-            <a id="a_previous" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= pagination.previous %>/filter/<%= filter %>" aria-label="Previous">
+            <a id="a_previous" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= pagination.previous %>/filter/<%= filter %>" aria-label="Previous" onclick="ga('send','event','reviews','click','pagination_reviews');">
                <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
@@ -26,11 +26,11 @@
 
         <% if (i == pagination.page) { %>
           <li class="active">
-            <a id='a_pagination_<%= i %>' class='pagination_active' href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= i %>/filter/<%= filter %>"><span aria-hidden="false"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class='pagination_active' href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= i %>/filter/<%= filter %>" onclick="ga('send','event','reviews','click','pagination_reviews');"><span aria-hidden="false"><%= i %></span></a>
           </li>
         <% } else { %>
           <li>
-            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= i %>/filter/<%= filter %>"><span aria-hidden="true"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= i %>/filter/<%= filter %>" onclick="ga('send','event','reviews','click','pagination_reviews');"><span aria-hidden="true"><%= i %></span></a>
           </li>
         <% } %>
 
@@ -43,7 +43,7 @@
       <ul id="pagination_next_reviews" class="pagination">
         <% if (pagination.next != 0) { %>
           <li id="li_active_next">
-            <a id="a_next" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= pagination.next %>/filter/<%= filter %>" aria-label="Next">
+            <a id="a_next" href="/reviews/<%= ean %>/offer/<%= offerSelected %>/page/<%= pagination.next %>/filter/<%= filter %>" aria-label="Next" onclick="ga('send','event','reviews','click','pagination_reviews');">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

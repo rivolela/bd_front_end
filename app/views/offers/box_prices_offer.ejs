@@ -47,12 +47,12 @@
           <% } %>
         </td>
         <td class="price_offer">
-            <a id="href_offer_price" href="<%= offer.url %>" target="_blank">
+            <a id="href_offer_price" href="<%= offer.url %>" target="_blank" >
               <%= offer.price_display %>
             </a>       
         </td>
         <td class="btn_offer">
-          <a id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning" role="button" target="_blank">Ir à loja</a>
+          <a id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning" role="button" target="_blank" onclick="ga('send','event','lojas','click','btn_ir_para_loja');">Ir à loja</a>
         </td>
       </tr>
     </tbody>

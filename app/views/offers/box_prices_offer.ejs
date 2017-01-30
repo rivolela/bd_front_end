@@ -47,7 +47,7 @@
           <% } %>
         </td>
         <td class="price_offer">
-            <a id="href_offer_price" href="<%= offer.url %>" target="_blank" >
+            <a id="href_offer_price" href="<%= offer.url %>" target="_blank" onclick="ga('send','event','lojas','click','price_ir_loja');" >
               <%= offer.price_display %>
             </a>       
         </td>

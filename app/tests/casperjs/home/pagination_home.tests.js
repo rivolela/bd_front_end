@@ -19,13 +19,13 @@ casper.test.begin('Phantomjs Tests >> Home pagination', 12, function(test) {
       // pagination from 1 to 9
       this.echo('Pagination >> 1 to 9');
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 8); 
+      test.assertElementCount('.pagination_disabled', 9); 
 
       // previous    
       test.assertElementCount('#a_previous', 0); 
 
       // next
-      test.assertElementCount('#a_next', 0); 
+      test.assertElementCount('#a_next', 1); 
 
       // go to pagination 10
       this.evaluate(function() {
@@ -37,14 +37,14 @@ casper.test.begin('Phantomjs Tests >> Home pagination', 12, function(test) {
       this.echo('Pagination >> 10 to 11');
 
       // previous    
-      test.assertElementCount('#a_previous', 0); 
+      test.assertElementCount('#a_previous', 1); 
 
       // next
       test.assertElementCount('#a_next', 0); 
 
       // pagination 10 to 11
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 8); 
+      test.assertElementCount('.pagination_disabled', 2); 
 
       // go to pagination 01
       this.evaluate(function() {  
@@ -53,7 +53,8 @@ casper.test.begin('Phantomjs Tests >> Home pagination', 12, function(test) {
 
     }).then(function(){
       // back do pagination 01
-      test.assertElementCount('.pagination_disabled', 8); 
+      this.echo('back do pagination 01');
+      test.assertElementCount('.pagination_disabled', 9); 
     }).run(function() {
       test.done();
     });

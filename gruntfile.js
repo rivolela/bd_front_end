@@ -44,7 +44,7 @@ module.exports = function(grunt){
     			silent: false
     		},
     		files:['app/tests/casperjs/**/*.js']
-    		//files:['app/tests/casperjs/reviews/**/*.js']
+    		//files:['app/tests/casperjs/offers/**/list_offers.tests.js']
   		},
 		jshint:{
 			all:{
@@ -146,7 +146,7 @@ module.exports = function(grunt){
 	grunt.registerTask('lint',['jshint','csslint']);
 	grunt.registerTask('mocha',['env:test','server','mochaTest']);
 	grunt.registerTask('casper',['env:test','server','casperjs']);
-	grunt.registerTask('test',['env:test','server','lint','mochaTest','casperjs']);
+	grunt.registerTask('test',['env:test','lint','less:dev','server','mochaTest','casperjs']);
 };
 
 

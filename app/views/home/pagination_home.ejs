@@ -32,6 +32,7 @@
         <form id="formPaginationOffer_<%= i %>" action="/home" method="post">
           <input type="hidden" name="page" value="<%= i %>"/>
           <input type="hidden" name="query" value="<%= query %>"/>
+          <input type="hidden" name="resultOrder" value="<%= order %>"/>
         </form>
         
         <% if (i == pagination.page) { %>

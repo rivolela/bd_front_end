@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <title><%= title %></title>
-    <meta name="description" content="Veja avaliações de <%= category %> no Before Deciding, antes de decidir a sua compra." />
+    <meta name="description" content="Veja avaliações de <%= query %> no Before Deciding, antes de decidir a sua compra." />
     <meta name="keywords" content="avaliações, avaliações de produtos, before deciding, comparador de avalições, reviews, reviews de produtos, comparador de reviews, avaliações de e-commerce" />
     <meta property="og:title" content="Before Deciding | Veja avaliações antes de comprar." />
     <meta property="og:description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
-    <link rel="canonical" href="http://www.beforedeciding.com.br/categorias/<%= category %>" />
+    <link rel="canonical" href="http://www.beforedeciding.com.br/categorias/<%= query %>" />
     <%- include('../partials/head') %> 
   </head>
 
@@ -16,10 +16,24 @@
     <div class="container-fluid">
 
       <%- include('../partials/nav_head') %> 
+      
+      <row>
+        <!-- categorie title -->
+        <div class="col-xs-5 col-sm-9 col-md-9 col-lg-9">   
+          <%- include('../categories/categories_title') %> 
+        </div>
+        <!-- reviews filter -->
+        <div class="col-xs-7 col-sm-3 col-md-3 col-lg-3">
+           <%- include('../offers/offers_filters_reviews') %> 
+        </div>
+      </row>
 
-      <div id="title_category" class="page-header">
-        <h4><%= category %> <small><%= total %> ofertas</small></h4>
-      </div>
+      <!-- hr -->
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%- include('../partials/hr') %>
+        </div>
+      </row>
                     
       <% for(var i=0; i <offers.docs.length; i++) { %>
       

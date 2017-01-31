@@ -6,6 +6,7 @@ module.exports = function(app){
 		.post(home.getOffersByQuery)
 		.get(home.getOffersByQuery);
 
+
 	// app.route('/api/articles/:articleId')
 	// 	.get(articles.read)
 	// 	.put(users.requireLogin,articles.hasAuthorization,articles.update)

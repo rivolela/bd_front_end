@@ -146,9 +146,16 @@ exports.getOffersByQuery = function(req,res,query){
 	console.log("getOffersByQuery controller >> ");	
 
 	validateSearch(req,res,query,function(query,page){
+
+		var order = req.body.resultOrder;
+		console.log("order",order);
+
+		if ((order === undefined ) || (order < 0)){
+			order = 0;
+		}
 		
 		console.log("query",query);
-		var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/10";
+		var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/10/filter/" + order;
 
 		console.log(url);
 
@@ -200,7 +207,8 @@ exports.getOffersByQuery = function(req,res,query){
 						query: query,
 						total: data.total,
 						env: process.env.NODE_ENV,
-						featureToogle: config.offers_toogle,
+						order: order,
+						featureToogle: config.offers_toogle
 					});
 
 				});

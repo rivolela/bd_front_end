@@ -8,5 +8,8 @@ module.exports = function(app){
 
 	app.route('/categoria/:category/')
 		.get(categories.getOffersByQuery);
+
+	app.route('/categoria/:category/page/:page/order/:order')
+		.get(categories.getOffersByQuery);
 };
 

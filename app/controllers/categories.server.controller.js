@@ -42,14 +42,19 @@ function pagination(data,page,callback){
 exports.getOffersByQuery = function(req,res,query){
 
 		
-	var category = req.params.category;
+	var query = req.params.category;
 	var page = req.params.page;
+	var order = req.params.resultOrder;
 
 	if ((page === undefined ) || (page < 0)){
 		page = 1;
 	};
 
-	var url = config.service_host + "/api/offers/bd/query/" + category + "/page/" + page + "/limit/10";
+	if ((order === undefined ) || (order < 0)){
+		order = 0;
+	}
+
+	var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/10/filter/" + order;
 
 	console.log(url);
 
@@ -98,11 +103,11 @@ exports.getOffersByQuery = function(req,res,query){
 						pages:data.pages
 					},
 					offers: data,
-					category:category,
 					query: query,
 					total: data.total,
 					env: process.env.NODE_ENV,
 					featureToogle: config.offers_toogle,
+					order: order
 				});
 
 			});

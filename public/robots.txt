@@ -1,8 +1,8 @@
 User-agent:*
 Disallow:/reviews/*
 Noindex:/reviews/*
-Disallow:/offers/*
-Noindex:/offers/*
+
 
 Allow:/categoria/*
+Allow:/home/*
 Allow:/

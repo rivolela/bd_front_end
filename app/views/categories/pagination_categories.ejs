@@ -11,7 +11,7 @@
     <ul id="pagination_previous_categories" class="pagination">
       <% if (pagination.previous != 0) { %>
         <li id="li_active_previous" >
-          <a id="a_previous" href="/categoria/<%= category%>/page/<%= pagination.previous %>" oaria-label="Previous">
+          <a id="a_previous" href="/categoria/<%= query%>/page/<%= pagination.previous %>" oaria-label="Previous">
              <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
@@ -26,11 +26,11 @@
         <ul id="pagination_numbers_categories" class="pagination">
           <% if (i == pagination.page) { %>
             <li class="active">
-              <a href="/categoria/<%= category%>/page/<%= i %>" class='pagination_active'><%= i %></a> 
+              <a href="/categoria/<%= query%>/page/<%= i %>" class='pagination_active'><%= i %></a> 
             </li>
           <% } else { %>
             <li>
-              <a href="/categoria/<%= category%>/page/<%= i %>" class='pagination_disabled'><%= i %></a> 
+              <a href="/categoria/<%= query%>/page/<%= i %>" class='pagination_disabled'><%= i %></a> 
             </li>
           <% } %>
         </ul>
@@ -42,7 +42,7 @@
       <ul id="pagination_next_categories" class="pagination">
         <% if (pagination.next != 0) { %>
           <li id="li_active_next">
-            <a id="a_next" href="/categoria/<%= category%>/page/<%= pagination.next %>" aria-label="Next">
+            <a id="a_next" href="/categoria/<%= query%>/page/<%= pagination.next %>" aria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

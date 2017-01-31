@@ -16,19 +16,24 @@
     <div class="container-fluid">
 
       <%- include('../partials/nav_head') %> 
-
-      <%- include('../categories/categories_title') %> 
       
-<!--       <form>
-        <div class="form-group">
-          <select class="form-control" name="resultOrder">
-            <option selected="selected" value="9">Ordenar</option>
-            <option label="total de reviews" value="9"></option>
-            <option label="reviews positivos" value="9"></option>
-            <option label="reviews negativos" value="9"></option>
-          </select>
+      <row>
+        <!-- categorie title -->
+        <div class="col-xs-5 col-sm-9 col-md-9 col-lg-9">   
+          <%- include('../categories/categories_title') %> 
         </div>
-      </form> -->
+        <!-- reviews order -->
+        <div class="col-xs-7 col-sm-3 col-md-3 col-lg-3">
+           <%- include('../offers/offers_order_reviews') %> 
+        </div>
+      </row>
+
+      <!-- hr -->
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%- include('../partials/hr') %>
+        </div>
+      </row>
                     
       <% for(var i=0; i<offers.docs.length; i++) { %>
       

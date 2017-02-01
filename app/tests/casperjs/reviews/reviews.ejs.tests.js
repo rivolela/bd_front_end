@@ -1,5 +1,5 @@
 // casper.options.viewportSize = {width: 1024, height: 768};
-var url = "http://localhost:3000/reviews/7891129233621/offer/588958555ae7250400b3877b/page/1";
+var url = "http://localhost:3000/reviews/7896584056556/offer/5873905d46ee6dfe219640c1/page/1";
 //var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);
@@ -21,7 +21,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Fogão Brastemp 4 Bocas BFO4NAR Clean Inox - Bivolt', 'should return #name_offer === Fogão 4 Bocas Brastemp Clean BIVOLT');
+        }, 'Geladeira Refrigerador 260 Litros Electrolux 2 Portas Classe A DC35A Branco', 'should return #name_offer === Geladeira Refrigerador 260 Litros Electrolux 2 Portas Classe A DC35A Branco');
 
         test.assertElementCount('#img_picture_offer', 1);
         test.assertSelectorHasText('#counter_happy', '16');
@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 12);
-        test.assertElementCount('#img_retailer', 12);
-        test.assertElementCount('#href_offer_price', 12); 
+        test.assertElementCount('#href_ir_loja', 4);
+        test.assertElementCount('#img_retailer', 4);
+        test.assertElementCount('#href_offer_price', 4); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja
@@ -88,7 +88,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function(){
         // test redirect and title offer page 
-        test.assertTitle("Fogão Brastemp 4 Bocas BFO4NAR Clean Inox - Bivolt - Piso 4 Bocas no Extra.com.br", "Extra homepage title is the one expected");
+        test.assertTitle("Geladeira Refrigerador 260 Litros Electrolux 2 Portas Classe A DC35A Branco - 220V - Eletrodomésticos - 2 Portas - Duplex - Walmart.com", "Walmart homepage title is the one expected");
         // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();

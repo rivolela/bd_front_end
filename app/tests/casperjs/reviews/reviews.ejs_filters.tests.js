@@ -1,5 +1,5 @@
 // casper.options.viewportSize = {width: 1024, height: 768};
-var url = "http://localhost:3000/reviews/7891129233621/offer/588958555ae7250400b3877b/page/1";
+var url = "http://localhost:3000/reviews/7896584056556/offer/5873905d46ee6dfe219640c1/page/1";
 //var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);

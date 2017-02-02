@@ -51,10 +51,10 @@ exports.getOffersByQuery = function(req,res,query){
 	};
 
 	if ((order === undefined ) || (order < 0)){
-		order = 0;
+		order = 1;
 	}
 
-	var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/10/filter/" + order;
+	var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit +"/filter/" + order;
 
 	console.log(url);
 

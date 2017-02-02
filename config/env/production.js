@@ -12,6 +12,9 @@ module.exports = {
 	// services
 	service_host: 'https://bd-services.herokuapp.com',
 
+	// config page
+	limit:20,
+
 	// toogle
 	lp_toogle:true,
 	offers_toogle:false,

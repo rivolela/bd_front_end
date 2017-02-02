@@ -14,7 +14,7 @@ casper.test.begin('Phantomjs Tests >> Search Offers', 8, function(test) {
           this.fill('form[action="/home"]', {
             query: "geladeira"
         }, true);
-        test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 10 href_bd_boy_happy selectors");
+        test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
 
     }).then(function() {
 
@@ -23,7 +23,7 @@ casper.test.begin('Phantomjs Tests >> Search Offers', 8, function(test) {
         test.assertExists('form[action="/home"]', "offer search form is found with query = '' ");
           this.fill('form[action="/home"]', {
         }, true);
-        test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 10 href_bd_boy_happy selectors");
+        test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
 
     }).then(function(){
 

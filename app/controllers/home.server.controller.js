@@ -148,14 +148,14 @@ exports.getOffersByQuery = function(req,res,query){
 	validateSearch(req,res,query,function(query,page){
 
 		var order = req.body.resultOrder;
-		console.log("order",order);
+		console.log("order by >>",order);
 
 		if ((order === undefined ) || (order < 0)){
-			order = 0;
+			order = 1;
 		}
 		
 		console.log("query",query);
-		var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/10/filter/" + order;
+		var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
 
 		console.log(url);
 

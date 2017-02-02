@@ -24,7 +24,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         }, 'Geladeira Refrigerador 260 Litros Electrolux 2 Portas Classe A DC35A Branco', 'should return #name_offer === Geladeira Refrigerador 260 Litros Electrolux 2 Portas Classe A DC35A Branco');
 
         test.assertElementCount('#img_picture_offer', 1);
-        test.assertSelectorHasText('#counter_happy', '16');
+        test.assertSelectorHasText('#counter_happy', '13');
         test.assertSelectorHasText('#counter_sad', '2');
 
     }).then(function() {

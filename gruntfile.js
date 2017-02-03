@@ -44,7 +44,7 @@ module.exports = function(grunt){
     			silent: false
     		},
     		files:['app/tests/casperjs/**/*.js']
-    		//files:['app/tests/casperjs/offers/**/list_offers.tests.js']
+    		//files:['app/tests/casperjs/lp/**/lp.ejs.tests.js']
   		},
 		jshint:{
 			all:{

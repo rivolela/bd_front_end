@@ -5,6 +5,8 @@ var config = require('./config'),
 	bodyParser = require('body-parser'),
 	methodOverride = require('method-override'),
 	session = require('express-session'),
+	cookieSession = require('cookie-session'),
+	cookieParser = require('cookie-parser'),
 	flash = require('connect-flash'),
 	passport = require('passport');
 
@@ -21,12 +23,35 @@ module.exports = function(){
 
 	app.use(bodyParser.urlencoded({extended:true}));
 	app.use(bodyParser.json());
+	app.use(cookieParser());
+	// app.use(express.cookieParser(config.sessionSecret));
 	app.use(methodOverride());
+	// session express
 	app.use(session({
 		saveUninitialized: true,
-		resave:true,
-		secret:config.sessionSecret
-		}));
+		resave:false,
+		secret:config.sessionSecret,
+	}));
+	// app.use(cookieSession({
+	// 	name: 'bd',
+	// 	keys: ['lp'],
+	// 	secret:config.sessionSecret
+	// }));
+
+	//example : how to use cookie informations
+	// app.use(function (req, res, next) {
+ //  		// Update views 
+ //  		req.session.views = (req.session.views || 0) + 1;
+ //  		req.session.lp = (req.session.views || 0) + 1;
+ 
+ //  		// Write response 
+ //  		res.end(req.session.views + ' views');
+	// });
+ // 	app.get('/cookie',function(req, res){
+ //    	res.cookie('bd', '1',{lp:1}).send('Cookie is set');
+ //    	console.log("Cookies :  ", req.cookies.bd);
+	// });
+
 	app.set('view engine','ejs');
 	app.set('views','./app/views');
 

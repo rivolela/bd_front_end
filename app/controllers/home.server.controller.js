@@ -88,7 +88,7 @@ function validateSearch(req,res,query,next){
 
 	if ((validate.isEmpty(query)) || (query === undefined)){
 		
-		query = "eletrodomésticos";
+		query = "smartphones";
 		return next(query,page);
 
 	}else if(validate({query: query}, constraints)){

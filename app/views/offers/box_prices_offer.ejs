@@ -39,6 +39,10 @@
           <% } else if (offer.advertiser == 'Girafa BR') { %>
             <a href="<%= offer.url %>" target="_blank" onclick="ga('send','event','lojas','click','img_ir_loja');">
               <img id="img_retailer" class="img-responsive girafa">
+            </a> 
+          <% } else if (offer.advertiser == 'Fastshop BR') { %>
+            <a href="<%= offer.url %>" target="_blank" onclick="ga('send','event','lojas','click','img_ir_loja');">
+              <img id="img_retailer" class="img-responsive fast_shop">
             </a>            
           <% } else { %>
             <a href="<%= offer.url %>" target="_blank" onclick="ga('send','event','lojas','click','img_ir_loja');">

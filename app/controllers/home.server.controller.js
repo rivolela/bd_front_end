@@ -151,7 +151,7 @@ exports.getOffersByQuery = function(req,res,query){
 		console.log("order by >>",order);
 
 		if ((order === undefined ) || (order < 0)){
-			order = 0;
+			order = 1;
 		}
 		
 		console.log("query",query);

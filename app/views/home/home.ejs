@@ -48,10 +48,18 @@
             <row>
             
             <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
+            <%- include('../offers/box_ver_avaliacoes',{offer:offers.docs[i]}); %>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <hr style="border-color: red;margin-top: 5px;margin-bottom: 20px;border-color: rgba(147, 163, 171, 0.87);">
+               </div>
 
           <% } else { %>  
               
-             <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
+            <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
+            <%- include('../offers/box_ver_avaliacoes',{offer:offers.docs[i]}); %>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <hr style="border-color: red;margin-top: 5px;margin-bottom: 20px;border-color: rgba(147, 163, 171, 0.87);">
+               </div>
              
             </row>
 

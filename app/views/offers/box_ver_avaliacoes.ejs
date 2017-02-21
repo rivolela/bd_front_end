@@ -1,0 +1,60 @@
+ <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+
+   <!-- total of reviews -->
+     <table>
+      <tbody>
+        <tr style="height: 0px">
+          <td>
+            Avaliações
+          </td>
+          <td width="5px;"></td>
+          <!-- total bd boys happy -->
+          <td>
+            <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip"  onclick="ga('send','event','reviews','click','bd_boy_happy');">
+              <% if ((order == 2) || (order == 1)){ %>
+                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
+              <% } else { %>
+                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off">
+              <% } %>
+            </a>
+          </td>
+          <td width="5px;"></td>
+          <td>
+            <a id="href_bd_boy_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/1' class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_happy');">
+              <%= offer.countHappy %>
+            </a>
+          </td>
+           <td width="5px"></td>
+
+          <!-- total bd boys sad -->
+          <td>
+            <a id="href_bd_boy_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/2' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip" onclick="ga('send','event','reviews','click','bd_boy_sad');">
+              <% if ((order == 3) || (order == 1)) { %>
+                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
+              <% } else { %>
+                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off">
+              <% } %>
+            </a>
+          </td>
+          <td width="5px;"></td>
+          <td>
+              <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/2' class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_sad');">
+              <%= offer.countSad %>
+              </a>
+          </td>
+          <td>
+                <form action="/" method="get" class="navbar-form navbar-center" role="search">
+                      <button id="btnCallToAction" type="submit" class="btn btn-warning btn-sm" type="button" onclick="ga('send','event','lp','click','call_to_action');">
+                         Ver Avaliações (<%= offer.totalReviews %>)
+                        </button>
+                  </form>
+          </td>
+        </tr>
+      
+      </tbody>
+    </table>
+ </div>
+
+
+
+ 

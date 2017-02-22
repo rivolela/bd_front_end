@@ -13,7 +13,7 @@
   <body>
 
     <!-- Begin page content -->
-    <div class="container-fluid">
+<!--     <div class="container-fluid"> -->
 
       <%- include('../partials/nav_head') %> 
       
@@ -38,43 +38,19 @@
           <%- include('../partials/hr') %>
         </div>
       </row>
-                    
+         
       <% for(var i=0; i<offers.docs.length; i++) { %>
-      
-        <%# if ean exists %>
-
-          <% if (i % 2 == 0) { %>
-        
-            <row>
-            
-            <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
-            <%- include('../offers/box_ver_avaliacoes',{offer:offers.docs[i]}); %>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <hr style="border-color: red;margin-top: 5px;margin-bottom: 20px;border-color: rgba(147, 163, 171, 0.87);">
-               </div>
-
-          <% } else { %>  
-              
-            <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
-            <%- include('../offers/box_ver_avaliacoes',{offer:offers.docs[i]}); %>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <hr style="border-color: red;margin-top: 5px;margin-bottom: 20px;border-color: rgba(147, 163, 171, 0.87);">
-               </div>
-             
-            </row>
-
-            <row>
-               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <br>
-               </div>
-            </row>
-          <% } %>
-
+         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">   
+          <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
+          <%- include('../offers/box_ver_avaliacoes',{offer:offers.docs[i]}); %>
+<!--           <hr style="border-color: red;margin-top: 5px;margin-bottom: 20px;border-color: rgba(147, 163, 171, 0.87);"> -->
+        </div>
       <% } %>
-
+      
       <%- include('./pagination_home') %>
 
-    </div>
+<!--     
+    </div> -->
 
     <footer class="footer">
       <div class="panel-footer"><%- include('../partials/footer') %></div>

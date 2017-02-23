@@ -1,51 +1,87 @@
+ <style type="text/css">
+    /*  Extra small devices Phones (<768px)*/
+
+
+  @media (max-width:450px) {
+
+    .title_avaliacoes{
+/*        width: 30%;*/
+    }
+
+    .table_avalicoes{
+      padding-left: 20px;
+      padding-right:10px;
+      overflow-x: hidden;
+    
+    }
+  }
+
+
+  /*Small devices Tablets (≥768px)*/
+  @media (min-width:450px) {
+    .title_avaliacoes{
+/*        width: 30%;
+        margin-left: 0px;*/
+    }
+
+    .table_avalicoes{
+/*      padding-left: 15px;
+      padding-right:10px;
+      overflow-x: hidden*/
+      display: inline
+    }
+  }
+
+</style>
+
  <div class="row">
-  <div class="table-responsive" style="padding-left: 10px;padding-right:10px">
+  <div class="table-responsive table_avalicoes">
    <!-- total of reviews -->
      <table>
       <tbody>
         <tr>
-          <td style="width: 30%">
+          <td class="title_avaliacoes">
            <h4><small>Avaliações: </small></h4>
           </td>
-          <td></td>
+           <td width="10px;"></td>
           <!-- total bd boys happy -->
-         <td style="width: 10%">
+         <td>
             <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip"  onclick="ga('send','event','reviews','click','bd_boy_happy');">
               <% if ((order == 2) || (order == 1)){ %>
-                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy" style="max-width: 40px;">
+                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
               <% } else { %>
-                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off" style="max-width: 40px;">
+                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off">
               <% } %>
             </a>
           </td>
           
-          <td style="width: 10%">
+          <td>
             <a id="href_bd_boy_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/1' class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_happy');">
               <%= offer.countHappy %>
             </a>
           </td>
-<!--            <td width="2px"></td> -->
+           <td width="10px"></td>
 
           <!-- total bd boys sad -->
-          <td style="width: 10%">
+          <td>
             <a id="href_bd_boy_sad" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/2' data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip" onclick="ga('send','event','reviews','click','bd_boy_sad');">
               <% if ((order == 3) || (order == 1)) { %>
-                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad" style="max-width: 40px;">
+                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
               <% } else { %>
-                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off" style="max-width: 25px;">
+                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off">
               <% } %>
             </a>
           </td>
-       <!--    <td width="2px;"></td> -->
-         <td style="width: 10%">
+          <td width="5px;"></td>
+         <td>
               <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/2' class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_sad');">
               <%= offer.countSad %>
               </a>
           </td>
-<!--           <td width="5px;"></td> -->
-          <td style="width: 30%">
+          <td width="10px;"></td>
+          <td>
             <form action="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1" method="get" class="navbar-form navbar-center" role="search">
-                <button id="btnCallToAction" type="submit" class="btn btn-warning btn-xs" type="button" onclick="ga('send','event','lp','click','call_to_action');">
+                <button id="btnCallToAction" type="submit" class="btn btn-warning btn-xs" type="button" onclick="ga('send','event','lp','click','call_to_action');" style="padding: 5px 5px; width: 120px">
                      Ver Avaliações (<%= offer.totalReviews %>)
                 </button>
               </form>
@@ -56,5 +92,4 @@
     </table>
     </div>
 </div>
- </div>
 

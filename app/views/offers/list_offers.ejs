@@ -2,11 +2,11 @@
       <%# zanox offer to use two kinds of image size %>
       <% if (offer.image_medium) { %>
         <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' onclick="ga('send','event','reviews','click','foto_offer');">
-          <img src="<%= offer.image_medium %>"  class="img-responsive" style="max-width: 100%">
+          <img src="<%= offer.image_medium %>"  class="img-responsive center-block" style="max-width: 100%">
         </a>
       <% } else { %> 
         <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1' onclick="ga('send','event','reviews','click','foto_offer');">
-          <img src="<%= offer.image_large %>"  class="img-responsive" style="max-width: 100%">
+          <img src="<%= offer.image_large %>"  class="img-responsive center-block" style="max-width: 100%">
         </a>
       <% } %>
   </div>

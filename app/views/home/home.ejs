@@ -13,7 +13,7 @@
   <body>
 
     <!-- Begin page content -->
-<!--     <div class="container-fluid"> -->
+    <div class="container-fluid">
 
       <%- include('../partials/nav_head') %> 
       
@@ -43,14 +43,18 @@
          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">   
           <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
           <%- include('../offers/box_ver_avaliacoes',{offer:offers.docs[i]}); %>
-<!--           <hr style="border-color: red;margin-top: 5px;margin-bottom: 20px;border-color: rgba(147, 163, 171, 0.87);"> -->
+          <hr class="visible-xs">
+          <div style="height: 10px">
+            
+          </div>
         </div>
+
       <% } %>
       
       <%- include('./pagination_home') %>
 
-<!--     
-    </div> -->
+    
+    </div>
 
     <footer class="footer">
       <div class="panel-footer"><%- include('../partials/footer') %></div>

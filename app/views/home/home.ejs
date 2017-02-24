@@ -10,7 +10,7 @@
     <link rel="canonical" href="http://www.beforedeciding.com.br" />    
   </head>
 
-  <body>
+  <body style="overflow-x: hidden;">
 
     <!-- Begin page content -->
     <div class="container-fluid">
@@ -38,17 +38,15 @@
           <%- include('../partials/hr') %>
         </div>
       </row>
-         
+      
+      <!-- list offers and box ver avalicoes -->   
       <% for(var i=0; i<offers.docs.length; i++) { %>
-         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">   
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+          <!-- list offers + box avaliacoes > 768px (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile) */  -->  
           <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
-          <%- include('../offers/box_ver_avaliacoes',{offer:offers.docs[i]}); %>
-          <hr class="visible-xs">
-          <div style="height: 10px">
-            
-          </div>
+          <!-- Extra small devices Phones (<768px)* (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile)  -->
+          <%- include('../offers/mobile/box_avaliacoes_mobile',{offer:offers.docs[i]}); %>
         </div>
-
       <% } %>
       
       <%- include('./pagination_home') %>

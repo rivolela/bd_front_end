@@ -35,7 +35,7 @@ casper.test.begin('Phantomjs Tests >> Error page', 5, function(test) {
         // check redirect to offers page, after to close msg error
         casper.wait(5000, function() {
           // this.echo('should appear after 5s');
-          test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 10 href_bd_boy_happy selectors");
+          test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
         });
 
     }).run(function() {

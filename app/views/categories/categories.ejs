@@ -10,7 +10,7 @@
     <%- include('../partials/head') %> 
   </head>
 
-  <body>
+  <body style="overflow-x: hidden;">
 
     <!-- Begin page content -->
     <div class="container-fluid">
@@ -39,29 +39,14 @@
         </div>
       </row>
                     
-      <% for(var i=0; i <offers.docs.length; i++) { %>
-      
-        <%# if ean exists %>
-
-          <% if (i % 2 == 0) { %>
-        
-            <row>
-            
-            <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
-
-          <% } else { %>  
-              
-             <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
-             
-            </row>
-
-            <row>
-               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <br>
-               </div>
-            </row>
-          <% } %>
-
+      <!-- list offers and box ver avalicoes -->   
+      <% for(var i=0; i<offers.docs.length; i++) { %>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+          <!-- list offers + box avaliacoes > 768px (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile) */  -->  
+          <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
+          <!-- Extra small devices Phones (<768px)* (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile)  -->
+          <%- include('../offers/mobile/box_avaliacoes_mobile',{offer:offers.docs[i]}); %>
+        </div>
       <% } %>
 
       <%- include('./pagination_categories') %>

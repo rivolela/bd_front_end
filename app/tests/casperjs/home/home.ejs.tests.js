@@ -16,8 +16,8 @@ casper.test.begin('Phantomjs Tests >> Home', 9, function(test) {
 
       // bd  boys counter
 
-      test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 10 href_bd_boy_happy selectors");
-      test.assertElementCount('#href_bd_boy_sad', 10,"offers search for casperjs retrieves 10 href_bd_boy_sad selectors");
+      test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
+      test.assertElementCount('#href_bd_boy_sad', 20,"offers search for casperjs retrieves 20 href_bd_boy_sad selectors");
 
     }).then(function(){
 
@@ -37,7 +37,7 @@ casper.test.begin('Phantomjs Tests >> Home', 9, function(test) {
       // term searched
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n \tgeladeira 120 ofertas\n ');
+      }, '\n \tgeladeira 131 ofertas\n ');
 
       // tool_tip_bd_boy_sad.ejs
 

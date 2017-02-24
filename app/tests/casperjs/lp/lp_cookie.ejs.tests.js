@@ -17,16 +17,22 @@ casper.test.begin('Phantomjs Tests >> Landing Page ( with cooke )', 6, function(
 
         test.assertHttpStatus(200);
         test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
-        test.assertDoesntExist('#btnCallToAction');  
+        test.assertExist('#btnVerReviews');  
+
+    }).then(function(){
 
         // simulated click to call to action ( ver avaliacoes )
         this.evaluate(function() {
-          document.getElementById("btnCallToAction").click();  
+          document.getElementById("btnVerReviews").click();  
         });
-
+    
     }).then(function(){
-      test.assertElementCount('#href_bd_boy_happy', 10,"offers search for casperjs retrieves 10 href_bd_boy_happy selectors");
-      test.assertElementCount('#href_bd_boy_sad', 10,"offers search for casperjs retrieves 10 href_bd_boy_sad selectors");
+        casper.wait(5000, function() {
+            this.echo('afer 5 seconds | go reviews page');
+            test.assertElementCount('#review_description', 10,"reviews page for casperjs retrieves 10 #review_description");
+            test.assertElementCount('#review_title', 10,"offers search for casperjs retrieves 10 #review_title' selectors");
+        });
+      
     }).then(function() {
       
       //Function explained:

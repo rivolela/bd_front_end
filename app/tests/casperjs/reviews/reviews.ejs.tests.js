@@ -21,7 +21,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Geladeira Refrigerador 260 Litros Electrolux 2 Portas Classe A DC35A Branco', 'should return #name_offer === Geladeira Refrigerador 260 Litros Electrolux 2 Portas Classe A DC35A Branco');
+        }, 'Refrigerador Electrolux Duplex DC35A 260L - Branco', 'should return #name_offer === Refrigerador Electrolux Duplex DC35A 260L - Branco');
 
         test.assertElementCount('#img_picture_offer', 1);
         test.assertSelectorHasText('#counter_happy', '13');
@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 4);
-        test.assertElementCount('#img_retailer', 4);
-        test.assertElementCount('#href_offer_price', 4); 
+        test.assertElementCount('#href_ir_loja', 6);
+        test.assertElementCount('#img_retailer', 6);
+        test.assertElementCount('#href_offer_price', 6); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja
@@ -88,7 +88,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function(){
         // test redirect and title offer page 
-        test.assertTitle("Geladeira Refrigerador 260 Litros Electrolux 2 Portas Classe A DC35A Branco - 220V - Eletrodomésticos - 2 Portas - Duplex - Walmart.com", "Walmart homepage title is the one expected");
+        test.assertTitle("Refrigerador Electrolux Duplex DC35A 260L - Branco - 2 Portas no Pontofrio.com", "Pontofrio homepage title is the one expected");
         // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();

@@ -40,7 +40,7 @@ casper.test.begin('Phantomjs Tests >> Categories pagination', 11, function(test)
 
       // pagination 10 to 11
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 1); 
+      test.assertElementCount('.pagination_disabled', 3); 
 
       // go to pagination 01
       this.evaluate(function() {
@@ -50,7 +50,7 @@ casper.test.begin('Phantomjs Tests >> Categories pagination', 11, function(test)
     }).then(function(){
       // back do pagination 01
       this.echo('Return to page 01');
-      test.assertElementCount('.pagination_disabled', 1); 
+      test.assertElementCount('.pagination_disabled', 3); 
     }).run(function() {
       test.done();
     });

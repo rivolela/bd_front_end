@@ -1,16 +1,29 @@
  <style type="text/css">
     /*  Extra small devices Phones (<768px)*/
 
-
-  @media (max-width:768px) {
+  @media (max-width:320px) {
 
     .title_avaliacoes{
 /*        width: 30%;*/
     }
 
     .table_avalicoes{
-      padding-left: 10px;
-      padding-right:10px;
+      padding-left: 1px;
+      padding-right:1px;
+      overflow-x: hidden;
+    
+    }
+  }
+
+  @media (min-width:375px) {
+
+    .title_avaliacoes{
+/*        width: 30%;*/
+    }
+
+    .table_avalicoes{
+      padding-left: 25px;
+      padding-right:30px;
       overflow-x: hidden;
     
     }
@@ -29,8 +42,8 @@
             <td class="title_avaliacoes">
               <h4><small>Avaliações: </small></h4>
             </td>
-            <td width="10px;"></td>
-            <td width="15px;" class="visible-xs""></td>
+            <td width="5px;">&nbsp;</td>
+            <td width="15px;" class="visible-xs"">&nbsp;</td>
 
             <!-- total bd boys happy -->
             <td>
@@ -42,14 +55,14 @@
                 <% } %>
               </a>
             </td>
-            <td width="10px;"></td>
+            <td width="5px;"></td>
             <td>
               <a id="href_bd_boy_happy" href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/1' class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_happy');">
                 <%= offer.countHappy %>
               </a>
             </td>
             
-            <td width="10px"></td>
+            <td width="10px">&nbsp;</td>
 
             <!-- total bd boys sad -->
             <td>
@@ -61,20 +74,20 @@
                 <% } %>
               </a>
             </td>
-            <td width="10px;"></td>
+            <td width="5x;">&nbsp;</td>
             <td>
                 <a href='/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1/filter/2' class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_sad');">
                 <%= offer.countSad %>
                 </a>
             </td>
 
-            <td width="10px;"></td>
+            <td width="5px;">&nbsp;</td>
 
-            <td width="20px;" class="visible-xs""></td>
+            <td width="20px;" class="visible-xs"">&nbsp;</td>
 
             <!-- btn ver avaliacoes-->
             <td>
-               <a id="btnCallToAction" href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');" style="padding: 5px 5px; width: 120px">
+               <a id="btnCallToAction" href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');" style="padding: 5px 3px; width: 120px">
                   <% if ((order == 3) || (order == 2)) { %>
                       Ver Avaliações (<%= offer.totalReviews %>)
                   <% } else { %>

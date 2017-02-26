@@ -93,7 +93,7 @@ margin-right: 1px;">
                <td width="10px;">&nbsp;</td>
               <!-- btn ver avaliacoes-->
               <td>
-                <a id="btnVerReviews" href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');" style="padding: 5px 5px; width: 120px">
+                <a id="btnVerReviews" href="/reviews/<%= offer.ean %>/offer/<%= offer._id %>/page/1" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');" style="padding: 5px 3px; width: 120px">
                   <% if ((order == 3) || (order == 2)) { %>
                       Ver Avaliações (<%= offer.totalReviews %>)
                   <% } else { %>

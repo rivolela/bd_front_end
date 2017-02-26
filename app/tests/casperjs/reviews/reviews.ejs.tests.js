@@ -13,7 +13,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // page information
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
 
     }).then(function() {
 

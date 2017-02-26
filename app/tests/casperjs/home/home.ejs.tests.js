@@ -1,16 +1,16 @@
 var url = "http://localhost:3000/home";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Home', 9, function(test) {
+casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
 
     casper.start(url, function() {
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
-        test.assertExists('form[action="/home"]', "offer search form is found");
-          this.fill('form[action="/home"]', {
-            query: "geladeira"
-        }, true);
+        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        // test.assertExists('form[action="/home"]', "offer search form is found");
+        //   this.fill('form[action="/home"]', {
+        //     query: "geladeira"
+        // }, true);
 
     }).then(function() {
 
@@ -37,7 +37,7 @@ casper.test.begin('Phantomjs Tests >> Home', 9, function(test) {
       // term searched
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n \tgeladeira 131 ofertas\n ');
+      }, '\n \tsmartphones 17 ofertas\n ');
 
       // tool_tip_bd_boy_sad.ejs
 

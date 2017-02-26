@@ -8,7 +8,7 @@ casper.test.begin('Phantomjs Tests >> Categories', 5, function(test) {
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Before Deciding - veja avaliações de geladeira", "Before Deciding homepage title is the one expected");
 
     }).then(function() {
 

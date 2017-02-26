@@ -8,7 +8,7 @@ casper.test.begin('Phantomjs Tests >> Offers_orders_reviews ', 15, function(test
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
        
         // test using query = eletrodomésticos
         test.assertExists('form[action="/home"]', "offer search form is found with query = eletrodomésticos");

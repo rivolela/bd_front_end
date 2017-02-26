@@ -16,7 +16,7 @@ casper.test.begin('Phantomjs Tests >> Landing Page ( with cooke )', 6, function(
     casper.start(url, function() {
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
         test.assertExist('#btnVerReviews');  
 
     }).then(function(){

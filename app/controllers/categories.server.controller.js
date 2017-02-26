@@ -92,7 +92,7 @@ exports.getOffersByQuery = function(req,res,query){
 			pagination(data,page,function(from,to,previous,next){
 
 				res.render('categories/categories',{
-					title: config.title,
+					title: config.title_category,
 					slogan: config.slogan,
 					pagination: {
 						page: page,

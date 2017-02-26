@@ -5,7 +5,7 @@ casper.test.begin('Phantomjs Tests >> Landing Page ( without cookie )', 5, funct
     casper.start(url, function() {
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
         test.assertExist('#btnCallToAction');  
 
         // simulated click to call to action ( ver avaliacoes )

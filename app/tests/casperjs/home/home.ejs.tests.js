@@ -37,7 +37,7 @@ casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
       // term searched
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n \tsmartphones 17 ofertas\n ');
+      }, '\n \tsmartphones 171 ofertas\n ');
 
       // tool_tip_bd_boy_sad.ejs
 

@@ -37,8 +37,8 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
 
         casper.wait(5000, function() {
              // bd boys counter
-            test.assertElementCount('#review_title', 2,"it should find 2 #review_title elements");
-            test.assertElementCount('.bd_boy_sad', 3,"it should find 1 .bd_boy_happy elements");
+            test.assertElementCount('#review_title', 4,"it should find 4 #review_title elements");
+            test.assertElementCount('.bd_boy_sad', 5,"it should find 5 .bd_boy_happy elements");
             test.assertElementCount('.bd_boy_happy_off', 1,"it should find 1 .bd_boy_happy_off elements");
              // simulated click total reviews 
             this.echo('filter reviews by total of reviews ');

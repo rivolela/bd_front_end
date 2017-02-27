@@ -15,7 +15,7 @@ casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
       // pagination from 1 to 10
       this.echo('Pagination >> 1 to 10');
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 1); 
+      test.assertElementCount('.pagination_disabled', 2); 
 
       // previous    
       test.assertElementCount('#a_previous', 0); 
@@ -41,7 +41,7 @@ casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
 
       // pagination 11 to 20
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 1); 
+      test.assertElementCount('.pagination_disabled', 2); 
 
       // go to pagination 01
       this.evaluate(function() {
@@ -50,7 +50,7 @@ casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
 
     }).then(function(){
       // back do pagination 01
-      test.assertElementCount('.pagination_disabled', 1); 
+      test.assertElementCount('.pagination_disabled', 2); 
     }).run(function() {
       test.done();
     });

@@ -20,7 +20,7 @@ casper.test.begin('Phantomjs Tests >> Categories', 5, function(test) {
 
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n \tgeladeira 131 ofertas\n ');
+      }, '\n \tgeladeira 222 ofertas\n ');
 
       casper.capture("./app/tests/casperjs/categories/img/categories_mobile.png");
         

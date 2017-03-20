@@ -7,9 +7,9 @@ module.exports = function(app){
 		.get(home.getOffersByQuery);
 
 
-	app.route('/home/page/:page/filter/:filter')
-		.post(home.getOffersByQuery)
-		.get(home.getOffersByQuery);
+	// app.route('/home/page/:page/filter/:filter')
+	// 	.post(home.getOffersByQuery)
+	// 	.get(home.getOffersByQuery);
 	// app.route('/api/articles/:articleId')
 	// 	.get(articles.read)
 	// 	.put(users.requireLogin,articles.hasAuthorization,articles.update)

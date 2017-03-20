@@ -7,8 +7,10 @@
 
     <ul id="pagination_previous_categories" class="pagination">
       <% if (pagination.previous != 0) { %>
+      <form id="formPaginationOffer_previous" action="/categoria/<%= query%>?page=<%= pagination.previous %>&order=<%= order %>" method="post">
+      </form>
         <li id="li_active_previous" >
-          <a id="a_previous" href="/categoria/<%= query%>/page/<%= pagination.previous %>" oaria-label="Previous">
+          <a id="a_previous" href="javascript:;" onclick="document.getElementById('formPaginationOffer_previous').submit();"  aria-label="Previous">
              <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
@@ -21,13 +23,18 @@
     <% for(var i=pagination.from; i <= pagination.to; i++) { %>     
 
         <ul id="pagination_numbers_categories" class="pagination">
+
+          <form id="formPaginationNumbers_<%= i %>" action="/categoria/<%= query%>?page=<%= i %>&order=<%= order %>" method="post">
+            <input type="hidden" name="query" value="<%= query %>"/>
+          </form>
+
           <% if (i == pagination.page) { %>
             <li class="active">
-              <a href="/categoria/<%= query%>/page/<%= i %>" class='pagination_active'><%= i %></a> 
+              <a href="javascript:;" onclick="document.getElementById('formPaginationNumbers_<%= i %>').submit();" class='pagination_active'><%= i %></a> 
             </li>
           <% } else { %>
             <li>
-              <a href="/categoria/<%= query%>/page/<%= i %>" class='pagination_disabled'><%= i %></a> 
+              <a href="javascript:;" onclick="document.getElementById('formPaginationNumbers_<%= i %>').submit();" class='pagination_disabled'><%= i %></a> 
             </li>
           <% } %>
         </ul>
@@ -38,14 +45,17 @@
 
       <ul id="pagination_next_categories" class="pagination">
         <% if (pagination.next != 0) { %>
+          <form id="formPaginationOffer_next" action="/categoria/<%= query%>?page=<%= pagination.next %>&order=<%= order %>" method="post">
+          </form>
           <li id="li_active_next">
-            <a id="a_next" href="/categoria/<%= query%>/page/<%= pagination.next %>" aria-label="Next">
+            <a id="a_next" href="javascript:;"  onclick="document.getElementById('formPaginationOffer_next').submit();" aria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
         <% } %>
-       
       </ul>
   </div>
 
 </row>
+
+

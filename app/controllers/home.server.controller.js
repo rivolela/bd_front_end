@@ -78,7 +78,7 @@ function validateSearch(req,res,query,next){
 
 	console.log("validate Search >> ");
 
-	var page = req.body.page;
+	var page = req.query.page;
 
 	if ((page === undefined ) || (page < 0)){
 		page = 1;
@@ -147,7 +147,7 @@ exports.getOffersByQuery = function(req,res,query){
 
 	validateSearch(req,res,query,function(query,page){
 
-		var order = req.body.resultOrder;
+		var order = req.query.order;
 		console.log("order by >>",order);
 
 		if ((order === undefined ) || (order < 0)){
@@ -188,7 +188,7 @@ exports.getOffersByQuery = function(req,res,query){
 					message: getErrorMessage(error)
 				});
 			}else{
-				console.log(data);
+				console.log(data.docs[0]);
 
 				pagination(data,page,function(from,to,previous,next){
 
@@ -201,7 +201,7 @@ exports.getOffersByQuery = function(req,res,query){
 							to:to,
 							next:next,
 							previous:previous,
-							pages:data.pages
+							pages:data.pages,
 						},
 						offers: data,
 						query: query,

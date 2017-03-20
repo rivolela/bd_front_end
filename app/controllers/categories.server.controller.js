@@ -43,8 +43,8 @@ exports.getOffersByQuery = function(req,res,query){
 
 		
 	var query = req.params.category;
-	var page = req.params.page;
-	var order = req.params.resultOrder;
+	var page = req.query.page;
+	var order = req.query.order;
 
 	if ((page === undefined ) || (page < 0)){
 		page = 1;

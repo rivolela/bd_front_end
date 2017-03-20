@@ -13,7 +13,7 @@ var validate = require("validate.js");
  */
 exports.getOffersByEan = function(req,res,next){
 
-	var ean = req.params.reviews;
+	var ean = req.body.ean;
 	var url = config.service_host + '/api/offers/bd/ean/' + ean + '/page/1/limit/100/';
 	var call = new requestsUtile();
 

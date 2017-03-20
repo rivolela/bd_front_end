@@ -1,9 +1,9 @@
-  <form id="form_order_reviews" action="/home" method="POST" style="margin-top: -18px;">
+  <form id="form_order_reviews" action="/home?page=<%= pagination.page %>&order=<%= order %>" method="POST" style="margin-top: -18px;">
     <label style="font-size: 12px;font-weight: normal;margin-top: -30px" class="visible-xs">ordenar por:</label>
-    <input type="hidden" name="page" value="<%= pagination.previous %>"/>
     <input type="hidden" name="query" value="<%= query %>"/>
+<!--     <input type="hidden" name="order" value="<%= order %>"/> -->
     <div class="form-group">
-      <select id="select_reviews" class="form-control" name="resultOrder" onchange="this.form.submit()" style="height: 28px">
+      <select id="select_reviews" class="form-control" name="resultOrder" onchange="orderOffers()" style="height: 28px">
           
           <!-- option 1 >> total de avaliacoes -->
           <% if (order == 1) { %>
@@ -29,7 +29,7 @@
             <option id="opt_menor_preco" label="menor preço" value="4"></option>
           <% } %>
 
-                    <!-- option 3 >> avaliações negativas -->
+          <!-- option 3 >> avaliações negativas -->
           <% if (order == 4) { %>
             <option id="opt_total_reviews" label="total avaliações" value="1"></option>
             <option id="opt_total_reviews_positivos" label="avaliações positivas" value="2"></option>
@@ -39,3 +39,33 @@
       </select>
     </div>
 </form>
+
+<script type="text/javascript">
+  
+
+// Read a page's GET URL variables and return them as an associative array.
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+function orderOffers() {
+  var page = getUrlVars()["page"];
+  // var order = getUrlVars()["order"];
+  var e = document.getElementById("select_reviews");
+  var order = e.options[e.selectedIndex].value;
+  var uri = window.location.protocol + '//'+ window.location.host + window.location.pathname + '?page=' + page + '&order=' + order;
+  // window.alert(uri);
+  window.location.assign(uri);
+}
+
+
+</script>

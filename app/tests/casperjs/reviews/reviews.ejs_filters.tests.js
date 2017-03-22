@@ -1,5 +1,5 @@
 // casper.options.viewportSize = {width: 1024, height: 768};
-var url = "http://localhost:3000/reviews/7896584056556/offer/5873905d46ee6dfe219640c1/page/1";
+var url = "http://localhost:3000/avaliacoes/geladeira-brastemp-clean-frost-free-378-l-220v";
 //var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);
@@ -13,7 +13,7 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
         // page information
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
 
         // simulated click to bd_boy_happy icon 
         this.echo('filter reviews by bd boy happy ');
@@ -37,8 +37,8 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
 
         casper.wait(5000, function() {
              // bd boys counter
-            test.assertElementCount('#review_title', 4,"it should find 4 #review_title elements");
-            test.assertElementCount('.bd_boy_sad', 5,"it should find 5 .bd_boy_happy elements");
+            test.assertElementCount('#review_title', 3,"it should find 3 #review_title elements");
+            test.assertElementCount('.bd_boy_sad', 4,"it should find 4 .bd_boy_happy elements");
             test.assertElementCount('.bd_boy_happy_off', 1,"it should find 1 .bd_boy_happy_off elements");
              // simulated click total reviews 
             this.echo('filter reviews by total of reviews ');

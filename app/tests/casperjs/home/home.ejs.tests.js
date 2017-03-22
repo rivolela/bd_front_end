@@ -5,6 +5,8 @@ casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
 
     casper.start(url, function() {
 
+        casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
+
         test.assertHttpStatus(200);
         test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
         // test.assertExists('form[action="/home"]', "offer search form is found");
@@ -37,7 +39,7 @@ casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
       // term searched
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n \tsmartphones 171 ofertas\n ');
+      }, '\n \tsmartphones 253 ofertas\n ');
 
       // tool_tip_bd_boy_sad.ejs
 
@@ -50,17 +52,22 @@ casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
 
       // this.echo(bd_boy_value);
 
-      test.assertEquals(bd_boy_value,"avaliações com \n1, 2 ou 3 estrelas\n" ,"bd boy sad mouseover has text >> 'avaliações com 1, 2 ou 3 estrelas'");
-
-      // simulated click to href_bd_boy_happy 
-      this.evaluate(function() {
-        $("#href_bd_boy_happy")[0].click();  
-      });   
+      test.assertEquals(bd_boy_value,"avaliações com \n1, 2 ou 3 estrelas\n" ,"bd boy sad mouseover has text >> 'avaliações com 1, 2 ou 3 estrelas'");      
        
     }).then(function(){
 
-      //check result of click href_bd_boy_happy : should be in reviews page
-      test.assertExist('#review_title'); 
+      // simulated click to href_bd_boy_happy 
+      this.echo('simulated click in href_bd_boy_happy');
+      this.evaluate(function() {
+        $("#txt_ver_avaliacoes")[0].click();  
+      });   
+
+    }).then(function(){
+
+      casper.wait(6000, function() {
+        //check result of click href_bd_boy_happy : should be in reviews page
+        test.assertExist('#review_title'); 
+      });   
 
     }).run(function() {
       test.done();

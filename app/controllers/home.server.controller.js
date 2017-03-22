@@ -1,6 +1,7 @@
 var requestsUtile = require('../utile/requests.server.utile.js');
 var config = require('../../config/config.js');
 var validate = require("validate.js");
+var SEO = require('../../config/seo/seo.js');
 
 var constraints = {
   query: {
@@ -74,7 +75,7 @@ exports.getOffersByEan = function(req,res,next){
 };
 
 
-function validateSearch(req,res,query,next){
+function validateSearch(req,res,next){
 
 	console.log("validate Search >> ");
 
@@ -84,7 +85,7 @@ function validateSearch(req,res,query,next){
 		page = 1;
 	};
 
-	var query = req.body.query;
+	var query = req.query.query;
 
 	if ((validate.isEmpty(query)) || (query === undefined)){
 		
@@ -141,11 +142,11 @@ function pagination(data,page,callback){
 }
 
 
-exports.getOffersByQuery = function(req,res,query){
+exports.getOffersByQuery = function(req,res){
 
 	console.log("getOffersByQuery controller >> ");	
 
-	validateSearch(req,res,query,function(query,page){
+	validateSearch(req,res,function(query,page){
 
 		var order = req.query.order;
 		console.log("order by >>",order);
@@ -193,8 +194,8 @@ exports.getOffersByQuery = function(req,res,query){
 				pagination(data,page,function(from,to,previous,next){
 
 					res.render('home/home',{
-						title: config.title,
-						slogan: config.slogan,
+						title: SEO.title,
+						slogan: SEO.slogan,
 						pagination: {
 							page: page,
 							from:from,

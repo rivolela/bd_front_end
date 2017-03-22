@@ -1,38 +1,38 @@
 var url = "http://localhost:3000/home";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Search Offers', 8, function(test) {
+casper.test.begin('Phantomjs Tests >> Search Offers', 5, function(test) {
 
     casper.start(url, function() {
 
         test.assertHttpStatus(200);
         test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
        
-        // test using query = geladeira
-        
-        test.assertExists('form[action="/home"]', "offer search form is found with query = geladeira");
-          this.fill('form[action="/home"]', {
-            query: "geladeira"
-        }, true);
+        this.echo('simulated click to search eletrodomésticos');
+        this.evaluate(function() {
+            document.getElementById("input_search_offer").value = "geladeira";
+            document.getElementById("btnSearchOffers").click();
+        });       
         test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
 
     }).then(function() {
 
         // test using query = "" 
-        
-        test.assertExists('form[action="/home"]', "offer search form is found with query = '' ");
-          this.fill('form[action="/home"]', {
-        }, true);
+        this.echo('simulated click to search " "');
+        this.evaluate(function() {
+            document.getElementById("input_search_offer").value = " ";
+            document.getElementById("btnSearchOffers").click();
+        });       
         test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
 
     }).then(function(){
 
         // test using query = ˆ&%ˆˆ%&!@#$%
-        
-        test.assertExists('form[action="/home"]', "offer search form is found with query = ˆ&%ˆˆ%&!@#$%");
-          this.fill('form[action="/home"]', {
-            query: "ˆ&%ˆˆ%&!@#$%"
-        }, true);
+        this.echo('simulated click to search ˆ&%ˆˆ%&!@#$% ');
+        this.evaluate(function() {
+            document.getElementById("input_search_offer").value = "ˆ&%ˆˆ%&!@#$%";
+            document.getElementById("btnSearchOffers").click();
+        });     
         
     }).then(function(){
          // check redirect to offers page, after to close msg error

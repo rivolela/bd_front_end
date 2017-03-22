@@ -10,11 +10,8 @@
 
     <ul id="pagination_previous_offers" class="pagination">
       <% if (pagination.previous != 0) { %>
-        <form id="formPaginationOffer_previous" action="/home?page=<%= pagination.previous %>&order=<%= order %>" method="post">
-          <input type="hidden" name="query" value="<%= query %>"/>
-        </form>
         <li id="li_active_previous" >
-          <a id="a_previous" href="javascript:;" onclick="document.getElementById('formPaginationOffer_previous').submit();" aria-label="Previous">
+          <a id="a_previous" href="/home?query=<%= query %>&page=<%= pagination.previous %>&order=<%= order %>" aria-label="Previous">
              <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
@@ -27,18 +24,13 @@
     <% for(var i=pagination.from; i <= pagination.to; i++) { %>
       
       <ul id="pagination_numbers_offers" class="pagination">
-
-        <form id="formPaginationOffer_<%= i %>" action="/home?page=<%= i %>&order=<%= order %>" method="post">
-          <input type="hidden" name="query" value="<%= query %>"/>
-        </form>
-        
         <% if (i == pagination.page) { %>
           <li class="active">
-            <a id='a_pagination_<%= i %>' class='pagination_active' href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="false"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class='pagination_active' href="/home?query=<%= query %>&page=<%= i %>&order=<%= order %>"><span aria-hidden="false"><%= i %></span></a>
           </li>
         <% } else { %>
           <li>
-            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();"><span aria-hidden="true"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="/home?query=<%= query %>&page=<%= i %>&order=<%= order %>" ><span aria-hidden="true"><%= i %></span></a>
           </li>
         <% } %>
 
@@ -50,11 +42,8 @@
 
       <ul id="pagination_next_offers" class="pagination">
         <% if (pagination.next != 0) { %>
-          <form id="formPaginationOffer_next" action="/home?page=<%= pagination.next %>&order=<%= order %>" method="post">
-            <input type="hidden" name="query" value="<%= query %>"/>
-          </form>
           <li id="li_active_next">
-            <a id="a_next" href="javascript:;" onclick="document.getElementById('formPaginationOffer_next').submit();" aria-label="Next">
+            <a id="a_next" href="/home?query=<%= query %>&page=<%= pagination.next %>&order=<%= order %>" aria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

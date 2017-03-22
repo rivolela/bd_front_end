@@ -1,5 +1,6 @@
 var requestsUtile = require('../utile/requests.server.utile.js');
 var config = require('../../config/config.js');
+var SEO = require('../../config/seo/seo.js');
 var fs = require('fs');
 var ejs = require('ejs');
 
@@ -99,83 +100,34 @@ exports.getReviewsByEan = function(req,res,next){
 };
 
 
-// exports.getReviewsByEan = function(req,res){
+exports.getReviewsByProduct = function(req,res,next){
 
-// 	var ean = req.params.reviews;
-// 	var offerId = req.params.offer;
-// 	var page = req.params.page;
-// 	var filter = req.params.filter;
+	var ean = req.product.docs[0].ean;
+	var page = req.query.page;
+	var filter = req.query.filter;
 
-// 	if ((page === undefined ) || (page < 0)){
-// 		page = 1;
-// 	}
+	if ((page === undefined ) || (page < 0)){
+		page = 1;
+	}
 
-// 	if ((filter === undefined ) || (filter < 0)){
-// 		filter = 0;
-// 	}
+	if ((filter === undefined ) || (filter < 0)){
+		filter = 0;
+	}
 
-// 	var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10/filter/" + filter ;
+	var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10/filter/" + filter ;
+	var call = new requestsUtile();
 
-// 	console.log(url);
+	call.getJson(url,function(data,response,error){
 
-// 	var call = new requestsUtile();
-	
-
-// 	call.getJson(url,function(data,response,error){
-
-// 		console.log("offers",req.offers);
-
-// 		if(data.code == 500) {
-// 			console.log("error >>", data.message);
-// 			var message = "ops! ocorreu algum problema técnico. Fique tranquilo, o nosso time já está trabalhando na resolução. = )";
-// 			res.render('offers',{
-// 				title: config.title,
-// 				error:true,
-// 				message: message,
-// 				env: process.env.NODE_ENV
-// 			});
-// 		}
-// 		else if(error){
-// 			console.log("error",error);
-// 			return res.status(400).send({
-// 				message: getErrorMessage(error)
-// 			});
-// 		}else{
-// 			console.log(data);
-			
-// 			pagination(data,page,function(from,to,previous,next){
-
-// 				var offers = req.offers;
-// 				console.log("offers",offers.docs.length);
-// 				var teste = offers.docs[0];
-// 				console.log(teste);
-
-// 				res.render('reviews/reviews',{
-// 					title: config.title,
-// 					slogan: config.slogan,
-// 					pagination: {
-// 						page: page,
-// 						from:from,
-// 						to:to,
-// 						next:next,
-// 						previous:previous,
-// 						pages:data.pages
-// 					},
-// 					reviews: data,
-// 					env: process.env.NODE_ENV,
-// 					featureToogle: config.reviews_toogle,
-// 					ean:ean,
-// 					offerSelected:offerId,
-// 					head_reviews:teste,
-// 					offers:offers,
-// 					filter:filter
-// 				});
-
-// 			});					
-// 		}
-// 	});
-
-// };
+		if(error){
+			console.log(error);
+			return next(err);
+		}else{
+			req.reviews = data;
+			next();
+		}
+	});	
+};
 
 
 exports.getReviewsByProductURl = function(req,res){
@@ -200,14 +152,19 @@ exports.getReviewsByProductURl = function(req,res){
 	pagination(limit,page,pages,function(from,to,previous,next){
 
 		var offers = req.offers;
-		
-		console.log("offers",offers.docs.length);
+		var product = req.product.docs[0];
+		console.log("product",product);
+
+		// console.log("product",product);
+		// console.log("offers",offers.docs.length);
+		// console.log("product",product.docs.length);
+
 		var teste = offers.docs[0];
 		console.log(teste);
 
 		res.render('reviews/reviews',{
-			title: config.title,
-			slogan: config.slogan,
+			title: SEO.title_reviews,
+			slogan: SEO.slogan,
 			pagination: {
 				page: page,
 				from:from,
@@ -222,8 +179,9 @@ exports.getReviewsByProductURl = function(req,res){
 			ean:ean,
 			offerSelected:offerId,
 			head_reviews:teste,
-			offers:offers,
-			filter:filter
+			offers:req.offers,
+			filter:filter,
+			product: product
 		});
 
 	});					

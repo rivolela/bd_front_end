@@ -1,7 +1,7 @@
-var url = "http://localhost:3000/home";
+var url = "http://localhost:3000/home?query=eletrodomésticos";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Offers_orders_reviews ', 15, function(test) {
+casper.test.begin('Phantomjs Tests >> Offers_orders_reviews ', 14, function(test) {
 
     casper.start(url, function() {
 
@@ -9,16 +9,17 @@ casper.test.begin('Phantomjs Tests >> Offers_orders_reviews ', 15, function(test
 
         test.assertHttpStatus(200);
         test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        
+        this.echo('simulated click to search eletrodomésticos');
+        this.evaluate(function() {
+           document.getElementById("btnSearchOffers").click();
+        });
+     
        
-        // test using query = eletrodomésticos
-        test.assertExists('form[action="/home"]', "offer search form is found with query = eletrodomésticos");
-          this.fill('form[action="/home"]', {
-            query: "eletrodomésticos"
-        }, true);
+    }).then(function(){
         test.assertElementCount('#txt_ver_avaliacoes', 10,"it should find 10 #txt_ver_avaliacoes elements");
         test.assertElementCount('.bd_boy_happy', 20,"it should find 20 .bd_boy_happy elements");
         test.assertElementCount('.bd_boy_sad', 20,"it should find 20 .bd_boy_sad elements");
-       
     }).then(function(){
 
         // order by total de avaliações

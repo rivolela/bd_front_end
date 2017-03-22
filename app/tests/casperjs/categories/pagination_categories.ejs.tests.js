@@ -8,7 +8,7 @@ casper.test.begin('Phantomjs Tests >> Categories pagination', 11, function(test)
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - veja avaliações de geladeira", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
 
     }).then(function() {
 
@@ -50,7 +50,7 @@ casper.test.begin('Phantomjs Tests >> Categories pagination', 11, function(test)
     }).then(function(){
       // back do pagination 01
       this.echo('Return to page 01');
-      test.assertElementCount('.pagination_disabled', 2); 
+      test.assertElementCount('.pagination_disabled', 1); 
     }).run(function() {
       test.done();
     });

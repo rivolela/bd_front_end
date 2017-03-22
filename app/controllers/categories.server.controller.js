@@ -1,6 +1,6 @@
 var requestsUtile = require('../utile/requests.server.utile.js');
 var config = require('../../config/config.js');
-
+var SEO = require('../../config/seo/seo.js');
 
 
 /**
@@ -92,8 +92,8 @@ exports.getOffersByQuery = function(req,res,query){
 			pagination(data,page,function(from,to,previous,next){
 
 				res.render('categories/categories',{
-					title: config.title_category,
-					slogan: config.slogan,
+					title: SEO.title_categories,
+					slogan: SEO.slogan,
 					pagination: {
 						page: page,
 						from:from,
@@ -103,7 +103,7 @@ exports.getOffersByQuery = function(req,res,query){
 						pages:data.pages
 					},
 					offers: data,
-					query: query,
+					query: query.replace(/\b\w/g, l => l.toUpperCase()),
 					total: data.total,
 					env: process.env.NODE_ENV,
 					featureToogle: config.offers_toogle,

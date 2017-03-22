@@ -2,8 +2,8 @@ var home = require('../controllers/home.server.controller');
 
 module.exports = function(app){
 	
-	app.route('/home/')
-		.post(home.getOffersByQuery)
+	app.route('/home')
+		// .post(home.getOffersByQuery)
 		.get(home.getOffersByQuery);
 
 

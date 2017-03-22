@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/reviews/7896584056556/offer/5873905d46ee6dfe219640c1/page/1";
+var url = "http://localhost:3000/avaliacoes/geladeira-brastemp-clean-frost-free-378-l-220v";
 
 
 casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
@@ -8,14 +8,14 @@ casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
 
     }).then(function() {
 
       // pagination from 1 to 10
       this.echo('Pagination >> 1 to 10');
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 2); 
+      test.assertElementCount('.pagination_disabled', 3); 
 
       // previous    
       test.assertElementCount('#a_previous', 0); 
@@ -41,7 +41,7 @@ casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
 
       // pagination 11 to 20
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 2); 
+      test.assertElementCount('.pagination_disabled', 3); 
 
       // go to pagination 01
       this.evaluate(function() {
@@ -50,7 +50,7 @@ casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
 
     }).then(function(){
       // back do pagination 01
-      test.assertElementCount('.pagination_disabled', 2); 
+      test.assertElementCount('.pagination_disabled', 3); 
     }).run(function() {
       test.done();
     });

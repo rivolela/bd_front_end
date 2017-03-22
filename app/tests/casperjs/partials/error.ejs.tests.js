@@ -1,7 +1,7 @@
 var url = "http://localhost:3000/home";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Error page', 5, function(test) {
+casper.test.begin('Phantomjs Tests >> Error page', 4, function(test) {
 
     casper.start(url, function() {
 
@@ -11,10 +11,12 @@ casper.test.begin('Phantomjs Tests >> Error page', 5, function(test) {
 
         test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
 
-        test.assertExists('form[action="/home"]', "offer search form is found");
-          this.fill('form[action="/home"]', {
-            query: "erererere"
-        }, true);
+        // test using query = ˆ&%ˆˆ%&!@#$%
+        this.echo('simulated click to search erererere');
+        this.evaluate(function() {
+            document.getElementById("input_search_offer").value = "erererere";
+            document.getElementById("btnSearchOffers").click();
+        });     
 
     }).then(function() {
 

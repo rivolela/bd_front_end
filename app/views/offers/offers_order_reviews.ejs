@@ -1,7 +1,6 @@
   <form id="form_order_reviews" action="/home?page=<%= pagination.page %>&order=<%= order %>" method="POST" style="margin-top: -18px;">
     <label style="font-size: 12px;font-weight: normal;margin-top: -30px" class="visible-xs">ordenar por:</label>
-    <input type="hidden" name="query" value="<%= query %>"/>
-<!--     <input type="hidden" name="order" value="<%= order %>"/> -->
+    <input  type="hidden" name="query" value="<%= query %>"/>
     <div class="form-group">
       <select id="select_reviews" class="form-control" name="resultOrder" onchange="orderOffers()" style="height: 28px">
           
@@ -44,8 +43,7 @@
   
 
 // Read a page's GET URL variables and return them as an associative array.
-function getUrlVars()
-{
+function getUrlVars(){
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
     for(var i = 0; i < hashes.length; i++)
@@ -57,12 +55,24 @@ function getUrlVars()
     return vars;
 }
 
+
 function orderOffers() {
   var page = getUrlVars()["page"];
+
+  if(page===undefined){
+    page=1;
+  }
+
+  var term = getUrlVars()["query"];
+
+  if(term == undefined){
+    term = document.getElementById("var_query").innerHTML;
+  }
+
   // var order = getUrlVars()["order"];
   var e = document.getElementById("select_reviews");
   var order = e.options[e.selectedIndex].value;
-  var uri = window.location.protocol + '//'+ window.location.host + window.location.pathname + '?page=' + page + '&order=' + order;
+  var uri = window.location.protocol + '//'+ window.location.host + window.location.pathname + '?query=' + term + '&page=' + page + '&order=' + order;
   // window.alert(uri);
   window.location.assign(uri);
 }

@@ -1,7 +1,7 @@
-var url = "http://localhost:3000/home";
+var url = "http://localhost:3000/home?query=brastemp";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Home pagination', 12, function(test) {
+casper.test.begin('Phantomjs Tests >> Home pagination', 11, function(test) {
 
     casper.start(url, function() {
 
@@ -9,10 +9,10 @@ casper.test.begin('Phantomjs Tests >> Home pagination', 12, function(test) {
 
         test.assertHttpStatus(200);
         test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
-        test.assertExists('form[action="/home"]', "offer search form is found");
-          this.fill('form[action="/home"]', {
-            query: "brastemp"
-        }, true);
+        // test.assertExists('form[action="/home"]', "offer search form is found");
+        //   this.fill('form[action="/home"]', {
+        //     query: "brastemp"
+        // }, true);
 
     }).then(function() {
 
@@ -54,7 +54,7 @@ casper.test.begin('Phantomjs Tests >> Home pagination', 12, function(test) {
     }).then(function(){
       // back do pagination 01
       this.echo('back do pagination 01');
-      test.assertElementCount('.pagination_disabled', 2); 
+      test.assertElementCount('.pagination_disabled', 9); 
     }).run(function() {
       test.done();
     });

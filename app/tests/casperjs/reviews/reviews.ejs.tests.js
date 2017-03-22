@@ -1,5 +1,5 @@
 // casper.options.viewportSize = {width: 1024, height: 768};
-var url = "http://localhost:3000/reviews/7896584056556/offer/5873905d46ee6dfe219640c1/page/1";
+var url = "http://localhost:3000/avaliacoes/geladeira-brastemp-clean-frost-free-378-l-220v";
 //var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);
@@ -13,7 +13,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // page information
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
 
     }).then(function() {
 
@@ -21,11 +21,11 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#name_offer').textContent;
-        }, 'Refrigerador | Geladeira Electrolux Cycle Defrost 2 Portas 260 Litros Branco - DC35A', 'should return #name_offer === Refrigerador | Geladeira Electrolux Cycle Defrost 2 Portas 260 Litros Branco - DC35A');
+        }, 'Geladeira Brastemp Clean Frost Free 378 L 220V', 'should return #name_offer === Geladeira Brastemp Clean Frost Free 378 L 220V');
 
         test.assertElementCount('#img_picture_offer', 1);
-        test.assertSelectorHasText('#counter_happy', '13');
-        test.assertSelectorHasText('#counter_sad', '2');
+        test.assertSelectorHasText('#counter_happy', '37');
+        test.assertSelectorHasText('#counter_sad', '3');
 
     }).then(function() {
 
@@ -40,7 +40,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
         // pagination_reviews.ejs
 
-        test.assertElementCount('#pagination_numbers_reviews', 3);
+        test.assertElementCount('#pagination_numbers_reviews', 4);
 
     }).then(function(){
         
@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 8);
-        test.assertElementCount('#img_retailer', 8);
-        test.assertElementCount('#href_offer_price', 8); 
+        test.assertElementCount('#href_ir_loja', 4);
+        test.assertElementCount('#img_retailer', 4);
+        test.assertElementCount('#href_offer_price', 4); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja
@@ -88,7 +88,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
 
     }).then(function(){
         // test redirect and title offer page 
-        test.assertTitle("Refrigerador | Geladeira Electrolux Cycle Defrost 2 Portas 260 Litros Branco", "Pontofrio homepage title is the one expected");
+        test.assertTitle("Refrigerador | Geladeira Brastemp clean Frost Free 2 Portas 378 Litros", "Store homepage title is the one expected");
         // casper.capture("../images/reddit-programming-new.png");
     }).run(function() {
         test.done();

@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: white">
   
   	<div class="navbar-header">
@@ -13,9 +12,6 @@
 
   	<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
 		  <ul class="nav navbar-nav">
-	      <!-- <li class="navbar-left"><a href="#">Left 1</a></li> 
-	      <li class="navbar-left"><a href="#">Left 2</a></li>  -->
-	  <!--     <div class="visible-xs"> -->
         <!-- Menu categorias mobile -->
         <!-- ELETRODOMESTICOS -->
         <li style="line-height: 1px;" class="visible-xs">    
@@ -46,7 +42,6 @@
           <%- include('../categories/mobile/menu_utensilios_mobile') %>
         </li>
          <!-- End categorias mobile -->
-      <!--   </div> -->
         
         <!-- Menu categorias desktop -->
 	      <li>
@@ -56,10 +51,6 @@
   	         <text>Categorias</text> 
   	       </button>
 	           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-              <!-- <li><a href="#">Action</a></li> -->
-     <!--          <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li> -->
-              <!-- <li class="divider"></li> -->
               <!-- ELETRODOMESTICOS -->
               <li class="dropdown-submenu">
                 <a tabindex="-1" href="#">Eletrodomésticos</a>
@@ -93,15 +84,13 @@
         <!-- End BD desktop -->
         
         <!-- Search Offer desktop -->
-	      <li class="hidden-xs"><%- include('../offers/search_offers') %></li>
-	      <!--   <li class="navbar-right"><a href="#">Right 1</a></li>
-	      <li class="navbar-right"><a href="#">Right 2</a></li> -->
+
         <!-- End Search Offer desktop -->
 		</ul>
 	 </div>
   
   <!-- Search Offer mobile -->
-	<div class="visible-xs">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search_offer">
 	  <%- include('../offers/search_offers') %>
 	</div>
   <!-- End Search Offer mobile -->

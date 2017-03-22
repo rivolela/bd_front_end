@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
     <title><%= title %></title>
     <link rel="alternate" href="http://www.beforedeciding.com.br" hreflang="pt-br" />
@@ -17,7 +17,10 @@
     <div class="container-fluid">
 
       <%- include('../partials/nav_head') %> 
+
       
+      <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
+
       <row>
         <!-- categorie title -->
         <div class="col-xs-5 col-sm-7 col-md-7 col-lg-7">   
@@ -46,9 +49,9 @@
         <% if (offers.docs[i].product !== null) { %>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
             <!-- list offers + box avaliacoes > 768px (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile) */  -->  
-            <%- include('../offers/list_offers',{offer:offers.docs[i]}); %>
+            <%- include('../offers/list_offers',{offer:offers.docs[i],i:i}); %>
             <!-- Extra small devices Phones (<768px)* (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile)  -->
-            <%- include('../offers/mobile/box_avaliacoes_mobile',{offer:offers.docs[i]}); %>
+            <%- include('../offers/mobile/box_avaliacoes_mobile',{offer:offers.docs[i],i:i}); %>
           </div>
         <% } %>
       <% } %>

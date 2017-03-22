@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
-    <title><%= title %></title>
-    <link rel="alternate" href="http://www.beforedeciding.com.br/reviews" hreflang="pt-br" />
-    <%- include('../partials/head') %>
-    <meta name="description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
-    <meta name="keywords" content="avaliações, avaliações de produtos, before deciding, comparador de avalições, reviews, reviews de produtos, comparador de reviews, avaliações de e-commerce" />
+    <title><%= product.name %><%= title %></title>
+    <link rel="alternate" href="http://www.beforedeciding.com.br/avaliacoes/<%= product.nameURL %>" hreflang="pt-br" />
+    <meta name="description" content="Veja avaliações de <%= product.name %> no Before Deciding, antes de decidir a sua compra." />
+    <meta name="keywords" content="<%= product.name %>,avaliações de <%= product.name %>,reviews de <%= product.name %>"  />
     <meta property="og:title" content="Before Deciding | Veja avaliações antes de comprar." />
     <meta property="og:description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
+    <link rel="canonical" href="http://www.beforedeciding.com.br/avaliacoes/<%= product.nameURL %>" />
+    <%- include('../partials/head') %> 
   </head>
 
   <body>

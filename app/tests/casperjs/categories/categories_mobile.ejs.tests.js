@@ -10,7 +10,7 @@ casper.test.begin('Phantomjs Tests >> Categories', 5, function(test) {
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - veja avaliações de geladeira", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
 
     }).then(function() {
 
@@ -20,7 +20,7 @@ casper.test.begin('Phantomjs Tests >> Categories', 5, function(test) {
 
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n \tgeladeira 222 ofertas\n ');
+      }, '\n \tGeladeira 211 ofertas\n ');
 
       casper.capture("./app/tests/casperjs/categories/img/categories_mobile.png");
         

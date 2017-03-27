@@ -1,4 +1,20 @@
+<style type="text/css">
 
+  /* nothing with screen size bigger than 768px */
+  @media (max-width:768px) {
+    h1 {
+      font-size: 1.0em; 
+    }
+  }
+
+  /*nothing with screen size smaller than 768px*/
+  @media (min-width:768px) {
+    h1 {
+      font-size: 1.5em; 
+    }
+  }
+    
+</style>
  <!-- img offer -->
  <div class="col-xs-5 col-sm-4 col-md-3 col-lg-3">
       <img id="img_picture_offer" src="<%= product.image %>"  class="img-responsive" onclick="ga('send','event','reviews','click','foto_offer');">
@@ -6,7 +22,7 @@
 
 <!-- total of reviews -->
 <div class="col-xs-7 col-sm-8 col-md-9 col-lg-9">
-    <strong id="name_offer"><%= product.name %></strong>
+    <h1 id="name_offer"><%= product.name %></h1>
     <!-- total of reviews -->
     <h4>
       <form id="formGetReviews" action="/avaliacoes/<%= product.nameURL%>?page=1&filter=0" method="post">

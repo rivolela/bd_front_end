@@ -1,3 +1,19 @@
+<style type="text/css">
+
+	@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');
+
+	.review_text{
+		font-family: 'Space Mono', monospace;
+		font-size: 16px;
+	/*	font-style: italic*/
+	}
+
+	.reviewTextTitle{
+		font-family: 'Space Mono', monospace;
+		font-size: 16px;
+		font-weight: bold;
+	}
+</style>
 
 <% if (review.rating >= 4) { %>
   <img id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 28px" ></img>
@@ -5,12 +21,12 @@
   <img id="bd_boy_review" class="img-responsive pull-left bd_boy_sad" style="width: 28px"></img>
 <% } %> 
 
-<h5 id="review_title"><strong>&nbsp;&nbsp;<%= review.title %></strong></h5>
+<text id="review_title" class="reviewTextTitle">&nbsp;&nbsp;<%= review.title %></text>
 
 <% if (review.rating >= 4) { %>
-  <blockquote id="review_description" style="background-color: rgba(218, 250, 229, 0.21);font-size: 15px;margin-left: 35px">
+  <blockquote id="review_description" style="background-color: rgba(218, 250, 229, 0.21);margin-left: 35px;" class="review_text">
 <% } else { %> 
-  <blockquote id="review_description" style="background-color: rgba(246, 66, 78, 0.03);font-size: 15px;margin-left: 35px"> 
+  <blockquote id="review_description" style="background-color: rgba(246, 66, 78, 0.03);margin-left: 35px" class="review_text"> 
 <% } %> 
   "<%= review.description %>"
   <footer id="review_author">
@@ -19,6 +35,6 @@
 
   </footer>
 </blockquote>
-
+<br>
     
    

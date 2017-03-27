@@ -1,9 +1,31 @@
+<style type="text/css">
+
+  /* nothing with screen size bigger than 768px */
+  @media (max-width:768px) {
+    h1 {
+      	font-size: 1.0em; 
+      	margin-top: 14px;
+		margin-bottom: 0px;"
+    }
+  }
+
+  /*nothing with screen size smaller than 768px*/
+  @media (min-width:768px) {
+    h1 {
+      font-size: 1.5em; 
+      margin-top: 15px;
+      margin-bottom: 0px;
+      margin-left: -20px;
+    }
+  }
+    
+</style>
+
  <div id="title_category" class="page-header hidden-xs" style="border-bottom: 0px;">
- 	<h4 style="margin-top: 15px;margin-bottom: 0px;margin-left: -20px"><%= query %> <small><%= total %> ofertas</small></h4>
+ 	<h1><%= query %> <small><%= total %> ofertas</small></h1>
  </div>
 
  <div id="title_category" class="page-header visible-xs" style="margin-left: -1px; border-bottom: 0px solid #eee; ">
- 	<h5 style="margin-top: 14px;
-margin-bottom: 0px;"><%= query %> <br><small><%= total %> ofertas</small></h5>
+ 	<h1><%= query %> <br><small><%= total %> ofertas</small></h1>
  </div>
  

@@ -14,11 +14,7 @@
 
 <!-- img product -->
 <div class="col-xs-5 col-sm-4 col-md-5 col-lg-4">
-    <form id="formImgGetReviews_<%= i %>" action="/avaliacoes/<%= offer.product.nameURL%>?page=1" method="post">
-        <input type="hidden" name="ean" value="<%= offer.product.ean %>"/>
-        <input type="hidden" name="nameurl" value="<%= offer.product.nameURL %>"/>
-    </form>
-    <a href="javascript:;" onclick="document.getElementById('formImgGetReviews_<%= i %>').submit();ga('send','event','reviews','click','foto_offer');">
+    <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1" onclick="ga('send','event','reviews','click','foto_offer');">
       <img src="<%= offer.product.image %>"  class="img-responsive" >
     </a>
 </div>
@@ -30,11 +26,7 @@ padding-right: 8px!important">
     
     <!-- name offer -->
     <strong>
-      <form id="formNameReviews_<%= i %>" action="/avaliacoes/<%= offer.product.nameURL%>?page=1" method="post">
-          <input type="hidden" name="ean" value="<%= offer.product.ean %>"/>
-          <input type="hidden" name="nameurl" value="<%= offer.product.nameURL %>"/>
-      </form>
-      <a href="javascript:;" onclick="ga('send','event','reviews','click','name_offer');document.getElementById('formNameReviews_<%= i %>').submit();"><%= offer.product.name %></a>
+      <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1" onclick="ga('send','event','reviews','click','name_offer');"><%= offer.product.name %></a>
     </strong>
     <br>
 
@@ -71,11 +63,7 @@ margin-right: 1px;">
 
               <!-- total bd boys happy -->
               <td>
-                <form id="formBdBoyHappyReviews_<%= i %>" action="/avaliacoes/<%= offer.product.nameURL%>?page=1&filter=1" method="post">
-                    <input type="hidden" name="ean" value="<%= offer.product.ean %>"/>
-                    <input type="hidden" name="nameurl" value="<%= offer.product.nameURL %>"/>
-                </form>
-                <a href="javascript:;" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip"  onclick="ga('send','event','reviews','click','bd_boy_happy');document.getElementById('formBdBoyHappyReviews_<%= i %>').submit();">
+                <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip"  onclick="ga('send','event','reviews','click','bd_boy_happy');">
                   <% if ((order == 2) || (order == 1)){ %>
                     <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
                   <% } else { %>
@@ -84,7 +72,7 @@ margin-right: 1px;">
                 </a>
               </td>
               <td>
-                <a id="href_bd_boy_happy" href="javascript:;" class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_happy');document.getElementById('formBdBoyHappyReviews').submit();">
+                <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_happy');">
                   <%= offer.product.countHappy %>
                 </a>
               </td>
@@ -93,11 +81,7 @@ margin-right: 1px;">
 
               <!-- total bd boys sad -->
               <td>
-                <form id="formBdBoySadReviews_<%= i %>" action="/avaliacoes/<%= offer.product.nameURL%>?page=1&filter=2" method="post">
-                    <input type="hidden" name="ean" value="<%= offer.product.ean %>"/>
-                    <input type="hidden" name="nameurl" value="<%= offer.product.nameURL %>"/>
-                </form>
-                <a id="href_bd_boy_sad" href="javascript:;" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip" onclick="ga('send','event','reviews','click','bd_boy_sad');document.getElementById('formBdBoySadReviews_<%= i %>').submit();">
+                <a id="href_bd_boy_sad" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip" onclick="ga('send','event','reviews','click','bd_boy_sad');">
                   <% if ((order == 3) || (order == 1)) { %>
                     <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
                   <% } else { %>
@@ -106,7 +90,7 @@ margin-right: 1px;">
                 </a>
               </td>
               <td>
-                <a href="javascript:;" class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_sad');document.getElementById('formBdBoySadReviews').submit();">
+                <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_sad');">
                 <%= offer.product.countSad %>
                 </a>
               </td>
@@ -115,11 +99,7 @@ margin-right: 1px;">
 
               <!-- btn ver avaliacoes-->
               <td>
-                <form id="formBTNGetReviews_<%= i %>" action="/avaliacoes/<%= offer.product.nameURL%>?page=1" method="post">
-                    <input type="hidden" name="ean" value="<%= offer.product.ean %>"/>
-                    <input type="hidden" name="nameurl" value="<%= offer.product.nameURL %>"/>
-                </form>
-                <a id="btnVerReviews" href="javascript:;" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');document.getElementById('formBTNGetReviews_<%= i %>').submit();" style="padding: 5px 3px; width: 120px">
+                <a id="btnVerReviews" href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');" style="padding: 5px 3px; width: 120px">
                   <% if ((order == 3) || (order == 2)) { %>
                       Ver Avaliações (<%= offer.product.totalReviews %>)
                   <% } else { %>

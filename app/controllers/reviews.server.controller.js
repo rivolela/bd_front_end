@@ -181,7 +181,8 @@ exports.getReviewsByProductURl = function(req,res){
 			head_reviews:teste,
 			offers:req.offers,
 			filter:filter,
-			product: product
+			product: product,
+			query: req.params.search
 		});
 
 	});					

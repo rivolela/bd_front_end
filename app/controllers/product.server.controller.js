@@ -13,14 +13,12 @@ var validate = require("validate.js");
  * @return {req.product} [description]
  */
 exports.getProductByNameURL = function(req,res,next){
-
-	var nameurl = req.body.nameurl;
-
-	if(nameurl === undefined){
-		nameurl = req.params.avaliacoes;
-	}
+	console.log("getProductByNameURL");
+	var nameurl = req.params.nameurl;
+	console.log("req.params.nameurl >> ",nameurl);
 
 	var url = config.service_host + '/api/products/nameurl/' + nameurl;
+	console.log("url >>",url);
 	var call = new requestsUtile();
 
 	call.getJson(url,function(data,response,error){

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt">
   <head>
-    <title><%= query %><%= title %></title>
-    <link rel="alternate" href="http://www.beforedeciding.com.br/categoria/<%= query %>" hreflang="pt-br" />
-    <meta name="description" content="Veja avaliações de <%= query %> no Before Deciding, antes de decidir a sua compra." />
-    <meta name="keywords" content="<%= query %>,avaliações de <%= query %>,reviews de <%= query %>" />
+    <title><%= title %></title>
+    <link rel="alternate" href="http://www.beforedeciding.com.br" hreflang="pt-br" />
+    <%- include('../partials/head') %> 
+    <meta name="description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
+    <meta name="keywords" content="avaliações, avaliações de produtos, before deciding, comparador de avalições, reviews, reviews de produtos, comparador de reviews, avaliações de e-commerce" />
     <meta property="og:title" content="Before Deciding | Veja avaliações antes de comprar." />
     <meta property="og:description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
-    <link rel="canonical" href="http://www.beforedeciding.com.br/categoria/<%= query %>" />
-    <%- include('../partials/head') %> 
+    <link rel="canonical" href="http://www.beforedeciding.com.br" />    
   </head>
 
   <body style="overflow-x: hidden;">
@@ -18,13 +18,26 @@
 
       <%- include('../partials/nav_head') %> 
 
-     
-      <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
+      <!-- Slogan -->   
+      <%- include('../partials/slogan') %> 
+
+      <!-- breadcrumb -->   
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  visible-xs visible-sm">
+        <ol class="breadcrumb" style="background-color: #f5f5f5">
+          <li><a href="/"> << home </a></li>
+        <!--       <li class="active"><%= query %></li> -->
+        </ol>
+      </div>
+  
+  <!-- End Slogan -->
+
       
+      <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
+
       <row>
-        <!-- categorie title -->
+        <!-- search title -->
         <div class="col-xs-5 col-sm-7 col-md-7 col-lg-7">   
-          <%- include('../categories/categories_title') %> 
+          <%- include('./search_title') %> 
         </div>
          <!-- label order by -->
         <div class="col-xs-* col-sm-2 col-md-2 col-lg-2 div_label_order"> 
@@ -42,7 +55,8 @@
           <%- include('../partials/hr') %>
         </div>
       </row>
-                    
+      
+      
       <!-- list offers and box ver avalicoes -->   
       <% for(var i=0; i<offers.docs.length; i++) { %>
         <% if (offers.docs[i].product !== null) { %>
@@ -54,9 +68,9 @@
           </div>
         <% } %>
       <% } %>
+      <%- include('../offers/offers_pagination') %>
 
-      <%- include('./pagination_categories') %>
-
+    
     </div>
 
     <footer class="footer">

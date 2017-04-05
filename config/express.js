@@ -59,12 +59,11 @@ module.exports = function(){
 	app.use(passport.initialize());
 	app.use(passport.session());
 
-	require('../app/routes/index.server.routes.js')(app);
 	require('../app/routes/users.server.routes.js')(app);
 	require('../app/routes/articles.server.routes.js')(app);
 	require('../app/routes/home.server.routes.js')(app);
-	require('../app/routes/reviews.server.routes.js')(app);
-	require('../app/routes/categories.server.routes.js')(app);
+	require('../app/routes/lp.server.routes.js')(app);
+
 
 	return app;
 };

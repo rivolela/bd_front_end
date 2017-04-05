@@ -25,16 +25,12 @@
     <h1 id="name_offer"><%= product.name %></h1>
     <!-- total of reviews -->
     <h4>
-      <form id="formGetReviews" action="/avaliacoes/<%= product.nameURL%>?page=1&filter=0" method="post">
-        <input type="hidden" name="ean" value="<%= product.ean %>"/>
-        <input type="hidden" name="nameurl" value="<%= product.nameURL %>"/>
-      </form>
       <% if (product.totalReviews == 1) { %>
-        <a id="a_total_reviews" href="javascript:;" onclick="document.getElementById('formGetReviews').submit();ga('send','event','reviews','click','all_reviews');">
+        <a id="a_total_reviews" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=0" onclick="ga('send','event','reviews','click','all_reviews');">
         <%= product.totalReviews %> avaliação
         </a> 
       <% } else { %>
-        <a id="a_total_reviews" href="javascript:;" onclick="document.getElementById('formGetReviews').submit();ga('send','event','reviews','click','all_reviews');">
+        <a id="a_total_reviews" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=0" onclick="ga('send','event','reviews','click','all_reviews');">
         <%= product.totalReviews %> avaliações 
         </a> 
       <% } %>
@@ -49,11 +45,7 @@
             <!-- BD BOY HAPPY -->
             <td>
               <% if (product.countHappy  > 0) { %>
-                <form id="formGetReviewsHappy" action="/avaliacoes/<%= product.nameURL%>?page=1&filter=1" method="post">
-                  <input type="hidden" name="ean" value="<%= product.ean %>"/>
-                  <input type="hidden" name="nameurl" value="<%= product.nameURL %>"/>
-                </form>
-                <a id="a_bd_boy_happy_icon" href="javascript:;" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip" onclick="document.getElementById('formGetReviewsHappy').submit();ga('send','event','reviews','click','bd_boy_happy');">
+                <a id="a_bd_boy_happy_icon" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip" onclick="ga('send','event','reviews','click','bd_boy_happy');">
                   <% if ((filter == 1) || (filter == 0)){ %>
                     <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
                   <% } else { %>
@@ -69,7 +61,7 @@
 
             <td>
               <% if (product.countHappy  > 0) { %>
-                <a id="counter_happy" href="javascript:;" class="a_couter" onclick="document.getElementById('formGetReviewsHappy').submit();ga('send','event','reviews','click','bd_boy_happy');">
+                <a id="counter_happy" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=1" class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_happy');">
                   <text id="counter_happy"><%= product.countHappy %></text>
                 </a>
               <% } else { %>
@@ -82,11 +74,7 @@
             <!-- BD BOY SAD -->
             <td>
               <% if (product.countSad  > 0) { %>
-                <form id="formGetReviewsSad" action="/avaliacoes/<%= product.nameURL%>?page=1&filter=2" method="post">
-                  <input type="hidden" name="ean" value="<%= product.ean %>"/>
-                  <input type="hidden" name="nameurl" value="<%= product.nameURL %>"/>
-                </form>
-                <a id="a_bd_boy_sad_icon" href="javascript:;" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip" onclick="document.getElementById('formGetReviewsSad').submit();ga('send','event','reviews','click','bd_boy_sad');">
+                <a id="a_bd_boy_sad_icon" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip" onclick="ga('send','event','reviews','click','bd_boy_sad');">
                   <% if ((filter == 2) || (filter == 0)) { %>
                     <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
                   <% } else { %>
@@ -102,7 +90,7 @@
 
             <td>
               <% if (product.countSad  > 0) { %>
-                <a id="counter_sad" href="javascript:;" class="a_couter" onclick="document.getElementById('formGetReviewsSad').submit();ga('send','event','reviews','click','bd_boy_sad');">
+                <a id="counter_sad" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=2" class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_sad');">
                   <text id="counter_sad"><%= product.countSad %></text>
                 </a>
               <% } else { %>

@@ -1,5 +1,5 @@
-  <form id="form_order_reviews" action="/home?page=<%= pagination.page %>&order=<%= order %>" method="POST" style="margin-top: -18px;">
-    <label style="font-size: 12px;font-weight: normal;margin-top: -30px" class="visible-xs">ordenar por:</label>
+  <form id="form_order_reviews" action="/?page=<%= pagination.page %>&order=<%= order %>" method="POST" style="margin-top: -18px;">
+    <label style="font-size: 12px;font-weight: normal" class="visible-xs">ordenar por:</label>
     <input  type="hidden" name="query" value="<%= query %>"/>
     <div class="form-group">
       <select id="select_reviews" class="form-control" name="resultOrder" onchange="orderOffers()" style="height: 28px">

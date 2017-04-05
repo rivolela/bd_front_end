@@ -15,8 +15,11 @@
 
     <!-- Begin page content -->
     <div class="container-fluid">
-
+  
       <%- include('../partials/nav_head') %> 
+
+      <!-- Slogan -->   
+      <%- include('../partials/slogan') %> 
 
       
       <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
@@ -24,16 +27,10 @@
       <row>
         <!-- categorie title -->
         <div class="col-xs-5 col-sm-7 col-md-7 col-lg-7">   
-          <%- include('../categories/categories_title') %> 
+          Home Page
         </div>
-         <!-- label order by -->
-        <div class="col-xs-* col-sm-2 col-md-2 col-lg-2 div_label_order"> 
-          <label class="hidden-xs label_order">ordenar por:</label>
-        </div>         
-        <!-- reviews order -->
-        <div class="col-xs-7 col-sm-3 col-md-3 col-lg-3">
-           <%- include('../offers/offers_order_reviews') %> 
-        </div>
+       
+
       </row>
 
       <!-- hr -->
@@ -56,8 +53,6 @@
         <% } %>
       <% } %>
       
-      <%- include('./pagination_home') %>
-
     
     </div>
 

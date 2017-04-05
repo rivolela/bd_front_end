@@ -13,7 +13,16 @@
 	// Read a page's GET URL variables and return them as an associative array.
 	function searchOffers() {
 	  var term = document.getElementById("input_search_offer").value;
-	  var uri = window.location.protocol + '//'+ window.location.host + '/home' + '?query=' + term + '&page=' + 1;
+    var pathname = window.location.pathname;
+
+    // if(pathname==="/search"){
+      var uri = window.location.protocol + '//'+ window.location.host + '/' + term + '?page=' + 1;
+      // window.alert("busca");
+     // }else{
+     //  var uri = window.location.protocol + '//'+ window.location.host + '/' + term;
+     //  window.alert("categoria");
+     // }
+	 
 	  // window.alert(uri);
 	  window.location.assign(uri);
 	}

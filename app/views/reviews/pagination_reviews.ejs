@@ -10,12 +10,8 @@
 
     <ul id="pagination_previous_reviews" class="pagination">
         <% if (pagination.previous != 0) { %>
-          <form id="formPaginationOffer_previous" action="/avaliacoes/<%= product.nameURL%>?page=<%= pagination.previous %>&filter=<%= filter %>" method="post">
-              <input type="hidden" name="ean" value="<%= product.ean %>"/>
-              <input type="hidden" name="nameurl" value="<%= product.nameURL %>"/>
-          </form>
           <li id="li_active_previous" >
-            <a id="a_previous" href="javascript:;" aria-label="Previous" onclick="document.getElementById('formPaginationOffer_previous').submit();ga('send','event','reviews','click','pagination_reviews');">
+            <a id="a_previous" href="/<%= query%>/<%= product.nameURL%>?page=<%= pagination.previous %>&filter=<%= filter %>" aria-label="Previous" onclick="ga('send','event','reviews','click','pagination_reviews');">
                <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
@@ -28,18 +24,13 @@
 
       <ul id="pagination_numbers_reviews" class="pagination">
 
-        <form id="formPaginationOffer_<%= i %>" action="/avaliacoes/<%= product.nameURL%>?page=<%= i %>&filter=<%= filter %>" method="post">
-          <input type="hidden" name="ean" value="<%= product.ean %>"/>
-          <input type="hidden" name="nameurl" value="<%= product.nameURL %>"/>
-        </form>
-
         <% if (i == pagination.page) { %>
           <li class="active">
-            <a id='a_pagination_<%= i %>' class='pagination_active' href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();ga('send','event','reviews','click','pagination_reviews');"><span aria-hidden="false"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class='pagination_active' href="/<%= query%>/<%= product.nameURL%>?page=<%= i %>&filter=<%= filter %>" onclick="ga('send','event','reviews','click','pagination_reviews');"><span aria-hidden="false"><%= i %></span></a>
           </li>
         <% } else { %>
           <li>
-            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="javascript:;" onclick="document.getElementById('formPaginationOffer_<%= i %>').submit();ga('send','event','reviews','click','pagination_reviews');"><span aria-hidden="true"><%= i %></span></a>
+            <a id='a_pagination_<%= i %>' class="pagination_disabled" href="/<%= query%>/<%= product.nameURL%>?page=<%= i %>&filter=<%= filter %>" onclick="ga('send','event','reviews','click','pagination_reviews');"><span aria-hidden="true"><%= i %></span></a>
           </li>
         <% } %>
 
@@ -51,12 +42,8 @@
 
       <ul id="pagination_next_reviews" class="pagination">
         <% if (pagination.next != 0) { %>
-          <form id="formPaginationOffer_next" action="/avaliacoes/<%= product.nameURL%>?page=<%= pagination.next %>&filter=<%= filter %>" method="post">
-            <input type="hidden" name="ean" value="<%= product.ean %>"/>
-            <input type="hidden" name="nameurl" value="<%= product.nameURL %>"/>
-          </form>
           <li id="li_active_next">
-            <a id="a_next"  href="javascript:;" aria-label="Next" onclick="document.getElementById('formPaginationOffer_next').submit();ga('send','event','reviews','click','pagination_reviews');">
+            <a id="a_next"  href="/<%= query%>/<%= product.nameURL%>?page=<%= pagination.next %>&filter=<%= filter %>" aria-label="Next" onclick="ga('send','event','reviews','click','pagination_reviews');">
                <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

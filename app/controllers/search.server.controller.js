@@ -24,31 +24,6 @@ exports.render = function(req,res){
 };
 
 
-/**
- * [checkCookie set cookie to mark user visit in the landing page ]
- * @param  {http}   req  
- * @param  {http}   res  
- * @param  {callback} next 
- * @return {resp,flagFirstVisit}  
- */
-exports.checkCookie = function (req,res){
-	console.log("check cookie >>");
-	var cookie = req.cookies.bd_lp;
-	var flagFirstVisit;
-
-	if(cookie === undefined){
-		console.log("cookie doesn't exist >>");
-		res.cookie('bd_lp','1',{expires: new Date(Date.now() + (2000*24*60*60*1000)),encode: String});
-		res.redirect('/lp/welcome');
-	}else{
-		console.log("cookie exists");
-		getOffersHome(req,res);
-	}
-	
-	// next(res,flagFirstVisit);
-};
-
-
 var getErrorMessage = function(err){
 	if(err.errors){
 		for (var errName in err.errors){
@@ -62,43 +37,6 @@ var getErrorMessage = function(err){
 };
 
 
-exports.list = function(req,res){
-	Article.find().sort('-created').populate('creator','firstName last name fullName').exec(function(err,articles){
-		if(err){
-			return res.status(400).send({
-				message: getErrorMessage(err)
-			});
-		}else{
-			res.json(articles);
-		}
-	});
-};
-
-/**
- * @description list offers by ean 
- * @param  {req}
- * @param  {res}
- * @param  {next}
- * @return {list of offers of ean requested}
- */
-exports.getOffersByEan = function(req,res,next){
-
-	var ean = req.params.reviews;
-	var url = config.service_host + '/api/offers/bd/ean/' + ean + '/page/1/limit/100/';
-	var call = new requestsUtile();
-
-	call.getJson(url,function(data,response,error){
-
-		if(error){
-			console.log(error);
-			return next(err);
-		}else{
-			req.offers = data;
-			next();
-		}
-	});	
-};
-
 
 function validateSearch(req,res,next){
 
@@ -110,12 +48,11 @@ function validateSearch(req,res,next){
 		page = 1;
 	};
 
-	var query = req.query.query;
+	var query = req.params.search;
 
 	if ((validate.isEmpty(query)) || (query === undefined)){
 		
-		query = "smartphones";
-		return next(query,page);
+		res.redirect('/');
 
 	}else if(validate({query: query}, constraints)){
 
@@ -167,9 +104,8 @@ function pagination(data,page,callback){
 }
 
 
-function getOffersHome(req,res){
+exports.searchOffers = function(req,res){
 
-	console.log("getOffersByQuery controller >> ");	
 
 	validateSearch(req,res,function(query,page){
 
@@ -218,7 +154,7 @@ function getOffersHome(req,res){
 
 				pagination(data,page,function(from,to,previous,next){
 
-					res.render('home/home',{
+					res.render('search/search',{
 						title: SEO.title,
 						slogan: SEO.slogan,
 						pagination: {

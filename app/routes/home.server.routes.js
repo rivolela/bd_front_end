@@ -1,20 +1,20 @@
 var home = require('../controllers/home.server.controller');
+// var categories = require('../controllers/categories.server.controller');
+var reviews = require('../controllers/reviews.server.controller');
+var offers = require('../controllers/offers.server.controller');
+var product = require('../controllers/product.server.controller');
+var search = require('../controllers/search.server.controller');
 
 module.exports = function(app){
 	
-	app.route('/home')
-		// .post(home.getOffersByQuery)
-		.get(home.getOffersByQuery);
+	app.route('/').get(home.checkCookie);
 
+	app.route('/:search').get(search.searchOffers);
 
-	// app.route('/home/page/:page/filter/:filter')
-	// 	.post(home.getOffersByQuery)
-	// 	.get(home.getOffersByQuery);
-	// app.route('/api/articles/:articleId')
-	// 	.get(articles.read)
-	// 	.put(users.requireLogin,articles.hasAuthorization,articles.update)
-	// 	.delete(users.requireLogin,articles.hasAuthorization,articles.delete);
-
-	// app.param('query',offers.getOffersByQuery);
+	app.route('/:search/:nameurl')
+		.get(product.getProductByNameURL,
+			 offers.getOffersByProduct,
+			 reviews.getReviewsByProduct,
+			 reviews.getReviewsByProductURl);
 
 };

@@ -16,13 +16,13 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<img class="img-responsive center-block"  src="img/before_deciding.png">
+					<img class="img-responsive center-block"  src="../img/before_deciding.png">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="jumbotron">
-						<img class="img-responsive center-block"  src="img/bd_boy.png">
+						<img class="img-responsive center-block"  src="../img/bd_boy.png">
 			  			<h2><strong>Consulte avaliações antes de comprar!<strong></h2>
 			  			<h3> Veja avaliações de produtos e lojas</h3>
 			  			<h3> fornecidas por milhares de usuários,<br><br>antes de decidir a sua compra.</h3>
@@ -30,19 +30,16 @@
 			  			<br>
 			  			 	<% if (featureToogle) { %>
 
-			  				<form action="/" method="get" class="navbar-form navbar-center" role="search">
-		             			<button id="btnCallToAction" type="submit" class="btn btn-warning btn-lg" type="button" onclick="ga('send','event','lp','click','call_to_action');">
+			  	       			<a id="btnCallToAction" href="/" class="btn btn-warning btn-lg" role="button" onclick="ga('send','event','lp','click','call_to_action');">
 		               			   <text style="color: black"> Ver Avaliações</text>
-		              			</button>
-			        		</form>
-
+		              			</a>
 			        		<% } %>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<img class="img-responsive center-block"  src="img/reviews.png">
+					<img class="img-responsive center-block"  src="../img/reviews.png">
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h3 class="text-center">

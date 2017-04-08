@@ -9,7 +9,7 @@
     }
 
     .breadcrumb_bd{
-      margin-top: -25px;
+      margin-top: 20px;
       display: inline-flex;
     }
   }
@@ -24,13 +24,17 @@
     }
 
     .breadcrumb_bd{
-      margin-top: -25px;
+      padding: 15px 0px 1px 0px!important;
 
     }
   }
 
   .capitalize {
     text-transform: capitalize;
+  }
+
+  .breadcrumb > li + li:before{
+    content: "";
   }
 
   
@@ -46,10 +50,10 @@
  </div>
 
  <div id="title_category" class="visible-xs capitalize" style="margin-left: -1px; border-bottom: 0px solid #eee; ">
- 	<h1><%= query %> <br><small><%= total %> ofertas</small></h1>
-<!--   <ol class="breadcrumb breadcrumb_bd" style="background-color: white">
+ <!-- 	<h1><%= query %> <br><small><%= total %> ofertas</small></h1> -->
+  <ol class="breadcrumb breadcrumb_bd" style="background-color: white">
     <li><a href="/"><<</a></li>
-    <li class="active"><%= query %></li>
-  </ol> -->
+    <li class="active"><%= query %> <br><small><%= total %> ofertas</small></li>
+  </ol>
  </div>
  

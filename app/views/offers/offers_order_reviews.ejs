@@ -1,5 +1,26 @@
-  <form id="form_order_reviews" action="/?page=<%= pagination.page %>&order=<%= order %>" method="POST" style="margin-top: -18px;">
-    <label style="font-size: 12px;font-weight: normal" class="visible-xs">ordenar por:</label>
+  <style type="text/css">
+    
+    /* nothing with screen size bigger than 768px */
+    @media (max-width:768px) {
+      #form_order_reviews{
+        margin-top: -18px;
+        margin: 10px 0px 0px 0px;
+      }
+
+    }
+
+    /*nothing with screen size smaller than 768px*/
+    @media (min-width:768px) {
+
+      #form_order_reviews{
+        margin-top: -18px;
+        margin: 10px 0px 0px 0px;
+      }
+    }
+  </style>  
+
+
+  <form id="form_order_reviews" action="/?page=<%= pagination.page %>&order=<%= order %>" method="POST">
     <input  type="hidden" name="query" value="<%= query %>"/>
     <div class="form-group">
       <select id="select_reviews" class="form-control" name="resultOrder" onchange="orderOffers()" style="height: 28px">

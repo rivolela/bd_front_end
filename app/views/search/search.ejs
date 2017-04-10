@@ -6,8 +6,7 @@
     <%- include('../partials/head') %> 
     <meta name="description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
     <meta name="keywords" content="avaliações, avaliações de produtos, before deciding, comparador de avalições, reviews, reviews de produtos, comparador de reviews, avaliações de e-commerce" />
-    <meta property="og:title" content="Before Deciding | Veja avaliações antes de comprar." />
-    <meta property="og:description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="http://www.beforedeciding.com.br" />   
   </head>
 
@@ -26,7 +25,7 @@
 
       <row>
         <!-- breadcrumb -->
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 visible-xs visible-md">   
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 visible-xs">   
            <%- include('../partials/breadcrumb') %>
         </div>
       </row>
@@ -43,7 +42,7 @@
       </row>
       
       <!-- desktop -->
-      <row class="hidden-xs hidden-md">
+      <row class="hidden-xs">
         <!-- search title -->
         <div class="col-xs-5 col-sm-7 col-md-7 col-lg-7">   
           <%- include('../partials/breadcrumb') %>
@@ -83,7 +82,7 @@
     </div>
 
     <footer class="footer">
-      <div class="panel-footer"><%- include('../partials/footer') %></div>
+      <div class="panel-footer"  style="background-color: rgb(65, 65, 65)"><%- include('../partials/footer') %></div>
     </footer>
 
   </body>

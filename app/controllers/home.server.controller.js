@@ -39,7 +39,8 @@ exports.checkCookie = function (req,res){
 	if(cookie === undefined){
 		console.log("cookie doesn't exist >>");
 		res.cookie('bd_lp','1',{expires: new Date(Date.now() + (2000*24*60*60*1000)),encode: String});
-		res.redirect('/lp/welcome');
+		// res.redirect('/static/lp/welcome');
+		getOffersHome(req,res);
 	}else{
 		console.log("cookie exists");
 		getOffersHome(req,res);

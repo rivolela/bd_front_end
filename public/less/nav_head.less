@@ -1,4 +1,7 @@
- /*  Extra small devices Phones (<768px)*/
+// Components
+@import "variables.less";
+
+/*  Extra small devices Phones (<768px)*/
 @media (max-width:768px) {
 
 	.navbar-header{
@@ -20,7 +23,7 @@
 	}
 
 	.brand_img{
-		/* content:url('img/before_deciding_app.png');*/
+		content:url('/../../img/decidaki_marca_negativa_sem_slogan.png');
 		margin-bottom: -35px;
 		padding: 10px 1px 4px 20px;
 	}    
@@ -75,8 +78,9 @@
   }
 
   .brand_img{
-    /* content:url('img/before_deciding_app.png');*/
-    margin-bottom: -35px
+    content:url('/../../img/decidaki_marca_negativa_sem_slogan.png');
+    margin-bottom: -35px;
+    padding-left: 50px;
   }
 
   .nav > li > a{
@@ -143,4 +147,12 @@ display:block;
 	-webkit-border-radius:6px 0 6px 6px;
 	-moz-border-radius:6px 0 6px 6px;
 	border-radius:6px 0 6px 6px;
+}
+
+.navbar{
+  border: 0px;
+}
+
+.nav_bd{
+  background-color: @branco
 }

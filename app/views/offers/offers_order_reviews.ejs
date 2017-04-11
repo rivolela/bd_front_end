@@ -7,6 +7,11 @@
         margin: 10px 0px 0px 0px;
       }
 
+      #select_reviews{
+        margin: -15px 0px 20px 10px;
+        height: 28px
+      }
+
     }
 
     /*nothing with screen size smaller than 768px*/
@@ -16,6 +21,12 @@
         margin-top: -18px;
         margin: 10px 0px 0px 0px;
       }
+
+      #select_reviews{
+        margin: -5px 0px 20px 0px;
+        height: 28px
+      }
+
     }
   </style>  
 
@@ -23,7 +34,7 @@
   <form id="form_order_reviews" action="/?page=<%= pagination.page %>&order=<%= order %>" method="POST">
     <input  type="hidden" name="query" value="<%= query %>"/>
     <div class="form-group">
-      <select id="select_reviews" class="form-control" name="resultOrder" onchange="orderOffers()" style="height: 28px">
+      <select id="select_reviews" class="form-control" name="resultOrder" onchange="orderOffers()">
           
           <!-- option 1 >> total de avaliacoes -->
           <% if (order == 1) { %>

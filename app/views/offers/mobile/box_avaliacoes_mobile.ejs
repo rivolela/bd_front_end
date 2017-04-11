@@ -23,7 +23,8 @@
 
     .table_avalicoes{
       padding-left: 25px;
-      padding-right:30px;
+      padding-right:10px;
+      padding-top: 20px;
       overflow-x: hidden;
     
     }
@@ -81,17 +82,16 @@
                 </a>
             </td>
 
-            <td width="5px;">&nbsp;</td>
-
-            <td width="20px;" class="visible-xs"">&nbsp;</td>
+            <td width="25px;" class="visible-xs"">&nbsp;</td>
+            <td width="20px;" class="visible-sm"">&nbsp;</td>
 
             <!-- btn ver avaliacoes-->
             <td>
-               <a id="btnCallToAction"  href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');" style="padding: 5px 3px; width: 120px">
+               <a id="btnCallToAction"  href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');" style="padding: 5px 3px;color: black">
                   <% if ((order == 3) || (order == 2)) { %>
                       Ver Avaliações (<%= offer.totalReviews %>)
                   <% } else { %>
-                      <text style="color: black"> Ver Avaliações (<%= offer.totalReviews %>)</text>
+                      <text style="color: black">Ver Avaliações(<%= offer.totalReviews %>) </text>
                   <% } %>
                 </a>
             </td>

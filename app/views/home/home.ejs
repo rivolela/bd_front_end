@@ -17,6 +17,19 @@
       h3{
         text-align: center;
       }
+
+      .thumbnail > img{
+        height: 150px;
+
+      }
+
+      .txtCallToAction{
+        color: black
+      }
+
+      .p_CallToAction{
+        text-align: right
+      }
     </style>   
   </head>
 
@@ -28,75 +41,72 @@
       <%- include('../partials/nav_head') %> 
       
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-3">Decidaki!</h1>
-        <p>Veja avaliações antes de decidir comprar!</p>
-        <p><a id="btnCallToAction" href="/smartphones?page=1" class="btn btn-warning btn-lg" role="button" onclick="ga('send','event','lp','click','call_to_action');">
-          <text style="color: black"> Ver Avaliações</text>
-          </a>
-        </p>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Decidaki!</h1>
+          <p>Veja avaliações antes de decidir comprar!</p>
+          <p><a id="btnCallToAction" href="/smartphones?page=1" class="btn btn-warning btn-lg" role="button" onclick="ga('send','event','lp','click','call_to_action');">
+            <text class="txtCallToAction"> Ver Avaliações</text>
+            </a>
+          </p>
+        </div>
       </div>
-    </div>
 
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4 col-lg-4">
-          <div class="thumbnail" data-mh="my-group">
-            <img alt="" src="http://www.extra-imagens.com.br/Control/ArquivoExibir.aspx?IdArquivo=595986971" style="height: 150px">
+          <div class="thumbnail">
+            <img alt="" src="http://www.extra-imagens.com.br/Control/ArquivoExibir.aspx?IdArquivo=595986971">
             <div class="caption">
               <p><h3>Iphone 6s Apple</h3></p>
-<!--               <p><h4>Ótimo Produto - frete ponto frio de parabéns</h4></p> -->
               <p>
                 <blockquote>
                   <p>"Produtos Apple sempre premium - Não posso esquecer de mencionar que o frete da ponto frio é espetacular chegou muito antes do tempo previsto tá de parabéns ponto frio".</p>
                   <footer>avaliado pelo usuário(a) Jociclei <cite title="Source Title">no site Pontofrio BR</cite> em 07/02/2017</footer>
                 </blockquote>                
               </p>
-              <p style="text-align: right;">
+              <p class="p_CallToAction">
                 <a id="btnCallToAction" href="/iphone%206s/iphone-6s-apple-com-tela-4-7-hd-32gb-3d-touch-ios-9-sensor-touch-id-camera-isight-12mp-wifi-4g-gps-bluetooth-e-nfc-prateado" class="btn btn-warning btn-md" role="button" onclick="ga('send','event','lp','click','call_to_action');">
-                <text style="color: black">Veja mais Avaliações</text>
+                <text class="txtCallToAction">Veja Avaliações</text>
                 </a>
               </p>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-lg-4">
-          <div class="thumbnail" data-mh="my-group">
-            <img alt="" src="https://static.wmobjects.com.br/imgres/arquivos/ids/10589565-250-250" style="height: 150px">
+          <div class="thumbnail">
+            <img alt="" src="https://static.wmobjects.com.br/imgres/arquivos/ids/10589565-250-250">
             <div class="caption">
             <p><h3>Lavadora de Roupas Consul.</h3></p>
-  <!--           <p><h4>Excelente produto entrega super rápida!</h4></p> -->
              <p>
               <blockquote>
                 <p>"Parabéns a vendedora Márcia do televendas pelo comprometimento e eficiência, recebi antes do prazo,lavadora bem eficiente comparada com custo-benefício."</p>
                 <footer>avaliado pelo usuário(a) Cristiane Freitas <cite title="Source Title">no site Lojas Colombo BR</cite> em 15/03/2015</footer>
               </blockquote>                
             </p>
-            <p style="text-align: right;">
+            <p class="p_CallToAction">
               <a id="btnCallToAction" href="/lavadora%20de%20roupa/lavadora-de-roupas-8-kgs-branca-consul-cwc08abana?page=1" class="btn btn-warning btn-md" role="button" onclick="ga('send','event','lp','click','call_to_action');">
-                <text style="color: black">Veja mais Avaliações</text>
+                <text class="txtCallToAction">Veja Avaliações</text>
               </a>
             </p>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-lg-4">
-          <div class="thumbnail" data-mh="my-group">
-            <img alt="" src="https://static.wmobjects.com.br/imgres/arquivos/ids/7768088-250-250" style="height: 150px">
+          <div class="thumbnail">
+            <img alt="" src="https://static.wmobjects.com.br/imgres/arquivos/ids/7768088-250-250">
             <div class="caption">
               <p><h3>Cafeteira Três Corações.</h3></p>
-<!--               <p><h4>Ótimo produto!</h4></p> -->
               <p>
                 <blockquote>
                   <p>"Ótima cafeteira, automática e com preço bom. Há boas opções de cápsulas no mercado."</p>
                   <footer>avaliado pelo usuário(a) Tainara <cite title="Source Title">no site Pontofrio BR</cite> em 22/04/2016</footer>
                 </blockquote>                
               </p>
-              <p style="text-align: right;">
-                <a id="btnCallToAction" href="/lavadora%20de%20roupa/lavadora-de-roupas-8-kgs-branca-consul-cwc08abana?page=1" class="btn btn-warning btn-md" role="button" onclick="ga('send','event','lp','click','call_to_action');">
-                  <text style="color: black">Veja mais Avaliações</text>
+              <p class="p_CallToAction">
+                <a id="btnCallToAction" href="/cafeteira/maquina-de-cafe-espresso-automatica-tres-mimo-capsula-multibebidas-vermelha?page=1" class="btn btn-warning btn-md" role="button" onclick="ga('send','event','lp','click','call_to_action');">
+                  <text class="txtCallToAction">Veja Avaliações</text>
                 </a>
               </p>
             </div>
@@ -106,19 +116,20 @@
 
 
       <footer class="footer">
-        <div class="panel-footer" style="background-color: rgb(65, 65, 65)"><%- include('../partials/footer') %></div>
+        <div class="panel-footer"><%- include('../partials/footer') %></div>
       </footer>
     
     </div>
+
   </body>
 
   <script type="text/javascript">
     $(function() {
       $('.thumbnail').matchHeight({
-        byRow: true,
-        property: 'height',
-        target: '.caption',
-        remove: false
+        // byRow: true,
+        // property: 'height',
+        // target: '.caption',
+        // remove: false
       });
     });
   </script>

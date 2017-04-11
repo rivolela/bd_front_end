@@ -9,8 +9,9 @@
     }
 
     .breadcrumb_bd{
-      margin-top: 20px;
       display: inline-flex;
+      margin-top: 20px;
+      margin: 30px 0px 10px -25px
     }
   }
 
@@ -32,10 +33,10 @@
   .capitalize {
     text-transform: capitalize;
   }
-
+/*
   .breadcrumb > li + li:before{
     content: "";
-  }
+  }*/
 
   
     
@@ -52,8 +53,8 @@
  <div id="title_category" class="visible-xs capitalize" style="margin-left: -1px; border-bottom: 0px solid #eee; ">
  <!-- 	<h1><%= query %> <br><small><%= total %> ofertas</small></h1> -->
   <ol class="breadcrumb breadcrumb_bd" style="background-color: white">
-    <li><a href="/"><<</a></li>
-    <li class="active"><%= query %> <br><small><%= total %> ofertas</small></li>
+    <li><a href="/">Home</a></li>
+    <li class="active"><%= query %><small> (<%= total %> ofertas)</small></li>
   </ol>
  </div>
  

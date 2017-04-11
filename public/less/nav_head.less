@@ -12,6 +12,10 @@
 		width: 100%;
 		/*text-align: center;*/
 	}
+
+	.nav .navbar-nav{
+		background-color: #f5f5f5;
+	}
 	  
 	.navbar-nav > li {
 		float: none;
@@ -44,7 +48,7 @@
 
 	a.dropdown-toggle{
 		margin-top: -8px;
-		background-color: white;
+		background-color: #f5f5f5;
 	}
 
 	#bs-example-navbar-collapse-1{
@@ -52,11 +56,16 @@
 	}
 
 	.navbar-default .navbar-collapse, .navbar-default .navbar-form{
-		border-color: rgb(65, 65, 65)!important;
+		/*border-color: rgb(65, 65, 65)!important;*/
+		border: none;
 	}
 
 	.nav .navbar-nav .pagination-sm{
 		background-color: white;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a{
+		background-color: #f5f5f5;
 	}
 
 }
@@ -67,6 +76,10 @@
     width: 100%;
     /*text-align: center;*/
   }
+
+  .nav .navbar-nav{
+		background-color: rgb(65, 65, 65);
+	}
   
   .navbar-nav > li {
     float: none;
@@ -90,7 +103,7 @@
   }
 
   #bs-example-navbar-collapse-1{
-    background-color: white;
+    background-color: @bg_da;
   }
 
   .search_offer{

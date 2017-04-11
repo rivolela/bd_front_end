@@ -2,14 +2,15 @@
     
     /* nothing with screen size bigger than 768px */
     @media (max-width:768px) {
-      #form_order_reviews{
+      .form_orders{
         margin-top: -18px;
         margin: 10px 0px 0px 0px;
       }
 
-      #select_reviews{
-        margin: -15px 0px 20px 10px;
-        height: 28px
+      .select_order{
+        margin: -15px 0px 20px -15px;
+        height: 28px;
+        width: 170px
       }
 
     }
@@ -17,12 +18,12 @@
     /*nothing with screen size smaller than 768px*/
     @media (min-width:768px) {
 
-      #form_order_reviews{
+      .form_orders{
         margin-top: -18px;
         margin: 10px 0px 0px 0px;
       }
 
-      #select_reviews{
+      .select_order{
         margin: -5px 0px 20px 0px;
         height: 28px
       }
@@ -31,10 +32,10 @@
   </style>  
 
 
-  <form id="form_order_reviews" action="/?page=<%= pagination.page %>&order=<%= order %>" method="POST">
+  <form action="/?page=<%= pagination.page %>&order=<%= order %>" method="POST" class="form_orders">
     <input  type="hidden" name="query" value="<%= query %>"/>
     <div class="form-group">
-      <select id="select_reviews" class="form-control" name="resultOrder" onchange="orderOffers()">
+      <select class="form-control select_order" name="resultOrder" onchange="orderOffers()">
           
           <!-- option 1 >> total de avaliacoes -->
           <% if (order == 1) { %>
@@ -102,9 +103,9 @@ function orderOffers() {
   }
 
   // var order = getUrlVars()["order"];
-  var e = document.getElementById("select_reviews");
+  var e = document.getElementsByClassName("select_order")[0];
   var order = e.options[e.selectedIndex].value;
-  var uri = window.location.protocol + '//'+ window.location.host + window.location.pathname + '?query=' + term + '&page=' + page + '&order=' + order;
+  var uri = window.location.protocol + '//'+ window.location.host + '/' + term + '?page=' + page + '&order=' + order;
   // window.alert(uri);
   window.location.assign(uri);
 }

@@ -1,47 +1,48 @@
 <style type="text/css">
-
   /* nothing with screen size bigger than 768px */
   @media (max-width:768px) {
-    h1 {
-      font-size: 1.0em; 
-    }
+
+
   }
 
   /*nothing with screen size smaller than 768px*/
   @media (min-width:768px) {
-    h1 {
-      font-size: 1.5em; 
-    }
+
+
   }
-    
 </style>
- <!-- img offer -->
- <div class="col-xs-5 col-sm-4 col-md-3 col-lg-3">
-      <img id="img_picture_offer" src="<%= product.image %>"  class="img-responsive" onclick="ga('send','event','reviews','click','foto_offer');">
-</div>
 
-<!-- total of reviews -->
-<div class="col-xs-7 col-sm-8 col-md-9 col-lg-9">
-    <h1 id="name_offer"><%= product.name %></h1>
-    <!-- total of reviews -->
-    <h4>
-      <% if (product.totalReviews == 1) { %>
-        <a id="a_total_reviews" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=0" onclick="ga('send','event','reviews','click','all_reviews');">
-        <%= product.totalReviews %> avaliação
-        </a> 
-      <% } else { %>
-        <a id="a_total_reviews" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=0" onclick="ga('send','event','reviews','click','all_reviews');">
-        <%= product.totalReviews %> avaliações 
-        </a> 
-      <% } %>
-    </h4>
 
-    <br>
-
+<!-- total of reviews,  name prodduct-->
+<div class="well well-sm">
     <row>
-       <table id="tbl_box_reviews">
+      <table id="tbl_box_reviews">
         <tbody>
           <tr>
+            <td>
+              <td class="title_avaliacoes">
+                <h4><small>Total de Avaliações: </small></h4>
+              </td>
+            </td>
+            <td width="5px;"></td>
+            <td>
+             <!-- total of reviews -->
+              <h4>
+                <% if (product.totalReviews == 1) { %>
+                  <a id="a_total_reviews" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=0" onclick="ga('send','event','reviews','click','all_reviews');">
+                  <%= product.totalReviews %> 
+                  </a> 
+                <% } else { %>
+                  <a id="a_total_reviews" href="/avaliacoes/<%= product.nameURL%>?page=1&filter=0" onclick="ga('send','event','reviews','click','all_reviews');">
+                
+                  <span class="label label-warning" style="color: black">  <%= product.totalReviews %>  </span>
+                  </a> 
+                <% } %>
+              </h4>
+            </td>
+
+            <td width="25px;"></td>
+
             <!-- BD BOY HAPPY -->
             <td>
               <% if (product.countHappy  > 0) { %>
@@ -104,7 +105,5 @@
     </row>
 </div>
 
-<!-- It will set the height of the whole row based on the height of the tallest member of in thar row -->
-<div class="clearfix visible-md"></div>
-
+ 
 

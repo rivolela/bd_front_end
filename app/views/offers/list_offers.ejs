@@ -103,7 +103,8 @@ margin-right: 1px;">
                   <% if ((order == 3) || (order == 2)) { %>
                       Ver Avaliações (<%= offer.product.totalReviews %>)
                   <% } else { %>
-                      <text style="color: black" id="txt_ver_avaliacoes"> Ver Avaliações (<%= offer.product.totalReviews %>)</text>
+                      <text style="color: black" id="txt_ver_avaliacoes"> Ver Avaliações <span class="badge" style="background-color: rgb(241, 250, 232) ;
+color: rgb(0, 0, 0);"><%= offer.product.totalReviews %></span></text>
                   <% } %>
                 </a>
               </td>

@@ -13,103 +13,76 @@
 
   <body class="body_review">
 
-     <!-- Begin page content -->
+    <!-- Begin page content -->
     <div class="container-fluid">
 
-      <nav class="navbar navbar-default navbar-fixed-top nav_bd" role="navigation">
-        <row>
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <%- include('../partials/nav_head') %> 
-            <%- include('../offers/search_offers') %>
-          </div>
-        </row>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div_slogan">
-          <p class="text-muted"><%= slogan %></p>
-        </div>
-      </nav>  
-
-      <!-- column 01 >> box reviews ,list reviews and pagination -->
-      <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">     
-        <!-- box_reviews -->
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <%- include('./box_reviews',{offer:head_reviews}); %> 
-        </div>  
+      <%- include('../partials/nav_head') %> 
+          
+      <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
       
-        <!-- hr -->
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 60px">
-          <hr>
+      <!-- BREADCRUMB -->
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+          <%- include('./breadcrumb_reviews') %>
         </div>
+      </row>
 
-        <!-- box offer prices mobile -->
-        <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-          <div class="panel-group" role="tablist">
-            <div class="panel panel-primary">
-              <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
-                <h4 class="panel-title">
-                  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Onde comprar
-                </h4>
-              </div>
-              <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
-              <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="false" style="">
-                <% for(var i=1; i <offers.docs.length; i++) { %> 
-                  <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
-                <% } %>
-              </div>
-            </div>
-            <div class="panel-footer" style="text-align: center">
-              <a class="" data-toggle="collapse"  href="#collapseListGroup1" aria-expanded="false" aria-controls="collapseListGroup1">
-                   mais ofertas
-              </a>
-            </div>
-          </div> 
-          <br>        
-        </div> 
+      <!-- HR -->
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%- include('../partials/hr') %>
+        </div>
+      </row>
+      
+      <!-- PRODUCT NAME -->
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+          <%- include('../product/product_name',{offer:head_reviews}); %> 
+          <p>
+          <%- include('./box_reviews',{offer:head_reviews}); %> 
+        </div>  
+      </row>
 
-        <!-- list reviews -->
+      <div style="height:150px"></div>
+      
+      <!-- PRODUCT IMAGEM -->
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;margin-bottom: 35px">
+          <img id="img_picture_offer" src="<%= product.image %>" onclick="ga('send','event','reviews','click','foto_offer');" style="max-height: 200px">
+        </div>
+      </row>
+
+      <!-- LIST REVIEWS -->
+      <row>
         <% for(var i=0; i <reviews.docs.length; i++) { %> 
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
             <%- include('./list_reviews',{review:reviews.docs[i]}); %>
           </div>
         <% }  %>     
+      </row>
       
-        <!-- pagination -->
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
+      <!-- PAGIANTION REVIEWS -->
+      <row>
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
           <%- include('./pagination_reviews') %>
         </div>
-      </div>
-
-      <!-- style="position: fixed;right: 0px" -->
-      <!-- coluns 02 >> box offer prices -->
-      <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">
-        <div class="panel panel-primary" style="font-size: 15px;">
-          <div class="panel-heading">
-            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Onde comprar
-          </div>
-          <% if (offers.docs.length == 1) { %>
-            <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
-          <% } else { %>
-            <% for(var i=0; i <offers.docs.length; i++) { %> 
-              <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
-            <% }  %>
-          <% }  %>           
-          </div>
-        </div>
-      </div>
-
+      </row>
+      
     </div>
-
+    <!-- End page content -->
+    
+    <!-- FOOTER -->
     <footer class="footer">
-      <div class="panel-footer" style="background-color: rgb(65, 65, 65)"><%- include('../partials/footer') %></div>
+      <div class="panel-footer"><%- include('../partials/footer') %></div>
     </footer>
     
-     <!-- JavaScript Section -->
+    <!-- JavaScript Section -->
     <script type="text/javascript">
       $(document).ready(function(){
           $('a[data-toggle=tooltip]').tooltip();
          
       });
     </script>
-
 
   </body>
 

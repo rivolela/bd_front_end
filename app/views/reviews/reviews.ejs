@@ -47,22 +47,22 @@
           
       <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
       
-      <!-- BREADCRUMB -->
-      <row>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
-          <%- include('./breadcrumb_reviews') %>
-        </div>
-      </row>
-
-      <!-- HR -->
-      <row>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <%- include('../partials/hr') %>
-        </div>
-      </row>
-      
       <!-- 1st column >> -->
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8"> 
+
+        <!-- BREADCRUMB -->
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">   
+            <%- include('./breadcrumb_reviews') %>
+          </div>
+        </row>
+
+        <!-- HR -->
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <%- include('../partials/hr') %>
+          </div>
+        </row>
 
         <!-- PRODUCT NAME -->
         <row>
@@ -127,7 +127,8 @@
       </div>
       
       <!-- 2st column >> -->
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 visible-md visible-lg" style="position: fixed;right: 0px;margin-top: 70px"> 
+      <!-- position: fixed;right: 0px;margin-top: 70px" -->
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 visible-md visible-lg" style="position: fixed;right: 0px;margin-top: 10px;z-index: 999px"> 
         <div class="panel panel-success" style="font-size: 15px;">
           <div class="panel-heading">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;<bold>Onde comprar</bold>

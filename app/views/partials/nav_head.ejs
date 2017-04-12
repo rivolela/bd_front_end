@@ -27,6 +27,13 @@
           </a>
           <%- include('../categories/menu_eletroportateis') %>
         </li>
+        <!-- INFORMATICA -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Informática <span class="caret"></span>
+          </a>
+          <%- include('../categories/mobile/menu_informatica_mobile') %>
+        </li>
         <!-- SMARTPHONES -->
         <li style="line-height: 1px;" class="visible-xs">    
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
@@ -61,6 +68,11 @@
                 <a tabindex="-1" href="#">Eletroportáteis</a>
                  <%- include('../categories/menu_eletroportateis') %>
               </li>
+              <!-- INFORMATICA -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Informática</a>
+                 <%- include('../categories/menu_informatica') %>
+              </li>
               <!-- SMARTPHONES -->
               <li class="dropdown-submenu">
                 <a tabindex="-1" href="#">Smartphones</a>
@@ -78,12 +90,19 @@
 
         <!-- Logo BD desktop -->
 	      <li class="hidden-xs">
-	        <a class="brand_bd brand_img container-fluid" href="/">
+	        <a class="brand_bd brand_img" href="/">
 	        </a>
           <!-- <a class="navbar-brand" href="/">Brand</a> -->
 	      </li>
+
+        <!-- Slogan -->
+        <li class="visible-lg pull-right" >
+          <a class="da_slogan " href="/" style=" padding: 8px 15px 0px 0px;">
+          </a>
+          <!-- <a class="navbar-brand" href="/">Brand</a> -->
+        </li>
         <!-- End BD desktop -->
-		</ul>
+		  </ul>
 	 </div>
   
   <!-- Search Offer mobile -->

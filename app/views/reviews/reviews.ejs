@@ -8,7 +8,34 @@
     <meta property="og:title" content="Before Deciding | Veja avaliações antes de comprar." />
     <meta property="og:description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
     <link rel="canonical" href="http://www.beforedeciding.com.br/avaliacoes/<%= product.nameURL %>" />
-    <%- include('../partials/head') %> 
+    <%- include('../partials/head') %>
+
+    <style type="text/css">
+
+      @media (max-width:768px) {
+        .div_img_product{
+          text-align: center;
+          margin-bottom: 15px;
+          margin-top: 0px
+        }
+
+        .div_img_product > img{
+          height: 150px;
+        }
+      }
+
+      @media (min-width:768px) {
+        .div_img_product{
+          text-align: center;
+          margin-bottom: 35px
+        }
+
+        .div_img_product > img{
+          height: 200px;
+        }
+      }
+      
+    </style> 
   </head>
 
   <body class="body_review">
@@ -34,39 +61,87 @@
         </div>
       </row>
       
-      <!-- PRODUCT NAME -->
-      <row>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <%- include('../product/product_name',{offer:head_reviews}); %> 
-          <p>
-          <%- include('./box_reviews',{offer:head_reviews}); %> 
-        </div>  
-      </row>
+      <!-- 1st column >> -->
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8"> 
 
-      <div style="height:150px"></div>
-      
-      <!-- PRODUCT IMAGEM -->
-      <row>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;margin-bottom: 35px">
-          <img id="img_picture_offer" src="<%= product.image %>" onclick="ga('send','event','reviews','click','foto_offer');" style="max-height: 200px">
-        </div>
-      </row>
+        <!-- PRODUCT NAME -->
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            <%- include('../product/product_name',{offer:head_reviews}); %> 
+            <p>
+            <%- include('./box_reviews',{offer:head_reviews}); %> 
+          </div>  
+        </row>
 
-      <!-- LIST REVIEWS -->
-      <row>
-        <% for(var i=0; i <reviews.docs.length; i++) { %> 
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-            <%- include('./list_reviews',{review:reviews.docs[i]}); %>
+        <div style="height:150px" class="hidden-xs"></div>
+        <div style="height:90px" class="visible-xs"></div>
+        
+        <!-- PRODUCT IMAGEM -->
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div_img_product">
+            <img id="img_picture_offer" src="<%= product.image %>" onclick="ga('send','event','reviews','click','foto_offer');" style="max-height: 200px">
           </div>
-        <% }  %>     
-      </row>
+        </row>
+        
+        <!-- PRICES MOBILE -->
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden-md hidden-lg">
+            <div class="panel-group" role="tablist">
+              <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Onde comprar
+                  </h4>
+                </div>
+                <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
+                <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="false" style="">
+                  <% for(var i=1; i <offers.docs.length; i++) { %> 
+                    <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
+                  <% } %>
+                </div>
+              </div>
+              <div class="panel-footer" style="text-align: center;background-color: #f5f5f5;">
+                <a class="" data-toggle="collapse"  href="#collapseListGroup1" aria-expanded="false" aria-controls="collapseListGroup1">
+                     mais ofertas
+                </a>
+              </div>
+            </div>
+          </div> 
+        </row>
+
+        <!-- LIST REVIEWS -->
+        <row>
+          <% for(var i=0; i <reviews.docs.length; i++) { %> 
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <%- include('./list_reviews',{review:reviews.docs[i]}); %>
+            </div>
+          <% }  %>     
+        </row>
+        
+        <!-- PAGINATION REVIEWS -->
+        <row>
+           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
+            <%- include('./pagination_reviews') %>
+          </div>
+        </row>
+      </div>
       
-      <!-- PAGIANTION REVIEWS -->
-      <row>
-         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
-          <%- include('./pagination_reviews') %>
+      <!-- 2st column >> -->
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 visible-md visible-lg" style="position: fixed;right: 0px;margin-top: 70px"> 
+        <div class="panel panel-success" style="font-size: 15px;">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;<bold>Onde comprar</bold>
+          </div>
+          <% if (offers.docs.length == 1) { %>
+            <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
+          <% } else { %>
+            <% for(var i=0; i <offers.docs.length; i++) { %> 
+              <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
+            <% }  %>
+          <% }  %>           
+          </div>
         </div>
-      </row>
+      </div>
       
     </div>
     <!-- End page content -->

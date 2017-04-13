@@ -1,14 +1,14 @@
-var url = "http://localhost:3000/home?query=brastemp";
+var url = "http://localhost:3000/brastemp/";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Home pagination', 11, function(test) {
+casper.test.begin('Phantomjs Tests >> Search pagination', 11, function(test) {
 
     casper.start(url, function() {
 
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Brastemp é no Decidaki - veja avaliações antes de decidir comprar!", "Decidaki homepage title is the one expected");
         // test.assertExists('form[action="/home"]', "offer search form is found");
         //   this.fill('form[action="/home"]', {
         //     query: "brastemp"
@@ -44,7 +44,7 @@ casper.test.begin('Phantomjs Tests >> Home pagination', 11, function(test) {
 
       // pagination 10 to 11
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 2); 
+      test.assertElementCount('.pagination_disabled', 3); 
 
       // go to pagination 01
       this.evaluate(function() {  

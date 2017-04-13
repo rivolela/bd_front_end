@@ -1,7 +1,7 @@
 module.exports = {
 
-	title: 'Before Deciding - veja avaliações antes de comprar',
-	title_categories: ' - ver avaliações - Before Deciding',
-	title_reviews: ' - ver avaliações - Before Deciding',
-	slogan: 'veja avaliações antes de comprar.',
+	title: 'Decidaki - veja avaliações antes de decidir comprar!',
+	title_categories: ' é no Decidaki - veja avaliações antes de decidir comprar!',
+	title_reviews: ' - ver avaliações - Decidaki',
+	slogan: 'veja avaliações antes de decidir comprar.',
 };

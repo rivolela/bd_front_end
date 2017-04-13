@@ -37,6 +37,16 @@ var getErrorMessage = function(err){
 };
 
 
+function ucFirstAllWords( str ){
+    var pieces = str.split(" ");
+    for ( var i = 0; i < pieces.length; i++ )
+    {
+        var j = pieces[i].charAt(0).toUpperCase();
+        pieces[i] = j + pieces[i].substr(1);
+    }
+    return pieces.join(" ");
+}
+
 
 function validateSearch(req,res,next){
 
@@ -155,7 +165,7 @@ exports.searchOffers = function(req,res){
 				pagination(data,page,function(from,to,previous,next){
 
 					res.render('search/search',{
-						title: SEO.title,
+						title: ucFirstAllWords(query) + SEO.title_categories,
 						slogan: SEO.slogan,
 						pagination: {
 							page: page,

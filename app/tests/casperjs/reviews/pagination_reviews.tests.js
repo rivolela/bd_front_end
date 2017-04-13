@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/avaliacoes/geladeira-brastemp-clean-frost-free-378-l-220v";
+var url = "http://localhost:3000/geladeira/geladeira-brastemp-clean-frost-free-378-l-220v";
 
 
 casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
@@ -8,7 +8,7 @@ casper.test.begin('Phantomjs Tests >> Reviews pagination', 11, function(test) {
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Decidaki", "Decidaki homepage title is the one expected");
 
     }).then(function() {
 

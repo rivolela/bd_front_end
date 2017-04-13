@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/home";
+var url = "http://localhost:3000/geladeira";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
@@ -8,7 +8,7 @@ casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira é no Decidaki - veja avaliações antes de decidir comprar!", "Decidaki homepage title is the one expected");
         // test.assertExists('form[action="/home"]', "offer search form is found");
         //   this.fill('form[action="/home"]', {
         //     query: "geladeira"
@@ -39,7 +39,7 @@ casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
       // term searched
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n \tsmartphones 253 ofertas\n ');
+      }, '\n\n  \n    Home\n    geladeira\n  \n ');
 
       // tool_tip_bd_boy_sad.ejs
 

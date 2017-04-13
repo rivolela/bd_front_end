@@ -1,4 +1,6 @@
-var url = "http://localhost:3000/categoria/geladeira/";
+casper.options.viewportSize = {width: 1200, height: 900};
+
+var url = "http://localhost:3000/geladeira/";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Categories pagination', 11, function(test) {
@@ -8,7 +10,7 @@ casper.test.begin('Phantomjs Tests >> Categories pagination', 11, function(test)
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Geladeira - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira é no Decidaki - veja avaliações antes de decidir comprar!", "Decidaki homepage title is the one expected");
 
     }).then(function() {
 
@@ -36,21 +38,21 @@ casper.test.begin('Phantomjs Tests >> Categories pagination', 11, function(test)
       test.assertElementCount('#a_previous', 1); 
 
       // next
-      test.assertElementCount('#a_next', 1); 
+      test.assertElementCount('#a_next', 0); 
 
       // pagination 10 to 11
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 9); 
+      test.assertElementCount('.pagination_disabled', 8); 
 
       // go to pagination 01
       this.evaluate(function() {
-         document.getElementById("a_next").click(); 
+         document.getElementById("a_previous").click(); 
       });
 
     }).then(function(){
       // back do pagination 01
       this.echo('Return to page 01');
-      test.assertElementCount('.pagination_disabled', 1); 
+      test.assertElementCount('.pagination_disabled', 9); 
     }).run(function() {
       test.done();
     });

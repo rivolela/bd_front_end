@@ -1,5 +1,5 @@
 // casper.options.viewportSize = {width: 1024, height: 768};
-var url = "http://localhost:3000/avaliacoes/geladeira-brastemp-clean-frost-free-378-l-220v";
+var url = "http://localhost:3000/geladeira/geladeira-brastemp-clean-frost-free-378-l-220v";
 //var url = "http://www.beforedeciding.com.br/reviews/7891129233614/offer/585a3e9dacee650400972bf7/page/1";
 
 var mouse = require("mouse").create(casper);
@@ -13,7 +13,7 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // page information
 
         test.assertHttpStatus(200);
-        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Decidaki", "Decidaki homepage title is the one expected");
 
     }).then(function() {
 
@@ -75,9 +75,9 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         // box_prices_offer.ejs
 
         // desktop + mobile 
-        test.assertElementCount('#href_ir_loja', 4);
-        test.assertElementCount('#img_retailer', 4);
-        test.assertElementCount('#href_offer_price', 4); 
+        test.assertElementCount('#href_ir_loja', 8);
+        test.assertElementCount('#img_retailer', 8);
+        test.assertElementCount('#href_offer_price', 8); 
         // casper.click("a[href*='/programming/new/']");
 
         //simulated click to href_ir_loja
@@ -87,9 +87,15 @@ casper.test.begin('Phantomjs Tests >> Reviews', 17, function(test) {
         });                       
 
     }).then(function(){
-        // test redirect and title offer page 
-        test.assertTitle("Refrigerador | Geladeira Brastemp clean Frost Free 2 Portas 378 Litros", "Store homepage title is the one expected");
-        // casper.capture("../images/reddit-programming-new.png");
+             // check redirect to offers page, after to close msg error
+        casper.wait(5000, function() {
+            this.echo('should appear after 5s');
+            // test redirect and title offer page 
+            test.assertTitle("Geladeira Frost Free 378 L Brastemp Clean - Brastemp", "Store homepage title is the one expected");
+    
+            casper.capture("./app/tests/casperjs/reviews/img/redirect_evidence.png");     
+        });
+        
     }).run(function() {
         test.done();
     });

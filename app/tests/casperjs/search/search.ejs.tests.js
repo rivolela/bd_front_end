@@ -1,14 +1,14 @@
-var url = "http://localhost:3000/categoria/geladeira";
+var url = "http://localhost:3000/geladeira";
 //var teste;
 
-casper.test.begin('Phantomjs Tests >> Categories', 5, function(test) {
+casper.test.begin('Phantomjs Tests >> Search', 5, function(test) {
 
     casper.start(url, function() {
 
         casper.page.injectJs("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
 
         test.assertHttpStatus(200);
-        test.assertTitle("Geladeira - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira é no Decidaki - veja avaliações antes de decidir comprar!");
 
     }).then(function() {
 
@@ -18,7 +18,7 @@ casper.test.begin('Phantomjs Tests >> Categories', 5, function(test) {
 
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n \tGeladeira 211 ofertas\n ');
+      }, '\n\n  \n    Home\n    geladeira\n  \n ');
         
     }).run(function() {
       test.done();

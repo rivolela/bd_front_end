@@ -9,7 +9,7 @@ casper.test.begin('Phantomjs Tests >> Error page', 4, function(test) {
 
         test.assertHttpStatus(200);
 
-        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Home é no Decidaki - veja avaliações antes de decidir comprar!", "Decidaki homepage title is the one expected");
 
         // test using query = ˆ&%ˆˆ%&!@#$%
         this.echo('simulated click to search erererere');
@@ -22,7 +22,7 @@ casper.test.begin('Phantomjs Tests >> Error page', 4, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#div_error_msg').textContent;
-        }, "\n        ×\n        Ops!! não encontramos avaliações para o seu produto desta vez. No momento o Before Deciding está trabalhando somente com eletrodométicos.\n      ",
+        }, "\n        ×\n        Ops!! não encontramos avaliações para o seu produto desta vez!\n      ",
         'msg error should be set in error.ejs');
 
     }).then(function(){

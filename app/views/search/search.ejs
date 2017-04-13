@@ -2,12 +2,12 @@
 <html lang="pt">
   <head>
     <title><%= title %></title>
-    <link rel="alternate" href="http://www.beforedeciding.com.br" hreflang="pt-br" />
+    <link rel="alternate" href="http://www.decidaki.com.br/<%= query %>" hreflang="pt-br" />
     <%- include('../partials/head') %> 
-    <meta name="description" content="Veja avaliações de produtos no Before Deciding, antes de decidir a sua compra." />
-    <meta name="keywords" content="avaliações, avaliações de produtos, before deciding, comparador de avalições, reviews, reviews de produtos, comparador de reviews, avaliações de e-commerce" />
+    <meta name="description" content="Veja avaliações de <%= query %> no Decidaki antes de decidir a sua compra." />
+    <meta name="keywords" content="avaliações, avaliações de <%= query %>, comparador de avalições, reviews, reviews de <%= query %>, comparador de <%= query %>, avaliações de e-commerce, decidaki" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="canonical" href="http://www.beforedeciding.com.br" /> 
+    <link rel="canonical" href="http://www.decidaki.com.br/<%= query %>" /> 
 
     <style type="text/css">
       /*  Extra small devices Phones (<768px)*/
@@ -21,6 +21,10 @@
       /*Small devices Tablets (≥768px)*/
       @media (min-width:768px) {
 
+      }
+
+      title:first-letter {
+        text-transform:capitalize;
       }
 
     </style>  

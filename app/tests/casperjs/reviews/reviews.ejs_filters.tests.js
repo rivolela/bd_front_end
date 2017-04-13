@@ -13,7 +13,7 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
         // page information
 
         test.assertHttpStatus(200);
-        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Before Deciding", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Decidaki", "Decidaki homepage title is the one expected");
 
         // simulated click to bd_boy_happy icon 
         this.echo('filter reviews by bd boy happy ');

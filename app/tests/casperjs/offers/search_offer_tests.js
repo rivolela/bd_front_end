@@ -1,4 +1,6 @@
-var url = "http://localhost:3000/home";
+casper.options.viewportSize = {width: 1200, height: 900};
+
+var url = "http://localhost:3000/";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Search Offers', 5, function(test) {
@@ -6,15 +8,17 @@ casper.test.begin('Phantomjs Tests >> Search Offers', 5, function(test) {
     casper.start(url, function() {
 
         test.assertHttpStatus(200);
-        test.assertTitle("Before Deciding - veja avaliações antes de comprar", "Before Deciding homepage title is the one expected");
+        test.assertTitle("Decidaki - veja avaliações antes de decidir comprar!", "Decidaki homepage title is the one expected");
        
         this.echo('simulated click to search eletrodomésticos');
         this.evaluate(function() {
             document.getElementById("input_search_offer").value = "geladeira";
             document.getElementById("btnSearchOffers").click();
-        });       
-        test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
+        });
 
+        casper.wait(5000, function() {       
+            test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
+        });
     }).then(function() {
 
         // test using query = "" 
@@ -22,9 +26,11 @@ casper.test.begin('Phantomjs Tests >> Search Offers', 5, function(test) {
         this.evaluate(function() {
             document.getElementById("input_search_offer").value = " ";
             document.getElementById("btnSearchOffers").click();
-        });       
-        test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
+        });
 
+        casper.wait(5000, function() {          
+            test.assertElementCount('#href_bd_boy_happy', 0,"offers search for casperjs retrieves 0 href_bd_boy_happy selectors");
+        });
     }).then(function(){
 
         // test using query = ˆ&%ˆˆ%&!@#$%

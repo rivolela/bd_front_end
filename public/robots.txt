@@ -1,9 +1,3 @@
 User-agent:*
-Disallow:/reviews/*
-Noindex:/reviews/*
 
-
-Allow:/categoria/*
-Allow:/home/*
-Allow:/avaliacoes/*
-Allow:/
+Allow:/*

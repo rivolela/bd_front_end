@@ -7,21 +7,26 @@
 
   /*nothing with screen size smaller than 768px*/
   @media (min-width:768px) {
+    .box_reviews{
+     margin: 10px 0px 0px -20px
+    }
 
-
+    .title_avaliacoes{
+      margin-bottom: 0px!important;
+      margin-top: 0px
+    }      
   }
 </style>
 
 
 <!-- total of reviews,  name prodduct-->
-<div class="well well-sm">
-    <row>
+<div class="box_reviews">
       <table id="tbl_box_reviews">
         <tbody>
           <tr>
             <td>
-              <td class="title_avaliacoes">
-                <h4><small>Total de Avaliações: </small></h4>
+              <td class="text-warning">
+                <h4 class="title_avaliacoes">Total de Avaliações:</h4>
               </td>
             </td>
             <td width="5px;"></td>
@@ -35,7 +40,7 @@
                 <% } else { %>
                   <a id="a_total_reviews" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=0" onclick="ga('send','event','reviews','click','all_reviews');">
                 
-                  <span class="label label-warning" style="color: black">  <%= product.totalReviews %>  </span>
+                   <text><%= product.totalReviews %> </text>
                   </a> 
                 <% } %>
               </h4>
@@ -102,7 +107,6 @@
           </tr>
         </tbody>
       </table>
-    </row>
 </div>
 
  

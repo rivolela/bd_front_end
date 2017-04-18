@@ -113,26 +113,29 @@ margin-top: 30px">Avaliações</h4>
         <!-- PRICES MOBILE -->
         <row>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden-md hidden-lg">
-            <div class="panel-group panel_price" role="tablist">
-              <div class="panel panel_price">
-                <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
-                  <h4 class="panel-title">
-                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Onde comprar
-                  </h4>
+            <% if (offers.docs.length > 0) { %>
+              <div class="panel-group panel_price" role="tablist">
+                <div class="panel panel_price">
+                  <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                    <h4 class="panel-title">
+                      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Onde comprar
+                    </h4>
+                  </div>
+                  <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
+                  <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="false" style="">
+                    <% for(var i=1; i <offers.docs.length; i++) { %> 
+                      <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
+                    <% } %>
+                  </div>
                 </div>
-                <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
-                <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="false" style="">
-                  <% for(var i=1; i <offers.docs.length; i++) { %> 
-                    <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
-                  <% } %>
+                <div class="panel-footer" style="text-align: center;background-color: #bdbdbd;">
+                  <a class="" data-toggle="collapse"  href="#collapseListGroup1" aria-expanded="false" aria-controls="collapseListGroup1">
+                       mais ofertas
+                  </a>
                 </div>
               </div>
-              <div class="panel-footer" style="text-align: center;background-color: #bdbdbd;">
-                <a class="" data-toggle="collapse"  href="#collapseListGroup1" aria-expanded="false" aria-controls="collapseListGroup1">
-                     mais ofertas
-                </a>
-              </div>
-            </div>
+            <% } else { %>
+            <% }  %>
           </div> 
         </row>
 
@@ -154,21 +157,25 @@ margin-top: 30px">Avaliações</h4>
       </div>
       
       <!-- 2st column >> -->
+      <!-- PRICES DESKTOP -->
       <!-- position: fixed;right: 0px;margin-top: 70px" -->
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 visible-md visible-lg" style="position: fixed;right: 0px;margin-top: 10px;z-index: 999px"> 
-        <div class="panel panel_price">
-          <div class="panel-heading">
-            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;<bold>Onde comprar</bold>
+        <% if (offers.docs.length > 0) { %>
+          <div class="panel panel_price">
+            <div class="panel-heading">
+              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;<bold>Onde comprar</bold>
+            </div>
+              <% if (offers.docs.length == 1) { %>
+                <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
+              <% } else { %>
+                <% for(var i=0; i <offers.docs.length; i++) { %> 
+                  <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
+                <% }  %>
+              <% }  %>           
+            </div>
           </div>
-          <% if (offers.docs.length == 1) { %>
-            <%- include('../offers/box_prices_offer',{offer:offers.docs[0]}); %> 
-          <% } else { %>
-            <% for(var i=0; i <offers.docs.length; i++) { %> 
-              <%- include('../offers/box_prices_offer',{offer:offers.docs[i]}); %>      
-            <% }  %>
-          <% }  %>           
-          </div>
-        </div>
+        <% } else { %>
+        <% }  %>
       </div>
       
     </div>

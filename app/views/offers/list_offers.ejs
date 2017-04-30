@@ -9,14 +9,17 @@
       display: inline
     }
 
+    .ga_click_ver_reviews{
+
+    }
   }
 
 </style>  
 
 <!-- img product -->
 <div class="col-xs-5 col-sm-4 col-md-5 col-lg-4">
-    <a id="a_img_ver_reviews" href="/<%= query%>/<%= offer.product.nameURL%>?page=1">
-      <img src="<%= offer.product.image %>"  class="img-responsive" >
+    <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1">
+      <img src="<%= offer.product.image %>"  class="img-responsive ga_click_ver_reviews" >
     </a>
 </div>
 <!-- end img product -->
@@ -100,7 +103,7 @@ margin-right: 1px;">
 
               <!-- btn ver avaliacoes-->
               <td>
-                <a id="btnVerReviews" href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="btn btn-warning btn-xs ga_click_ver_reviews" role="button" target="_self" style="padding: 5px 3px; width: 120px">
+                <a id="btnVerReviews" href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="btn btn-warning btn-xs ga_click_ver_reviews" role="button" target="_self"  style="padding: 5px 3px; width: 120px">
                   <% if ((order == 3) || (order == 2)) { %>
                       Ver Avaliações (<%= offer.product.totalReviews %>)
                   <% } else { %>

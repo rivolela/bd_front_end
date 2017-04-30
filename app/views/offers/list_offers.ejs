@@ -8,14 +8,18 @@
       overflow-x: hidden*/
       display: inline
     }
+
+    .ga_click_ver_reviews{
+
+    }
   }
 
 </style>  
 
 <!-- img product -->
 <div class="col-xs-5 col-sm-4 col-md-5 col-lg-4">
-    <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1" onclick="ga('send','event','reviews','click','foto_offer');">
-      <img src="<%= offer.product.image %>"  class="img-responsive" >
+    <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1">
+      <img src="<%= offer.product.image %>"  class="img-responsive ga_click_ver_reviews" >
     </a>
 </div>
 <!-- end img product -->
@@ -26,7 +30,7 @@ padding-right: 8px!important">
     
     <!-- name offer -->
     <strong class="strong_name_offer" >
-      <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1" onclick="ga('send','event','reviews','click','name_offer');"><%= offer.product.name %></a>
+      <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="ga_click_ver_reviews"><%= offer.product.name %></a>
     </strong>
     <br>
 
@@ -63,7 +67,7 @@ margin-right: 1px;">
 
               <!-- total bd boys happy -->
               <td>
-                <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip"  onclick="ga('send','event','reviews','click','bd_boy_happy');">
+                <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ver_reviews">
                   <% if ((order == 2) || (order == 1)){ %>
                     <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
                   <% } else { %>
@@ -72,7 +76,7 @@ margin-right: 1px;">
                 </a>
               </td>
               <td>
-                <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_happy');">
+                <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" class="a_couter ga_click_ver_reviews">
                   <%= offer.product.countHappy %>
                 </a>
               </td>
@@ -81,7 +85,7 @@ margin-right: 1px;">
 
               <!-- total bd boys sad -->
               <td>
-                <a id="href_bd_boy_sad" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip" onclick="ga('send','event','reviews','click','bd_boy_sad');">
+                <a id="href_bd_boy_sad" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ver_reviews">
                   <% if ((order == 3) || (order == 1)) { %>
                     <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
                   <% } else { %>
@@ -90,7 +94,7 @@ margin-right: 1px;">
                 </a>
               </td>
               <td>
-                <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" class="a_couter" onclick="ga('send','event','reviews','click','bd_boy_sad');">
+                <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" class="a_couter ga_click_ver_reviews">
                 <%= offer.product.countSad %>
                 </a>
               </td>
@@ -99,7 +103,7 @@ margin-right: 1px;">
 
               <!-- btn ver avaliacoes-->
               <td>
-                <a id="btnVerReviews" href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="btn btn-warning btn-xs" role="button" target="_self" onclick="ga('send','event','reviews','click','all_reviews');" style="padding: 5px 3px; width: 120px">
+                <a id="btnVerReviews" href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="btn btn-warning btn-xs ga_click_ver_reviews" role="button" target="_self" style="padding: 5px 3px; width: 120px">
                   <% if ((order == 3) || (order == 2)) { %>
                       Ver Avaliações (<%= offer.product.totalReviews %>)
                   <% } else { %>

@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/geladeira";
+var url = "http://localhost:3000/geladeira?ts==2";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
@@ -39,7 +39,7 @@ casper.test.begin('Phantomjs Tests >> Home', 8, function(test) {
       // term searched
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n\n  \n    Home\n    geladeira\n  \n ');
+      }, '\n\n  \n    Home\n    geladeira ( 228 ofertas )\n  \n ');
 
       // tool_tip_bd_boy_sad.ejs
 

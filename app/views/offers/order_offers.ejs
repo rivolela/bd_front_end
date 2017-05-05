@@ -91,21 +91,24 @@ function getUrlVars(){
 
 function orderOffers() {
   var page = getUrlVars()["page"];
+  var term = document.getElementById("var_query").innerHTML;
+  console.log("term",term);
 
   if(page===undefined){
     page=1;
   }
 
-  var term = getUrlVars()["query"];
+  var ts = getUrlVars()["ts"];
+  console.log("ts",ts);
 
-  if(term == undefined){
-    term = document.getElementById("var_query").innerHTML;
+  if(ts === undefined){
+    ts = 0;
   }
 
   // var order = getUrlVars()["order"];
   var e = document.getElementsByClassName("select_order")[0];
   var order = e.options[e.selectedIndex].value;
-  var uri = window.location.protocol + '//'+ window.location.host + '/' + term + '?page=' + page + '&order=' + order;
+  var uri = window.location.protocol + '//'+ window.location.host + '/' + term + '?page=' + page + '&order=' + order + '&ts=' + ts;
   // window.alert(uri);
   window.location.assign(uri);
 }

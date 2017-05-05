@@ -120,14 +120,29 @@ exports.searchOffers = function(req,res){
 	validateSearch(req,res,function(query,page){
 
 		var order = req.query.order;
+		var typeSearch = req.query.ts;
+		var page_return;
+		var url;
 		console.log("order by >>",order);
+		console.log("typeSearch >>",typeSearch);
 
 		if ((order === undefined ) || (order < 0)){
 			order = 1;
 		}
 		
+		// typeSearch === 1 (search by name);
+		// typeSearch === 2 (search by categoryBD);
+		if ((typeSearch === undefined ) || (typeSearch <= 1)){
+			console.log("ts === 1 or ts === 1 >> search by name")
+			url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+			page_return = 'search/search';
+		}else{
+			console.log("ts === 2 >> search by category")
+			url = config.service_host + "/api/offers/bd/category/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+			page_return = 'categories/categorie';
+		}
+
 		console.log("query",query);
-		var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
 
 		console.log(url);
 
@@ -164,7 +179,7 @@ exports.searchOffers = function(req,res){
 
 				pagination(data,page,function(from,to,previous,next){
 
-					res.render('search/search',{
+					res.render(page_return,{
 						title: ucFirstAllWords(query) + SEO.title_categories,
 						slogan: SEO.slogan,
 						pagination: {

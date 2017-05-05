@@ -1,4 +1,4 @@
-var url = "http://localhost:3000/home";
+var url = "http://localhost:3000/";
 //var teste;
 
 casper.test.begin('Phantomjs Tests >> Error page', 4, function(test) {
@@ -9,7 +9,7 @@ casper.test.begin('Phantomjs Tests >> Error page', 4, function(test) {
 
         test.assertHttpStatus(200);
 
-        test.assertTitle("Home é no Decidaki - veja avaliações antes de decidir comprar!", "Decidaki homepage title is the one expected");
+        test.assertTitle("Decidaki - veja avaliações antes de decidir comprar!", "Decidaki homepage title is the one expected");
 
         // test using query = ˆ&%ˆˆ%&!@#$%
         this.echo('simulated click to search erererere');

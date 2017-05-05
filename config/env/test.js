@@ -6,7 +6,7 @@ module.exports = {
 
 	// messages
 	message_search_error:'Ops!! não encontramos avaliações para o seu produto desta vez!',
-	message_search_validate : 'Por favor, digite um produto válido para o Before Deciding buscar os reviews !',
+	message_search_validate : 'Por favor, digite um produto válido para o Decidaki buscar os reviews !',
 	
 	// services
 	service_host: 'https://bd-services-test.herokuapp.com',

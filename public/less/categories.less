@@ -8,24 +8,9 @@
 }
 
 ul.dropdown-menu{
-	width: 200px;
+	width: 230px;
 }
 
-.menu_eletroportateis{
-	margin-top: -32px !important;
-}
-
-.menu_smartphones{
-	margin-top: -70px !important;
-}
-
-.menu_informatica{
-	margin-top: -58px !important;
-}
-
-.menu_utensilios{
-	margin-top: -84px !important;
-}
 
 ul.dropdown-menu.menu_smartphones{
 	height: 170px !important;
@@ -34,4 +19,40 @@ ul.dropdown-menu.menu_smartphones{
 
 ul.dropdown-menu.menu_utensilios{
 	height: 100px;
+}
+
+
+/*  Extra small devices Phones (<768px)*/
+@media (max-width:768px) {
+	.menu_informatica{
+	}
+
+	.menu_smartphones{
+	}
+
+	.menu_eletroportateis{
+	}
+
+	.menu_utensilios{
+	}
+}
+
+
+/*nothing with screen size smaller than 768px*/
+@media (min-width:768px) {
+	.menu_informatica{
+		margin-top: -58px !important;
+	}
+
+	.menu_smartphones{
+		margin-top: -70px !important;
+	}
+
+	.menu_eletroportateis{
+		margin-top: -32px !important;
+	}
+
+	.menu_utensilios{
+		margin-top: -84px !important;
+	}
 }

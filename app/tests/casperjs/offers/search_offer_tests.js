@@ -46,7 +46,7 @@ casper.test.begin('Phantomjs Tests >> Search Offers', 5, function(test) {
             this.echo('should appear after 5s');
             test.assertEvalEquals(function() {
                 return __utils__.findOne('#div_error_msg').textContent;
-            }, "\n        ×\n        Por favor, digite um produto válido para o Before Deciding buscar os reviews !\n      ",
+            }, "\n        ×\n        Por favor, digite um produto válido para o Decidaki buscar os reviews !\n      ",
             'msg error should be set in error.ejs');        
         });
         

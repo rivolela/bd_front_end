@@ -97,12 +97,17 @@
       
       <!-- list offers and box ver avalicoes -->   
       <% for(var i=0; i<offers.docs.length; i++) { %>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box_reviews"> 
-          <!-- list offers + box avaliacoes > 768px (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile) */  -->  
-          <%- include('../offers/list_offers',{offer:offers.docs[i],i:i}); %>
-          <!-- Extra small devices Phones (<768px)* (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile)  -->
-          <%- include('../offers/mobile/box_avaliacoes_mobile',{offer:offers.docs[i],i:i}); %>
-        </div>
+        <% if (offers.docs[i].product !== null) { %>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box_reviews"> 
+            <!-- list offers + box avaliacoes > 768px (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile) */  -->  
+            <%- include('../offers/list_offers',{offer:offers.docs[i],i:i}); %>
+            <!-- Extra small devices Phones (<768px)* (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile)  -->
+            <%- include('../offers/mobile/box_avaliacoes_mobile',{offer:offers.docs[i],i:i}); %>
+          </div>
+        <% } else { %>
+
+        <% } %>
+        
       <% } %>
 
       <!-- pagination -->   

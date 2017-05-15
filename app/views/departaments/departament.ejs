@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title><%= title %></title>
+    <link rel="alternate" href="http://www.decidaki.com.br/<%= query %>" hreflang="pt-br" />
+    <%- include('../partials/head') %> 
+    <meta name="description" content="Veja avaliações de <%= query %> no Decidaki antes de decidir a sua compra." />
+    <meta name="keywords" content="avaliações, avaliações de <%= query %>, comparador de avalições, reviews, reviews de <%= query %>, comparador de <%= query %>, avaliações de e-commerce, decidaki" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://www.decidaki.com.br/<%= query %>" /> 
+
+    <style type="text/css">
+      /*  Extra small devices Phones (<768px)*/
+      @media (max-width:768px) {
+        .box_reviews{
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+      }
+      
+      /*Small devices Tablets (≥768px)*/
+      @media (min-width:768px) {
+
+      }
+
+      title:first-letter {
+        text-transform:capitalize;
+      }
+
+    </style>  
+  </head>
+
+  <body style="">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV9HDK3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Begin page content -->
+    <div class="container-fluid">
+
+      <%- include('../partials/nav_head') %> 
+    
+      
+      <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
+
+      <row>
+        <!-- breadcrumb -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 visible-xs">   
+           <%- include('../search/breadcrumb_search') %>
+        </div>
+      </row>
+
+      <!-- hr -->
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 visible-xs">
+          <%- include('../partials/hr') %>
+        </div>
+      </row>
+
+       <row class="box_reviews">
+        <!-- label order by -->
+        <div class="col-xs-5 col-sm-1 col-md-2 col-lg-2 visible-xs"> 
+          <label class="label_order">ordenar por:</label>
+        </div>         
+        <!-- reviews order -->
+        <div class="col-xs-7 col-sm-11 col-md-3 col-lg-3 visible-xs">
+          <%- include('../offers/mobile/order_offers_mobile') %> 
+        </div>
+      </row>
+      
+
+      <!-- desktop -->
+      <row class="hidden-xs">
+        <!-- search title -->
+        <div class="col-xs-5 col-sm-7 col-md-7 col-lg-7">   
+          <%- include('../search/breadcrumb_search') %>
+        </div>
+         <!-- label order by -->
+        <div class="col-xs-* col-sm-2 col-md-2 col-lg-2 div_label_order"> 
+          <label class="hidden-xs label_order">ordenar por:</label>
+        </div>         
+        <!-- reviews order -->
+        <div class="col-xs-7 col-sm-3 col-md-3 col-lg-3">
+           <%- include('../offers/order_offers') %> 
+        </div>
+      </row>
+
+      <!-- hr -->
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%- include('../partials/hr') %>
+        </div>
+      </row>
+      
+      
+      <!-- list offers and box ver avalicoes -->   
+      <% for(var i=0; i<offers.docs.length; i++) { %>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box_reviews"> 
+            <!-- list offers + box avaliacoes > 768px (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile) */  -->  
+            <%- include('../offers/list_offers',{offer:offers.docs[i],i:i}); %>
+            <!-- Extra small devices Phones (<768px)* (NEED REFACTORY / HMTL DUPLICATED - box_avaliacoes_mobile)  -->
+            <%- include('../offers/mobile/box_avaliacoes_mobile',{offer:offers.docs[i],i:i}); %>
+          </div>
+      <% } %>
+
+      <!-- pagination -->   
+      <%- include('./categories_pagination') %>
+
+    
+    </div>
+
+    <footer class="footer">
+      <div class="panel-footer"><%- include('../partials/footer') %></div>
+    </footer>
+
+  </body>
+
+  <script type="text/javascript">
+    $(function() {
+      $('.box_reviews').matchHeight({
+        // byRow: true,
+        // property: 'height',
+        // target: '.caption',
+        // remove: false
+      });
+    });
+  </script>
+  
+</html>
+

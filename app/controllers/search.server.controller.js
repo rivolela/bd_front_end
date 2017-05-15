@@ -2,6 +2,7 @@ var requestsUtile = require('../utile/requests.server.utile.js');
 var config = require('../../config/config.js');
 var validate = require("validate.js");
 var SEO = require('../../config/seo/seo.js');
+var async = require('async');
 
 var constraints = {
   query: {
@@ -114,95 +115,152 @@ function pagination(data,page,callback){
 }
 
 
+/**
+ * [setUrlService description]
+ * @param {Number}   typeSearch [description]
+ * @param {String}   query      [description]
+ * @param {Number}   order      [description]
+ * @param {Number}   page       [description]
+ * @param {Function} next       [description]
+ */
+function setUrlService(typeSearch,query,order,page,next){
+
+	var page_return;
+	var url;
+
+	if ((order === undefined ) || (order < 0)){
+		order = 1;
+	}
+
+	switch(typeSearch) {
+    	case 1:
+    		console.log("ts === 1 >> search by text")
+        	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+			page_return = 'search/search';
+        break;
+    	case 2:
+    		console.log("ts === 2 >> search by category")
+        	url = config.service_host + "/api/offers/bd/category/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+			page_return = 'categories/categorie';
+        break;
+        case 3:
+    		console.log("ts === 3 >> search by departament")
+        	url = config.service_host + "/api/offers/bd/departament/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+			page_return = 'departaments/departament';
+        break;
+    	default:
+        	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+			page_return = 'search/search';
+	}
+
+
+	return next(url,page_return,order);
+}
+
+
+
 exports.searchOffers = function(req,res){
 
 
-	validateSearch(req,res,function(query,page){
+	async.waterfall([
+		// step_01 >> validateSearch
+		function(callback){
+			validateSearch(req,res,function(query,page){
+				console.log("query >>",query);
+				callback(null,query,page);
+			});
+		},
+		// step_02 >> setUrlService
+		function(query,page,callback){
+			
+			var order = req.query.order;
+			var typeSearch = req.query.ts;
+			console.log("typeSearch >>",typeSearch);
+			console.log("order by >>",order);
 
-		var order = req.query.order;
-		var typeSearch = req.query.ts;
-		var page_return;
-		var url;
-		console.log("order by >>",order);
-		console.log("typeSearch >>",typeSearch);
+			setUrlService(typeSearch,query,order,page,function(url,page_return,order,typeSearch){
+				console.log("url >>",url);
+				console.log("page_return >>",page_return);
+				callback(null,url,page_return,query,page,order,typeSearch);
+			});
+		},
+		// step_03 >> call service
+		function(url,page_return,query,page,order,typeSearch,callback){
+			
+			var call = new requestsUtile();
 
-		if ((order === undefined ) || (order < 0)){
-			order = 1;
-		}
-		
-		// typeSearch === 1 (search by name);
-		// typeSearch === 2 (search by categoryBD);
-		if ((typeSearch === undefined ) || (typeSearch <= 1)){
-			console.log("ts === 1 or ts === 1 >> search by name")
-			url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
-			page_return = 'search/search';
-		}else{
-			console.log("ts === 2 >> search by category")
-			url = config.service_host + "/api/offers/bd/category/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
-			page_return = 'categories/categorie';
-		}
+			call.getJson(url,function(data,response,error){
 
-		console.log("query",query);
-
-		console.log(url);
-
-		var call = new requestsUtile();
-
-		call.getJson(url,function(data,response,error){
-
-			if(data.total == 0){
-				var message = "produto não encontrado";
-				res.render('partials/error',{
-					title: config.title,
-					message: config.message_search_error,
-					slogan: config.slogan,
-					env: process.env.NODE_ENV
-				});
-			}
-			else if(data.code == 500) {
-				console.log("error >>", data.message);
-				var message = "ops! ocorreu algum problema técnico. Fique tranquilo, o nosso time já está trabalhando na resolução. = )";
-				res.render('partials/error',{
-					title: config.title,
-					message: message,
-					slogan: config.slogan,
-					env: process.env.NODE_ENV
-				});
-			}
-			else if(error){
-				console.log("error",error);
-				return res.status(400).send({
-					message: getErrorMessage(error)
-				});
-			}else{
-				console.log(data.docs[0]);
-
-				pagination(data,page,function(from,to,previous,next){
-
-					res.render(page_return,{
-						title: ucFirstAllWords(query) + SEO.title_categories,
-						slogan: SEO.slogan,
-						pagination: {
-							page: page,
-							from:from,
-							to:to,
-							next:next,
-							previous:previous,
-							pages:data.pages,
-						},
-						offers: data,
-						query: query,
-						total: data.total,
-						env: process.env.NODE_ENV,
-						order: order,
-						featureToogle: config.offers_toogle
+				if(data.total == 0){
+					var message = "produto não encontrado";
+					res.render('partials/error',{
+						title: config.title,
+						message: config.message_search_error,
+						slogan: config.slogan,
+						env: process.env.NODE_ENV
 					});
+					callback(error);
+				}
+				else if(data.code == 500) {
+					console.log("error >>", data.message);
+					var message = "ops! ocorreu algum problema técnico. Fique tranquilo, o nosso time já está trabalhando na resolução. = )";
+					res.render('partials/error',{
+						title: config.title,
+						message: message,
+						slogan: config.slogan,
+						env: process.env.NODE_ENV
+					});
+					callback(error);
+				}
+				else if(error){
+					console.log("error",error);
+					return res.status(400).send({
+						message: getErrorMessage(error)
+					});
+					callback(error);
+				}else{
+					console.log(data.docs[0]);
 
-				});
-			};
-		});
+					console.log("data >> ",data);
+					console.log("page >> ",page);
+
+					pagination(data,page,function(from,to,previous,next){
+
+						res.render(page_return,{
+							title: ucFirstAllWords(query) + SEO.title_categories,
+							slogan: SEO.slogan,
+							pagination: {
+								page: page,
+								from:from,
+								to:to,
+								next:next,
+								previous:previous,
+								pages:data.pages,
+							},
+							offers: data,
+							query: query,
+							total: data.total,
+							env: process.env.NODE_ENV,
+							order: order,
+							featureToogle: config.offers_toogle
+						});
+
+						callback(null,'arg');
+
+					});
+				};
+			});
+		},
+		], function (err, result) {
+			if(err){
+				console.log("err >>",err);
+				// return next(err);
+			}else{
+				console.log("result >>",result);
+				// return next();
+			}
 	});
-	
+
 }
 
 // exports.read = function(req,res){

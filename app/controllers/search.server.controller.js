@@ -153,6 +153,7 @@ function setUrlService(typeSearch,query,order,page,next){
     	default:
         	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
 			page_return = 'search/search';
+			typeSearch = 0;
 	}
 
 

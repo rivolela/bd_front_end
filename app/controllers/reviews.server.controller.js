@@ -177,6 +177,7 @@ exports.getReviewsByProductURl = function(req,res){
 			product: product,
 			departamentBD: product.departamentBD,
 			query: req.params.search,
+			typeSearch: null,
 			total: req.reviews.total,
 		});
 

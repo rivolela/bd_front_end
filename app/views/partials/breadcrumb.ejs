@@ -1,0 +1,14 @@
+<div id="title_category" class="capitalize" style="border-bottom: 0px;">
+<!--  	<h1><%= query %> <small><%= total %> ofertas</small></h1> -->
+  <ol class="breadcrumb breadcrumb_bd" style="background-color: white">
+    <li><a href="/">Home</a></li>
+   	<li><a href="/<%= departamentBD %>?ts=3"><%= departamentBD %></a></li>
+    <% if (typeSearch != null) { %>
+   		<li class="active"><%= query %><small> ( <%= total %> ofertas )</small></li>
+    <% }  else { %> 
+	 	<li><a href="/<%= query %>"><%= query %></a></li>
+    <% }  %> 
+  </ol>
+</div>
+
+

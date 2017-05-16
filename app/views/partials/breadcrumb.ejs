@@ -3,10 +3,16 @@
   <ol class="breadcrumb breadcrumb_bd" style="background-color: white">
     <li><a href="/">Home</a></li>
    	<li><a href="/<%= departamentBD %>?ts=3"><%= departamentBD %></a></li>
-    <% if (typeSearch != null) { %>
-   		<li class="active"><%= query %><small> ( <%= total %> ofertas )</small></li>
-    <% }  else { %> 
-	 	<li><a href="/<%= query %>"><%= query %></a></li>
+
+   	<# case text departament === text query #>
+   	<% if (departamentBD != query) { %>
+
+	    <% if (typeSearch != null) { %>
+	   		<li class="active"><%= query %><small> ( <%= total %> ofertas )</small></li>
+	    <% }  else { %> 
+		 	<li><a href="/<%= query %>"><%= query %></a></li>
+	    <% }  %> 
+   
     <% }  %> 
   </ol>
 </div>

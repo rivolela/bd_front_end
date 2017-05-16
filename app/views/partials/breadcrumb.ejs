@@ -13,7 +13,14 @@
 		 	<li><a href="/<%= query %>"><%= query %></a></li>
 	    <% }  %> 
    
-    <% }  %> 
+    <% } else { %> 
+
+    	<% if (typeSearch == 3) { %>
+    		<li class="active">( <%= total %> ofertas )</small></li>
+    	<% }  else { %> 
+    	<% }  %> 
+
+     <% }  %> 
   </ol>
 </div>
 

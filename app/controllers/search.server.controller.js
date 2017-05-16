@@ -132,7 +132,9 @@ function setUrlService(typeSearch,query,order,page,next){
 		order = 1;
 	}
 
-	switch(typeSearch) {
+	console.log(typeSearch)
+
+	switch(Number(typeSearch)){
     	case 1:
     		console.log("ts === 1 >> search by text")
         	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
@@ -154,7 +156,7 @@ function setUrlService(typeSearch,query,order,page,next){
 	}
 
 
-	return next(url,page_return,order);
+	return next(url,page_return,order,typeSearch);
 }
 
 
@@ -176,11 +178,11 @@ exports.searchOffers = function(req,res){
 			var order = req.query.order;
 			var typeSearch = req.query.ts;
 			console.log("typeSearch >>",typeSearch);
-			console.log("order by >>",order);
-
+			
 			setUrlService(typeSearch,query,order,page,function(url,page_return,order,typeSearch){
 				console.log("url >>",url);
 				console.log("page_return >>",page_return);
+				console.log("order by >>",order);
 				callback(null,url,page_return,query,page,order,typeSearch);
 			});
 		},
@@ -219,7 +221,7 @@ exports.searchOffers = function(req,res){
 					});
 					callback(error);
 				}else{
-					console.log(data.docs[0]);
+					// console.log(data.docs[0]);
 
 					console.log("data >> ",data);
 					console.log("page >> ",page);
@@ -242,6 +244,8 @@ exports.searchOffers = function(req,res){
 							total: data.total,
 							env: process.env.NODE_ENV,
 							order: order,
+							typeSearch: typeSearch,
+							departamentBD: data.docs[0].departamentBD,
 							featureToogle: config.offers_toogle
 						});
 

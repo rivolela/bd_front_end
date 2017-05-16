@@ -155,13 +155,6 @@ exports.getReviewsByProductURl = function(req,res){
 		var product = req.product.docs[0];
 		console.log("product",product);
 
-		// console.log("product",product);
-		// console.log("offers",offers.docs.length);
-		// console.log("product",product.docs.length);
-
-		var teste = offers.docs[0];
-		console.log(teste);
-
 		res.render('reviews/reviews',{
 			title: SEO.title_reviews,
 			slogan: SEO.slogan,
@@ -178,10 +171,11 @@ exports.getReviewsByProductURl = function(req,res){
 			featureToogle: config.reviews_toogle,
 			ean:ean,
 			offerSelected:offerId,
-			head_reviews:teste,
+			head_reviews:product.name,
 			offers:req.offers,
 			filter:filter,
 			product: product,
+			departamentBD: product.departamentBD,
 			query: req.params.search,
 			total: req.reviews.total,
 		});

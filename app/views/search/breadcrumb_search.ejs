@@ -1,60 +1,14 @@
-<style type="text/css">
-
-  /* nothing with screen size bigger than 768px */
-  @media (max-width:768px) {
-    h1 {
-      	font-size: 1.0em; 
-      	margin-top: -5px;
-		    margin-bottom: 0px;
-    }
-
-    .breadcrumb_bd{
-      display: inline-flex;
-      margin-top: 20px;
-      margin: 30px 0px 10px -15px;
-    }
-  }
-
-  /*nothing with screen size smaller than 768px*/
-  @media (min-width:768px) {
-    h1 {
-      font-size: 1.5em; 
-      margin-top: 15px;
-      margin-bottom: 0px;
-      margin-left: -20px;
-    }
-
-    .breadcrumb_bd{
-      padding: 15px 0px 1px 0px!important;
-
-    }
-  }
-
-  .capitalize {
-    text-transform: capitalize;
-  }
-/*
-  .breadcrumb > li + li:before{
-    content: "";
-  }*/
-
-  
-    
-</style>
-
- <div id="title_category" class="hidden-xs capitalize" style="border-bottom: 0px;">
+<div id="title_category" class="capitalize" style="border-bottom: 0px;">
 <!--  	<h1><%= query %> <small><%= total %> ofertas</small></h1> -->
   <ol class="breadcrumb breadcrumb_bd" style="background-color: white">
     <li><a href="/">Home</a></li>
+    <% if (typeSearch==2) { %>
+      <li><a href="/<%= departamentBD %>?ts=3"><%= departamentBD %></a></li>
+    <% } %>
     <li class="active"><%= query %><small> ( <%= total %> ofertas )</small></li>
   </ol>
- </div>
+</div>
 
- <div id="title_category" class="visible-xs capitalize" style="margin-left: -1px; border-bottom: 0px solid #eee; ">
- <!-- 	<h1><%= query %> <br><small><%= total %> ofertas</small></h1> -->
-  <ol class="breadcrumb breadcrumb_bd" style="background-color: white">
-    <li><a href="/">Home</a></li>
-    <li class="active"><%= query %><small> ( <%= total %> ofertas )</small></li>
-  </ol>
- </div>
- 
+
+
+

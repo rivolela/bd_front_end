@@ -1,0 +1,61 @@
+  <!-- box see reviews -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="pull-left"">
+    <table>
+      <tbody>
+        <tr>
+
+          <!-- label avaliacoes -->
+          <td>
+            <a id="btnVerReviews" href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="ga_click_ver_reviews"  target="_self">
+             <span class="badge_ver_avaliacoes"> 
+                <% if ((order == 3) || (order == 2)) { %>
+                  Ver Avaliações 
+                <% } else { %>
+                  <text id="txt_ver_avaliacoes"> Ver <%= offer.product.totalReviews %> Avaliações </text>
+                <% } %>
+              </span>
+            </a>
+          </td>
+
+          <td width="25px;">&nbsp;</td>
+
+          
+          <!-- total bd boys happy -->
+          <td>
+            <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ver_reviews">
+              <% if ((order == 2) || (order == 1)){ %>
+                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy ga_click_ver_reviews">
+              <% } else { %>
+                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off ga_click_ver_reviews">
+              <% } %>
+            </a>
+          </td>
+          <td>
+            <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" class="a_couter ga_click_ver_reviews">
+              <%= offer.product.countHappy %>
+            </a>
+          </td>
+
+          <td width="15px;">&nbsp;</td>
+
+          <!-- total bd boys sad -->
+          <td>
+            <a id="href_bd_boy_sad" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ver_reviews">
+              <% if ((order == 3) || (order == 1)) { %>
+                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad ga_click_ver_reviews">
+              <% } else { %>
+                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off ga_click_ver_reviews">
+              <% } %>
+            </a>
+          </td>
+          <td>
+            <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" class="a_couter ga_click_ver_reviews">
+            <%= offer.product.countSad %>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

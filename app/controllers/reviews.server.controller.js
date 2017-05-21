@@ -3,6 +3,8 @@ var config = require('../../config/config.js');
 var SEO = require('../../config/seo/seo.js');
 var fs = require('fs');
 var ejs = require('ejs');
+var async = require('async');
+
 
 exports.render = function(req,res){
 
@@ -100,7 +102,8 @@ exports.getReviewsByEan = function(req,res,next){
 };
 
 
-exports.getReviewsByProduct = function(req,res,next){
+
+exports.getReviews = function(req,res,next){
 
 	var ean = req.product.docs[0].ean;
 	var page = req.query.page;
@@ -114,74 +117,77 @@ exports.getReviewsByProduct = function(req,res,next){
 		filter = 0;
 	}
 
-	var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10/filter/" + filter ;
-	var call = new requestsUtile();
+	async.waterfall([
+		// step_01 >> get reviews
+		function(callback){
+			var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10/filter/" + filter ;
+			var call = new requestsUtile();
+			call.getJson(url,function(data,response,error){
+				if(error){
+					console.log(error);
+					callback(error);
+				}else{
+					// req.reviews = data;
+					callback(null,data);
+				}
+			});	
+		},
+		// step_02 >> get pagination
+		function(data,callback){
+			var limit = data.limit;
+			var pages = data.pages;
 
-	call.getJson(url,function(data,response,error){
+			pagination(limit,page,pages,function(from,to,previous,next){
+				callback(null,data,from,to,previous);
+			});				
+		},
+		// step_03 >> get pagination
+		function(data,from,to,previous,callback){
 
-		if(error){
-			console.log(error);
-			return next(err);
-		}else{
-			req.reviews = data;
-			next();
-		}
-	});	
-};
+			var offers = req.offers;
+			var product = req.product.docs[0];
+			console.log("offers",offers);
+
+			res.render('reviews/reviews',{
+				title: SEO.title_reviews,
+				slogan: SEO.slogan,
+				pagination: {
+					page: page,
+					from:from,
+					to:to,
+					next:next,
+					previous:previous,
+					pages:data.pages
+				},
+				reviews: data,
+				env: process.env.NODE_ENV,
+				featureToogle: config.reviews_toogle,
+				ean:ean,
+				// offerSelected:offerId,
+				head_reviews:product.name,
+				offers:req.offers,
+				filter:filter,
+				product: product,
+				departamentBD: product.departamentBD,
+				query: req.params.search,
+				typeSearch: null,
+				total: data.total,
+				order:null
+			});
+
+			callback(null,data);
+		},
+		], function (err, result) {
+			if(err){
+				console.log("err >>",err);
+				// return next(err);
+			}else{
+				console.log("result >>",result);
+				// return next();
+			}
+	});
+}
 
 
-exports.getReviewsByProductURl = function(req,res){
 
-	var ean = req.body.ean;
-	var offerId = req.body.offer;
-	var page = req.query.page;
-	var filter = req.query.filter;
-
-	if ((page === undefined ) || (page < 0)){
-		page = 1;
-	}
-
-	if ((filter === undefined ) || (filter < 0)){
-		filter = 0;
-	}
-
-	var call = new requestsUtile();
-	var limit = req.reviews.limit;
-	var pages = req.reviews.pages;
-	
-	pagination(limit,page,pages,function(from,to,previous,next){
-
-		var offers = req.offers;
-		var product = req.product.docs[0];
-		console.log("product",product);
-
-		res.render('reviews/reviews',{
-			title: SEO.title_reviews,
-			slogan: SEO.slogan,
-			pagination: {
-				page: page,
-				from:from,
-				to:to,
-				next:next,
-				previous:previous,
-				pages:pages
-			},
-			reviews: req.reviews,
-			env: process.env.NODE_ENV,
-			featureToogle: config.reviews_toogle,
-			ean:ean,
-			offerSelected:offerId,
-			head_reviews:product.name,
-			offers:req.offers,
-			filter:filter,
-			product: product,
-			departamentBD: product.departamentBD,
-			query: req.params.search,
-			typeSearch: null,
-			total: req.reviews.total,
-		});
-
-	});					
-
-};
 

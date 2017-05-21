@@ -1,14 +1,10 @@
-<style type="text/css">
-  .ga_click_ir_loja{
-
-  }
-</style> 
-<div class="panel-body">
-  <table id="tbl_box_reviews">
+<% if (offer !== undefined) { %>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">  
+<table id="tbl_box_reviews">
     <tbody>
       <tr>
         <td class="logo_merchant">
-          <% if (offer.advertiser == 'Walmart BR') { %>
+          <% if (offer.advertiser == 'Walmart BR')  { %>
             <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
               <img id="img_retailer"  class="img-responsive walmart">
             </a>      
@@ -55,9 +51,17 @@
           <% } %>
         </td>
         <td class="price_offer">
-            <a id="href_offer_price" href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <%= offer.price_display %>
-            </a>       
+          <a id="href_offer_price" href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
+            <% if ((order == 1) || (order == 2) || (order == 3)) { %>
+              <h5 style="color: green;font-size: 16px;">
+                <%= offer.price_display %>
+              </h5>
+            <% } else { %>
+              <h5 style="color: green;font-size: 16px;font-weight: bold;">
+                <%= offer.price_display %>
+              </h5>
+            <% } %>
+          </a>       
         </td>
         <td class="btn_offer">
           <a id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning ga_click_ir_loja" role="button" target="_blank" style="color: black">Ir à loja</a>
@@ -65,4 +69,6 @@
       </tr>
     </tbody>
   </table>
-</div>   
+  <br>
+</div>
+<% } %>

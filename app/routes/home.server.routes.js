@@ -4,6 +4,7 @@ var reviews = require('../controllers/reviews.server.controller');
 var offers = require('../controllers/offers.server.controller');
 var product = require('../controllers/product.server.controller');
 var search = require('../controllers/search.server.controller');
+var async = require('async');
 
 module.exports = function(app){
 	
@@ -14,7 +15,6 @@ module.exports = function(app){
 	app.route('/:search/:nameurl')
 		.get(product.getProductByNameURL,
 			 offers.getOffersByProduct,
-			 reviews.getReviewsByProduct,
-			 reviews.getReviewsByProductURl);
-
+			 reviews.getReviews);
+	
 };

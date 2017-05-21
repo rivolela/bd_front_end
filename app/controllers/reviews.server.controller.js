@@ -146,7 +146,7 @@ exports.getReviews = function(req,res,next){
 
 			var offers = req.offers;
 			var product = req.product.docs[0];
-			// console.log("product",product);
+			console.log("offers",offers);
 
 			res.render('reviews/reviews',{
 				title: SEO.title_reviews,
@@ -172,6 +172,7 @@ exports.getReviews = function(req,res,next){
 				query: req.params.search,
 				typeSearch: null,
 				total: data.total,
+				order:null
 			});
 
 			callback(null,data);

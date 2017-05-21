@@ -1,36 +1,8 @@
  <style type="text/css">
 
-  /*Small devices Tablets (≥768px)*/
-  @media (min-width:768px) {
-/*    .table_avalicoes{*/
-/*      padding-left: 105px;*/
-/*      padding-right:10px;
-      overflow-x: hidden*/
-/*      display: inline
-    }*/
-
     .ga_click_ver_reviews{
 
     }
-  }
-
-  .badge_ver_avaliacoes{
-    display: inline-block;
-    min-width: 10px;
-    padding: 3px 7px;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 1.5;
-    color: #808080;
-    text-align: center;
-    /* height: 10px white-space: nowrap; */
-    vertical-align: middle;
-    background-color: rgba(223, 222, 4, 0.17);
-    border-radius: 10px;
-  }
-  
-
-
 
 </style>  
 
@@ -42,162 +14,56 @@
 </div>
 <!-- end img product -->
 
+
+<!-- name offer mobile -->
+<div class="col-xs-7 col-sm-8 col-md-7 col-lg-8 visible-xs">    
+  <strong class="strong_name_offer ga_click_ver_reviews" >
+    <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1"><%= offer.product.name %></a>
+  </strong>
+  <p>
+</div>
+
+
 <!-- name, price and block reviews -->
-<div class="col-xs-7 col-sm-8 col-md-7 col-lg-8" style="padding-left: 0px!important;
-padding-right: 8px!important">
+<div class="col-xs-7 col-sm-8 col-md-7 col-lg-8 hidden-xs">
     
   <!-- name offer -->
   <strong class="strong_name_offer ga_click_ver_reviews" >
     <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1"><%= offer.product.name %></a>
   </strong>
   
-  <p>
-  <p>
+  <br>
+  <br>
 
-  <!-- box see reviews -->
-  <div class="row hidden-xs hidden-sm">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="pull-left"">
-        <table>
-          <tbody>
-            <tr>
-
-              <!-- label avaliacoes -->
-              <td>
-                <a id="btnVerReviews" href="/<%= query%>/<%= offer.product.nameURL%>?page=1" class="ga_click_ver_reviews"  target="_self">
-                 <span class="badge_ver_avaliacoes"> 
-                    <% if ((order == 3) || (order == 2)) { %>
-                      Ver Avaliações 
-                    <% } else { %>
-                      <text id="txt_ver_avaliacoes"> Ver <%= offer.product.totalReviews %> Avaliações </text>
-                    <% } %>
-                  </span>
-                </a>
-              </td>
-
-              <td width="25px;">&nbsp;</td>
-
-              
-              <!-- total bd boys happy -->
-              <td>
-                <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ver_reviews">
-                  <% if ((order == 2) || (order == 1)){ %>
-                    <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy ga_click_ver_reviews">
-                  <% } else { %>
-                    <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off ga_click_ver_reviews">
-                  <% } %>
-                </a>
-              </td>
-              <td>
-                <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" class="a_couter ga_click_ver_reviews">
-                  <%= offer.product.countHappy %>
-                </a>
-              </td>
-
-              <td width="15px;">&nbsp;</td>
-
-              <!-- total bd boys sad -->
-              <td>
-                <a id="href_bd_boy_sad" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ver_reviews">
-                  <% if ((order == 3) || (order == 1)) { %>
-                    <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad ga_click_ver_reviews">
-                  <% } else { %>
-                    <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off ga_click_ver_reviews">
-                  <% } %>
-                </a>
-              </td>
-              <td>
-                <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" class="a_couter ga_click_ver_reviews">
-                <%= offer.product.countSad %>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+  <!-- product reviews -->
+  <%- include('../product/box_product_reviews',{offer:offer}); %> 
 
 
-  <hr class="row hidden-xs hidden-sm" style="border-color: rgb(229, 210, 228, 0.49);
+  <hr class="row" style="border-color: rgb(229, 210, 228, 0.49);
 margin-left: 1px;
 margin-right: 1px;">
 
-<table id="tbl_box_reviews">
-    <tbody>
-      <tr>
-        <td class="logo_merchant">
-          <% if (offer.advertiser == 'Walmart BR')  { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer"  class="img-responsive walmart">
-            </a>      
-          <% } else if (offer.advertiser == 'Ricardo Eletro BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive ricardo_eletro">
-            </a>   
-          <% } else if (offer.advertiser == 'Pontofrio BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive ponto_frio">
-            </a>
-          <% } else if (offer.advertiser == 'Extra BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive extra">
-            </a>
-          <% } else if (offer.advertiser == 'Casas Bahia BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive casas_bahia">
-            </a>
-          <% } else if (offer.advertiser == 'Brastemp BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive brastemp">
-            </a>
-          <% } else if (offer.advertiser == 'Consul BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive consul">
-            </a>
-          <% } else if (offer.advertiser == 'Pontofrio BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive ponto_frio">
-            </a> 
-          <% } else if (offer.advertiser == 'Girafa BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive girafa">
-            </a> 
-          <% } else if (offer.advertiser == 'Fastshop BR') { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive fast_shop">
-            </a>            
-          <% } else { %>
-            <a href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-              <img id="img_retailer" class="img-responsive lojas_colombo">
-            </a>          
-          <% } %>
-        </td>
-        <td class="price_offer">
-          <a id="href_offer_price" href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-            <% if ((order == 1) || (order == 2) || (order == 3)) { %>
-              <h5 style="color: green;font-size: 16px;">
-                <%= offer.price_display %>
-              </h5>
-            <% } else { %>
-              <h5 style="color: green;font-size: 16px;font-weight: bold;">
-                <%= offer.price_display %>
-              </h5>
-            <% } %>
-          </a>       
-        </td>
-        <td class="btn_offer">
-          <a id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning ga_click_ir_loja" role="button" target="_blank" style="color: black">Ir à loja</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-
- 
+  <!-- offer desktop -->  
+  <div>
+    <%- include('./box_prices_offer',{offer:offer}); %> 
+  </div>
 
 </div>
-<!-- end name, price and block reviews -->
+
+<!-- mobile -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 visible-xs">
+  
+  <!-- product reviews -->
+  <%- include('../product/box_product_reviews',{offer:offer}); %>
+
+  <hr class="row" style="border-color: rgb(229, 210, 228, 0.49);
+margin-left: 1px;
+margin-right: 1px;">
+
+  <!-- offers -->    
+  <%- include('./box_prices_offer',{offer:offer}); %>    
+</div>
+
 
 <div style="height: 200px" class="visible-md">&nbsp;</div>
 

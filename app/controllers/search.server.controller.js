@@ -137,21 +137,21 @@ function setUrlService(typeSearch,query,order,page,next){
 	switch(Number(typeSearch)){
     	case 1:
     		console.log("ts === 1 >> search by text")
-        	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+        	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
 			page_return = 'search/search';
         break;
     	case 2:
     		console.log("ts === 2 >> search by category")
-        	url = config.service_host + "/api/offers/bd/category/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+        	url = config.service_host + "/api/offers/bd/category/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
 			page_return = 'categories/categorie';
         break;
         case 3:
     		console.log("ts === 3 >> search by departament")
-        	url = config.service_host + "/api/offers/bd/departament/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+        	url = config.service_host + "/api/offers/bd/departament/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
 			page_return = 'departaments/departament';
         break;
     	default:
-        	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+        	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
 			page_return = 'search/search';
 			typeSearch = 0;
 	}
@@ -227,6 +227,14 @@ exports.searchOffers = function(req,res){
 					console.log("data >> ",data);
 					console.log("page >> ",page);
 
+					var departamentBD = data.docs[0].departamentBD
+
+					if(data.docs != undefined){
+						departamentBD = data.docs[0].departamentBD;
+					}else{
+						departamentBD = null;
+					}
+
 					pagination(data,page,function(from,to,previous,next){
 
 						res.render(page_return,{
@@ -246,7 +254,7 @@ exports.searchOffers = function(req,res){
 							env: process.env.NODE_ENV,
 							order: order,
 							typeSearch: typeSearch,
-							departamentBD: data.docs[0].departamentBD,
+							departamentBD: departamentBD,
 							featureToogle: config.offers_toogle
 						});
 

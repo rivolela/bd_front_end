@@ -182,7 +182,7 @@ function getOffersHome(req,res){
 		}
 		
 		console.log("query",query);
-		var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/filter/" + order;
+		var url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
 
 		console.log(url);
 

@@ -1,5 +1,4 @@
   <!-- box see reviews -->
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="pull-left"">
     <table>
       <tbody>
@@ -23,7 +22,7 @@
           
           <!-- total bd boys happy -->
           <td>
-            <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ver_reviews">
+            <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ver_reviews">
               <% if ((order == 2) || (order == 1)){ %>
                 <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy ga_click_ver_reviews">
               <% } else { %>
@@ -32,7 +31,7 @@
             </a>
           </td>
           <td>
-            <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=1" class="a_couter ga_click_ver_reviews">
+            <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=1" class="a_couter ga_click_ver_reviews">
               <%= offer.product.countHappy %>
             </a>
           </td>
@@ -41,7 +40,7 @@
 
           <!-- total bd boys sad -->
           <td>
-            <a id="href_bd_boy_sad" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ver_reviews">
+            <a id="href_bd_boy_sad" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ver_reviews">
               <% if ((order == 3) || (order == 1)) { %>
                 <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad ga_click_ver_reviews">
               <% } else { %>
@@ -50,7 +49,7 @@
             </a>
           </td>
           <td>
-            <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&filter=2" class="a_couter ga_click_ver_reviews">
+            <a href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=2" class="a_couter ga_click_ver_reviews">
             <%= offer.product.countSad %>
             </a>
           </td>
@@ -58,4 +57,3 @@
       </tbody>
     </table>
   </div>
-</div>

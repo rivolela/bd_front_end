@@ -16,7 +16,7 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
         test.assertTitle("Geladeira Brastemp Clean Frost Free 378 L 220V - ver avaliações - Decidaki", "Decidaki homepage title is the one expected");
 
         // simulated click to bd_boy_happy icon 
-        this.echo('filter reviews by bd boy happy ');
+        this.echo('order reviews by bd boy happy ');
         this.evaluate(function() {
             document.getElementById("a_bd_boy_happy_icon").click();   
         });   
@@ -28,7 +28,7 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
         test.assertElementCount('.bd_boy_sad_off', 1,"it should find 1 .bd_boy_sad_off elements");
 
         // simulated click to bd_boy_sad icon 
-        this.echo('filter reviews by bd boy sad ');
+        this.echo('order reviews by bd boy sad ');
         this.evaluate(function() {
            document.getElementById("a_bd_boy_sad_icon").click();   
         });   
@@ -41,7 +41,7 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
             test.assertElementCount('.bd_boy_sad', 4,"it should find 4 .bd_boy_happy elements");
             test.assertElementCount('.bd_boy_happy_off', 1,"it should find 1 .bd_boy_happy_off elements");
              // simulated click total reviews 
-            this.echo('filter reviews by total of reviews ');
+            this.echo('order reviews by total of reviews ');
             this.evaluate(function() {
                document.getElementById("a_total_reviews").click();   
             }); 

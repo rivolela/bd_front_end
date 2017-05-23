@@ -76,17 +76,17 @@ exports.getReviewsByEan = function(req,res,next){
 
 	var ean = req.body.ean;
 	var page = req.query.page;
-	var filter = req.query.filter;
+	var order = req.query.order;
 
 	if ((page === undefined ) || (page < 0)){
 		page = 1;
 	}
 
-	if ((filter === undefined ) || (filter < 0)){
-		filter = 0;
+	if ((order === undefined ) || (order < 0)){
+		order = 0;
 	}
 
-	var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10/filter/" + filter ;
+	var url = config.service_host  + "/api/reviews/ean/" + ean + "/page/" + page + "/limit/10/order/" + order ;
 	var call = new requestsUtile();
 
 	call.getJson(url,function(data,response,error){

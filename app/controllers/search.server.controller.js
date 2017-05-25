@@ -227,9 +227,9 @@ exports.searchOffers = function(req,res){
 					console.log("data >> ",data);
 					console.log("page >> ",page);
 
-					var departamentBD = data.docs[0].departamentBD
+					var departamentBD;
 
-					if(data.docs != undefined){
+					if(data.total > 0 ){
 						departamentBD = data.docs[0].departamentBD;
 					}else{
 						departamentBD = null;

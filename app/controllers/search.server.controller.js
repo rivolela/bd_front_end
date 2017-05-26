@@ -229,7 +229,7 @@ exports.searchOffers = function(req,res){
 
 					var departamentBD;
 
-					if(data.docs > 0){
+					if(data.docs.length > 0){
 						departamentBD = data.docs[0].departamentBD;
 					}else{
 						departamentBD = null;

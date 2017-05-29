@@ -1,28 +1,80 @@
 <div id="title_category" class="capitalize" style="border-bottom: 0px;">
 <!--  	<h1><%= query %> <small><%= total %> ofertas</small></h1> -->
-  <ol class="breadcrumb breadcrumb_bd" style="background-color: white">
-    <li><a href="/">Home</a></li>
-   	<li><a href="/<%= departamentBD %>?ts=3"><%= departamentBD %></a></li>
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList" 
+      class="breadcrumb breadcrumb_bd" 
+      style="background-color: white">
 
-   	<%# case text departament === text query %>
+    <li itemprop="itemListElement" 
+        itemscope 
+        itemtype="http://schema.org/ListItem">
+
+      <a itemprop="item" href="/">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+
+    </li>
+
+   	<li itemprop="itemListElement" 
+        itemscope 
+        itemtype="http://schema.org/ListItem">
+
+      <a itemprop="item" href="/<%= departamentBD %>?ts=3">
+        <span itemprop="name"><%= departamentBD %></span>
+      </a>
+      <meta itemprop="position" content="2" />
+
+    </li>
+
+   	<%# conditional when text departament === text query %>
+
    	<% if (departamentBD != query) { %>
 
 	    <% if (typeSearch != null) { %>
-	   		<li class="active"><%= query %><small> ( <%= total %> ofertas )</small></li>
+
+	   		<li itemprop="itemListElement" 
+            itemscope
+            itemtype="http://schema.org/ListItem"
+            class="active">
+
+            <span itemprop="name">
+              <%= query %><small> ( <%= total %> ofertas )</small>
+            </span>
+            <meta itemprop="position" content="3" />
+        </li>
+
 	    <% }  else { %> 
-		 	<li><a href="/<%= query %>"><%= query %></a></li>
+
+		 	  <li itemprop="itemListElement" 
+            itemscope
+            itemtype="http://schema.org/ListItem">
+
+          <a itemprop="item" href="/<%= query %>">
+            <span itemprop="name"><%= query %></span>        
+          </a>
+          <meta itemprop="position" content="3" />
+        </li>
+
 	    <% }  %> 
-   	
-   	<%# case departament %>
+
     <% } else { %> 
 
     	<% if (typeSearch == 3) { %>
-    		<li class="active">( <%= total %> ofertas )</small></li>
-    	<% }  else { %> 
-    	<% }  %> 
+
+    		<li itemprop="itemListElement"
+            itemscope  
+            itemtype="http://schema.org/ListItem"
+            class="active">
+
+            <span itemprop="name"> 
+              <small>( <%= total %> ofertas )</small>
+            </span>
+            <meta itemprop="position" content="2" />
+        </li>
+
+    	<% } %> 
 
      <% }  %> 
   </ol>
 </div>
-
 

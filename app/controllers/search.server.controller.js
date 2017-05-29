@@ -150,6 +150,11 @@ function setUrlService(typeSearch,query,order,page,next){
         	url = config.service_host + "/api/offers/bd/departament/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
 			page_return = 'departaments/departament';
         break;
+        case 4:
+    		console.log("ts === 4 >> search by branch")
+        	url = config.service_host + "/api/offers/bd/brand/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
+			page_return = 'brand/brand';
+        break;
     	default:
         	url = config.service_host + "/api/offers/bd/query/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
 			page_return = 'search/search';

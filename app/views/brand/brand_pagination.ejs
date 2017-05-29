@@ -1,0 +1,54 @@
+<!--pagination -->
+<row style="text-align: center">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+    <!-- previous -->
+
+    <ul id="pagination_previous_categories" class="pagination">
+      <% if (pagination.previous != 0) { %>
+        <li id="li_active_previous" >
+          <a id="a_previous" href="/<%= query%>/?page=<%= pagination.previous %>&order=<%= order %>&ts=4" onclick=""  aria-label="Previous">
+             <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      <% } %>
+     
+    </ul>
+
+    <!-- pagination pages number -->
+
+    <% for(var i=pagination.from; i <= pagination.to; i++) { %>     
+
+        <ul id="pagination_numbers_categories" class="pagination">
+
+          <% if (i == pagination.page) { %>
+            <li class="active">
+              <a href="/<%= query%>?page=<%= i %>&order=<%= order %>&ts=4" onclick="" class='pagination_active'><%= i %></a> 
+            </li>
+          <% } else { %>
+            <li>
+              <a href="/<%= query%>?page=<%= i %>&order=<%= order %>&ts=4" onclick="" class='pagination_disabled'><%= i %></a> 
+            </li>
+          <% } %>
+        </ul>
+       <% } %>
+
+
+      <!-- next -->
+
+      <ul id="pagination_next_categories" class="pagination">
+        <% if (pagination.next != 0) { %>
+          <li id="li_active_next">
+            <a id="a_next" href="/<%= query%>?page=<%= pagination.next %>&order=<%= order %>&ts=4"  onclick="
+            " aria-label="Next">
+               <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+  </div>
+
+</row>
+
+

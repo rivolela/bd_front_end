@@ -17,7 +17,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Begin page content -->
-    <div class="container-fluid">
+    <div itemscope itemtype="http://schema.org/Product" class="container-fluid">
 
       <%- include('../partials/nav_head') %> 
           
@@ -43,7 +43,7 @@
 
         <!-- PRODUCT  -->
         <row>
-          <div itemscope itemtype="http://schema.org/Product" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           
             <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 div_img_product">
               <img itemprop="image" id="img_picture_offer" src="<%= product.image %>" class="img-responsive">
@@ -107,7 +107,8 @@
         <!-- LIST REVIEWS -->
         <row>
           <% for(var i=0; i <reviews.docs.length; i++) { %> 
-            <div itemprop="review" itemscope itemtype="http://schema.org/Review" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div  itemprop="aggregateRating"
+                  itemscope itemtype="http://schema.org/AggregateRating" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <%- include('./list_reviews',{review:reviews.docs[i]}); %>
             </div>
           <% }  %>     

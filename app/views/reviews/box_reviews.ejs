@@ -16,7 +16,7 @@
 
 <!-- total of reviews,  name prodduct-->
 <div>
-  <table id="tbl_box_reviews">
+  <table itemprop="review" itemscope itemtype="http://schema.org/Review" id="tbl_box_reviews">
     <tbody>
       <tr>
         <td>
@@ -25,13 +25,13 @@
             <% if (product.totalReviews == 1) { %>
               <a id="a_total_reviews" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=0#ver_reviews" class="ga_click_ler_reviews">
                 <span class="badge_ver_avaliacoes"> 
-                  <h4 class="title_avaliacoes">Ver <%= product.totalReviews %> Avaliações </h4>
+                  <h4 class="title_avaliacoes">Ver <span itemprop="reviewCount"><%= product.totalReviews %></span> Avaliações </h4>
                 </span> 
               </a> 
             <% } else { %>
               <a id="a_total_reviews" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=0#ver_reviews" class="ga_click_ler_reviews">
                 <span class="badge_ver_avaliacoes"> 
-                  <h4 class="title_avaliacoes">Ver <%= product.totalReviews %> Avaliações </h4>
+                  <h4 class="title_avaliacoes">Ver <span itemprop="reviewCount"><%= product.totalReviews %></span> Avaliações </h4>
                 </span>
               </a> 
             <% } %>
@@ -43,11 +43,11 @@
         <!-- BD BOY HAPPY -->
         <td>
           <% if (product.countHappy  > 0) { %>
-            <a id="a_bd_boy_happy_icon" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=1#ver_reviews"" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ler_reviews" >
+            <a itemprop="url" id="a_bd_boy_happy_icon" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=1#ver_reviews"" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ler_reviews" >
               <% if ((filter == 1) || (filter == 0)){ %>
-                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
+                <img itemprop="image" id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
               <% } else { %>
-                <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off">
+                <img itemprop="image" id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off">
               <% } %>
             </a>
           <% } else { %>
@@ -59,11 +59,11 @@
 
         <td>
           <% if (product.countHappy  > 0) { %>
-            <a id="counter_happy" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=1#ver_reviews"" class="a_couter ga_click_ler_reviews">
-              <text id="counter_happy"><%= product.countHappy %></text>
+            <a itemprop="url" id="counter_happy" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=1#ver_reviews"" class="a_couter ga_click_ler_reviews">
+              <text id="counter_happy"><span itemprop="bestRating"><%= product.countHappy %></span></text>
             </a>
           <% } else { %>
-            <text id="counter_happy"><%= product.countHappy %></text>
+            <text id="counter_happy"><span itemprop="bestRating"><%= product.countHappy %></span></text>
           <% } %>         
         </td>
         
@@ -72,15 +72,15 @@
         <!-- BD BOY SAD -->
         <td>
           <% if (product.countSad  > 0) { %>
-            <a id="a_bd_boy_sad_icon" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=2#ver_reviews"" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ler_reviews">
+            <a itemprop="url" id="a_bd_boy_sad_icon" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=2#ver_reviews"" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ler_reviews">
               <% if ((filter == 2) || (filter == 0)) { %>
-                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
+                <img itemprop="image" id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
               <% } else { %>
-                <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off">
+                <img itemprop="image" id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off">
               <% } %>
             </a>
           <% } else { %>
-              <img id="img_bd_boy_sad" class="img-responsive bd_boy_sad bd_boy_sad_tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>">
+              <img itemprop="image" id="img_bd_boy_sad" class="img-responsive bd_boy_sad bd_boy_sad_tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>">
           <% } %>
         </td>
 
@@ -88,11 +88,11 @@
 
         <td>
           <% if (product.countSad  > 0) { %>
-            <a id="counter_sad" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=2#ver_reviews"" class="a_couter ga_click_ler_reviews">
-              <text id="counter_sad"><%= product.countSad %></text>
+            <a itemprop="url" id="counter_sad" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=2#ver_reviews"" class="a_couter ga_click_ler_reviews">
+              <text id="counter_sad"><span itemprop="worstRating"><%= product.countSad %></span></text>
             </a>
           <% } else { %>
-            <text id="counter_sad"><%= product.countSad %></text>
+            <text id="counter_sad"><span itemprop="worstRating"><%= product.countSad %></span><</text>
           <% } %>
         </td>
         <!-- END BD BOY SAD -->

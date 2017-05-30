@@ -16,21 +16,21 @@
 </style>
 
 <% if (review.rating >= 4) { %>
-  <img id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 28px" ></img>
+  <img itemprop="image" id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 28px" ></img>
 <% } else { %>  
-  <img id="bd_boy_review" class="img-responsive pull-left bd_boy_sad" style="width: 28px"></img>
+  <img itemprop="image" id="bd_boy_review" class="img-responsive pull-left bd_boy_sad" style="width: 28px"></img>
 <% } %> 
 
-<text id="review_title" class="reviewTextTitle">&nbsp;&nbsp;<%= review.title %></text>
+<text itemprop="name" id="review_title" class="reviewTextTitle">&nbsp;&nbsp;<%= review.title %></text>
 
 <% if (review.rating >= 4) { %>
   <blockquote id="review_description" style="background-color: rgba(218, 250, 229, 0.21);margin-left: 35px;" class="review_text">
 <% } else { %> 
   <blockquote id="review_description" style="background-color: rgba(246, 66, 78, 0.03);margin-left: 35px" class="review_text"> 
 <% } %> 
-  "<%= review.description %>"
+  " <span itemprop="description"><%= review.description %></span>"
   <footer id="review_author">
-    avaliado pelo usuário(a) <%= review.author %>
+    avaliado pelo usuário(a) <span itemprop="author"><%= review.author %></span>
     <cite title="Source Title">no site <%= review.advertiser %></cite> em <%= review.dateBR %>
 
   </footer>

@@ -98,7 +98,7 @@
       
       <!-- list offers and box ver avalicoes -->   
       <% for(var i=0; i<offers.docs.length; i++) { %>
-          <div itemscope itemtype="http://schema.org/Product" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box_reviews"> 
+          <div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box_reviews"> 
             <%- include('../offers/list_offers',{offer:offers.docs[i],i:i}); %>
           </div>
       <% } %>

@@ -89,10 +89,10 @@
         <td>
           <% if (product.countSad  > 0) { %>
             <a itemprop="url" id="counter_sad" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=2#ver_reviews"" class="a_couter ga_click_ler_reviews">
-              <text id="counter_sad"><span itemprop="worstRating"><%= product.countSad %></span></text>
+              <text id="counter_sad"><span><%= product.countSad %></span></text>
             </a>
           <% } else { %>
-            <text id="counter_sad"><span itemprop="worstRating"><%= product.countSad %></span><</text>
+            <text id="counter_sad"><span><%= product.countSad %></span><</text>
           <% } %>
         </td>
         <!-- END BD BOY SAD -->

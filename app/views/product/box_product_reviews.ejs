@@ -1,5 +1,5 @@
   <!-- box see reviews -->
-  <div itemprop="review" itemscope itemtype="http://schema.org/Review" class="pull-left">
+  <div class="pull-left">
     <table>
       <tbody>
        <!--  <tr>
@@ -20,7 +20,7 @@
                   Ver Avaliações 
                 <% } else { %>
                   <text id="txt_ver_avaliacoes"> Ver
-                    <span itemprop=""><%= offer.product.totalReviews %></span> Avaliações                  
+                    <span itemprop="reviewCount"><%= offer.product.totalReviews %></span> Avaliações                  
                   </text>
                 <% } %>
               </span>
@@ -42,7 +42,7 @@
           </td>
           <td>
             <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=1" class="a_couter ga_click_ver_reviews">
-              <span><%= offer.product.countHappy %></span>
+              <span itemprop="bestRating"><%= offer.product.countHappy %></span>
             </a>
           </td>
 
@@ -60,7 +60,7 @@
           </td>
           <td>
             <a itemprop="url" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=2" class="a_couter ga_click_ver_reviews">
-              <span><%= offer.product.countSad %></span>
+              <span itemprop="worstRating"><%= offer.product.countSad %></span>
             </a>
           </td>
         </tr>    

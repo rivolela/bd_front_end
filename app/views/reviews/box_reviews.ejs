@@ -60,10 +60,10 @@
         <td>
           <% if (product.countHappy  > 0) { %>
             <a itemprop="url" id="counter_happy" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=1#ver_reviews"" class="a_couter ga_click_ler_reviews">
-              <text id="counter_happy"><span itemprop="bestRating"><%= product.countHappy %></span></text>
+              <text id="counter_happy"><span><%= product.countHappy %></span></text>
             </a>
           <% } else { %>
-            <text id="counter_happy"><span itemprop="bestRating"><%= product.countHappy %></span></text>
+            <text id="counter_happy"><span><%= product.countHappy %></span></text>
           <% } %>         
         </td>
         

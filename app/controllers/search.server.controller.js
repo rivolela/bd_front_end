@@ -143,7 +143,7 @@ function setUrlService(typeSearch,query,order,page,next){
     	case 2:
     		var resp =  query.replace(/\s/g,"_");
     		console.log("ts === 2 >> search by category")
-        	url = config.service_host + "/api/offers/bd/category/" + query + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
+        	url = config.service_host + "/api/offers/bd/category/" + resp + "/page/" + page + "/limit/" + config.limit + "/order/" + order;
 			page_return = 'categories/categorie';
         break;
         case 3:

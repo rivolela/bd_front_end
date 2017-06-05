@@ -1,5 +1,8 @@
 <% if (offer !== undefined) { %>
-<table id="tbl_box_reviews">
+<table itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer" id="tbl_box_reviews">
+  <span class="google_info">
+    <span itemprop="offerCount"><%= offers.total %></span>
+  </span>
   <tbody>
     <tr>
       <td class="logo_merchant_review">
@@ -49,8 +52,10 @@
           </a>          
         <% } %>
       </td>
-      <td class="price_offer_review">
-        <span  itemprop="offers" itemscope itemtype="http://schema.org/Offer" >
+
+      <span  itemprop="offers" itemscope itemtype="http://schema.org/Offer" >
+
+        <td class="price_offer_review">
           <a itemprop="url" id="href_offer_price" href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
             <% if ((order == 1) || (order == 2) || (order == 3)) { %>
               <h5 style="color: green;font-size: 16px;">
@@ -65,12 +70,14 @@
               <span itemprop="price"><%= offer.price %></span>
               <meta itemprop="priceCurrency" content="BRL" />
             </span>
-          </a>
-        </span>       
-      </td>
-      <td class="btn_offer_review">
-        <a itemprop="url" id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning ga_click_ir_loja" role="button" target="_blank" style="color: black">Ir à loja</a>
-      </td>
+          </a>      
+        </td>
+        
+        <td class="btn_offer_review">
+          <a itemprop="url" id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning ga_click_ir_loja" role="button" target="_blank" style="color: black">Ir à loja</a>
+        </td>
+
+      </span> 
     </tr>
   </tbody>
 </table>

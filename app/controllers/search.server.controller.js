@@ -2,6 +2,7 @@ var requestsUtile = require('../utile/requests.server.utile.js');
 var config = require('../../config/config.js');
 var validate = require("validate.js");
 var SEO = require('../../config/seo/seo.js');
+var TEXT = require('../../config/text/text.js');
 var async = require('async');
 
 var constraints = {
@@ -68,7 +69,7 @@ function validateSearch(req,res,next){
 	}else if(validate({query: query}, constraints)){
 
 		res.render('partials/error',{
-			title: config.title,
+			title: TEXT.title_page_error,
 			message: config.message_search_validate,
 			env: process.env.NODE_ENV,
 			slogan: config.slogan,
@@ -203,9 +204,9 @@ exports.searchOffers = function(req,res){
 				if(data.total == 0){
 					var message = "produto não encontrado";
 					res.render('partials/error',{
-						title: config.title,
-						message: config.message_search_error,
-						slogan: config.slogan,
+						title: TEXT.title_page_error,
+						message: TEXT.message_search_error,
+						slogan: TEXT.slogan,
 						env: process.env.NODE_ENV
 					});
 					callback(error);

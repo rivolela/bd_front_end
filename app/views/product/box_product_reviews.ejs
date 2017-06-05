@@ -2,6 +2,13 @@
   <div class="pull-left">
     <table>
       <tbody>
+        <span class="google_info">
+          <% if (offer.product.ratingValue != undefined) { %>
+            <span itemprop="ratingValue"><%= offer.product.ratingValue %></span>
+            <span itemprop="worstRating"><%= offer.product.worstRating %></span>
+            <span itemprop="bestRating"><%= offer.product.bestRating %></span>
+          <% }  %>
+        </span>
        <!--  <tr>
           <td>
             <a href="/<%= offer.product.manufacturer%>?ts=4"><%= offer.product.manufacturer %></a>
@@ -42,7 +49,7 @@
           </td>
           <td>
             <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=1" class="a_couter ga_click_ver_reviews">
-              <span itemprop="bestRating"><%= offer.product.countHappy %></span>
+              <span><%= offer.product.countHappy %></span>
             </a>
           </td>
 
@@ -60,7 +67,7 @@
           </td>
           <td>
             <a itemprop="url" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=2" class="a_couter ga_click_ver_reviews">
-              <span itemprop="worstRating"><%= offer.product.countSad %></span>
+              <span><%= offer.product.countSad %></span>
             </a>
           </td>
         </tr>    

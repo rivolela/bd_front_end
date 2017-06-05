@@ -10,31 +10,17 @@
     <link rel="canonical" href="http://www.decidaki.com.br/<%= query %>" /> 
 
     <style type="text/css">
-      /*  Extra small devices Phones (<768px)*/
-      @media (max-width:768px) {
-        .box_reviews{
-          padding-left: 0px;
-          padding-right: 0px;
-        }
-      }
-      
-      /*Small devices Tablets (≥768px)*/
-      @media (min-width:768px) {
-
-      }
-
       title:first-letter {
         text-transform:capitalize;
       }
-
-    </style>  
+    </style>    
   </head>
 
-  <body style="">
+  <body itemscope itemtype="http://schema.org/WebPage" style="">
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV9HDK3"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    height="0" width="0" class="google_info"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Begin page content -->
@@ -42,8 +28,8 @@
 
       <%- include('../partials/nav_head') %> 
       
-      <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
-      <div id="var_departament" style="visibility: hidden;display: none;"><%= departamentBD %></div>
+      <div id="var_query" class="google_info"><%= query %></div>
+      <div id="var_departament" class="google_info"><%= departamentBD %></div>
 
       <row>
         <!-- breadcrumb -->

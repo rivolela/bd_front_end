@@ -9,20 +9,20 @@
     <%- include('../partials/head') %>
   </head>
 
-  <body class="body_review">
+  <body itemscope itemtype="http://schema.org/WebPage" class="body_review">
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV9HDK3"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    height="0" width="0" class="google_info"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Begin page content -->
-    <div itemscope itemtype="http://schema.org/Product" class="container-fluid">
+    <div class="container-fluid">
 
       <%- include('../partials/nav_head') %> 
           
-      <div id="var_query" style="visibility: hidden;display: none;"><%= query %></div>
-      <div id="var_departament" style="visibility: hidden;display: none;"><%= departamentBD %></div>
+      <div id="var_query" class="google_info"><%= query %></div>
+      <div id="var_departament" class="google_info"><%= departamentBD %></div>
       
       <!-- 1st column >> -->
       <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="col-xs-12 col-sm-12 col-md-8 col-lg-8"> 
@@ -49,7 +49,7 @@
               <img itemprop="image" id="img_picture_offer" src="<%= product.image %>" class="img-responsive">
             </div>
 
-            <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8" >
+            <div itemscope itemtype="http://schema.org/Product" class="col-xs-12 col-sm-9 col-md-8 col-lg-8" >
               <%- include('../product/product_name',{offer:head_reviews}); %> 
               <br>
               <%- include('./box_reviews',{offer:head_reviews}); %> 

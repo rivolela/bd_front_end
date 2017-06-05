@@ -25,7 +25,7 @@
       <div id="var_departament" class="google_info"><%= departamentBD %></div>
       
       <!-- 1st column >> -->
-      <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="col-xs-12 col-sm-12 col-md-8 col-lg-8"> 
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8"> 
 
         <!-- BREADCRUMB -->
         <row>
@@ -88,38 +88,41 @@
               <% } %>
             </div>
           </row>
-       <% } %>
+        <% } %>
         
         <!-- REVIEWS  -->
-        <row>
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h4 id="ver_reviews" class="text-muted"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Ver Avaliações (<%= product.totalReviews %>)</h4>
-          </div>
-        </row>
-
-        <row>
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <%- include('../partials/hr') %>
-          </div>
-        </row>
-
-        
-        <!-- LIST REVIEWS -->
-        <row>
-          <% for(var i=0; i <reviews.docs.length; i++) { %> 
-            <div  itemprop="aggregateRating"
-                  itemscope itemtype="http://schema.org/AggregateRating" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <%- include('./list_reviews',{review:reviews.docs[i]}); %>
+        <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+          <row>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h4 id="ver_reviews" class="text-muted"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Ver Avaliações (<%= product.totalReviews %>)</h4>
             </div>
-          <% }  %>     
-        </row>
-        
-        <!-- PAGINATION REVIEWS -->
-        <row>
-           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
-            <%- include('./pagination_reviews') %>
-          </div>
-        </row>
+          </row>
+
+          <row>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <%- include('../partials/hr') %>
+            </div>
+          </row>
+
+          
+          <!-- LIST REVIEWS -->
+          <row>
+            <% for(var i=0; i <reviews.docs.length; i++) { %> 
+              <div  itemprop="aggregateRating"
+                    itemscope itemtype="http://schema.org/AggregateRating" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <%- include('./list_reviews',{review:reviews.docs[i]}); %>
+              </div>
+            <% }  %>     
+          </row>
+          
+          <!-- PAGINATION REVIEWS -->
+          <row>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
+              <%- include('./pagination_reviews') %>
+            </div>
+          </row>
+        </span>
+       
       </div>
       
     </div>

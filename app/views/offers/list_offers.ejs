@@ -91,7 +91,9 @@ margin-right: 1px;">
     </span>
     
     <!--   <hr class="row"> -->
-    <%- include('./box_prices_offer',{offer:offer}); %> 
+    <span itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+      <%- include('./box_prices_offer',{offer:offer}); %> 
+    </span>
   </div>
 </div>
 

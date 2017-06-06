@@ -103,37 +103,45 @@
         <% } %>
            
         <!-- REVIEWS  -->
-        <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-          <row>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h4 id="ver_reviews" class="text-muted"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Ver Avaliações (<%= product.totalReviews %>)</h4>
-            </div>
-          </row>
+        
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h4 id="ver_reviews" class="text-muted"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Ver Avaliações (<%= product.totalReviews %>)</h4>
+          </div>
+        </row>
 
-          <row>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <%- include('../partials/hr') %>
-            </div>
-          </row>
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <%- include('../partials/hr') %>
+          </div>
+        </row>
 
-          
-          <!-- LIST REVIEWS -->
-          <row>
+        <!-- LIST REVIEWS -->
+        <row>
+          <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+            <span class="google_info">
+              <% if (ratingValue != undefined) { %>
+                <meta itemprop="worstRating" content="<%= product.worstRating %>"/>
+                <span itemprop="ratingValue"><%= product.ratingValue %></span>/
+                <span itemprop="bestRating"><%= product.bestRating %></span>
+              <% } %> 
+            </span>
             <% for(var i=0; i <reviews.docs.length; i++) { %> 
-              <div  itemprop="aggregateRating"
-                    itemscope itemtype="http://schema.org/AggregateRating" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <%- include('./list_reviews',{review:reviews.docs[i]}); %>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span itemprop="review" itemscope itemtype="http://schema.org/Review">
+                  <%- include('./list_reviews',{review:reviews.docs[i]}); %>
+                </span>
               </div>
-            <% }  %>     
-          </row>
-          
-          <!-- PAGINATION REVIEWS -->
-          <row>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
-              <%- include('./pagination_reviews') %>
-            </div>
-          </row>
-        </span>
+            <% }  %>  
+          </span>
+        </row>
+        
+        <!-- PAGINATION REVIEWS -->
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">
+            <%- include('./pagination_reviews') %>
+          </div>
+        </row>
        
       </div>
       

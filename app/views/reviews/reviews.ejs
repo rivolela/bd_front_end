@@ -112,7 +112,10 @@
             <%- include('../partials/hr') %>
           </div>
         </row>
-
+              <span class="google_info" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                  <span itemprop="ratingValue"><%= reviews.docs[i].rating %></span> 
+                  <span itemprop="reviewCount"><%= product.totalReviews %></span>
+                </span>
         <!-- LIST REVIEWS -->
         <row>
           
@@ -122,11 +125,7 @@
                 <span class="google_info" itemprop="author"><%= reviews.docs[i].author %></span>
                 <span  class="google_info" itemprop="name"><%= reviews.docs[i].title %></span>
                 <span  class="google_info" itemprop="reviewBody"><%= reviews.docs[i].reviewBody %></span>
-                <span  class="google_info" itemprop="reviewRating"><%= reviews.docs[i].rating %></span>
-                <span class="google_info" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                  <span itemprop="ratingValue"><%= reviews.docs[i].rating %></span> 
-                  <span itemprop="reviewCount"><%= product.totalReviews %></span>
-                </span>
+                <span  class="google_info" itemprop="ratingValue"><%= reviews.docs[i].rating %></span>
                 <%- include('./list_reviews',{review:reviews.docs[i],product:product}); %>
               </span>
             </div>

@@ -85,17 +85,15 @@
                   <span itemprop="offerCount"><%= offers.total %></span>
                 </span>
                 <% if (offers.docs.length > 0) { %>
-                  <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                    <% if (offers.docs.length == 1) { %>
-                      <%- include('../offers/box_prices_reviews',{offer:offers.docs[0]}); %> 
-                      <p>
-                    <% } else { %>
-                      <% for(var i=0; i <offers.docs.length; i++) { %> 
-                        <%- include('../offers/box_prices_reviews',{offer:offers.docs[i]}); %>
-                        <p>  
-                      <% }  %>
-                    <% }  %>    
-                  </span>
+                  <% if (offers.docs.length == 1) { %>
+                    <%- include('../offers/box_prices_reviews',{offer:offers.docs[0]}); %> 
+                    <p>
+                  <% } else { %>
+                    <% for(var i=0; i <offers.docs.length; i++) { %> 
+                      <%- include('../offers/box_prices_reviews',{offer:offers.docs[i]}); %>
+                      <p>  
+                    <% }  %>
+                  <% }  %>    
                 <% } %>
               </span>
             </div>

@@ -50,31 +50,28 @@
         <% } %>
       </td>
 
-      <span  itemprop="offers" itemscope itemtype="http://schema.org/Offer" >
+      <td class="price_offer_review">
+        <a itemprop="url" id="href_offer_price" href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
+          <% if ((order == 1) || (order == 2) || (order == 3)) { %>
+            <h5 style="color: green;font-size: 16px;">
+              <%= offer.price_display %>
+            </h5>
+          <% } else { %>
+            <h5 style="color: green;font-size: 16px;font-weight: bold;">
+              <%= offer.price_display %>
+            </h5>
+          <% } %>
+          <span class="google_info">
+            <span itemprop="price"><%= offer.price %></span>
+            <meta itemprop="priceCurrency" content="BRL" />
+          </span>
+        </a>      
+      </td>
 
-        <td class="price_offer_review">
-          <a itemprop="url" id="href_offer_price" href="<%= offer.url %>" target="_blank" class="ga_click_ir_loja">
-            <% if ((order == 1) || (order == 2) || (order == 3)) { %>
-              <h5 style="color: green;font-size: 16px;">
-                <%= offer.price_display %>
-              </h5>
-            <% } else { %>
-              <h5 style="color: green;font-size: 16px;font-weight: bold;">
-                <%= offer.price_display %>
-              </h5>
-            <% } %>
-            <span class="google_info">
-              <span itemprop="price"><%= offer.price %></span>
-              <meta itemprop="priceCurrency" content="BRL" />
-            </span>
-          </a>      
-        </td>
+      <td class="btn_offer_review">
+        <a itemprop="url" id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning ga_click_ir_loja" role="button" target="_blank" style="color: black">Ir à loja</a>
+      </td>
 
-        <td class="btn_offer_review">
-          <a itemprop="url" id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning ga_click_ir_loja" role="button" target="_blank" style="color: black">Ir à loja</a>
-        </td>
-
-      </span> 
     </tr>
   </tbody>
 </table>

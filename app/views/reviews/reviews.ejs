@@ -46,28 +46,18 @@
         <row>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <span itemscope itemtype="http://schema.org/Product">
-            <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 div_img_product">
-              <img itemprop="image" id="img_picture_offer" src="<%= product.image %>" class="img-responsive">
-            </div>
+              <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 div_img_product">
+                <img itemprop="image" id="img_picture_offer" src="<%= product.image %>" class="img-responsive">
+              </div>
 
-            <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8" >
-              <%- include('../product/product_name',{offer:head_reviews}); %> 
-              <br>
-            </span>
-
-              <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                <% if (product.ratingValue != undefined) { %>
-                <span class="google_info">
-                  <meta itemprop="worstRating" content="<%= product.worstRating %>"/>
-                  <span itemprop="ratingValue"><%= product.ratingValue %></span>
-                  <span itemprop="bestRating"><%= product.bestRating %></span>
-                </span>
-                <% } %>
+              <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8" >
+                <%- include('../product/product_name',{offer:head_reviews}); %> 
+                <br>
+           
                 <%- include('./box_reviews',{offer:head_reviews}); %> 
-              </span>
-
-              <br>
-            </div>  
+                <br>
+              </div>
+            </span>  
           </div>
         </row>
         
@@ -126,10 +116,11 @@
         <!-- LIST REVIEWS -->
         <row>
           <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+            <span itemprop="ratingValue">3</span>
+            <span itemprop="reviewCount"><%= product.totalReviews %></span>
             <% if (product.ratingValue != undefined) { %>
               <span class="google_info">
                 <meta itemprop="worstRating" content="<%= product.worstRating %>"/>
-                <span itemprop="ratingValue"><%= product.ratingValue %></span>
                 <span itemprop="bestRating"><%= product.bestRating %></span>
               </span>
             <% } %>

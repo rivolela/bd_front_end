@@ -15,6 +15,17 @@
 	}
 </style>
 
+<span class="google_info" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+	<span itemprop="ratingValue">3</span>/
+	 	<% if (product.ratingValue != undefined) { %>
+	  	<span class="google_info">
+	    	<meta itemprop="worstRating" content="<%= product.worstRating %>"/>
+	    	<span itemprop="bestRating"><%= product.bestRating %></span>
+	  	</span>
+		<% } %>
+	</span>
+</span>
+
 <% if (review.rating >= 4) { %>
   <img itemprop="image" id="bd_boy_review" class="img-responsive pull-left bd_boy_happy" style="width: 28px" ></img>
 <% } else { %>  

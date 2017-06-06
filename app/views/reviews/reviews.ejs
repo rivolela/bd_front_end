@@ -55,7 +55,14 @@
               <br>
             </span>
 
-              <span itemprop="review" itemscope itemtype="http://schema.org/Review">
+              <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                <% if (product.ratingValue != undefined) { %>
+                <span class="google_info">
+                  <meta itemprop="worstRating" content="<%= product.worstRating %>"/>
+                  <span itemprop="ratingValue"><%= product.ratingValue %></span>
+                  <span itemprop="bestRating"><%= product.bestRating %></span>
+                </span>
+                <% } %>
                 <%- include('./box_reviews',{offer:head_reviews}); %> 
               </span>
 
@@ -122,7 +129,7 @@
             <% if (product.ratingValue != undefined) { %>
               <span class="google_info">
                 <meta itemprop="worstRating" content="<%= product.worstRating %>"/>
-                <span itemprop="ratingValue"><%= product.ratingValue %></span>/
+                <span itemprop="ratingValue"><%= product.ratingValue %></span>
                 <span itemprop="bestRating"><%= product.bestRating %></span>
               </span>
             <% } %>

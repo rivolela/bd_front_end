@@ -1,8 +1,5 @@
 <% if (offer !== undefined) { %>
-<table itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer" id="tbl_box_reviews">
-  <span class="google_info">
-    <span itemprop="offerCount"><%= offers.total %></span>
-  </span>
+<table  id="tbl_box_reviews">
   <tbody>
     <tr>
       <td class="logo_merchant_review">
@@ -72,7 +69,7 @@
             </span>
           </a>      
         </td>
-        
+
         <td class="btn_offer_review">
           <a itemprop="url" id="href_ir_loja" href="<%= offer.url %>" class="btn btn-warning ga_click_ir_loja" role="button" target="_blank" style="color: black">Ir à loja</a>
         </td>

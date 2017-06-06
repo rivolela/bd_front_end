@@ -9,13 +9,13 @@
             <% if (product.totalReviews == 1) { %>
               <a id="a_total_reviews" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=0#ver_reviews" class="ga_click_ler_reviews">
                 <span class="badge_ver_avaliacoes"> 
-                  <h4 class="title_avaliacoes">Ver <span itemprop="ratingCount"><%= product.totalReviews %></span> Avaliações </h4>
+                  <h4 class="title_avaliacoes">Ver <span itemprop=""><%= product.totalReviews %></span> Avaliações </h4>
                 </span> 
               </a> 
             <% } else { %>
               <a id="a_total_reviews" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=0#ver_reviews" class="ga_click_ler_reviews">
                 <span class="badge_ver_avaliacoes"> 
-                  <h4 class="title_avaliacoes">Ver <span itemprop="ratingCount"><%= product.totalReviews %></span> Avaliações </h4>
+                  <h4 class="title_avaliacoes">Ver <span itemprop=""><%= product.totalReviews %></span> Avaliações </h4>
                 </span>
               </a> 
             <% } %>

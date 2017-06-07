@@ -69,10 +69,9 @@
       
       <!-- product reviews and brand -->
       <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-        <span class="google_info" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-          <meta itemprop="worstRating" content = "1"/>
+        <span class="google_info" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
           <span itemprop="ratingValue">3</span>/
-          <span itemprop="bestRating">5</span>
+          <span itemprop="reviewCount"><%= offer.product.totalReviews %></span>
         </span>
         <%- include('../product/box_product_reviews',{offer:offer}); %>
       </span>

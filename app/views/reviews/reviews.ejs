@@ -137,7 +137,7 @@
                 <span class="google_info" itemprop="author"><%= reviews.docs[i].author %></span>
                 <span  class="google_info" itemprop="name"><%= reviews.docs[i].title %></span>
                 <span  class="google_info" itemprop="description"><%= reviews.docs[i].description %></span>
-                <meta itemprop="datePublished" content="2006-06-15">
+                <meta itemprop="datePublished" content="<%= reviews.docs[i].datePublished %>">
                 <span class="google_info" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
                   <meta itemprop="worstRating" content = "1"/>
                   <span itemprop="ratingValue">3</span>/

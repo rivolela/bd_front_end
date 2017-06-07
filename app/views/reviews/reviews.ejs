@@ -83,13 +83,13 @@
           <row>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <span itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+                  <span class="google_info">
+                    <span itemprop="offerCount"><%= offers.total %></span>
+                    <meta itemprop="priceCurrency" content="BRL" />
+                    <span itemprop="lowPrice"><%= offers.docs[0].minorPriceEAN %></span>
+                  </span>
                 <% if (offers.docs.length > 0) { %>
                   <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                    <span class="google_info">
-                      <span itemprop="offerCount"><%= offers.total %></span>
-                      <meta itemprop="priceCurrency" content="BRL" />
-                      <span itemprop="lowPrice"><%= offers.docs[0].minorPriceEAN %></span>
-                    </span>
                     <% if (offers.docs.length == 1) { %>
                       <%- include('../offers/box_prices_reviews',{offer:offers.docs[0]}); %> 
                       <p>
@@ -104,7 +104,7 @@
               </span>
             </div>
           </row>
-          
+
         <% } %>
            
         <!-- REVIEWS  -->

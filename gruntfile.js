@@ -43,7 +43,7 @@ module.exports = function(grunt){
     			engine: 'phantomjs',
     			silent: false
     		},
-    		files:['app/tests/casperjs/search/**/*.js']
+    		files:['app/tests/casperjs/**/*.js']
     		// files:['app/tests/casperjs/brand/**/*.js']
   		},
 		jshint:{

@@ -35,7 +35,7 @@ casper.test.begin('Phantomjs Tests >> Categories pagination', 11, function(test)
       this.echo('Pagination >> 10 to 19');
 
       // previous    
-      test.assertElementCount('#a_previous', 1); 
+      test.assertElementCount('#a_previous', 0); 
 
       // next
       test.assertElementCount('#a_next', 1); 

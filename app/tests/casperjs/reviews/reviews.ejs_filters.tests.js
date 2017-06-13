@@ -24,8 +24,8 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
     }).then(function(){
         // bd boys counter
         test.assertElementCount('#review_title', 10,"it should find 10 #review_title elements");
-        test.assertElementCount('.bd_boy_happy', 11,"it should find 11 .bd_boy_happy elements");
-        test.assertElementCount('.bd_boy_sad_off', 1,"it should find 1 .bd_boy_sad_off elements");
+        test.assertElementCount('.bd_boy_happy', 10,"it should find 10 .bd_boy_happy elements");
+        test.assertElementCount('.bd_boy_sad_off', 0,"it should find 0 .bd_boy_sad_off elements");
 
         // simulated click to bd_boy_sad icon 
         this.echo('order reviews by bd boy sad ');
@@ -37,9 +37,9 @@ casper.test.begin('Phantomjs Tests >> Reviews filters', 11, function(test) {
 
         casper.wait(5000, function() {
              // bd boys counter
-            test.assertElementCount('#review_title', 3,"it should find 3 #review_title elements");
-            test.assertElementCount('.bd_boy_sad', 4,"it should find 4 .bd_boy_happy elements");
-            test.assertElementCount('.bd_boy_happy_off', 1,"it should find 1 .bd_boy_happy_off elements");
+            test.assertElementCount('#review_title', 10,"it should find 10 #review_title elements");
+            test.assertElementCount('.bd_boy_sad', 0,"it should find 4 .bd_boy_sad elements");
+            test.assertElementCount('.bd_boy_happy_off',0,"it should find 0 .bd_boy_happy_off elements");
              // simulated click total reviews 
             this.echo('order reviews by total of reviews ');
             this.evaluate(function() {

@@ -18,7 +18,7 @@ casper.test.begin('Phantomjs Tests >> Search', 5, function(test) {
 
       test.assertEvalEquals(function() {
             return __utils__.findOne('#title_category').textContent;
-      }, '\n\n  \n    Home\n    geladeira ( 196 ofertas )\n  \n ');
+      }, '\n\n  \n\n    \n\n      \n        Home\n      \n      \n\n    \n\n   \t\n\n      \n        eletrodomésticos\n      \n      \n\n    \n\n   \t\n\n   \t\n\n\t    \n\n\t   \t\t\n\n            \n              geladeira ( 224 ofertas )\n            \n            \n        \n\n\t     \n\n     \n  \n');
         
     }).run(function() {
       test.done();

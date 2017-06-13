@@ -22,7 +22,7 @@ casper.test.begin('Phantomjs Tests >> Error page', 4, function(test) {
 
         test.assertEvalEquals(function() {
             return __utils__.findOne('#div_error_msg').textContent;
-        }, "\n        ×\n        Ops!! não encontramos avaliações para o seu produto desta vez!\n      ",
+        }, "\n        ×\n        Ops!! não encontramos o seu produto desta vez! Por favor tente novamente usando outros termos.\n      ",
         'msg error should be set in error.ejs');
 
     }).then(function(){
@@ -37,7 +37,7 @@ casper.test.begin('Phantomjs Tests >> Error page', 4, function(test) {
         // check redirect to offers page, after to close msg error
         casper.wait(5000, function() {
           // this.echo('should appear after 5s');
-          test.assertElementCount('#href_bd_boy_happy', 20,"offers search for casperjs retrieves 20 href_bd_boy_happy selectors");
+          test.assertElementCount('#href_bd_boy_happy', 0,"offers search for casperjs retrieves 0 href_bd_boy_happy selectors");
         });
 
     }).run(function() {

@@ -37,7 +37,7 @@ casper.test.begin('Phantomjs Tests >> Search pagination by departaments', 11, fu
       this.echo('Pagination >> 10 to 11');
 
       // previous    
-      test.assertElementCount('#a_previous', 1); 
+      test.assertElementCount('#a_previous', 0); 
 
       // next
       test.assertElementCount('#a_next', 1); 

@@ -37,14 +37,14 @@ casper.test.begin('Phantomjs Tests >> Search pagination', 11, function(test) {
       this.echo('Pagination >> 10 to 11');
 
       // previous    
-      test.assertElementCount('#a_previous', 1); 
+      test.assertElementCount('#a_previous', 0); 
 
       // next
-      test.assertElementCount('#a_next', 0); 
+      test.assertElementCount('#a_next', 1); 
 
       // pagination 10 to 11
       test.assertElementCount('.pagination_active', 1); 
-      test.assertElementCount('.pagination_disabled', 3); 
+      test.assertElementCount('.pagination_disabled', 9); 
 
       // go to pagination 01
       this.evaluate(function() {  

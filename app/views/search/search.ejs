@@ -78,9 +78,15 @@
       
       <!-- list offers and box ver avalicoes -->   
       <% for(var i=0; i<offers.docs.length; i++) { %>
-          <div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box_reviews"> 
-            <%- include('../offers/list_offers',{offer:offers.docs[i],i:i}); %>
-          </div>
+        <div class="lstOffers">
+          <% if ((i%2)==0){ %>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 boxListOffer colPar"> 
+          <% } else { %>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 boxListOffer colImpar"> 
+          <% } %>
+              <%- include('../offers/list_offers',{offer:offers.docs[i],i:i}); %>
+            </div>
+        </div>
       <% } %>
 
       <%- include('../offers/offers_pagination') %>
@@ -95,7 +101,7 @@
 
   <script type="text/javascript">
     $(function() {
-      $('.box_reviews').matchHeight({
+      $('.boxListOffer').matchHeight({
         // byRow: true,
         // property: 'height',
         // target: '.caption',

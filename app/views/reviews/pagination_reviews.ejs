@@ -46,7 +46,7 @@
       <!-- next -->
 
       <ul id="pagination_next_reviews" class="pagination">
-        <% if (pagination.next != 0) { %>
+        <% if (pagination.next > 0) { %>
           <li id="li_active_next">
             <a id="a_next"  href="/<%= query%>/<%= product.nameURL%>?page=<%= pagination.next %>&order=<%= order %>" aria-label="Next" class="ga_click_ler_reviews">
                <span aria-hidden="true">&raquo;</span>

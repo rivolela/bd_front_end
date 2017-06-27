@@ -2,18 +2,17 @@
 <table id="tbl_box_reviews">
     <tbody>
       <tr>
-      <h6 class="text-muted badge badge_ver_avaliacoes"><smal>menor preço</smal></h6>
+      <h5 class="text-muted badge badge_ver_avaliacoes""><smal>menor preço</smal></h5>
       </tr>
       <tr>
-        <!-- menor preco -->
         <td itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price_offer">
           <a itemprop="url" id="href_offer_price" href="<%= offer.lowerOfferEan.url %>" target="_blank" class="ga_click_ir_loja">
             <% if ((order == 1) || (order == 2) || (order == 3)) { %>
-              <h5 class="txt_price">
+              <h5 class="txt_price_bold">
                 <%= offer.lowerOfferEan.price_display %>
               </h5>
             <% } else { %>
-              <h5 class="txt_price_bold">
+              <h5 class="txtPriceLowerOfferbold">
                 <%= offer.lowerOfferEan.price_display %>
               </h5>
             <% } %>
@@ -23,8 +22,7 @@
             </span>
           </a>       
         </td>
-        <!-- advertiser -->
-        <td class="logo_merchant">
+        <td class="logoMerchantLowerOffer">
           <% if (offer.lowerOfferEan.advertiser == 'Walmart BR')  { %>
             <a href="<%= offer.lowerOfferEan.url %>" target="_blank" class="ga_click_ir_loja">
               <img id="img_retailer"  class="img-responsive walmart">
@@ -71,9 +69,8 @@
             </a>          
           <% } %>
         </td>
-        <!-- call to action >> ir para loja -->
         <td class="btn_offer">
-          <a itemprop="url" id="href_ir_loja" href="<%= offer.lowerOfferEan.url %>" class="btn btn-warning ga_click_ir_loja btnIrLoja" role="button" target="_blank">Ir à loja</a>
+          <a itemprop="url" id="href_ir_loja" href="<%= offer.lowerOfferEan.url %>" class="btn btn-warning ga_click_ir_loja btnIrLojaLowerOffer" role="button" target="_blank">Ir à loja</a>
         </td>
       </tr>
     </tbody>

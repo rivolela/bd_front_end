@@ -1,19 +1,31 @@
 // Components
 @import "variables.less";
-@import "nav_head.less";
-@import "offers.less";
-@import "lp.less";
-@import "retailers.less";
 @import "bd.less";
-@import "search.less";
-@import "categories.less";
-@import "reviews.less";
-@import "home.less";
-@import "footer.less";
-@import "breadcrumb.less";
-@import "google.less";
-@import "departament.less";
-@import "brand.less";
+/* reviews */
+@import "/reviews/reviews.less";
+/* offers */
+@import "/offers/offers.less";
+@import "/offers/lowerOfferEanReviews.less";
+/* brand */
+@import "/brand/brand.less";
+/* lp */
+@import "/lp/lp.less";
+/* partials */
+@import "/partials/breadcrumb.less";
+@import "/partials/footer.less";
+@import "/partials/nav_head.less";
+/* home */
+@import "/home/home.less";
+/* departaments */
+@import "/departaments/departament.less";
+/* categories */
+@import "/categories/categories.less";
+/* google */
+@import "/google/google.less";
+/* search */
+@import "/search/search.less";
+/* retailers */
+@import "/retailers/retailers.less";
 
 /* --------- all --------- */
 
@@ -26,10 +38,10 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   font-family: Arial;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: @branco;
+  background-color: white;
 /*          padding-top: 150px; */
 }
 
@@ -61,10 +73,10 @@ body {
   }
 
   .container-fluid{
-   padding-right: 0px;
-  padding-left: 0px;
-  margin-right: auto;
-  margin-left: auto;
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -81,6 +93,8 @@ body {
   .container-fluid{
     margin-left: 0px;
     margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .div_slogan{
@@ -98,10 +112,32 @@ body {
   }
 }
 
+.space_w10{
+  width: 10px;
+}
 
+.space_w15{
+  width: 15px;
+}
 
+.space_w20{
+  width: 20px;
+}
 
+.space_w30{
+  width: 30px;
+}
 
+.space_w35{
+  width: 35px;
+}
 
+.space_w45{
+  width: 45px;
+}
+
+.space_w50{
+  width: 50px;
+}
 
 

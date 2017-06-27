@@ -1,0 +1,31 @@
+<div id="title_category" class="capitalize" style="border-bottom: 0px;">
+<!--  	<h1><%= query %> <small><%= total %> ofertas</small></h1> -->
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList" 
+      class="breadcrumb breadcrumb_bd" >
+
+    <li itemprop="itemListElement" 
+        itemscope 
+        itemtype="http://schema.org/ListItem">
+
+      <a itemprop="item" href="/">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+
+    </li>
+
+    <li itemprop="itemListElement" 
+      itemscope
+      itemtype="http://schema.org/ListItem"
+      class="active">
+
+      <span itemprop="name">
+        <%= query %><small> ( <%= total %> ofertas )</small>
+      </span>
+      <meta itemprop="position" content="2" />
+    </li>
+
+  </ol>
+
+</div>
+

@@ -25,7 +25,7 @@
       <div id="var_departament" class="google_info"><%= departamentBD %></div>
       
       <!-- 1st column >> -->
-      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8"> 
+      <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11"> 
 
         <!-- BREADCRUMB -->
         <row>
@@ -44,78 +44,46 @@
         <!-- PRODUCT AND OFFER -->
 
         <row>
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-<!--             <span itemscope itemtype="http://schema.org/Product"> -->
-              <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 div_img_product">
-                <img itemprop="image" id="img_picture_offer" src="<%= product.image %>" class="img-responsive">
-              </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 boxProductReviews">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 div_img_product">
+              <img itemprop="image" id="img_picture_offer" src="<%= product.image %>" class="img-responsive">
+            </div>
 
-              <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8" >
-                <%- include('../product/product_name',{offer:head_reviews}); %> 
-                <br>
+            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" >
+              <%- include('../product/product_name',{offer:head_reviews}); %> 
+              
+              <div style="height: 10px"></div>
+              <!-- brand -->
+              <%- include('../brand/brand_name',{offer:offers.docs[0]}); %>
+              
+              <div style="height: 10px"></div>
+        
+              <span class="google_info"  itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                <span itemprop="ratingValue">3</span> 
+                <span itemprop="reviewCount"><%= product.totalReviews %></span> 
+              </span>
 
-                <span class="google_info"  itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                  <span itemprop="ratingValue">3</span> 
-                  <span itemprop="reviewCount"><%= product.totalReviews %></span> 
-                </span>
-           
-                <%- include('./box_reviews',{offer:head_reviews}); %> 
-                <br>
-              </div>
-<!--             </span>   -->
+              <div style="height: 10px"></div>
+                
+              <%- include('./box_reviews',{offer:head_reviews}); %> 
+    
+              <hr class="row hr_offer">
+              
+              <div style="height: 20px"></div>
+
+              <% if (offers.docs[0].lowerOfferEan !== null) { %>
+                <%- include('../offers/lowerOfferEanReviews',{offer:offers.docs[0]}); %> 
+              <% } %>
+            </div>
           </div>
         </row>
         
-        <!-- OFFER  -->
-        <% if (offers.docs[0] !== undefined) { %>
-          <row>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h4 id="ver_reviews" class="text-muted"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;Ver Ofertas (<%= offers.docs.length  %>) </h4>
-            </div>
-          </row>
           
-          <row>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <%- include('../partials/hr') %>
-            </div>
-          </row>
-      
-          <row>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <% if (offers.docs.length > 0) { %>
-                <span itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
-                
-                  <span class="google_info">
-                    <span itemprop="offerCount"><%= offers.total %></span>
-                    <meta itemprop="priceCurrency" content="BRL" />
-                    <span itemprop="lowPrice"><%= offers.docs[0].price %></span>
-                  </span>
-             
-                  <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-
-                    <% if (offers.docs.length == 1) { %>
-                      <%- include('../offers/box_prices_reviews',{offer:offers.docs[0]}); %> 
-                      <p>
-                    <% } else { %>
-                      <% for(var i=0; i <offers.docs.length; i++) { %> 
-                        <%- include('../offers/box_prices_reviews',{offer:offers.docs[i]}); %>
-                        <p>  
-                      <% }  %>
-                    <% }  %>    
-
-                  </span>
-                </span>
-              <% } %>
-            </div>
-          </row>
-
-        <% } %>
-           
         <!-- REVIEWS  -->
         
         <row>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h4 id="ver_reviews" class="text-muted"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Ver Avaliações (<%= product.totalReviews %>)</h4>
+            <h4 id="ver_reviews">Avaliações de clientes</h4>
           </div>
         </row>
 
@@ -125,7 +93,151 @@
           </div>
         </row>
         
-                
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h5>
+              <a href="/<%= query %>/<%= product.nameURL%>?page=1&filter=0#ver_reviews">
+              Ver todas <%= product.totalReviews %> avaliações de clientes
+              </a>
+            </h5>
+          </div>
+        </row>
+
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+          </div>
+        </row>
+
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table id="tbl_box_reviews">
+              <tbody>
+                <tr>
+
+                  <!-- BD BOY HAPPY -->
+                  <td>
+                    <% if (product.countHappy  > 0) { %>
+                      <a itemprop="url" id="a_bd_boy_happy_icon" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=1#ver_reviews"" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ler_reviews" >
+                        <% if ((filter == 1) || (filter == 0)){ %>
+                          <img itemprop="image" id="img_bd_boy_happy" class="img-responsive bd_boy_happy">
+                        <% } else { %>
+                          <img itemprop="image" id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off">
+                        <% } %>
+                      </a>
+                    <% } else { %>
+                      <img id="img_bd_boy_happy" class="img-responsive bd_boy_happy bd_boy_happy_tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>">
+                    <% } %>
+                  </td>
+
+                  <td width="5px;"></td>
+
+                  <td>
+                    <% if (product.countHappy  > 0) { %>
+                      <a itemprop="url" id="counter_happy" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=1#ver_reviews"" class="a_couter ga_click_ler_reviews">
+                        <text id="counter_happy">
+                          <%= product.countHappy %> 
+                        </text>
+                        </a>
+                       <span>
+                          <% if (product.countHappy  == 1) { %>
+                            &nbsp(avaliação com 4 ou 5 estrelas)
+                          <% } else { %>
+                            &nbsp(avaliações com 4 ou 5 estrelas)
+                          <% } %> 
+                        </span>  
+                    <% } else { %>
+                      <text id="counter_happy">
+                        <span>0&nbsp&nbsp(avaliação com 1, 2 ou 3 estrelas)</span>
+                      </text>
+                    <% } %> 
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </row>
+
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+          </div>
+        </row>
+        
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+          </div>
+        </row>
+
+        <row>
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <table id="tbl_box_reviews">
+            <tbody>
+              <tr>
+                <!-- BD BOY SAD -->
+                <td>
+                  <% if (product.countSad  > 0) { %>
+                    <a itemprop="url" id="a_bd_boy_sad_icon" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=2#ver_reviews"" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ler_reviews">
+                      <% if ((filter == 2) || (filter == 0)) { %>
+                        <img itemprop="image" id="img_bd_boy_sad" class="img-responsive bd_boy_sad">
+                      <% } else { %>
+                        <img itemprop="image" id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off">
+                      <% } %>
+                    </a>
+                  <% } else { %>
+                      <img itemprop="image" id="img_bd_boy_sad" class="img-responsive bd_boy_sad bd_boy_sad_tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>">
+                  <% } %>
+                </td>
+
+                <td width="5px;"></td>
+
+                <td>
+                  <% if (product.countSad  > 0) { %>
+                    <a itemprop="url" id="counter_sad" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=2#ver_reviews" class="a_couter ga_click_ler_reviews">
+                      <text id="counter_sad">
+                       <%= product.countSad %> 
+                      </text>
+                    </a>
+                    <% if (product.countSad  == 1) { %>
+                        &nbsp(avaliação com 1, 2 ou 3 estrelas)
+                      <% } else { %>
+                       &nbsp(avaliações com 1, 2 ou 3 estrelas)
+                    <% } %> 
+                  <% } else { %>
+                    <text id="counter_sad">
+                      <span>0&nbsp&nbsp(avaliação com 1, 2 ou 3 estrelas)</span>
+                    </text>
+                  <% } %>
+                </td>
+                <!-- END BD BOY SAD -->
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </row>
+
+        
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+          </div>
+        </row>
+
+
+        <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+          </div>
+        </row>
+        
+          <row>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+          </div>
+        </row>
+
+
         <!-- LIST REVIEWS -->
         <row>
           
@@ -151,7 +263,7 @@
             </div>
           <% }  %>  
         </row>
-              
+
         <!-- PAGINATION REVIEWS -->
         <row>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center">

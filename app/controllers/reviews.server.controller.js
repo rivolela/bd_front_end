@@ -38,11 +38,11 @@ var getErrorMessage = function(err){
  */
 function pagination(limit,page,pages,callback){
 
-	if(Number(page) <= limit){
-		var to = limit;
+	if(Number(page) <= pages){
+		var to = pages;
 		var from = 1;
 		var previous = 0;
-		var next = to + 1;
+		var next = 0;
 	}else{
 		var decimal = Math.floor((Number(page) / limit));
 		var to = (decimal + 1) * limit;
@@ -172,6 +172,7 @@ exports.getReviews = function(req,res,next){
 				query: req.params.search,
 				typeSearch: null,
 				total: data.total,
+				totalOffers: req.offers.length,
 				order:null
 			});
 

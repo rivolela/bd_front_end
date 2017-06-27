@@ -3,26 +3,6 @@
   <table id="tbl_box_reviews">
     <tbody>
       <tr>
-        <td>
-         <!-- total of reviews -->
-          <h4>
-            <% if (product.totalReviews == 1) { %>
-              <a id="a_total_reviews" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=0#ver_reviews" class="ga_click_ler_reviews">
-                <span class="badge_ver_avaliacoes"> 
-                  <h4 class="title_avaliacoes">Ver <span itemprop=""><%= product.totalReviews %></span> Avaliações </h4>
-                </span> 
-              </a> 
-            <% } else { %>
-              <a id="a_total_reviews" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=0#ver_reviews" class="ga_click_ler_reviews">
-                <span class="badge_ver_avaliacoes"> 
-                  <h4 class="title_avaliacoes">Ver <span itemprop=""><%= product.totalReviews %></span> Avaliações </h4>
-                </span>
-              </a> 
-            <% } %>
-          </h4>
-        </td>
-
-        <td width="25px;"></td>
 
         <!-- BD BOY HAPPY -->
         <td>
@@ -44,11 +24,21 @@
         <td>
           <% if (product.countHappy  > 0) { %>
             <a itemprop="url" id="counter_happy" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=1#ver_reviews"" class="a_couter ga_click_ler_reviews">
-              <text id="counter_happy"><span><%= product.countHappy %></span></text>
-            </a>
+              <text id="counter_happy">
+                  <span>
+                    <% if (product.countHappy  == 1) { %>
+                      <%= product.countHappy %> avaliação
+                    <% } else { %>
+                      <%= product.countHappy %> avaliações
+                    <% } %> 
+                    </span>   
+                </text>
+              </a>
           <% } else { %>
-            <text id="counter_happy"><span><%= product.countHappy %></span></text>
-          <% } %>         
+            <text id="counter_happy">
+              <span>0 avaliação</span>
+            </text>
+          <% } %> 
         </td>
         
         <td width="20px"></td>
@@ -73,10 +63,20 @@
         <td>
           <% if (product.countSad  > 0) { %>
             <a itemprop="url" id="counter_sad" href="/<%= query %>/<%= product.nameURL%>?page=1&filter=2#ver_reviews"" class="a_couter ga_click_ler_reviews">
-              <text id="counter_sad"><span><%= product.countSad %></span></text>
+              <text id="counter_sad">
+                <span>
+                  <% if (product.countSad  == 1) { %>
+                    <%= product.countSad %> avaliação
+                  <% } else { %>
+                    <%= product.countSad %> avaliações
+                  <% } %> 
+                </span>
+              </text>
             </a>
           <% } else { %>
-            <text id="counter_sad"><span><%= product.countSad %></span></text>
+            <text id="counter_sad">
+              <span>0 avaliação</span>
+            </text>
           <% } %>
         </td>
         <!-- END BD BOY SAD -->

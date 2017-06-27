@@ -72,7 +72,7 @@
               <div style="height: 20px"></div>
 
               <% if (offers.docs[0].lowerOfferEan !== null) { %>
-                <%- include('../offers/lowerOfferEanReviews',{offer:offers.docs[0]}); %> 
+                <%- include('./lowerOfferEanReviews',{offer:offers.docs[0]}); %> 
               <% } %>
             </div>
           </div>
@@ -111,7 +111,7 @@
 
         <row>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <table id="tbl_box_reviews">
+            <table id="tbl_box_offers_reviews">
               <tbody>
                 <tr>
 
@@ -172,7 +172,7 @@
 
         <row>
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <table id="tbl_box_reviews">
+          <table id="tbl_box_offers_reviews">
             <tbody>
               <tr>
                 <!-- BD BOY SAD -->

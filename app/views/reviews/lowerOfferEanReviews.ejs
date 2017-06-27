@@ -1,5 +1,5 @@
 <% if (offer !== undefined) { %> 
-<table id="tbl_box_reviews">
+<table class="box_lower_offer_reviews">
     <tbody>
       <tr>
         <td class="visible-xs visible-sm hidden-md hidden-lg">
@@ -9,8 +9,6 @@
       <tr>
         <td class="hidden-xs hidden-sm">
           <h5 class="text-muted badge badge_ver_avaliacoes"><smal>menor preço</smal></h5>
-        </td>
-        <td class="space_w20 hidden-xs hidden-sm">
         </td>
         <td itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price_offer_reviews">
           <a itemprop="url" id="href_offer_price" href="<%= offer.lowerOfferEan.url %>" target="_blank" class="ga_click_ir_loja">
@@ -29,13 +27,7 @@
             </span>
           </a>       
         </td>
-        <td class="space_w20 visible-xs">
-        </td>
-        <td class="space_w15 visible-sm">
-        </td>
-        <td class="space_w50 hidden-xs hidden-sm">
-        </td>
-        <td class="logoMerchantLowerOfferReview">
+        <td class="logoMerchantLowerOfferReviews">
           <% if (offer.lowerOfferEan.advertiser == 'Walmart BR')  { %>
             <a href="<%= offer.lowerOfferEan.url %>" target="_blank" class="ga_click_ir_loja">
               <img id="img_retailer"  class="img-responsive walmart">
@@ -82,59 +74,52 @@
             </a>          
           <% } %>
         </td>
-        <td class="space_w20 visible-xs">
-        </td>
-        <td class="space_w15 visible-sm">
-        </td>
-        <td class="space_w50 hidden-sm hidden-xs">
-        </td>
         <td class="btn_offer_review">
           <a itemprop="url" id="href_ir_loja" href="<%= offer.lowerOfferEan.url %>" class="btn btn-warning ga_click_ir_loja btnIrLojaLowerOfferReviews" role="button" target="_blank">Ir à loja</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <% if (offers.docs.length > 1)  { %>
-            <h5 class="text-muted badge badge_ver_lst_offers">
-              <a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                <smal>ver mais ofertas : <%= offers.docs.length - 1 %></smal>
-              </a>
-            </h5>
-          <% } %>
         </td>
       </tr>
     </tbody>
   </table>
 <% } %>
-<div class="collapse col-xs-12 col-sm-12 col-md-12 col-lg-10" id="collapseExample">
-  <p>
-  <div class="lst_offers">
-  
-      <% if ((offers.docs[0] !== undefined) && (offers.docs.length > 0))  { %>
-   
-        <%- include('../partials/hr') %>
-        <span itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
-        
-          <span class="google_info">
-            <span itemprop="offerCount"><%= offers.total %></span>
-            <meta itemprop="priceCurrency" content="BRL" />
-            <span itemprop="lowPrice"><%= offers.docs[0].lowerOfferEan.price %></span>
-          </span>
-     
-          <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-            <% if (offers.docs.length == 1) { %>
-              <%- include('../offers/box_prices_reviews',{offer:offers.docs[0]}); %> 
-              <p>
-            <% } else { %>
-              <% for(var i=0; i <offers.docs.length; i++) { %> 
-                <%- include('../offers/box_prices_reviews',{offer:offers.docs[i]}); %>
-                <p>  
-              <% }  %>
-            <% }  %>    
-          </span>
 
-        </span>
+<%# mais ofertas %>
+<% if (offers.docs.length > 1)  { %>
+    <div class="text-muted badge badge_ver_lst_offers">
+      <a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <smal>ver mais ofertas : <%= offers.docs.length - 1 %></smal>
+      </a>
+    </div>
 
-      <% } %>
-  </div>
-</div>
+    <div class="collapse col-xs-12 col-sm-12 col-md-12 col-lg-12" id="collapseExample">
+      <div class="lst_offers">
+      
+          <% if ((offers.docs[0] !== undefined) && (offers.docs.length > 0))  { %>
+       
+            <%- include('../partials/hr') %>
+            <span itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+            
+              <span class="google_info">
+                <span itemprop="offerCount"><%= offers.total %></span>
+                <meta itemprop="priceCurrency" content="BRL" />
+                <span itemprop="lowPrice"><%= offers.docs[0].lowerOfferEan.price %></span>
+              </span>
+         
+              <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <% if (offers.docs.length == 1) { %>
+                  <%- include('../offers/box_prices_reviews',{offer:offers.docs[0]}); %> 
+                  <p>
+                <% } else { %>
+                  <% for(var i=0; i <offers.docs.length; i++) { %> 
+                    <%- include('../offers/box_prices_reviews',{offer:offers.docs[i]}); %>
+                    <p>  
+                  <% }  %>
+                <% }  %>    
+              </span>
+
+            </span>
+
+          <% } %>
+      </div>
+    </div>
+<% } %>
+

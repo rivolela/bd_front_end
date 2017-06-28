@@ -17,11 +17,38 @@
 
       <%- include('./nav_head') %> 
 
+      <div id="var_departament" class="google_info">error</div>
 
       <div id="div_error_msg" class="alert alert-warning alert-dismissible fade in" role="alert" style="text-align: center">
         <button id="btn_close_error" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
         <label id="lblMessage"><%= message %></label>
       </div>  
+
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h4 id="ver_reviews">Você também pode se interessar por estas ofertas:</h4>
+        </div>
+      </row>
+
+      <row>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%- include('../partials/hr') %>
+        </div>
+      </row>
+      
+      <span class="visible-lg visible-md ga_click_ir_loja" style="margin-left: 15px">
+        <!-- Vitrine Inteligente Lomadee -->
+        <div class="g3S6Z4x927jE" style="width: 100%; height: 100%">
+          <script type="text/javascript" class="lomadee-recommender-script" src="//ad.lomadee.com/v1/eyJwdWJsaXNoZXJJZCI6MjI3MzMzMTMsInNpdGVJZCI6MzM5MDQyMjAsInNvdXJjZUlkIjozNTgwNjc0NH0%3D.js?w=970&h=250"></script>
+        </div><!-- Vitrine Inteligente Lomadee -->
+      </span>
+
+      <span class="visible-xs visible-sm ga_click_ir_loja">
+        <!-- Vitrine Inteligente Lomadee -->
+        <div class="g3S6Z4x927jE" style="width: 100%; height: 100%;text-align: center;">
+        <script type="text/javascript" class="lomadee-recommender-script" src="//ad.lomadee.com/v1/eyJwdWJsaXNoZXJJZCI6MjI3MzMzMTMsInNpdGVJZCI6MzM5MDQyMjAsInNvdXJjZUlkIjozNTgwNjc0NH0%3D.js?w=300&h=600"></script>
+        </div><!-- Vitrine Inteligente Lomadee -->
+      </span>
 
     </div>
 

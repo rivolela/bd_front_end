@@ -236,7 +236,7 @@ exports.searchOffers = function(req,res){
 
 					var departamentBD;
 
-					if(data.docs.length > 0) && (data.docs != undefined){
+					if((data.docs.length > 0) && (data.docs != undefined)){
 						departamentBD = data.docs[0].departamentBD;
 					}else{
 						departamentBD = null;

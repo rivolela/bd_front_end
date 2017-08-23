@@ -10,7 +10,119 @@
     	</a>  
   	</div>
 
-
+  	<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+        <!-- Menu categorias mobile -->
+           <!-- FOTOGRAFIAS -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Câmeras e Fotografias <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu/menu_fotografias') %>
+        </li>
+        <!-- ELETRODOMESTICOS -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Eletrodomésticos <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu/menu_eletrodomesticos') %>
+	      </li>
+        <!-- ELETROPORTATEIS -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Eletroportáteis <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu/menu_eletroportateis') %>
+        </li>
+        <!-- GAMES -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Games <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu/menu_games') %>
+        </li>
+        <!-- INFORMATICA -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Informática <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu/menu_informatica') %>
+        </li>
+        <!-- SMARTPHONES -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Smartphones <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu/menu_smartphones') %>
+        </li>
+        <!-- UTENSILIOS DOMESTICOS -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            Utensílios Domésticos <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu/menu_utensilios') %>
+        </li>
+        <!-- TV -->
+        <li style="line-height: 1px;" class="visible-xs">    
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            TV <span class="caret"></span>
+          </a>
+          <%- include('../categories/menu/menu_tv') %>
+        </li>
+         <!-- End categorias mobile -->
+        
+        <!-- Menu categorias desktop -->
+	      <li>
+	       <div class="btn-group hidden-xs">
+  	       <button id="btn" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" style="margin-left: 5px;color: black">
+  	         <span class="glyphicon glyphicon-align-justify"></span> 
+  	         <text>Categorias</text> 
+  	       </button>
+	           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+              <!-- CAMERAS -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Câmeras e Fotografias</a>
+                 <%- include('../categories/menu/menu_fotografias') %>
+              </li>
+              <!-- ELETRODOMESTICOS -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Eletrodomésticos</a>
+                 <%- include('../categories/menu/menu_eletrodomesticos') %>
+              </li>
+              <!-- ELETROPORTATEIS -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Eletroportáteis</a>
+                 <%- include('../categories/menu/menu_eletroportateis') %>
+              </li>
+              <!-- GAMES -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Games</a>
+                 <%- include('../categories/menu/menu_games') %>
+              </li>
+              <!-- INFORMATICA -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Informática</a>
+                 <%- include('../categories/menu/menu_informatica') %>
+              </li>
+              <!-- SMARTPHONES -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Smartphones</a>
+                 <%- include('../categories/menu/menu_smartphones') %>
+              </li>
+              <!-- UTENSILIOS -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Utensílios Domésticos</a>
+                 <%- include('../categories/menu/menu_utensilios') %>
+              </li>
+              <!-- TV -->
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">TV</a>
+                 <%- include('../categories/menu/menu_tv') %>
+              </li>
+            </ul>
+          </div>
+	      </li>
+        <!-- End categorias desktop -->
 
         <!-- Logo BD desktop -->
 	      <li class="hidden-xs">

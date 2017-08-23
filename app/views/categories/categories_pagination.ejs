@@ -8,7 +8,7 @@
     <ul id="pagination_previous_categories" class="pagination">
       <% if (pagination.previous != 0) { %>
         <li id="li_active_previous" >
-          <a id="a_previous" href="/<%= query%>/?page=<%= pagination.previous %>&order=<%= order %>&ts=2" onclick=""  aria-label="Previous">
+          <a id="a_previous" href="/<%= query%>/?page=<%= pagination.previous %>&order=<%= order %>&ts=1" onclick=""  aria-label="Previous">
              <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
@@ -24,11 +24,11 @@
 
           <% if (i == pagination.page) { %>
             <li class="active">
-              <a href="/<%= query%>?page=<%= i %>&order=<%= order %>&ts=2" onclick="" class='pagination_active'><%= i %></a> 
+              <a href="/<%= query%>?page=<%= i %>&order=<%= order %>&ts=1" onclick="" class='pagination_active'><%= i %></a> 
             </li>
           <% } else { %>
             <li>
-              <a href="/<%= query%>?page=<%= i %>&order=<%= order %>&ts=2" onclick="" class='pagination_disabled'><%= i %></a> 
+              <a href="/<%= query%>?page=<%= i %>&order=<%= order %>&ts=1" onclick="" class='pagination_disabled'><%= i %></a> 
             </li>
           <% } %>
         </ul>
@@ -40,7 +40,7 @@
       <ul id="pagination_next_categories" class="pagination">
         <% if (pagination.next != 0) { %>
           <li id="li_active_next">
-            <a id="a_next" href="/<%= query%>?page=<%= pagination.next %>&order=<%= order %>&ts=2"  onclick="
+            <a id="a_next" href="/<%= query%>?page=<%= pagination.next %>&order=<%= order %>&ts=1"  onclick="
             " aria-label="Next">
                <span aria-hidden="true">&raquo;</span>
             </a>

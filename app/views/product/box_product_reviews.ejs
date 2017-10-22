@@ -4,23 +4,23 @@
       <tr>
         <!-- total bd boys happy -->
         <td>
-          <a itemprop="url" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ver_reviews">
+      <!--     <a itemprop="url" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=1" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_happy') %>" class="bd_boy_happy_tooltip ga_click_ver_reviews"> -->
             <% if ((order == 2) || (order == 1)){ %>
-              <img itemprop="image" id="img_bd_boy_happy" class="img-responsive bd_boy_happy ga_click_ver_reviews">
+       <!--        <img itemprop="image" id="img_bd_boy_happy" class="img-responsive bd_boy_happy ga_click_ver_reviews"> -->
             <% } else { %>
-              <img itemprop="image" id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off ga_click_ver_reviews">
+          <!--     <img itemprop="image" id="img_bd_boy_happy" class="img-responsive bd_boy_happy_off ga_click_ver_reviews"> -->
             <% } %>
-          </a>
+        <!--   </a> -->
         </td>
         <td width="5px;">&nbsp;</td>
         <td>
-          <% if (offer.product.countHappy  > 0) { %>
+          <% if (offer.product.totalReviews  > 0) { %>
             <a id="href_bd_boy_happy" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=1" class="a_couter ga_click_ver_reviews">
               <span>
-                <% if (offer.product.countHappy == 1) { %>
-                  <%= offer.product.countHappy %>&nbsp;avaliação
+                <% if (offer.product.totalReviews == 1) { %>
+                  <%= offer.product.totalReviews %>&nbsp;avaliação
                 <% } else { %>
-                  <%= offer.product.countHappy %>&nbsp;avaliações
+                  <%= offer.product.totalReviews %>&nbsp;avaliações
                 <% } %>
               </span>
             </a>
@@ -29,31 +29,6 @@
           <% } %>
         </td>
         <td width="20px;">&nbsp;</td>
-        <!-- total bd boys sad -->
-        <td>
-          <a itemprop="url" id="href_bd_boy_sad" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=2" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<%- include('../partials/tool_tip_bd_boy_sad') %>" class="bd_boy_sad_tooltip ga_click_ver_reviews">
-            <% if ((order == 3) || (order == 1)) { %>
-              <img itemprop="image" id="img_bd_boy_sad" class="img-responsive bd_boy_sad ga_click_ver_reviews">
-            <% } else { %>
-              <img itemprop="image" id="img_bd_boy_sad" class="img-responsive bd_boy_sad_off ga_click_ver_reviews">
-            <% } %>
-          </a>
-        </td>
-        <td>
-          <% if (offer.product.countSad  > 0) { %>
-            <a itemprop="url" href="/<%= query%>/<%= offer.product.nameURL%>?page=1&order=2" class="a_couter ga_click_ver_reviews">
-              <span>
-                <% if (offer.product.countSad == 1) { %>
-                  <%= offer.product.countSad %>&nbsp;avaliação
-                <% } else { %>
-                  <%= offer.product.countSad %>&nbsp;avaliações
-                <% } %>
-              </span>
-            </a>
-          <% } else { %>
-            <span>&nbsp;0 avaliação</span>
-          <% } %>
-        </td>
       </tr>    
     </tbody>
   </table>

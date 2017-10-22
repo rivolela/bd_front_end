@@ -63,7 +63,7 @@ module.exports = function(){
 	require('../app/routes/articles.server.routes.js')(app);
 	require('../app/routes/home.server.routes.js')(app);
 	require('../app/routes/lp.server.routes.js')(app);
-
+	require('../app/routes/cupons.server.routes.js')(app);
 
 	return app;
 };

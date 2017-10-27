@@ -23,6 +23,13 @@
           
       <div id="var_query" class="google_info"><%= query %></div>
       <div id="var_departament" class="google_info"><%= departamentBD %></div>
+
+
+      <!-- cupons de desconto -->
+      <row>    
+        <%- include('../cupons/cuponCall') %>
+        <span>&nbsp</span>
+      </row>
       
       <!-- BREADCRUMB -->
       <row>
@@ -31,11 +38,6 @@
         </div>
       </row>
       
-      <!-- cupons de desconto -->
-      <row>    
-        <%- include('../cupons/cuponCall') %>
-        <span>&nbsp</span>
-      </row>
       
       <!-- 1st column >> -->
       <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9"> 

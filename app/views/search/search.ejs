@@ -25,6 +25,12 @@
       
       <div id="var_query" class="google_info"><%= query %></div>
       <div id="var_departament" class="google_info">search</div>
+      
+      <!-- cupons de desconto -->
+      <row>    
+        <%- include('../cupons/cuponCall') %>
+        <span>&nbsp</span>
+      </row>
 
       <row>
         <!-- breadcrumb -->
@@ -40,11 +46,6 @@
         </div>
       </row>
 
-      <!-- cupons de desconto -->
-      <row>    
-        <%- include('../cupons/cuponCall') %>
-        <span>&nbsp</span>
-      </row>
 
        <row class="box_reviews">
         <!-- label order by -->
